@@ -21,7 +21,7 @@ https://purl.org/rdm/ontology
 ## Syntax Encoding <!-- 各基盤／機能でのエンコーディング例 -->
 - GakuNin RDM
 - WEKO3
-- CiNii R
+- CiNii Research
 - Data Governance
 - Code Package
 - Data Curation
