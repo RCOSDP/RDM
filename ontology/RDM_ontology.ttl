@@ -1,0 +1,351 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdm: <https://purl.org/rdm/ontology#> .
+
+rdm: a owl:Ontology ;
+    rdfs:comment "このオントロジーの説明@jp"@ja ;
+    owl:versionInfo "0.1" .
+
+rdm:Accept a owl:Class ;
+    rdfs:label "Accept" ;
+    rdfs:subClassOf "Action" .
+
+rdm:AccessRightsInformation a owl:Class ;
+    rdfs:label "AccessRightsInformation" ;
+    rdfs:comment "リソースへのアクセス権"@ja ;
+    rdfs:subClassOf "RightsStatement" .
+
+rdm:Action a owl:Class ;
+    rdfs:label "Action" .
+
+rdm:Add a owl:Class ;
+    rdfs:label "Add" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Align a owl:Class ;
+    rdfs:label "Align" ;
+    rdfs:subClassOf "Edit" .
+
+rdm:Anonymize a owl:Class ;
+    rdfs:label "Anonymize" ;
+    rdfs:subClassOf "Edit" .
+
+rdm:Archive a owl:Class ;
+    rdfs:label "Archive" ;
+    rdfs:subClassOf "Preserve" .
+
+rdm:Ask a owl:Class ;
+    rdfs:label "Ask" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Assign a owl:Class ;
+    rdfs:label "Assign" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Audio a owl:Class ;
+    rdfs:label "Audio" ;
+    rdfs:comment "音声"@ja ;
+    rdfs:subClassOf "Resource" .
+
+rdm:Authorize a owl:Class ;
+    rdfs:label "Authorize" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Book a owl:Class ;
+    rdfs:label "Book" ;
+    rdfs:comment "書籍"@ja ;
+    rdfs:subClassOf "Resource" .
+
+rdm:Check a owl:Class ;
+    rdfs:label "Check" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Cleanse a owl:Class ;
+    rdfs:label "Cleanse" ;
+    rdfs:subClassOf "Edit" .
+
+rdm:Collect a owl:Class ;
+    rdfs:label "Collect" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Collection a owl:Class ;
+    rdfs:label "Collection" ;
+    rdfs:comment "なんらかコンテンツの集合"@ja .
+
+rdm:Comment a owl:Class ;
+    rdfs:label "Comment" ;
+    rdfs:subClassOf "Action" .
+
+rdm:ConferenceObject a owl:Class ;
+    rdfs:label "ConferenceObject" ;
+    rdfs:comment "カンファレンスに関連するリソース"@ja ;
+    rdfs:subClassOf "Resource" .
+
+rdm:ConferencePaper a owl:Class ;
+    rdfs:label "ConferencePaper" ;
+    rdfs:comment "カンファレンスペーパー"@ja ;
+    rdfs:subClassOf "Resource" .
+
+rdm:ConferenceProceeding a owl:Class ;
+    rdfs:label "ConferenceProceeding" ;
+    rdfs:comment "カンファレンスプロシーディング"@ja ;
+    rdfs:subClassOf "Resource" .
+
+rdm:Confirm a owl:Class ;
+    rdfs:label "Confirm" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Connect a owl:Class ;
+    rdfs:label "Connect" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Convert a owl:Class ;
+    rdfs:label "Convert" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Create a owl:Class ;
+    rdfs:label "Create" ;
+    rdfs:subClassOf "Action" .
+
+rdm:DataManagementPlan a owl:Class ;
+    rdfs:label "DataManagementPlan" ;
+    rdfs:comment "DMP"@ja .
+
+rdm:Dataset a owl:Class ;
+    rdfs:label "Dataset" ;
+    rdfs:comment "データセット"@ja ;
+    rdfs:subClassOf "Resource" .
+
+rdm:Deploy a owl:Class ;
+    rdfs:label "Deploy" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Develop a owl:Class ;
+    rdfs:label "Develop" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Download a owl:Class ;
+    rdfs:label "Download" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Dump a owl:Class ;
+    rdfs:label "Dump" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Edit a owl:Class ;
+    rdfs:label "Edit" ;
+    rdfs:subClassOf "Action" .
+
+rdm:EducationalResource a owl:Class ;
+    rdfs:label "EducationalResource" ;
+    rdfs:comment "教育関連資料"@ja ;
+    rdfs:subClassOf "Resource" .
+
+rdm:Evaluate a owl:Class ;
+    rdfs:label "Evaluate" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Event a owl:Class ;
+    rdfs:label "Event" ;
+    rdfs:comment "開催されたイベント"@ja .
+
+rdm:Execute a owl:Class ;
+    rdfs:label "Execute" ;
+    rdfs:subClassOf "Action" .
+
+rdm:FundingAgency a owl:Class ;
+    rdfs:label "FundingAgency" ;
+    rdfs:comment "研究資金提供機関"@ja ;
+    rdfs:subClassOf "Institution" .
+
+rdm:Get a owl:Class ;
+    rdfs:label "Get" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Grant a owl:Class ;
+    rdfs:label "Grant" ;
+    rdfs:comment "研究資金プログラム"@ja .
+
+rdm:IdentifierValue a owl:Class ;
+    rdfs:label "IdentifierValue" ;
+    rdfs:comment "識別子のスキーマとその値"@ja .
+
+rdm:Image a owl:Class ;
+    rdfs:label "Image" ;
+    rdfs:comment "画像"@ja ;
+    rdfs:subClassOf "Resource" .
+
+rdm:Inform a owl:Class ;
+    rdfs:label "Inform" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Ingest a owl:Class ;
+    rdfs:label "Ingest" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Institution a owl:Class ;
+    rdfs:label "Institution" ;
+    rdfs:comment "研究機関"@ja .
+
+rdm:Integrate a owl:Class ;
+    rdfs:label "Integrate" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Journal a owl:Class ;
+    rdfs:label "Journal" ;
+    rdfs:comment "ジャーナル"@ja ;
+    rdfs:subClassOf "Resource" .
+
+rdm:JournalArticle a owl:Class ;
+    rdfs:label "JournalArticle" ;
+    rdfs:comment "ジャーナル論文"@ja ;
+    rdfs:subClassOf "Resource" .
+
+rdm:LicenseInformation a owl:Class ;
+    rdfs:label "LicenseInformation" ;
+    rdfs:comment "リソースのライセンス"@ja ;
+    rdfs:subClassOf "RightsStatement" .
+
+rdm:Link a owl:Class ;
+    rdfs:label "Link" ;
+    rdfs:subClassOf "Action" .
+
+rdm:OtherResource a owl:Class ;
+    rdfs:label "OtherResource" ;
+    rdfs:comment "その他のリソース"@ja ;
+    rdfs:subClassOf "Resource" .
+
+rdm:Person a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:comment "人物"@ja .
+
+rdm:Preprint a owl:Class ;
+    rdfs:label "Preprint" ;
+    rdfs:comment "プレプリント"@ja ;
+    rdfs:subClassOf "Resource" .
+
+rdm:Preserve a owl:Class ;
+    rdfs:label "Preserve" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Project a owl:Class ;
+    rdfs:label "Project" ;
+    rdfs:comment "研究プロジェクト"@ja .
+
+rdm:Publish a owl:Class ;
+    rdfs:label "Publish" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Record a owl:Class ;
+    rdfs:label "Record" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Register a owl:Class ;
+    rdfs:label "Register" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Reject a owl:Class ;
+    rdfs:label "Reject" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Rename a owl:Class ;
+    rdfs:label "Rename" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Reorganize a owl:Class ;
+    rdfs:label "Reorganize" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Report a owl:Class ;
+    rdfs:label "Report" ;
+    rdfs:comment "レポート"@ja ;
+    rdfs:subClassOf "Resource" .
+
+rdm:Repository a owl:Class ;
+    rdfs:label "Repository" ;
+    rdfs:comment "リポジトリ"@ja .
+
+rdm:Request a owl:Class ;
+    rdfs:label "Request" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Resource a owl:Class ;
+    rdfs:label "Resource" ;
+    rdfs:comment "デジタルオブジェクト"@ja .
+
+rdm:Restructure a owl:Class ;
+    rdfs:label "Restructure" ;
+    rdfs:subClassOf "Edit" .
+
+rdm:RightsStatement a owl:Class ;
+    rdfs:label "RightsStatement" ;
+    rdfs:comment "権利関係全般"@ja .
+
+rdm:Schedule a owl:Class ;
+    rdfs:label "Schedule" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Search a owl:Class ;
+    rdfs:label "Search" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Select a owl:Class ;
+    rdfs:label "Select" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Semantize a owl:Class ;
+    rdfs:label "Semantize" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Send a owl:Class ;
+    rdfs:label "Send" ;
+    rdfs:subClassOf "Action" .
+
+rdm:SoftwareApplication a owl:Class ;
+    rdfs:label "SoftwareApplication" ;
+    rdfs:comment "ソフトウェアアプリケーション"@ja .
+
+rdm:Standard a owl:Class ;
+    rdfs:label "Standard" ;
+    rdfs:comment "標準"@ja ;
+    rdfs:subClassOf "Resource" .
+
+rdm:Submit a owl:Class ;
+    rdfs:label "Submit" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Suggest a owl:Class ;
+    rdfs:label "Suggest" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Survey a owl:Class ;
+    rdfs:label "Survey" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Thesis a owl:Class ;
+    rdfs:label "Thesis" ;
+    rdfs:comment "学位論文"@ja ;
+    rdfs:subClassOf "Resource" .
+
+rdm:Update a owl:Class ;
+    rdfs:label "Update" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Upload a owl:Class ;
+    rdfs:label "Upload" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Video a owl:Class ;
+    rdfs:label "Video" ;
+    rdfs:comment "動画"@ja ;
+    rdfs:subClassOf "Resource" .
+
+rdm:Visualize a owl:Class ;
+    rdfs:label "Visualize" ;
+    rdfs:subClassOf "Action" .
+
+rdm:Workflow a owl:Class ;
+    rdfs:label "Workflow" ;
+    rdfs:comment "ワークフロー"@ja ;
+    rdfs:subClassOf "Resource" .
+
