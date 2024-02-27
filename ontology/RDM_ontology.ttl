@@ -1,6 +1,8 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdm: <https://purl.org/rdm/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 rdm: a owl:Ontology ;
     rdfs:comment "このオントロジーの説明@jp"@ja ;
@@ -8,344 +10,1129 @@ rdm: a owl:Ontology ;
 
 rdm:Accept a owl:Class ;
     rdfs:label "Accept" ;
-    rdfs:subClassOf "Action" .
-
-rdm:AccessRightsInformation a owl:Class ;
-    rdfs:label "AccessRightsInformation" ;
-    rdfs:comment "リソースへのアクセス権"@ja ;
-    rdfs:subClassOf "RightsStatement" .
-
-rdm:Action a owl:Class ;
-    rdfs:label "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Add a owl:Class ;
     rdfs:label "Add" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Align a owl:Class ;
     rdfs:label "Align" ;
-    rdfs:subClassOf "Edit" .
+    rdfs:subClassOf rdm:Edit .
 
 rdm:Anonymize a owl:Class ;
     rdfs:label "Anonymize" ;
-    rdfs:subClassOf "Edit" .
+    rdfs:subClassOf rdm:Edit .
 
 rdm:Archive a owl:Class ;
     rdfs:label "Archive" ;
-    rdfs:subClassOf "Preserve" .
+    rdfs:subClassOf rdm:Preserve .
 
 rdm:Ask a owl:Class ;
     rdfs:label "Ask" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Assign a owl:Class ;
     rdfs:label "Assign" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Audio a owl:Class ;
     rdfs:label "Audio" ;
     rdfs:comment "音声"@ja ;
-    rdfs:subClassOf "Resource" .
+    rdfs:subClassOf rdm:Resource .
 
 rdm:Authorize a owl:Class ;
     rdfs:label "Authorize" ;
-    rdfs:subClassOf "Action" .
-
-rdm:Book a owl:Class ;
-    rdfs:label "Book" ;
-    rdfs:comment "書籍"@ja ;
-    rdfs:subClassOf "Resource" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Check a owl:Class ;
     rdfs:label "Check" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Cleanse a owl:Class ;
     rdfs:label "Cleanse" ;
-    rdfs:subClassOf "Edit" .
+    rdfs:subClassOf rdm:Edit .
 
 rdm:Collect a owl:Class ;
     rdfs:label "Collect" ;
-    rdfs:subClassOf "Action" .
-
-rdm:Collection a owl:Class ;
-    rdfs:label "Collection" ;
-    rdfs:comment "なんらかコンテンツの集合"@ja .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Comment a owl:Class ;
     rdfs:label "Comment" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:ConferenceObject a owl:Class ;
     rdfs:label "ConferenceObject" ;
     rdfs:comment "カンファレンスに関連するリソース"@ja ;
-    rdfs:subClassOf "Resource" .
+    rdfs:subClassOf rdm:Resource .
 
 rdm:ConferencePaper a owl:Class ;
     rdfs:label "ConferencePaper" ;
     rdfs:comment "カンファレンスペーパー"@ja ;
-    rdfs:subClassOf "Resource" .
+    rdfs:subClassOf rdm:Resource .
 
 rdm:ConferenceProceeding a owl:Class ;
     rdfs:label "ConferenceProceeding" ;
     rdfs:comment "カンファレンスプロシーディング"@ja ;
-    rdfs:subClassOf "Resource" .
+    rdfs:subClassOf rdm:Resource .
 
 rdm:Confirm a owl:Class ;
     rdfs:label "Confirm" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Connect a owl:Class ;
     rdfs:label "Connect" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Convert a owl:Class ;
     rdfs:label "Convert" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Create a owl:Class ;
     rdfs:label "Create" ;
-    rdfs:subClassOf "Action" .
-
-rdm:DataManagementPlan a owl:Class ;
-    rdfs:label "DataManagementPlan" ;
-    rdfs:comment "DMP"@ja .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Dataset a owl:Class ;
     rdfs:label "Dataset" ;
     rdfs:comment "データセット"@ja ;
-    rdfs:subClassOf "Resource" .
+    rdfs:subClassOf rdm:Resource .
 
 rdm:Deploy a owl:Class ;
     rdfs:label "Deploy" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Develop a owl:Class ;
     rdfs:label "Develop" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Download a owl:Class ;
     rdfs:label "Download" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Dump a owl:Class ;
     rdfs:label "Dump" ;
-    rdfs:subClassOf "Action" .
-
-rdm:Edit a owl:Class ;
-    rdfs:label "Edit" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:EducationalResource a owl:Class ;
     rdfs:label "EducationalResource" ;
     rdfs:comment "教育関連資料"@ja ;
-    rdfs:subClassOf "Resource" .
+    rdfs:subClassOf rdm:Resource .
 
 rdm:Evaluate a owl:Class ;
     rdfs:label "Evaluate" ;
-    rdfs:subClassOf "Action" .
-
-rdm:Event a owl:Class ;
-    rdfs:label "Event" ;
-    rdfs:comment "開催されたイベント"@ja .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Execute a owl:Class ;
     rdfs:label "Execute" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
-rdm:FundingAgency a owl:Class ;
-    rdfs:label "FundingAgency" ;
-    rdfs:comment "研究資金提供機関"@ja ;
-    rdfs:subClassOf "Institution" .
+rdm:FieldEnumeration a owl:Class ;
+    rdfs:label "FieldEnumeration" ;
+    rdfs:comment "プロパティ rdm:field の選択肢"@ja ;
+    rdfs:subClassOf rdm:Enumeration .
 
 rdm:Get a owl:Class ;
     rdfs:label "Get" ;
-    rdfs:subClassOf "Action" .
-
-rdm:Grant a owl:Class ;
-    rdfs:label "Grant" ;
-    rdfs:comment "研究資金プログラム"@ja .
-
-rdm:IdentifierValue a owl:Class ;
-    rdfs:label "IdentifierValue" ;
-    rdfs:comment "識別子のスキーマとその値"@ja .
-
-rdm:Image a owl:Class ;
-    rdfs:label "Image" ;
-    rdfs:comment "画像"@ja ;
-    rdfs:subClassOf "Resource" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Inform a owl:Class ;
     rdfs:label "Inform" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Ingest a owl:Class ;
     rdfs:label "Ingest" ;
-    rdfs:subClassOf "Action" .
-
-rdm:Institution a owl:Class ;
-    rdfs:label "Institution" ;
-    rdfs:comment "研究機関"@ja .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Integrate a owl:Class ;
     rdfs:label "Integrate" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Journal a owl:Class ;
     rdfs:label "Journal" ;
     rdfs:comment "ジャーナル"@ja ;
-    rdfs:subClassOf "Resource" .
+    rdfs:subClassOf rdm:Resource .
 
 rdm:JournalArticle a owl:Class ;
     rdfs:label "JournalArticle" ;
     rdfs:comment "ジャーナル論文"@ja ;
-    rdfs:subClassOf "Resource" .
-
-rdm:LicenseInformation a owl:Class ;
-    rdfs:label "LicenseInformation" ;
-    rdfs:comment "リソースのライセンス"@ja ;
-    rdfs:subClassOf "RightsStatement" .
+    rdfs:subClassOf rdm:Resource .
 
 rdm:Link a owl:Class ;
     rdfs:label "Link" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
+
+rdm:OpenAccess a owl:NamedIndividual,
+        rdm:ConditionOfAccessEnumeration ;
+    rdfs:label "OpenAccess" ;
+    rdfs:comment "オープンアクセス"@ja .
 
 rdm:OtherResource a owl:Class ;
     rdfs:label "OtherResource" ;
     rdfs:comment "その他のリソース"@ja ;
-    rdfs:subClassOf "Resource" .
-
-rdm:Person a owl:Class ;
-    rdfs:label "Person" ;
-    rdfs:comment "人物"@ja .
+    rdfs:subClassOf rdm:Resource .
 
 rdm:Preprint a owl:Class ;
     rdfs:label "Preprint" ;
     rdfs:comment "プレプリント"@ja ;
-    rdfs:subClassOf "Resource" .
-
-rdm:Preserve a owl:Class ;
-    rdfs:label "Preserve" ;
-    rdfs:subClassOf "Action" .
-
-rdm:Project a owl:Class ;
-    rdfs:label "Project" ;
-    rdfs:comment "研究プロジェクト"@ja .
+    rdfs:subClassOf rdm:Resource .
 
 rdm:Publish a owl:Class ;
     rdfs:label "Publish" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Record a owl:Class ;
     rdfs:label "Record" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Register a owl:Class ;
     rdfs:label "Register" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Reject a owl:Class ;
     rdfs:label "Reject" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Rename a owl:Class ;
     rdfs:label "Rename" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Reorganize a owl:Class ;
     rdfs:label "Reorganize" ;
-    rdfs:subClassOf "Action" .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Report a owl:Class ;
     rdfs:label "Report" ;
     rdfs:comment "レポート"@ja ;
-    rdfs:subClassOf "Resource" .
-
-rdm:Repository a owl:Class ;
-    rdfs:label "Repository" ;
-    rdfs:comment "リポジトリ"@ja .
+    rdfs:subClassOf rdm:Resource .
 
 rdm:Request a owl:Class ;
     rdfs:label "Request" ;
-    rdfs:subClassOf "Action" .
-
-rdm:Resource a owl:Class ;
-    rdfs:label "Resource" ;
-    rdfs:comment "デジタルオブジェクト"@ja .
+    rdfs:subClassOf rdm:Action .
 
 rdm:Restructure a owl:Class ;
     rdfs:label "Restructure" ;
-    rdfs:subClassOf "Edit" .
+    rdfs:subClassOf rdm:Edit .
+
+rdm:Schedule a owl:Class ;
+    rdfs:label "Schedule" ;
+    rdfs:subClassOf rdm:Action .
+
+rdm:Search a owl:Class ;
+    rdfs:label "Search" ;
+    rdfs:subClassOf rdm:Action .
+
+rdm:Select a owl:Class ;
+    rdfs:label "Select" ;
+    rdfs:subClassOf rdm:Action .
+
+rdm:Semantize a owl:Class ;
+    rdfs:label "Semantize" ;
+    rdfs:subClassOf rdm:Action .
+
+rdm:Send a owl:Class ;
+    rdfs:label "Send" ;
+    rdfs:subClassOf rdm:Action .
+
+rdm:Standard a owl:Class ;
+    rdfs:label "Standard" ;
+    rdfs:comment "標準"@ja ;
+    rdfs:subClassOf rdm:Resource .
+
+rdm:Submit a owl:Class ;
+    rdfs:label "Submit" ;
+    rdfs:subClassOf rdm:Action .
+
+rdm:Suggest a owl:Class ;
+    rdfs:label "Suggest" ;
+    rdfs:subClassOf rdm:Action .
+
+rdm:Survey a owl:Class ;
+    rdfs:label "Survey" ;
+    rdfs:subClassOf rdm:Action .
+
+rdm:Thesis a owl:Class ;
+    rdfs:label "Thesis" ;
+    rdfs:comment "学位論文"@ja ;
+    rdfs:subClassOf rdm:Resource .
+
+rdm:Update a owl:Class ;
+    rdfs:label "Update" ;
+    rdfs:subClassOf rdm:Action .
+
+rdm:Upload a owl:Class ;
+    rdfs:label "Upload" ;
+    rdfs:subClassOf rdm:Action .
+
+rdm:Video a owl:Class ;
+    rdfs:label "Video" ;
+    rdfs:comment "動画"@ja ;
+    rdfs:subClassOf rdm:Resource .
+
+rdm:Visualize a owl:Class ;
+    rdfs:label "Visualize" ;
+    rdfs:subClassOf rdm:Action .
+
+rdm:Workflow a owl:Class ;
+    rdfs:label "Workflow" ;
+    rdfs:comment "ワークフロー"@ja ;
+    rdfs:subClassOf rdm:Resource .
+
+rdm:additionalName rdfs:label "additionalName" ;
+    rdfs:comment "ファーストネーム"@ja ;
+    rdfs:domain rdm:Person ;
+    rdfs:subPropertyOf rdm:name .
+
+rdm:address a owl:DatatypeProperty ;
+    rdfs:label "address" ;
+    rdfs:comment "研究機関の住所"@ja ;
+    rdfs:domain rdm:Institution ;
+    rdfs:range xsd:string .
+
+rdm:affiliation a owl:ObjectProperty ;
+    rdfs:label "affiliation" ;
+    rdfs:comment "人物の所属先機関"@ja ;
+    rdfs:domain rdm:Person ;
+    rdfs:range rdm:Institution .
+
+rdm:agent a owl:ObjectProperty ;
+    rdfs:label "agent" ;
+    rdfs:comment "アクションの実施者"@ja ;
+    rdfs:domain rdm:Action ;
+    rdfs:range rdm:Institution,
+        rdm:Person .
+
+rdm:approximateSize a owl:DatatypeProperty ;
+    rdfs:label "approximateSize" ;
+    rdfs:comment "概略データ量"@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:subPropertyOf rdm:size .
+
+rdm:collectionSize a owl:DatatypeProperty ;
+    rdfs:label "collectionSize" ;
+    rdfs:comment "所定のパッケージに含まれるデータセットの総数"@ja ;
+    rdfs:domain rdm:Collection ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:subPropertyOf rdm:size .
+
+rdm:conditionOfAccess a owl:ObjectProperty ;
+    rdfs:label "conditionOfAccess" ;
+    rdfs:comment "アクセス権"@ja ;
+    rdfs:domain rdm:AccessRightsInformation .
+
+rdm:contact a owl:DatatypeProperty ;
+    rdfs:label "contact" ;
+    rdfs:comment "DMPにおけるデータ管理機関・管理者への連絡先"@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:range xsd:string .
+
+rdm:copyright a owl:DatatypeProperty ;
+    rdfs:label "copyright" ;
+    rdfs:comment "コピーライト表記"@ja ;
+    rdfs:domain rdm:LicenseInformation ;
+    rdfs:range xsd:string .
+
+rdm:dataAccessRequirements a owl:DatatypeProperty ;
+    rdfs:label "dataAccessRequirements" ;
+    rdfs:comment "「限定公開」の場合のアクセス条件・方法"@ja ;
+    rdfs:domain rdm:AccessRightsInformation ;
+    rdfs:range xsd:string .
+
+rdm:dataAccessRights rdfs:label "dataAccessRights" ;
+    rdfs:comment "DMPにおけるデータへのアクセス権"@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:subPropertyOf rdm:accessRights .
+
+rdm:dataCreater a owl:ObjectProperty ;
+    rdfs:label "dataCreater" ;
+    rdfs:comment "DMPにおける研究データの作成者"@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:range rdm:Person ;
+    rdfs:subPropertyOf rdm:creator .
+
+rdm:dataDescription rdfs:label "dataDescription" ;
+    rdfs:comment "DMPにおけるデータの説明"@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:subPropertyOf rdm:description .
+
+rdm:dataEncodingFormat rdfs:label "dataEncodingFormat" ;
+    rdfs:comment "DMPで記述した研究データのフォーマット"@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:subPropertyOf rdm:encodingformat .
+
+rdm:dataIdentifier rdfs:label "dataIdentifier" ;
+    rdfs:comment "DMPにおけるデータ識別子"@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:subPropertyOf rdm:identifier .
+
+rdm:dataLicense rdfs:label "dataLicense" ;
+    rdfs:comment "DMPにおけるデータのライセンス"@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:subPropertyOf rdm:license .
+
+rdm:dataManager a owl:ObjectProperty ;
+    rdfs:label "dataManager" ;
+    rdfs:comment "DMPにおける研究データ管理者"@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:range rdm:Person ;
+    rdfs:subPropertyOf rdm:contributor .
+
+rdm:dataNumber a owl:DatatypeProperty ;
+    rdfs:label "dataNumber" ;
+    rdfs:comment "DMPにおけるデータNo."@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:range xsd:nonNegativeInteger .
+
+rdm:dateAvailable rdfs:label "dateAvailable" ;
+    rdfs:comment "公開猶予の場合の公開予定日"@ja ;
+    rdfs:domain rdm:AccessRightsInformation ;
+    rdfs:subPropertyOf rdm:date .
+
+rdm:dateCreated rdfs:label "dateCreated" ;
+    rdfs:comment "リソースの作成日"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:subPropertyOf rdm:date .
+
+rdm:dateEnded rdfs:label "dateEnded" ;
+    rdfs:comment "クラスの開始日"@ja ;
+    rdfs:domain rdm:Action,
+        rdm:Event,
+        rdm:Project ;
+    rdfs:subPropertyOf rdm:date .
+
+rdm:dateModified rdfs:label "dateModified" ;
+    rdfs:comment "リソースの最終更新日"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:subPropertyOf rdm:date .
+
+rdm:datePublished rdfs:label "datePublished" ;
+    rdfs:comment "リソースの発行日・公開日"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:subPropertyOf rdm:date .
+
+rdm:dateStarted rdfs:label "dateStarted" ;
+    rdfs:comment "クラスの終了日"@ja ;
+    rdfs:domain rdm:Action,
+        rdm:Event,
+        rdm:Project ;
+    rdfs:subPropertyOf rdm:date .
+
+rdm:dateUpdated rdfs:label "dateUpdated" ;
+    rdfs:comment "イベントの内容更新日"@ja ;
+    rdfs:domain rdm:Event ;
+    rdfs:subPropertyOf rdm:date .
+
+rdm:detailedRole a owl:DatatypeProperty ;
+    rdfs:label "detailedRole" ;
+    rdfs:comment "プロジェクトにおける詳細な役割"@ja ;
+    rdfs:domain rdm:Person ;
+    rdfs:range xsd:string .
+
+rdm:detailedType a owl:DatatypeProperty ;
+    rdfs:label "detailedType" ;
+    rdfs:comment "詳細な資源タイプ"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:range xsd:string .
+
+rdm:dmp a owl:ObjectProperty ;
+    rdfs:label "dmp" ;
+    rdfs:comment "資源やプロジェクトに紐づくデータ管理計画"@ja ;
+    rdfs:domain rdm:Project,
+        rdm:Resource ;
+    rdfs:range rdm:DataManagementPlan .
+
+rdm:dmpFormat a owl:DatatypeProperty ;
+    rdfs:label "dmpFormat" ;
+    rdfs:comment "DMP種別名"@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:range xsd:string .
+
+rdm:dmpFormatProvider a owl:ObjectProperty ;
+    rdfs:label "dmpFormatProvider" ;
+    rdfs:comment "DMP種別の提供者"@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:range rdm:Institution .
+
+rdm:doi a owl:DatatypeProperty ;
+    rdfs:label "doi" ;
+    rdfs:comment "DOI"@ja ;
+    rdfs:domain rdm:Repository,
+        rdm:Resource ;
+    rdfs:range xsd:anyURI ;
+    rdfs:subPropertyOf rdm:identifier .
+
+rdm:email a owl:DatatypeProperty ;
+    rdfs:label "email" ;
+    rdfs:comment "メールアドレス"@ja ;
+    rdfs:domain rdm:Person ;
+    rdfs:range xsd:string .
+
+rdm:encodingFormat a owl:DatatypeProperty ;
+    rdfs:label "encodingFormat" ;
+    rdfs:comment "リソースのフォーマット"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:range xsd:string .
+
+rdm:eradResearcherNumber a owl:DatatypeProperty ;
+    rdfs:label "eradResearcherNumber" ;
+    rdfs:comment "e-rad 研究者番号"@ja ;
+    rdfs:domain rdm:Person ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf rdm:identifier .
+
+rdm:familyName rdfs:label "familyName" ;
+    rdfs:comment "名字"@ja ;
+    rdfs:domain rdm:Person ;
+    rdfs:subPropertyOf rdm:name .
+
+rdm:field a owl:ObjectProperty ;
+    rdfs:label "field" ;
+    rdfs:comment "プロジェクト・リソースの主題"@ja ;
+    rdfs:domain rdm:Project,
+        rdm:Resource .
+
+rdm:funder a owl:ObjectProperty ;
+    rdfs:label "funder" ;
+    rdfs:comment "研究資金プログラム提供者"@ja ;
+    rdfs:domain rdm:Grant,
+        rdm:Project,
+        rdm:Resource ;
+    rdfs:range rdm:FundingAgency .
+
+rdm:funderId a owl:DatatypeProperty ;
+    rdfs:label "funderId" ;
+    rdfs:comment "助成機関識別子"@ja ;
+    rdfs:domain rdm:FundingAgency ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf rdm:identifier .
+
+rdm:funding a owl:ObjectProperty ;
+    rdfs:label "funding" ;
+    rdfs:comment "研究資金プログラム"@ja ;
+    rdfs:domain rdm:Project,
+        rdm:Resource ;
+    rdfs:range rdm:Grant .
+
+rdm:givenName rdfs:label "givenName" ;
+    rdfs:comment "ミドルネームなど"@ja ;
+    rdfs:domain rdm:Person ;
+    rdfs:subPropertyOf rdm:name .
+
+rdm:hostingInstitution a owl:ObjectProperty ;
+    rdfs:label "hostingInstitution" ;
+    rdfs:comment "DMPにおける研究データ管理機関"@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:range rdm:Institution ;
+    rdfs:subPropertyOf rdm:contributor .
+
+rdm:identifierManager a owl:ObjectProperty ;
+    rdfs:label "identifierManager" ;
+    rdfs:comment "識別子の管理者"@ja ;
+    rdfs:domain rdm:IdentifierValue ;
+    rdfs:range rdm:Institution ;
+    rdfs:subPropertyOf rdm:contributor .
+
+rdm:identifierName rdfs:label "identifierName" ;
+    rdfs:comment "識別子のスキーマ名"@ja ;
+    rdfs:domain rdm:IdentifierValue ;
+    rdfs:subPropertyOf rdm:name .
+
+rdm:instrument a owl:ObjectProperty ;
+    rdfs:label "instrument" ;
+    rdfs:comment "行動を補助した道具、ツール"@ja ;
+    rdfs:domain rdm:Action ;
+    rdfs:range rdm:Resource,
+        rdm:SoftwareApplication .
+
+rdm:isBasedOn a owl:ObjectProperty ;
+    rdfs:label "isBasedOn" ;
+    rdfs:subPropertyOf rdm:isRelatedTo .
+
+rdm:isIdenticalTo a owl:ObjectProperty ;
+    rdfs:label "isIdenticalTo" ;
+    rdfs:subPropertyOf rdm:isRelatedTo .
+
+rdm:isPublishedIn a owl:ObjectProperty ;
+    rdfs:label "isPublishedIn" ;
+    rdfs:subPropertyOf rdm:isRelatedTo .
+
+rdm:isbn a owl:DatatypeProperty ;
+    rdfs:label "isbn" ;
+    rdfs:comment "ISBNコード"@ja ;
+    rdfs:domain rdm:Book ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf rdm:identifier .
+
+rdm:items a owl:ObjectProperty ;
+    rdfs:label "items" ;
+    rdfs:comment "コレクションに含まれるリソース"@ja ;
+    rdfs:domain rdm:Collection ;
+    rdfs:range rdm:Resource .
+
+rdm:japanGrantNumber a owl:DatatypeProperty ;
+    rdfs:label "japanGrantNumber" ;
+    rdfs:comment "体系的課題番号"@ja ;
+    rdfs:domain rdm:Grant ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf rdm:identifier .
+
+rdm:keywords a owl:DatatypeProperty ;
+    rdfs:label "keywords" ;
+    rdfs:comment "キーワード"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:range xsd:string .
+
+rdm:language a owl:DatatypeProperty ;
+    rdfs:label "language" ;
+    rdfs:comment "言語"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:range xsd:language .
+
+rdm:localIdentifier rdfs:label "localIdentifier" ;
+    rdfs:comment "ローカル識別子"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:subPropertyOf rdm:identifier .
+
+rdm:location a owl:DatatypeProperty ;
+    rdfs:label "location" ;
+    rdfs:comment "主語クラスの開催場所・取得場所"@ja ;
+    rdfs:domain rdm:Event,
+        rdm:Resource ;
+    rdfs:range xsd:string .
+
+rdm:measurementTechnique a owl:DatatypeProperty ;
+    rdfs:label "measurementTechnique" ;
+    rdfs:comment "研究データの収集・取得方法"@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:range xsd:string .
+
+rdm:object a owl:ObjectProperty ;
+    rdfs:label "object" ;
+    rdfs:comment "行動の対象物"@ja ;
+    rdfs:domain rdm:Action ;
+    rdfs:range rdm:Resource .
+
+rdm:operatingSystem a owl:DatatypeProperty ;
+    rdfs:label "operatingSystem" ;
+    rdfs:comment "アプリケーションがサポートされているOS"@ja ;
+    rdfs:domain rdm:SoftwareApplication ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf rdm:description .
+
+rdm:orcid a owl:DatatypeProperty ;
+    rdfs:label "orcid" ;
+    rdfs:comment "ORCID iD"@ja ;
+    rdfs:domain rdm:Person ;
+    rdfs:range xsd:anyURI ;
+    rdfs:subPropertyOf rdm:identifier .
+
+rdm:organizer rdfs:label "organizer" ;
+    rdfs:comment "イベントの開催者、主催者"@ja ;
+    rdfs:domain rdm:Event ;
+    rdfs:subPropertyOf rdm:contributor .
+
+rdm:processorRequirements a owl:DatatypeProperty ;
+    rdfs:label "processorRequirements" ;
+    rdfs:comment "アプリケーション実行に必要なプロセッサー要件"@ja ;
+    rdfs:domain rdm:SoftwareApplication ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf rdm:description .
+
+rdm:purpose a owl:DatatypeProperty ;
+    rdfs:label "purpose" ;
+    rdfs:comment "イベント実施のコンテクスト。実施に至った理由や背景など"@ja ;
+    rdfs:domain rdm:Event ;
+    rdfs:range xsd:string .
+
+rdm:raid a owl:DatatypeProperty ;
+    rdfs:label "raid" ;
+    rdfs:comment "RAiD"@ja ;
+    rdfs:domain rdm:Project ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf rdm:identifier .
+
+rdm:readme rdfs:label "readme" ;
+    rdfs:comment "README"@ja ;
+    rdfs:domain rdm:SoftwareApplication ;
+    rdfs:subPropertyOf rdm:description .
+
+rdm:recipient a owl:ObjectProperty ;
+    rdfs:label "recipient" ;
+    rdfs:comment "アクションを受け取る・アクションの影響を受ける相手"@ja ;
+    rdfs:domain rdm:Action ;
+    rdfs:range rdm:Person .
+
+rdm:researcher a owl:ObjectProperty ;
+    rdfs:label "researcher" ;
+    rdfs:comment "プロジェクトに参加した研究者"@ja ;
+    rdfs:domain rdm:Project ;
+    rdfs:range rdm:Person ;
+    rdfs:subPropertyOf rdm:contributor .
+
+rdm:result a owl:ObjectProperty ;
+    rdfs:label "result" ;
+    rdfs:comment "アクションによって生成された新しいリソース"@ja ;
+    rdfs:domain rdm:Action ;
+    rdfs:range rdm:Resource .
+
+rdm:ror a owl:DatatypeProperty ;
+    rdfs:label "ror" ;
+    rdfs:comment "ROR ID"@ja ;
+    rdfs:domain rdm:Institution ;
+    rdfs:range xsd:anyURI ;
+    rdfs:subPropertyOf rdm:identifier .
+
+rdm:sdDatePublished rdfs:label "sdDatePublished" ;
+    rdfs:comment "外部ファイルの取得日"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:subPropertyOf rdm:date .
+
+rdm:sha256 rdfs:label "sha256" ;
+    rdfs:comment "sha256のハッシュ値"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:subPropertyOf rdm:hash .
+
+rdm:softwareRequirements a owl:DatatypeProperty ;
+    rdfs:label "softwareRequirements" ;
+    rdfs:comment "アプリケーションコンポーネントの依存要件"@ja ;
+    rdfs:domain rdm:SoftwareApplication ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf rdm:description .
+
+rdm:specialRequirements a owl:DatatypeProperty ;
+    rdfs:label "specialRequirements" ;
+    rdfs:comment "他のプロパティに当てはまらないアプリケーションに必要な条件"@ja ;
+    rdfs:domain rdm:SoftwareApplication ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf rdm:description .
+
+rdm:storageRequirements a owl:DatatypeProperty ;
+    rdfs:label "storageRequirements" ;
+    rdfs:comment "ストレージの要件"@ja ;
+    rdfs:domain rdm:SoftwareApplication ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf rdm:description .
+
+rdm:target a owl:ObjectProperty ;
+    rdfs:label "target" ;
+    rdfs:comment "アクションの間接的な対象物"@ja ;
+    rdfs:domain rdm:Action ;
+    rdfs:range rdm:Resource .
+
+rdm:thumbnail a owl:ObjectProperty ;
+    rdfs:label "thumbnail" ;
+    rdfs:comment "サムネイル"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:range rdm:Image .
+
+rdm:url a owl:DatatypeProperty ;
+    rdfs:label "url" ;
+    rdfs:comment "主語クラスに関連するURL"@ja ;
+    rdfs:domain rdm:Grant,
+        rdm:IdentifierValue,
+        rdm:License,
+        rdm:Project,
+        rdm:Repository,
+        rdm:Resource ;
+    rdfs:range xsd:anyURI .
+
+rdm:value a owl:DatatypeProperty ;
+    rdfs:label "value" ;
+    rdfs:comment "識別子の値"@ja ;
+    rdfs:domain rdm:IdentifierValue ;
+    rdfs:range xsd:anyURI .
+
+rdm:version a owl:DatatypeProperty ;
+    rdfs:label "version" ;
+    rdfs:comment "バージョン"@ja ;
+    rdfs:domain rdm:Resource,
+        rdm:SoftwareApplication ;
+    rdfs:range xsd:nonNegativeInteger,
+        xsd:string .
+
+rdm:Book a owl:Class ;
+    rdfs:label "Book" ;
+    rdfs:comment "書籍"@ja ;
+    rdfs:subClassOf rdm:Resource .
+
+rdm:Cites a owl:ObjectProperty ;
+    rdfs:label "Cites" ;
+    rdfs:domain rdm:Resource ;
+    rdfs:range rdm:Resource ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isCitedBy .
+
+rdm:ConditionOfAccessEnumeration a owl:Class ;
+    rdfs:label "ConditionOfAccessEnumeration" ;
+    rdfs:comment "プロパティ rdm:conditionOfAccess の選択肢"@ja ;
+    rdfs:subClassOf rdm:Enumeration .
+
+rdm:Continues a owl:ObjectProperty ;
+    rdfs:label "Continues" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isContinuedBy .
+
+rdm:Describes a owl:ObjectProperty ;
+    rdfs:label "Describes" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isDescribedBy .
+
+rdm:Image a owl:Class ;
+    rdfs:label "Image" ;
+    rdfs:comment "画像"@ja ;
+    rdfs:subClassOf rdm:Resource .
+
+rdm:Preserve a owl:Class ;
+    rdfs:label "Preserve" ;
+    rdfs:subClassOf rdm:Action .
+
+rdm:accessRights a owl:ObjectProperty ;
+    rdfs:label "accessRights" ;
+    rdfs:comment "アクセス権関連情報"@ja ;
+    rdfs:domain rdm:Project ;
+    rdfs:range rdm:AccessRightsInformation .
+
+rdm:compiles a owl:ObjectProperty ;
+    rdfs:label "compiles" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isCompiledBy .
+
+rdm:creator a owl:ObjectProperty ;
+    rdfs:label "creator" ;
+    rdfs:comment "リソースの作成者"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:range rdm:Person ;
+    rdfs:subPropertyOf rdm:contributor .
+
+rdm:documents a owl:ObjectProperty ;
+    rdfs:label "documents" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isDocumentedBy .
+
+rdm:hasMetadata a owl:ObjectProperty ;
+    rdfs:label "hasMetadata" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isMetadataFor .
+
+rdm:hasPart a owl:ObjectProperty ;
+    rdfs:label "hasPart" ;
+    rdfs:comment "主語クラスが一部分となっている、複数の部分から成るクラス"@ja ;
+    rdfs:domain rdm:Collection,
+        rdm:Grant,
+        rdm:Institution,
+        rdm:Project,
+        rdm:Resource,
+        rdm:SoftwareApplication ;
+    rdfs:range rdm:Collection,
+        rdm:Grant,
+        rdm:Institution,
+        rdm:Project,
+        rdm:Resource,
+        rdm:SoftwareApplication ;
+    rdfs:subPropertyOf rdm:inclusionRelation,
+        rdm:isRelatedTo ;
+    owl:inverseOf rdm:isPartOf .
+
+rdm:hasVersion a owl:ObjectProperty ;
+    rdfs:label "hasVersion" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isVersionOf .
+
+rdm:hash a owl:DatatypeProperty ;
+    rdfs:label "hash" ;
+    rdfs:comment "ハッシュ値"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:range xsd:string .
+
+rdm:isCitedBy a owl:ObjectProperty ;
+    rdfs:label "isCitedBy" ;
+    rdfs:domain rdm:Resource ;
+    rdfs:range rdm:Resource ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:Cites .
+
+rdm:isCompiledBy a owl:ObjectProperty ;
+    rdfs:label "isCompiledBy" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:compiles .
+
+rdm:isContinuedBy a owl:ObjectProperty ;
+    rdfs:label "isContinuedBy" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:Continues .
+
+rdm:isDerivedFrom a owl:ObjectProperty ;
+    rdfs:label "isDerivedFrom" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isSourceOf .
+
+rdm:isDescribedBy a owl:ObjectProperty ;
+    rdfs:label "isDescribedBy" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:Describes .
+
+rdm:isDocumentedBy a owl:ObjectProperty ;
+    rdfs:label "isDocumentedBy" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:documents .
+
+rdm:isMetadataFor a owl:ObjectProperty ;
+    rdfs:label "isMetadataFor" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:hasMetadata .
+
+rdm:isNewVersionOf a owl:ObjectProperty ;
+    rdfs:label "isNewVersionOf" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isPreviousVersionOf .
+
+rdm:isObsoletedBy a owl:ObjectProperty ;
+    rdfs:label "isObsoletedBy" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:obsoletes .
+
+rdm:isOriginalFormOf a owl:ObjectProperty ;
+    rdfs:label "isOriginalFormOf" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isVariantFormOf .
+
+rdm:isPartOf a owl:ObjectProperty ;
+    rdfs:label "isPartOf" ;
+    rdfs:comment "主語クラスを構成する部分のクラス"@ja ;
+    rdfs:domain rdm:Collection,
+        rdm:Grant,
+        rdm:Institution,
+        rdm:Project,
+        rdm:Resource,
+        rdm:SoftwareApplication ;
+    rdfs:range rdm:Collection,
+        rdm:Grant,
+        rdm:Institution,
+        rdm:Project,
+        rdm:Resource,
+        rdm:SoftwareApplication ;
+    rdfs:subPropertyOf rdm:inclusionRelation,
+        rdm:isRelatedTo ;
+    owl:inverseOf rdm:hasPart .
+
+rdm:isPreviousVersionOf a owl:ObjectProperty ;
+    rdfs:label "isPreviousVersionOf" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isNewVersionOf .
+
+rdm:isReferencedBy a owl:ObjectProperty ;
+    rdfs:label "isReferencedBy" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:references .
+
+rdm:isRequiredBy a owl:ObjectProperty ;
+    rdfs:label "isRequiredBy" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:requires .
+
+rdm:isReviewdBy a owl:ObjectProperty ;
+    rdfs:label "isReviewdBy" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:reviews .
+
+rdm:isSourceOf a owl:ObjectProperty ;
+    rdfs:label "isSourceOf" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isDerivedFrom .
+
+rdm:isSupplementTo a owl:ObjectProperty ;
+    rdfs:label "isSupplementTo" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isSupplementedBy .
+
+rdm:isSupplementedBy a owl:ObjectProperty ;
+    rdfs:label "isSupplementedBy" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isSupplementTo .
+
+rdm:isVariantFormOf a owl:ObjectProperty ;
+    rdfs:label "isVariantFormOf" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isOriginalFormOf .
+
+rdm:isVersionOf a owl:ObjectProperty ;
+    rdfs:label "isVersionOf" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:hasVersion .
+
+rdm:license a owl:ObjectProperty ;
+    rdfs:label "license" ;
+    rdfs:comment "プロジェクトやリソースのライセンス情報"@ja ;
+    rdfs:domain rdm:Project,
+        rdm:Resource ;
+    rdfs:range rdm:LicenseInformation .
+
+rdm:obsoletes a owl:ObjectProperty ;
+    rdfs:label "obsoletes" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isObsoletedBy .
+
+rdm:references a owl:ObjectProperty ;
+    rdfs:label "references" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isReferencedBy .
+
+rdm:requires a owl:ObjectProperty ;
+    rdfs:label "requires" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isRequiredBy .
+
+rdm:reviews a owl:ObjectProperty ;
+    rdfs:label "reviews" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isReviewdBy .
+
+rdm:storage a owl:ObjectProperty ;
+    rdfs:label "storage" ;
+    rdfs:comment "リソースが管理されているリポジトリや場所"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:range rdm:Repository ;
+    owl:inverseOf rdm:storedItem .
+
+rdm:storedItem a owl:ObjectProperty ;
+    rdfs:label "storedItem" ;
+    rdfs:comment "リポジトリに保存されている資源"@ja ;
+    rdfs:domain rdm:Repository ;
+    rdfs:range rdm:Resource ;
+    owl:inverseOf rdm:storage .
+
+rdm:Enumeration a owl:Class ;
+    rdfs:label "Enumeration" ;
+    rdfs:comment "プロパティの選択肢列挙のためのクラス"@ja .
+
+rdm:FundingAgency a owl:Class ;
+    rdfs:label "FundingAgency" ;
+    rdfs:comment "研究資金提供機関"@ja ;
+    rdfs:subClassOf rdm:Institution .
+
+rdm:LicenseInformation a owl:Class ;
+    rdfs:label "LicenseInformation" ;
+    rdfs:comment "リソースのライセンス"@ja ;
+    rdfs:subClassOf rdm:RightsStatement .
 
 rdm:RightsStatement a owl:Class ;
     rdfs:label "RightsStatement" ;
     rdfs:comment "権利関係全般"@ja .
 
-rdm:Schedule a owl:Class ;
-    rdfs:label "Schedule" ;
-    rdfs:subClassOf "Action" .
+rdm:inclusionRelation a owl:ObjectProperty ;
+    rdfs:label "inclusionRelation" ;
+    rdfs:comment "主語クラスと包含関係のあるクラスを指す上位プロパティ"@ja .
 
-rdm:Search a owl:Class ;
-    rdfs:label "Search" ;
-    rdfs:subClassOf "Action" .
+rdm:size a owl:DatatypeProperty ;
+    rdfs:label "size" ;
+    rdfs:comment "主語クラスの大きさ、サイズ"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:range xsd:nonNegativeInteger,
+        xsd:string .
 
-rdm:Select a owl:Class ;
-    rdfs:label "Select" ;
-    rdfs:subClassOf "Action" .
+rdm:AccessRightsInformation a owl:Class ;
+    rdfs:label "AccessRightsInformation" ;
+    rdfs:comment "リソースへのアクセス権"@ja ;
+    rdfs:subClassOf rdm:RightsStatement .
 
-rdm:Semantize a owl:Class ;
-    rdfs:label "Semantize" ;
-    rdfs:subClassOf "Action" .
+rdm:Edit a owl:Class ;
+    rdfs:label "Edit" ;
+    rdfs:subClassOf rdm:Action .
 
-rdm:Send a owl:Class ;
-    rdfs:label "Send" ;
-    rdfs:subClassOf "Action" .
+rdm:IdentifierValue a owl:Class ;
+    rdfs:label "IdentifierValue" ;
+    rdfs:comment "識別子のスキーマとその値"@ja .
+
+rdm:name a owl:DatatypeProperty ;
+    rdfs:label "name" ;
+    rdfs:comment "主語クラスの名称"@ja ;
+    rdfs:domain rdm:Grant,
+        rdm:Institution,
+        rdm:License,
+        rdm:Project,
+        rdm:Repository,
+        rdm:Resource,
+        rdm:SoftwareApplication ;
+    rdfs:range xsd:string .
+
+rdm:contributor a owl:ObjectProperty ;
+    rdfs:label "contributor" ;
+    rdfs:comment "クラスへの寄与者"@ja ;
+    rdfs:domain rdm:Collection,
+        rdm:Event,
+        rdm:Project,
+        rdm:Resource ;
+    rdfs:range rdm:Institution,
+        rdm:Person .
+
+rdm:Event a owl:Class ;
+    rdfs:label "Event" ;
+    rdfs:comment "開催されたイベント"@ja .
+
+rdm:Repository a owl:Class ;
+    rdfs:label "Repository" ;
+    rdfs:comment "リポジトリ"@ja .
+
+rdm:description a rdf:Property ;
+    rdfs:label "description" ;
+    rdfs:comment "クラスの説明"@ja ;
+    rdfs:domain rdm:Grant,
+        rdm:Project,
+        rdm:Repository,
+        rdm:Resource .
+
+rdm:Collection a owl:Class ;
+    rdfs:label "Collection" ;
+    rdfs:comment "なんらかコンテンツの集合"@ja .
+
+rdm:date a owl:DatatypeProperty ;
+    rdfs:label "date" ;
+    rdfs:comment "日付または日時"@ja ;
+    rdfs:range xsd:date,
+        xsd:datetime .
+
+rdm:identifier a rdf:Property ;
+    rdfs:label "identifier" ;
+    rdfs:comment "識別子"@ja ;
+    rdfs:domain rdm:Collection,
+        rdm:Grant,
+        rdm:Institution,
+        rdm:Person,
+        rdm:Project,
+        rdm:Repository,
+        rdm:Resource .
+
+rdm:Grant a owl:Class ;
+    rdfs:label "Grant" ;
+    rdfs:comment "研究資金プログラム"@ja .
 
 rdm:SoftwareApplication a owl:Class ;
     rdfs:label "SoftwareApplication" ;
     rdfs:comment "ソフトウェアアプリケーション"@ja .
 
-rdm:Standard a owl:Class ;
-    rdfs:label "Standard" ;
-    rdfs:comment "標準"@ja ;
-    rdfs:subClassOf "Resource" .
+rdm:DataManagementPlan a owl:Class ;
+    rdfs:label "DataManagementPlan" ;
+    rdfs:comment "DMP"@ja .
 
-rdm:Submit a owl:Class ;
-    rdfs:label "Submit" ;
-    rdfs:subClassOf "Action" .
+rdm:Institution a owl:Class ;
+    rdfs:label "Institution" ;
+    rdfs:comment "研究機関"@ja .
 
-rdm:Suggest a owl:Class ;
-    rdfs:label "Suggest" ;
-    rdfs:subClassOf "Action" .
+rdm:Person a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:comment "人物"@ja .
 
-rdm:Survey a owl:Class ;
-    rdfs:label "Survey" ;
-    rdfs:subClassOf "Action" .
+rdm:Project a owl:Class ;
+    rdfs:label "Project" ;
+    rdfs:comment "研究プロジェクト"@ja .
 
-rdm:Thesis a owl:Class ;
-    rdfs:label "Thesis" ;
-    rdfs:comment "学位論文"@ja ;
-    rdfs:subClassOf "Resource" .
+rdm:isRelatedTo a owl:ObjectProperty ;
+    rdfs:label "isRelatedTo" ;
+    rdfs:comment "主語クラスと何らかの関連がある、独立したクラス"@ja .
 
-rdm:Update a owl:Class ;
-    rdfs:label "Update" ;
-    rdfs:subClassOf "Action" .
+rdm:Action a owl:Class ;
+    rdfs:label "Action" .
 
-rdm:Upload a owl:Class ;
-    rdfs:label "Upload" ;
-    rdfs:subClassOf "Action" .
-
-rdm:Video a owl:Class ;
-    rdfs:label "Video" ;
-    rdfs:comment "動画"@ja ;
-    rdfs:subClassOf "Resource" .
-
-rdm:Visualize a owl:Class ;
-    rdfs:label "Visualize" ;
-    rdfs:subClassOf "Action" .
-
-rdm:Workflow a owl:Class ;
-    rdfs:label "Workflow" ;
-    rdfs:comment "ワークフロー"@ja ;
-    rdfs:subClassOf "Resource" .
+rdm:Resource a owl:Class ;
+    rdfs:label "Resource" ;
+    rdfs:comment "デジタルオブジェクト"@ja .
 
