@@ -1,4 +1,5 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdm: <https://purl.org/rdm/ontology#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -493,11 +494,31 @@ rdm:familyName a owl:DatatypeProperty ;
     rdfs:domain rdm:Person ;
     rdfs:subPropertyOf rdm:name .
 
-rdm:field a owl:ObjectProperty ;
+rdm:field a owl:DatatypeProperty ;
     rdfs:label "field" ;
     rdfs:comment "プロジェクト・リソースの主題"@ja ;
     rdfs:domain rdm:Project,
-        rdm:Resource .
+        rdm:Resource ;
+    rdfs:range [ a owl:DataRange ;
+            owl:oneOf [ a rdf:List ;
+                    rdf:first "ライフサイエンス"^^xsd:string ;
+                    rdf:rest [ a rdf:List ;
+                            rdf:first "情報通信"^^xsd:string ;
+                            rdf:rest [ a rdf:List ;
+                                    rdf:first "環境"^^xsd:string ;
+                                    rdf:rest [ a rdf:List ;
+                                            rdf:first "ナノテク・材料"^^xsd:string ;
+                                            rdf:rest [ a rdf:List ;
+                                                    rdf:first "エネルギー"^^xsd:string ;
+                                                    rdf:rest [ a rdf:List ;
+                                                            rdf:first "ものづくり技術"^^xsd:string ;
+                                                            rdf:rest [ a rdf:List ;
+                                                                    rdf:first "社会基盤"^^xsd:string ;
+                                                                    rdf:rest [ a rdf:List ;
+                                                                            rdf:first "フロンティア"^^xsd:string ;
+                                                                            rdf:rest [ a rdf:List ;
+                                                                                    rdf:first "人文・社会"^^xsd:string ;
+                                                                                    rdf:rest ( "その他"^^xsd:string ) ] ] ] ] ] ] ] ] ] ] .
 
 rdm:funder a owl:ObjectProperty ;
     rdfs:label "funder" ;
@@ -829,18 +850,6 @@ rdm:hasMetadata a owl:ObjectProperty ;
     rdfs:subPropertyOf rdm:isRelatedTo ;
     owl:inverseOf rdm:isMetadataFor .
 
-rdm:hasPart a owl:ObjectProperty ;
-    rdfs:label "hasPart" ;
-    rdfs:comment "主語クラスが一部分となっている、複数の部分から成るクラス"@ja ;
-    rdfs:domain rdm:Collection,
-        rdm:Grant,
-        rdm:Institution,
-        rdm:Project,
-        rdm:Resource,
-        rdm:SoftwareApplication ;
-    rdfs:subPropertyOf rdm:inclusionRelation ;
-    owl:inverseOf rdm:isPartOf .
-
 rdm:hasVersion a owl:ObjectProperty ;
     rdfs:label "hasVersion" ;
     rdfs:subPropertyOf rdm:isRelatedTo ;
@@ -1028,6 +1037,18 @@ rdm:RightsStatement a owl:Class ;
     rdfs:label "RightsStatement" ;
     rdfs:comment "権利関係全般"@ja .
 
+rdm:hasPart a owl:ObjectProperty ;
+    rdfs:label "hasPart" ;
+    rdfs:comment "主語クラスが一部分となっている、複数の部分から成るクラス"@ja ;
+    rdfs:domain rdm:Collection,
+        rdm:Grant,
+        rdm:Institution,
+        rdm:Project,
+        rdm:Resource,
+        rdm:SoftwareApplication ;
+    rdfs:subPropertyOf rdm:inclusionRelation ;
+    owl:inverseOf rdm:isPartOf .
+
 rdm:inclusionRelation a owl:ObjectProperty ;
     rdfs:label "inclusionRelation" ;
     rdfs:comment "主語クラスと包含関係のあるクラスを指す上位プロパティ"@ja .
@@ -1151,5 +1172,8 @@ rdm:Activity a owl:Class ;
 
 rdm:Resource a owl:Class ;
     rdfs:label "Resource" ;
-    rdfs:comment "デジタルオブジェクト"@ja .
+    rdfs:comment "デジタルオブジェクト"@ja ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Resource ;
+            owl:onProperty rdm:hasPart ] .
 
