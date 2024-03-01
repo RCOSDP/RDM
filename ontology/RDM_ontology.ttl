@@ -126,11 +126,6 @@ rdm:Execute a owl:Class ;
     rdfs:label "Execute" ;
     rdfs:subClassOf rdm:Activity .
 
-rdm:FieldEnumeration a owl:Class ;
-    rdfs:label "FieldEnumeration" ;
-    rdfs:comment "プロパティ rdm:field の選択肢"@ja ;
-    rdfs:subClassOf rdm:Enumeration .
-
 rdm:Get a owl:Class ;
     rdfs:label "Get" ;
     rdfs:subClassOf rdm:Activity .
@@ -467,7 +462,8 @@ rdm:dmpFormatProvider a owl:ObjectProperty ;
     rdfs:domain rdm:DataManagementPlan ;
     rdfs:range rdm:Institution .
 
-rdm:doi a owl:DatatypeProperty ;
+rdm:doi a owl:DatatypeProperty,
+        owl:InverseFunctionalProperty ;
     rdfs:label "doi" ;
     rdfs:comment "DOI"@ja ;
     rdfs:domain rdm:Repository,
@@ -481,7 +477,8 @@ rdm:email a owl:DatatypeProperty ;
     rdfs:domain rdm:Person ;
     rdfs:range xsd:string .
 
-rdm:eradResearcherNumber a owl:DatatypeProperty ;
+rdm:eradResearcherNumber a owl:DatatypeProperty,
+        owl:InverseFunctionalProperty ;
     rdfs:label "eradResearcherNumber" ;
     rdfs:comment "e-rad 研究者番号"@ja ;
     rdfs:domain rdm:Person ;
@@ -528,7 +525,8 @@ rdm:funder a owl:ObjectProperty ;
         rdm:Resource ;
     rdfs:range rdm:FundingAgency .
 
-rdm:funderId a owl:DatatypeProperty ;
+rdm:funderId a owl:DatatypeProperty,
+        owl:InverseFunctionalProperty ;
     rdfs:label "funderId" ;
     rdfs:comment "助成機関識別子"@ja ;
     rdfs:domain rdm:FundingAgency ;
@@ -587,7 +585,8 @@ rdm:isPublishedIn a owl:ObjectProperty ;
     rdfs:label "isPublishedIn" ;
     rdfs:subPropertyOf rdm:isRelatedTo .
 
-rdm:isbn a owl:DatatypeProperty ;
+rdm:isbn a owl:DatatypeProperty,
+        owl:InverseFunctionalProperty ;
     rdfs:label "isbn" ;
     rdfs:comment "ISBNコード"@ja ;
     rdfs:domain rdm:Book ;
@@ -600,7 +599,8 @@ rdm:items a owl:ObjectProperty ;
     rdfs:domain rdm:Collection ;
     rdfs:range rdm:Resource .
 
-rdm:japanGrantNumber a owl:DatatypeProperty ;
+rdm:japanGrantNumber a owl:DatatypeProperty,
+        owl:InverseFunctionalProperty ;
     rdfs:label "japanGrantNumber" ;
     rdfs:comment "体系的課題番号"@ja ;
     rdfs:domain rdm:Grant ;
@@ -651,7 +651,8 @@ rdm:operatingSystem a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf rdm:description .
 
-rdm:orcid a owl:DatatypeProperty ;
+rdm:orcid a owl:DatatypeProperty,
+        owl:InverseFunctionalProperty ;
     rdfs:label "orcid" ;
     rdfs:comment "ORCID iD"@ja ;
     rdfs:domain rdm:Person ;
@@ -677,7 +678,8 @@ rdm:purpose a owl:DatatypeProperty ;
     rdfs:domain rdm:Event ;
     rdfs:range xsd:string .
 
-rdm:raid a owl:DatatypeProperty ;
+rdm:raid a owl:DatatypeProperty,
+        owl:InverseFunctionalProperty ;
     rdfs:label "raid" ;
     rdfs:comment "RAiD"@ja ;
     rdfs:domain rdm:Project ;
@@ -709,7 +711,8 @@ rdm:result a owl:ObjectProperty ;
     rdfs:domain rdm:Activity ;
     rdfs:range rdm:Resource .
 
-rdm:ror a owl:DatatypeProperty ;
+rdm:ror a owl:DatatypeProperty,
+        owl:InverseFunctionalProperty ;
     rdfs:label "ror" ;
     rdfs:comment "ROR ID"@ja ;
     rdfs:domain rdm:Institution ;
@@ -806,6 +809,10 @@ rdm:Describes a owl:ObjectProperty ;
     rdfs:label "Describes" ;
     rdfs:subPropertyOf rdm:isRelatedTo ;
     owl:inverseOf rdm:isDescribedBy .
+
+rdm:Enumeration a owl:Class ;
+    rdfs:label "Enumeration" ;
+    rdfs:comment "プロパティの選択肢列挙のためのクラス"@ja .
 
 rdm:Image a owl:Class ;
     rdfs:label "Image" ;
@@ -926,18 +933,6 @@ rdm:isOriginalFormOf a owl:ObjectProperty ;
     rdfs:subPropertyOf rdm:isRelatedTo ;
     owl:inverseOf rdm:isVariantFormOf .
 
-rdm:isPartOf a owl:ObjectProperty ;
-    rdfs:label "isPartOf" ;
-    rdfs:comment "主語クラスを構成する部分のクラス"@ja ;
-    rdfs:domain rdm:Collection,
-        rdm:Grant,
-        rdm:Institution,
-        rdm:Project,
-        rdm:Resource,
-        rdm:SoftwareApplication ;
-    rdfs:subPropertyOf rdm:inclusionRelation ;
-    owl:inverseOf rdm:hasPart .
-
 rdm:isPreviousVersionOf a owl:ObjectProperty ;
     rdfs:label "isPreviousVersionOf" ;
     rdfs:subPropertyOf rdm:isRelatedTo ;
@@ -1024,10 +1019,6 @@ rdm:storedItem a owl:ObjectProperty ;
     rdfs:range rdm:Resource ;
     owl:inverseOf rdm:storage .
 
-rdm:Enumeration a owl:Class ;
-    rdfs:label "Enumeration" ;
-    rdfs:comment "プロパティの選択肢列挙のためのクラス"@ja .
-
 rdm:FundingAgency a owl:Class ;
     rdfs:label "FundingAgency" ;
     rdfs:comment "研究資金提供機関"@ja ;
@@ -1036,18 +1027,6 @@ rdm:FundingAgency a owl:Class ;
 rdm:RightsStatement a owl:Class ;
     rdfs:label "RightsStatement" ;
     rdfs:comment "権利関係全般"@ja .
-
-rdm:hasPart a owl:ObjectProperty ;
-    rdfs:label "hasPart" ;
-    rdfs:comment "主語クラスが一部分となっている、複数の部分から成るクラス"@ja ;
-    rdfs:domain rdm:Collection,
-        rdm:Grant,
-        rdm:Institution,
-        rdm:Project,
-        rdm:Resource,
-        rdm:SoftwareApplication ;
-    rdfs:subPropertyOf rdm:inclusionRelation ;
-    owl:inverseOf rdm:isPartOf .
 
 rdm:inclusionRelation a owl:ObjectProperty ;
     rdfs:label "inclusionRelation" ;
@@ -1092,10 +1071,6 @@ rdm:name a owl:DatatypeProperty ;
         rdm:SoftwareApplication ;
     rdfs:range xsd:string .
 
-rdm:Collection a owl:Class ;
-    rdfs:label "Collection" ;
-    rdfs:comment "なんらかコンテンツの集合"@ja .
-
 rdm:Identifier a owl:Class ;
     rdfs:label "Identifier" ;
     rdfs:comment "識別子のスキーマとその値"@ja .
@@ -1127,15 +1102,47 @@ rdm:description a owl:DatatypeProperty ;
         rdm:Resource ;
     rdfs:range xsd:string .
 
+rdm:hasPart a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "hasPart" ;
+    rdfs:comment "主語クラスが一部分となっている、複数の部分から成るクラス"@ja ;
+    rdfs:domain rdm:Collection,
+        rdm:Grant,
+        rdm:Institution,
+        rdm:Project,
+        rdm:Resource,
+        rdm:SoftwareApplication ;
+    rdfs:subPropertyOf rdm:inclusionRelation ;
+    owl:inverseOf rdm:isPartOf .
+
+rdm:isPartOf a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "isPartOf" ;
+    rdfs:comment "主語クラスを構成する部分のクラス"@ja ;
+    rdfs:domain rdm:Collection,
+        rdm:Grant,
+        rdm:Institution,
+        rdm:Project,
+        rdm:Resource,
+        rdm:SoftwareApplication ;
+    rdfs:subPropertyOf rdm:inclusionRelation ;
+    owl:inverseOf rdm:hasPart .
+
+rdm:Collection a owl:Class ;
+    rdfs:label "Collection" ;
+    rdfs:comment "なんらかコンテンツの集合"@ja ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Collection ;
+            owl:onProperty rdm:hasPart ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Collection ;
+            owl:onProperty rdm:isPartOf ] .
+
 rdm:date a owl:DatatypeProperty ;
     rdfs:label "date" ;
     rdfs:comment "日付または日時"@ja ;
     rdfs:range xsd:date,
-        xsd:datetime .
-
-rdm:Grant a owl:Class ;
-    rdfs:label "Grant" ;
-    rdfs:comment "研究資金プログラム"@ja .
+        xsd:dateTime .
 
 rdm:identifierValue a owl:DatatypeProperty ;
     rdfs:label "identifierValue" ;
@@ -1143,17 +1150,39 @@ rdm:identifierValue a owl:DatatypeProperty ;
     rdfs:domain rdm:Identifier ;
     rdfs:subPropertyOf rdm:value .
 
+rdm:Grant a owl:Class ;
+    rdfs:label "Grant" ;
+    rdfs:comment "研究資金プログラム"@ja ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Grant ;
+            owl:onProperty rdm:hasPart ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Grant ;
+            owl:onProperty rdm:isPartOf ] .
+
 rdm:SoftwareApplication a owl:Class ;
     rdfs:label "SoftwareApplication" ;
-    rdfs:comment "ソフトウェアアプリケーション"@ja .
-
-rdm:Institution a owl:Class ;
-    rdfs:label "Institution" ;
-    rdfs:comment "研究機関"@ja .
+    rdfs:comment "ソフトウェアアプリケーション"@ja ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom rdm:SoftwareApplication ;
+            owl:onProperty rdm:isPartOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:SoftwareApplication ;
+            owl:onProperty rdm:hasPart ] .
 
 rdm:DataManagementPlan a owl:Class ;
     rdfs:label "DataManagementPlan" ;
     rdfs:comment "DMP"@ja .
+
+rdm:Institution a owl:Class ;
+    rdfs:label "Institution" ;
+    rdfs:comment "研究機関"@ja ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Institution ;
+            owl:onProperty rdm:isPartOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Institution ;
+            owl:onProperty rdm:hasPart ] .
 
 rdm:Person a owl:Class ;
     rdfs:label "Person" ;
@@ -1161,7 +1190,13 @@ rdm:Person a owl:Class ;
 
 rdm:Project a owl:Class ;
     rdfs:label "Project" ;
-    rdfs:comment "研究プロジェクト"@ja .
+    rdfs:comment "研究プロジェクト"@ja ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Project ;
+            owl:onProperty rdm:hasPart ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Project ;
+            owl:onProperty rdm:isPartOf ] .
 
 rdm:isRelatedTo a owl:ObjectProperty ;
     rdfs:label "isRelatedTo" ;
@@ -1175,5 +1210,8 @@ rdm:Resource a owl:Class ;
     rdfs:comment "デジタルオブジェクト"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:Resource ;
-            owl:onProperty rdm:hasPart ] .
+            owl:onProperty rdm:hasPart ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Resource ;
+            owl:onProperty rdm:isPartOf ] .
 
