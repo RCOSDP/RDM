@@ -7,15 +7,20 @@ The purpose of RDM Ontology is to represent the lifecycle of NII-RDC compliant r
 # Namespace
 https://purl.org/rdm/ontology
 
+## suggested prefix
+rdm
+
 # Deliverables
 ## Functional Requirements
-- Functional requirements specification <!-- 機能要件と対応するユーザーストーリー一覧へのリンク -->
+- [Functional requirements specification](./userstories/list.md) <!-- 機能要件と対応するユーザーストーリー一覧へのリンク -->
 
 ## Domain Model
 - RDM Ontology domain model <!-- データモデル図 -->
 
 ## Description Set Profile
-- RDM Ontology description set profile <!-- 記述項目の一覧 -->
+- RDM Ontology <!-- 記述項目の一覧 -->
+  - [turtle](./ontology/RDM_ontology.ttl)
+  - [XML](./ontology/RDM_ontology.xml)
 - RDM Ontology usage guidelines <!-- 記入方法、推奨例／非推奨例、注意点等 -->
 
 ## Syntax Encoding as Application Profile <!-- 各基盤／機能でのエンコーディング例 -->
@@ -34,4 +39,4 @@ https://purl.org/rdm/ontology
 (Coming soon)
 
 # License
-CC0-1.0[https://creativecommons.org/publicdomain/zero/1.0/]. See [LICENSE](./LICENSE.txt) for more detail.
+[CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/). See [LICENSE](./LICENSE.txt) for more detail.
