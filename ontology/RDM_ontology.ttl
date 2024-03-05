@@ -702,9 +702,10 @@ rdm:givenName a owl:DatatypeProperty ;
 
 rdm:hostingInstitution a owl:ObjectProperty ;
     rdfs:label "hostingInstitution" ;
-    rdfs:comment "The hosting institution of research data to be described in this DataManagementPlan."@en,
-        "DMPにおける研究データ管理機関"@ja ;
-    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:comment "The hosting institution of Resource and research data to be described in this DataManagementPlan."@en,
+        "Resource の管理機関、もしくはDMPにおける研究データ管理機関"@ja ;
+    rdfs:domain rdm:DataManagementPlan,
+        rdm:Resource ;
     rdfs:range rdm:Institution ;
     rdfs:subPropertyOf rdm:contributor .
 
@@ -1430,7 +1431,8 @@ rdm:name a owl:DatatypeProperty ;
     rdfs:label "name" ;
     rdfs:comment "A name of this Class."@en,
         "主語クラスの名称"@ja ;
-    rdfs:domain rdm:Grant,
+    rdfs:domain rdm:Event,
+        rdm:Grant,
         rdm:Institution,
         rdm:License,
         rdm:Project,
@@ -1530,17 +1532,6 @@ rdm:identifierValue a owl:DatatypeProperty ;
     rdfs:domain rdm:Identifier ;
     rdfs:subPropertyOf rdm:value .
 
-rdm:Event a owl:Class ;
-    rdfs:label "Event" ;
-    rdfs:comment "An event, such as conferences etc."@en,
-        "学会など、イベントや催し物"@ja ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom rdm:Event ;
-            owl:onProperty rdm:continues ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:Event ;
-            owl:onProperty rdm:isContinuedBy ] .
-
 rdm:Repository a owl:Class ;
     rdfs:label "Repository" ;
     rdfs:comment "A repository."@en,
@@ -1552,16 +1543,27 @@ rdm:Repository a owl:Class ;
             owl:allValuesFrom rdm:Repository ;
             owl:onProperty rdm:isContinuedBy ] .
 
+rdm:Event a owl:Class ;
+    rdfs:label "Event" ;
+    rdfs:comment "An event, such as conferences etc."@en,
+        "学会など、イベントや催し物"@ja ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Event ;
+            owl:onProperty rdm:continues ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Event ;
+            owl:onProperty rdm:isContinuedBy ] .
+
 rdm:Grant a owl:Class ;
     rdfs:label "Grant" ;
     rdfs:comment "A grant for research activities."@en,
         "研究資金プログラム"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:Grant ;
-            owl:onProperty rdm:hasPart ],
+            owl:onProperty rdm:isPartOf ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Grant ;
-            owl:onProperty rdm:isPartOf ] .
+            owl:onProperty rdm:hasPart ] .
 
 rdm:DataManagementPlan a owl:Class ;
     rdfs:label "DataManagementPlan" ;
@@ -1579,13 +1581,13 @@ rdm:Institution a owl:Class ;
         "機関や組織"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:Institution ;
-            owl:onProperty rdm:isContinuedBy ],
+            owl:onProperty rdm:isPartOf ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Institution ;
             owl:onProperty rdm:hasPart ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Institution ;
-            owl:onProperty rdm:isPartOf ],
+            owl:onProperty rdm:isContinuedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Institution ;
             owl:onProperty rdm:continues ] .
@@ -1596,10 +1598,10 @@ rdm:Collection a owl:Class ;
         "オブジェクトのコレクション"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:Collection ;
-            owl:onProperty rdm:isPartOf ],
+            owl:onProperty rdm:hasPart ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Collection ;
-            owl:onProperty rdm:hasPart ] .
+            owl:onProperty rdm:isPartOf ] .
 
 rdm:Project a owl:Class ;
     rdfs:label "Project" ;
@@ -1610,13 +1612,13 @@ rdm:Project a owl:Class ;
             owl:onProperty rdm:continues ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Project ;
-            owl:onProperty rdm:isContinuedBy ],
+            owl:onProperty rdm:hasPart ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Project ;
             owl:onProperty rdm:isPartOf ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Project ;
-            owl:onProperty rdm:hasPart ] .
+            owl:onProperty rdm:isContinuedBy ] .
 
 rdm:isRelatedTo a owl:ObjectProperty ;
     rdfs:label "isRelatedTo" ;
@@ -1629,16 +1631,16 @@ rdm:SoftwareApplication a owl:Class ;
         "ソフトウェアアプリケーション"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:SoftwareApplication ;
-            owl:onProperty rdm:isPartOf ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:SoftwareApplication ;
-            owl:onProperty rdm:hasPart ],
+            owl:onProperty rdm:continues ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:SoftwareApplication ;
             owl:onProperty rdm:isContinuedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:SoftwareApplication ;
-            owl:onProperty rdm:continues ] .
+            owl:onProperty rdm:hasPart ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:SoftwareApplication ;
+            owl:onProperty rdm:isPartOf ] .
 
 rdm:Activity a owl:Class ;
     rdfs:label "Activity" ;
@@ -1651,14 +1653,14 @@ rdm:Resource a owl:Class ;
         "研究データや実験動画など、デジタルオブジェクト"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:Resource ;
+            owl:onProperty rdm:hasPart ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Resource ;
             owl:onProperty rdm:continues ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Resource ;
             owl:onProperty rdm:isContinuedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Resource ;
-            owl:onProperty rdm:isPartOf ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:Resource ;
-            owl:onProperty rdm:hasPart ] .
+            owl:onProperty rdm:isPartOf ] .
 
