@@ -4,16 +4,16 @@ This document is a summary of mapping from the RDM Ontology to schema.org and JP
 ## Used Namespace
 |Prefix|Namespace URI|
 |--|--|
-|rdm||
-|schema||
-|jpcoar||
+|rdm|https://purl.org/rdm/ontology#|
+|schema|https://schema.org/|
+|jpcoar|https://github.com/JPCOAR/schema/blob/master/2.0/#|
 
 ## Alignment to Schema.org
-A recommended mapping from the RDM Ontology to [schema.org](https://schema.org/) version 26.0 is available in an [RDF file](). 
+A recommended mapping from the RDM Ontology to [schema.org](https://schema.org/) version 26.0 is available in an [RDF file](./mapping_to_schemaorg.ttl). 
 
 ### Class
-|RDM class|Target class from schema.org|comment|
-|--|--|--|
+|RDM class|Target class from schema.org|
+|--|--|
 |rdm:Person|schema:Person|
 |rdm:Institution|schema:Organization|
 |rdm:FundingAgency|schema:FundingAgency|
@@ -59,8 +59,8 @@ A recommended mapping from the RDM Ontology to [schema.org](https://schema.org/)
 |rdm:Enumeration|schema:DefinedTerm|
 
 ### Property
-|RDM property|Target property from schema.org|comment|
-|--|--|--|
+|RDM property|Target property from schema.org|
+|--|--|
 |rdm:address|schema:address|
 |rdm:affiliation|schema:affiliation|
 |rdm:agent|schema:agent|
@@ -106,17 +106,43 @@ A recommended mapping from the RDM Ontology to [schema.org](https://schema.org/)
 |rdm:version|schema:version|
 
 ## Alignment to JPCOAR
-A recommended mapping from the RDM Ontology to [JPCOAR]() version 2.0 is available in an [RDF file](). 
+A recommended mapping from the RDM Ontology to [JPCOAR](https://github.com/JPCOAR/schema) version 2.0 is available in an [RDF file](./mapping_to_jpcoar.ttl). 
 
 ### About JPCOAR Scheme
-
-### Class
-|RDM class|Target class from JPCOAR|comment|
-|--|--|--|
-||||
-
+<!-- TODO -->
 
 ### Property
-|RDM property|Target property from JPCOAR|comment|
-|--|--|--|
-||||
+|RDM property|Target property from JPCOAR|
+|--|--|
+|jpcoar:affiliation|rdm:affiliation|
+|jpcoar:holdingAgent|rdm:hostingInstitution|
+|jpcoar:publisherDescription|rdm:description|
+|jpcoar:mimeType|rdm:encodingFormat|
+|jpcoar:nameIdentifier|rdm:identifierInformation|
+|jpcoar:sourceIdentifier|rdm:identifierInformation|
+|jpcoar:relatedIdentifier|rdm:identifierInformation|
+|jpcoar:identifier|rdm:identifierInformation|
+|jpcoar:funderIdentifier|rdm:identifierInformation|
+|jpcoar:fundingStreamIdentifier|rdm:identifierInformation|
+|jpcoar:awardNumber|rdm:identifierInformation|
+|jpcoar:holdingAgentNameIdentifier|rdm:identifierInformation|
+|jpcoar:conferenceVenue|rdm:location|
+|jpcoar:conferencePlace|rdm:location|
+|jpcoar:conferenceCountry|rdm:location|
+|jpcoar:affiliationName|rdm:name|
+|jpcoar:rightsHolderName|rdm:name|
+|jpcoar:degreeGrantorName|rdm:name|
+|jpcoar:conferenceName|rdm:name|
+|jpcoar:relatedTitle|rdm:name|
+|jpcoar:publisherName|rdm:name|
+|jpcoar:funderName|rdm:name|
+|jpcoar:fundingStream|rdm:name|
+|jpcoar:awardTitle|rdm:name|
+|jpcoar:sourceTitle|rdm:name|
+|jpcoar:holdingAgentName|rdm:name|
+|jpcoar:creatorAlternative|rdm:additionalName|
+|jpcoar:contributorAlternative|rdm:additionalName|
+|jpcoar:familyName|rdm:familyName|
+|jpcoar:givenName|rdm:givenName|
+|jpcoar:extent|rdm:size|
+|jpcoar:URI|rdm:url|

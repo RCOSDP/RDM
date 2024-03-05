@@ -1,0 +1,69 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdm: <https://purl.org/rdm/ontology#> .
+@prefix schema: <https://schema.org/> .
+
+schema:URI rdfs:subPropertyOf rdm:url .
+
+schema:affiliation owl:equivalentProperty rdm:affiliation .
+
+schema:affiliationName rdfs:subPropertyOf rdm:name .
+
+schema:awardNumber rdfs:subPropertyOf rdm:identifierInformation .
+
+schema:awardTitle rdfs:subPropertyOf rdm:name .
+
+schema:conferenceCountry rdfs:subPropertyOf rdm:location .
+
+schema:conferenceName rdfs:subPropertyOf rdm:name .
+
+schema:conferencePlace rdfs:subPropertyOf rdm:location .
+
+schema:conferenceVenue rdfs:subPropertyOf rdm:location .
+
+schema:contributorAlternative rdfs:subPropertyOf rdm:additionalName .
+
+schema:creatorAlternative rdfs:subPropertyOf rdm:additionalName .
+
+schema:degreeGrantorName rdfs:subPropertyOf rdm:name .
+
+schema:extent rdfs:subPropertyOf rdm:size .
+
+schema:familyName owl:equivalentProperty rdm:familyName .
+
+schema:funderIdentifier rdfs:subPropertyOf rdm:identifierInformation .
+
+schema:funderName rdfs:subPropertyOf rdm:name .
+
+schema:fundingStream rdfs:subPropertyOf rdm:name .
+
+schema:fundingStreamIdentifier rdfs:subPropertyOf rdm:identifierInformation .
+
+schema:givenName owl:equivalentProperty rdm:givenName .
+
+schema:holdingAgent rdfs:subPropertyOf rdm:hostingInstitution .
+
+schema:holdingAgentName rdfs:subPropertyOf rdm:name .
+
+schema:holdingAgentNameIdentifier rdfs:subPropertyOf rdm:identifierInformation .
+
+schema:identifier rdfs:subPropertyOf rdm:identifierInformation .
+
+schema:mimeType rdfs:subPropertyOf rdm:encodingFormat .
+
+schema:nameIdentifier rdfs:subPropertyOf rdm:identifierInformation .
+
+schema:publisherDescription rdfs:subPropertyOf rdm:description .
+
+schema:publisherName rdfs:subPropertyOf rdm:name .
+
+schema:relatedIdentifier rdfs:subPropertyOf rdm:identifierInformation .
+
+schema:relatedTitle rdfs:subPropertyOf rdm:name .
+
+schema:rightsHolderName rdfs:subPropertyOf rdm:name .
+
+schema:sourceIdentifier rdfs:subPropertyOf rdm:identifierInformation .
+
+schema:sourceTitle rdfs:subPropertyOf rdm:name .
+
