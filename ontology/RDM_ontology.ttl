@@ -862,7 +862,7 @@ rdm:raid a owl:DatatypeProperty ;
         "RAiD"@ja ;
     rdfs:domain rdm:Project ;
     rdfs:range xsd:string ;
-    rdfs:seeAlso "https://ardc.edu.au/services/ardc-identifier-services/raid-research-activity-identifier-service/" ;
+    rdfs:seeAlso "https://raid.org/" ;
     rdfs:subPropertyOf rdm:identifierValue .
 
 rdm:readme a owl:DatatypeProperty ;
@@ -1037,7 +1037,8 @@ rdm:creator a owl:ObjectProperty ;
     rdfs:label "creator" ;
     rdfs:comment "The creator/author of this Resource. "@en,
         "リソースの作成者"@ja ;
-    rdfs:domain rdm:Resource ;
+    rdfs:domain rdm:Resource,
+        rdm:SoftwareApplication ;
     rdfs:range rdm:Person ;
     rdfs:subPropertyOf rdm:contributor .
 
@@ -1464,7 +1465,8 @@ rdm:contributor a owl:ObjectProperty ;
     rdfs:domain rdm:Collection,
         rdm:Event,
         rdm:Project,
-        rdm:Resource ;
+        rdm:Resource,
+        rdm:SoftwareApplication ;
     rdfs:range rdm:Institution,
         rdm:Person .
 
@@ -1534,10 +1536,10 @@ rdm:Event a owl:Class ;
         "学会など、イベントや催し物"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:Event ;
-            owl:onProperty rdm:isContinuedBy ],
+            owl:onProperty rdm:continues ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Event ;
-            owl:onProperty rdm:continues ] .
+            owl:onProperty rdm:isContinuedBy ] .
 
 rdm:Repository a owl:Class ;
     rdfs:label "Repository" ;
@@ -1545,10 +1547,10 @@ rdm:Repository a owl:Class ;
         "リポジトリ"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:Repository ;
-            owl:onProperty rdm:isContinuedBy ],
+            owl:onProperty rdm:continues ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Repository ;
-            owl:onProperty rdm:continues ] .
+            owl:onProperty rdm:isContinuedBy ] .
 
 rdm:Grant a owl:Class ;
     rdfs:label "Grant" ;
@@ -1577,16 +1579,16 @@ rdm:Institution a owl:Class ;
         "機関や組織"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:Institution ;
-            owl:onProperty rdm:continues ],
+            owl:onProperty rdm:isContinuedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Institution ;
+            owl:onProperty rdm:hasPart ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Institution ;
             owl:onProperty rdm:isPartOf ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Institution ;
-            owl:onProperty rdm:isContinuedBy ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:Institution ;
-            owl:onProperty rdm:hasPart ] .
+            owl:onProperty rdm:continues ] .
 
 rdm:Collection a owl:Class ;
     rdfs:label "Collection" ;
@@ -1605,16 +1607,16 @@ rdm:Project a owl:Class ;
         "研究プロジェクト"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:Project ;
-            owl:onProperty rdm:isPartOf ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:Project ;
             owl:onProperty rdm:continues ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Project ;
-            owl:onProperty rdm:hasPart ],
+            owl:onProperty rdm:isContinuedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Project ;
-            owl:onProperty rdm:isContinuedBy ] .
+            owl:onProperty rdm:isPartOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Project ;
+            owl:onProperty rdm:hasPart ] .
 
 rdm:isRelatedTo a owl:ObjectProperty ;
     rdfs:label "isRelatedTo" ;
@@ -1627,16 +1629,16 @@ rdm:SoftwareApplication a owl:Class ;
         "ソフトウェアアプリケーション"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:SoftwareApplication ;
-            owl:onProperty rdm:isContinuedBy ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:SoftwareApplication ;
-            owl:onProperty rdm:continues ],
+            owl:onProperty rdm:isPartOf ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:SoftwareApplication ;
             owl:onProperty rdm:hasPart ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:SoftwareApplication ;
-            owl:onProperty rdm:isPartOf ] .
+            owl:onProperty rdm:isContinuedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:SoftwareApplication ;
+            owl:onProperty rdm:continues ] .
 
 rdm:Activity a owl:Class ;
     rdfs:label "Activity" ;
@@ -1652,11 +1654,11 @@ rdm:Resource a owl:Class ;
             owl:onProperty rdm:continues ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Resource ;
-            owl:onProperty rdm:hasPart ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:Resource ;
             owl:onProperty rdm:isContinuedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Resource ;
-            owl:onProperty rdm:isPartOf ] .
+            owl:onProperty rdm:isPartOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Resource ;
+            owl:onProperty rdm:hasPart ] .
 
