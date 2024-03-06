@@ -1,80 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xmlns:owl="http://www.w3.org/2002/07/owl#"
-  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:rdm="https://purl.org/rdm/ontology#"
 >
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#hostingInstitution">
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#ror">
     <rdfs:subPropertyOf>
-      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#contributor">
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Person"/>
-        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-        <rdfs:comment xml:lang="en">A contributor to this Class.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">クラスへの寄与者</rdfs:comment>
-        <rdfs:label>contributor</rdfs:label>
-      </owl:ObjectProperty>
-    </rdfs:subPropertyOf>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-    <rdfs:comment xml:lang="en">The hosting institution of Resource and research data to be described in this DataManagementPlan.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">Resource の管理機関、もしくはDMPにおける研究データ管理機関</rdfs:comment>
-    <rdfs:label>hostingInstitution</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#givenName">
-    <rdfs:subPropertyOf>
-      <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#name">
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Repository"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#License"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Grant"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en">A name of this Class.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">主語クラスの名称</rdfs:comment>
-        <rdfs:label>name</rdfs:label>
+      <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#identifierValue">
+        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#value"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Identifier"/>
+        <rdfs:comment xml:lang="en">Identifier value.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">識別子の値</rdfs:comment>
+        <rdfs:label>identifierValue</rdfs:label>
       </owl:DatatypeProperty>
     </rdfs:subPropertyOf>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Person"/>
-    <rdfs:comment xml:lang="en">Given name.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">ファーストネーム</rdfs:comment>
-    <rdfs:label>givenName</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#url">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Repository"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#License"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Grant"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Identifier"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Institution"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-    <rdfs:comment xml:lang="en">A URL related to this Class.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">主語クラスに関連するURL</rdfs:comment>
-    <rdfs:label>url</rdfs:label>
+    <rdfs:comment xml:lang="en">ROR ID.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">ROR ID</rdfs:comment>
+    <rdfs:label>ror</rdfs:label>
+    <rdfs:seeAlso>https://ror.org/</rdfs:seeAlso>
   </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dmpFormat">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">A name of DataManagementPlan format.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">DMP種別名</rdfs:comment>
-    <rdfs:label>dmpFormat</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Ask">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Person やチャットボットなどに質問をする行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of asking questions to Person, chatbot etc.</rdfs:comment>
-    <rdfs:label>Ask</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dateCreated">
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#sdDatePublished">
     <rdfs:subPropertyOf>
       <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#date">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
@@ -85,10 +33,28 @@
       </owl:DatatypeProperty>
     </rdfs:subPropertyOf>
     <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="en">The date on which this Resource was created.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">リソースの作成日</rdfs:comment>
-    <rdfs:label>dateCreated</rdfs:label>
+    <rdfs:comment xml:lang="en">The acquisition date of this Resource.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">外部ファイルの取得日</rdfs:comment>
+    <rdfs:label>sdDatePublished</rdfs:label>
   </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Archive">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Preserve"/>
+    <rdfs:comment xml:lang="ja">Resource をアーカイブする行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of archiving Resource.</rdfs:comment>
+    <rdfs:label>Archive</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Convert">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Resource を新たな Resource に変換する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of converting Resource into a new Resource.</rdfs:comment>
+    <rdfs:label>Convert</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Inform">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Person, Institution に対して通知する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of notifying Person/Institution of information.</rdfs:comment>
+    <rdfs:label>Inform</rdfs:label>
+  </owl:Class>
   <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#cites">
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isRelatedTo">
@@ -116,91 +82,18 @@
     <rdfs:label>cites</rdfs:label>
     <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#cites</rdfs:seeAlso>
   </owl:ObjectProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Ingest">
+  <owl:NamedIndividual rdf:about="https://purl.org/rdm/ontology#RestrictedAccess">
+    <rdf:type rdf:resource="https://purl.org/rdm/ontology#ConditionOfAccessEnumeration"/>
+    <rdfs:label>RestrictedAccess</rdfs:label>
+    <rdfs:comment xml:lang="ja">限定公開</rdfs:comment>
+    <rdfs:comment xml:lang="en">Restricted access.</rdfs:comment>
+    <owl:sameAs>http://purl.org/coar/access_right/c_16ec</owl:sameAs>
+  </owl:NamedIndividual>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Publish">
     <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">キュレーションの一環として、Resource のメタデータを外部から取得し付与する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of getting and adding metadata to Resource from public information as part of data curation.</rdfs:comment>
-    <rdfs:label>Ingest</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dateEnded">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#date"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="en">The start date of this Class.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">クラスの開始日</rdfs:comment>
-    <rdfs:label>dateEnded</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Integrate">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">キュレーションの一環として、メタデータを統合する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of integrating different forms of metadata as part of data curation.</rdfs:comment>
-    <rdfs:label>Integrate</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dateModified">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#date"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="en">The date on which the Resource was most recently modified.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">リソースの最終更新日</rdfs:comment>
-    <rdfs:label>dateModified</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Suggest">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">選択肢を提示する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of presenting or proposing options.</rdfs:comment>
-    <rdfs:label>Suggest</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#softwareRequirements">
-    <rdfs:subPropertyOf>
-      <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#description">
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Repository"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Grant"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en">A description of this Class.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">クラスの説明</rdfs:comment>
-        <rdfs:label>description</rdfs:label>
-      </owl:DatatypeProperty>
-    </rdfs:subPropertyOf>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">Component dependency requirements for this SoftwareApplication.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">アプリケーションコンポーネントの依存要件</rdfs:comment>
-    <rdfs:label>softwareRequirements</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#datePublished">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#date"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="en">The date on which this Resource was published.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">リソースの発行日・公開日</rdfs:comment>
-    <rdfs:label>datePublished</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Align">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Edit"/>
-    <rdfs:comment xml:lang="ja">Resource をフォーマットに合わせて編集する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of editting Resource to format.</rdfs:comment>
-    <rdfs:label>Align</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#operatingSystem">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#description"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">Operating systems supported by this SoftwareApplication.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">アプリケーションがサポートされているOS</rdfs:comment>
-    <rdfs:label>operatingSystem</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Journal">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="ja">ジャーナル</rdfs:comment>
-    <rdfs:comment xml:lang="en">A journal.</rdfs:comment>
-    <rdfs:label>Journal</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Comment">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Resource に対してコメントをする行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of generating a comment on Resource.</rdfs:comment>
-    <rdfs:label>Comment</rdfs:label>
+    <rdfs:comment xml:lang="ja">公開ボタンを押すなどして、Resoure を公開する行動(アクセス権の種類は問わない)</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of making Resource public, such as by pushing "publish" button on publishing service. (including Resource of any access rights)</rdfs:comment>
+    <rdfs:label>Publish</rdfs:label>
   </owl:Class>
   <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#describes">
     <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
@@ -220,102 +113,199 @@
     <rdfs:label>describes</rdfs:label>
     <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues</rdfs:seeAlso>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#agent">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Person"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-    <rdfs:comment xml:lang="en">The direct performer or driver of this Activity.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">行動・行為の直接的な実施者</rdfs:comment>
-    <rdfs:label>agent</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Schedule">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">未来に行われる Event を設定する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of scheduling future Event.</rdfs:comment>
-    <rdfs:label>Schedule</rdfs:label>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#affiliation">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Person"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-    <rdfs:comment xml:lang="en">An organization that this Person is affiliated with.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">人物の所属先機関</rdfs:comment>
-    <rdfs:label>affiliation</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#dataLicenseInformation">
-    <rdfs:subPropertyOf>
-      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#licenseInformation">
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#License"/>
-        <rdfs:comment xml:lang="en">Information on license of this Class.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">プロジェクトやリソースのライセンス情報</rdfs:comment>
-        <rdfs:label>licenseInformation</rdfs:label>
-      </owl:ObjectProperty>
-    </rdfs:subPropertyOf>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
-    <rdfs:comment xml:lang="en">The license of research data to be described in this DataManagementPlan.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">DMPにおけるデータのライセンス</rdfs:comment>
-    <rdfs:label>dataLicenseInformation</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#OtherResource">
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#ConferenceObject">
     <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="ja">その他のリソース</rdfs:comment>
-    <rdfs:comment xml:lang="en">An other Resource.</rdfs:comment>
-    <rdfs:label>OtherResource</rdfs:label>
+    <rdfs:comment xml:lang="ja">カンファレンスに関連するリソース</rdfs:comment>
+    <rdfs:comment xml:lang="en">A Resource related to conferences.</rdfs:comment>
+    <rdfs:label>ConferenceObject</rdfs:label>
   </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#additionalName">
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#name">
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Repository"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#License"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Institution"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Grant"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">A name of this Class.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">主語クラスの名称</rdfs:comment>
+        <rdfs:label>name</rdfs:label>
+      </owl:DatatypeProperty>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Person"/>
+    <rdfs:comment xml:lang="en">An additional name for this Person e.g. middle name.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">ミドルネームなど、その他の名前</rdfs:comment>
+    <rdfs:label>additionalName</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dateEnded">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#date"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="en">The start date of this Class.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">クラスの開始日</rdfs:comment>
+    <rdfs:label>dateEnded</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#identifierName">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#name"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Identifier"/>
+    <rdfs:comment xml:lang="en">A name of identifier scheme e.g. DOI.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">識別子のスキーマ名</rdfs:comment>
+    <rdfs:label>identifierName</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Record">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">機械的に何かしらの情報を Resource などに付与する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of mechanically adding some information to Resource etc.</rdfs:comment>
+    <rdfs:label>Record</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Develop">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">プログラミングで実装する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of developing a program.</rdfs:comment>
+    <rdfs:label>Develop</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Dump">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">ダンプによりログファイルを作成する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of creating a log file by dumping.</rdfs:comment>
+    <rdfs:label>Dump</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Select">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">選択肢の中から利用するものを選択する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of selecting from options.</rdfs:comment>
+    <rdfs:label>Select</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#readme">
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#description">
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Repository"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Grant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">A description of this Class.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">クラスの説明</rdfs:comment>
+        <rdfs:label>description</rdfs:label>
+      </owl:DatatypeProperty>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+    <rdfs:comment xml:lang="en">A text description as Read Me of this SoftwareApplication.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">README</rdfs:comment>
+    <rdfs:label>readme</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#copyright">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#License"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">A copytright notice.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">コピーライト表記</rdfs:comment>
+    <rdfs:label>copyright</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#items">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="en">A Resource included in this Collection/Project.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">コレクションやプロジェクトに含まれるリソース</rdfs:comment>
+    <rdfs:label>items</rdfs:label>
+  </owl:ObjectProperty>
   <owl:Class rdf:about="https://purl.org/rdm/ontology#ConferencePaper">
     <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
     <rdfs:comment xml:lang="ja">カンファレンスペーパー</rdfs:comment>
     <rdfs:comment xml:lang="en">A conference paper.</rdfs:comment>
     <rdfs:label>ConferencePaper</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#ConferenceProceeding">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="ja">カンファレンスプロシーディング</rdfs:comment>
-    <rdfs:comment xml:lang="en">A conference proceeding.</rdfs:comment>
-    <rdfs:label>ConferenceProceeding</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Dataset">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="ja">データセット</rdfs:comment>
-    <rdfs:comment xml:lang="en">A dataset.</rdfs:comment>
-    <rdfs:label>Dataset</rdfs:label>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#researcher">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#contributor"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#dataManager">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#contributor">
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Person"/>
+        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Institution"/>
+        <rdfs:comment xml:lang="en">A contributor to this Class.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">クラスへの寄与者</rdfs:comment>
+        <rdfs:label>contributor</rdfs:label>
+      </owl:ObjectProperty>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
     <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Person"/>
-    <rdfs:comment xml:lang="en">A researcher involved in this Project.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">プロジェクトに参加した研究者</rdfs:comment>
-    <rdfs:label>researcher</rdfs:label>
+    <rdfs:comment xml:lang="en">The data manager of research data to be described in this DataManagementPlan.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">DMPにおける研究データ管理者</rdfs:comment>
+    <rdfs:label>dataManager</rdfs:label>
   </owl:ObjectProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Add">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Resource にメタデータを付与する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of adding metadata to Resource.</rdfs:comment>
+    <rdfs:label>Add</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Execute">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Resource, SoftwareApplication, プログラムを実行する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of executing SoftwareApplication, Resource, program etc.</rdfs:comment>
+    <rdfs:label>Execute</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#specialRequirements">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#description"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">Other requirements for this SoftwareApplication.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">他のプロパティに当てはまらないアプリケーションに必要な条件</rdfs:comment>
+    <rdfs:label>specialRequirements</rdfs:label>
+  </owl:DatatypeProperty>
   <owl:Class rdf:about="https://purl.org/rdm/ontology#Audio">
     <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
     <rdfs:comment xml:lang="ja">音声</rdfs:comment>
     <rdfs:comment xml:lang="en">An audio file.</rdfs:comment>
     <rdfs:label>Audio</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Connect">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">サービスを別のサービスに接続する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of connecting service to another service.</rdfs:comment>
-    <rdfs:label>Connect</rdfs:label>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Preprint">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="ja">プレプリント</rdfs:comment>
+    <rdfs:comment xml:lang="en">A preprint.</rdfs:comment>
+    <rdfs:label>Preprint</rdfs:label>
   </owl:Class>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#organizer">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#contributor"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
-    <rdfs:comment xml:lang="en">An Event organizer or host.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">イベントの開催者、主催者</rdfs:comment>
-    <rdfs:label>organizer</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#identifierManager">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#contributor"/>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#url">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Repository"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#License"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Grant"/>
     <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Identifier"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-    <rdfs:comment xml:lang="en">A manager of identifier scheme/service, e.g. International DOI Foundation.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">国際DOI財団など、識別子の管理者</rdfs:comment>
-    <rdfs:label>identifierManager</rdfs:label>
-  </owl:ObjectProperty>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:comment xml:lang="en">A URL related to this Class.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">主語クラスに関連するURL</rdfs:comment>
+    <rdfs:label>url</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dataAccessRequirements">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#AccessRights"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">Conditions and method of access to the Resource under access restrictions.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">アクセス権が限定公開の場合のアクセス条件と方法</rdfs:comment>
+    <rdfs:label>dataAccessRequirements</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#processorRequirements">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#description"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">Processor architecture required to run this SoftwareApplication.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">アプリケーション実行に必要なプロセッサー要件</rdfs:comment>
+    <rdfs:label>processorRequirements</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Search">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">検索ボタンの押下など、Resoure を検索する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of searching Resource, such as by pushing "search" button.</rdfs:comment>
+    <rdfs:label>Search</rdfs:label>
+  </owl:Class>
   <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isPublishedIn">
     <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
     <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
@@ -327,37 +317,6 @@
     <rdfs:label>isPublishedIn</rdfs:label>
     <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ispreviousversionof</rdfs:seeAlso>
   </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#doi">
-    <rdfs:subPropertyOf>
-      <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#identifierValue">
-        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#value"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Identifier"/>
-        <rdfs:comment xml:lang="en">Identifier value.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">識別子の値</rdfs:comment>
-        <rdfs:label>identifierValue</rdfs:label>
-      </owl:DatatypeProperty>
-    </rdfs:subPropertyOf>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Repository"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-    <rdfs:comment xml:lang="en">DOI URL.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">DOI</rdfs:comment>
-    <rdfs:label>doi</rdfs:label>
-    <rdfs:seeAlso>https://www.doi.org/</rdfs:seeAlso>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Submit">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Resource や情報を提出・提供する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of submitting or providing Resource/information.</rdfs:comment>
-    <rdfs:label>Submit</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#measurementTechnique">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">A technique, method or technology used to create research data.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">研究データの収集・取得方法</rdfs:comment>
-    <rdfs:label>measurementTechnique</rdfs:label>
-  </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#japanGrantNumber">
     <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#identifierValue"/>
     <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Grant"/>
@@ -367,261 +326,13 @@
     <rdfs:label>japanGrantNumber</rdfs:label>
     <rdfs:seeAlso>https://www.nistep.go.jp/archives/53002</rdfs:seeAlso>
   </owl:DatatypeProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#object">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="en">An object of the Activity.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">行動の対象物</rdfs:comment>
-    <rdfs:label>object</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#dmp">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
-    <rdfs:comment xml:lang="en">Contents of data management plan of this Project/Resource.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">資源やプロジェクトに紐づくデータ管理計画</rdfs:comment>
-    <rdfs:label>dmp</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#processorRequirements">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#description"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">Processor architecture required to run this SoftwareApplication.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">アプリケーション実行に必要なプロセッサー要件</rdfs:comment>
-    <rdfs:label>processorRequirements</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dateAvailable">
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dateUpdated">
     <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#date"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#AccessRights"/>
-    <rdfs:comment xml:lang="en">Scheduled date of open access of the Resource under the rights of embargoed access.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">公開猶予の場合の公開予定日</rdfs:comment>
-    <rdfs:label>dateAvailable</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#localIdentifier">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#identifierValue"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="en">Local identifier.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">ローカル識別子</rdfs:comment>
-    <rdfs:label>localIdentifier</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#sha256">
-    <rdfs:subPropertyOf>
-      <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#hashValue">
-        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#value"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en">Hash value.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">ハッシュ値</rdfs:comment>
-        <rdfs:label>hashValue</rdfs:label>
-      </owl:DatatypeProperty>
-    </rdfs:subPropertyOf>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="en">sha256 hash value.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">sha256のハッシュ値</rdfs:comment>
-    <rdfs:label>sha256</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Thesis">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="ja">学位論文</rdfs:comment>
-    <rdfs:comment xml:lang="en">A thesis.</rdfs:comment>
-    <rdfs:label>Thesis</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dataAccessRequirements">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#AccessRights"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">Conditions and method of access to the Resource under access restrictions.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">アクセス権が限定公開の場合のアクセス条件と方法</rdfs:comment>
-    <rdfs:label>dataAccessRequirements</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Assign">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Person に役割を任命する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of assigning a role to Person.</rdfs:comment>
-    <rdfs:label>Assign</rdfs:label>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#funding">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Grant"/>
-    <rdfs:comment xml:lang="en">A grant program for this Project or research activities to create this Resource.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">研究資金プログラム</rdfs:comment>
-    <rdfs:label>funding</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#recipient">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Person"/>
-    <rdfs:comment xml:lang="en">The recipient of this Activity and the affected party of this Activity.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">行動を受け取る・行動の影響を受ける相手</rdfs:comment>
-    <rdfs:label>recipient</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Collect">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Resource を収集する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of collecting Resource.</rdfs:comment>
-    <rdfs:label>Collect</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dataDescription">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#description"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
-    <rdfs:comment xml:lang="en">The description of research data to be described in this DataManagementPlan.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">DMPにおけるデータの説明</rdfs:comment>
-    <rdfs:label>dataDescription</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#JournalArticle">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="ja">ジャーナル論文</rdfs:comment>
-    <rdfs:comment xml:lang="en">An article published in a journal.</rdfs:comment>
-    <rdfs:label>JournalArticle</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#location">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
     <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">The place where this Event is/will be held or this Resource was created.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">主語クラスの開催場所・取得場所</rdfs:comment>
-    <rdfs:label>location</rdfs:label>
+    <rdfs:comment xml:lang="en">The date on which this Event information was most recently updated.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">イベントの内容更新日</rdfs:comment>
+    <rdfs:label>dateUpdated</rdfs:label>
   </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Accept">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Resource や依頼を承認する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of approving Resource or request.</rdfs:comment>
-    <rdfs:label>Accept</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#collectionSize">
-    <rdfs:subPropertyOf>
-      <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#size">
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-        <rdfs:comment xml:lang="en">This Resource size.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">主語クラスの大きさ、サイズ</rdfs:comment>
-        <rdfs:label>size</rdfs:label>
-      </owl:DatatypeProperty>
-    </rdfs:subPropertyOf>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-    <rdfs:comment xml:lang="en">The number of items in this Collection.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">所定のパッケージに含まれるデータセットの総数</rdfs:comment>
-    <rdfs:label>collectionSize</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dateStarted">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#date"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="en">The end date of this Class.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">クラスの終了日</rdfs:comment>
-    <rdfs:label>dateStarted</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Select">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">選択肢の中から利用するものを選択する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of selecting from options.</rdfs:comment>
-    <rdfs:label>Select</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Update">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">変更を反映させるなど、Resource を更新する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of updating Resource, such as applying a change.</rdfs:comment>
-    <rdfs:label>Update</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#ror">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#identifierValue"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-    <rdfs:comment xml:lang="en">ROR ID.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">ROR ID</rdfs:comment>
-    <rdfs:label>ror</rdfs:label>
-    <rdfs:seeAlso>https://ror.org/</rdfs:seeAlso>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#specialRequirements">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#description"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">Other requirements for this SoftwareApplication.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">他のプロパティに当てはまらないアプリケーションに必要な条件</rdfs:comment>
-    <rdfs:label>specialRequirements</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Create">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Project, Resource, Collection などを作成する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of creating/producing/generating Resource, Project, Collection etc.</rdfs:comment>
-    <rdfs:label>Create</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#copyright">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#License"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">A copytright notice.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">コピーライト表記</rdfs:comment>
-    <rdfs:label>copyright</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#isbn">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#identifierValue"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Book"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">ISBN code.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">ISBNコード</rdfs:comment>
-    <rdfs:label>isbn</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#contact">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">Contacts for data management organizations and managers to be described in this DataManagementPlan.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">DMPにおけるデータ管理機関・管理者への連絡先</rdfs:comment>
-    <rdfs:label>contact</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#dataCreater">
-    <rdfs:subPropertyOf>
-      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#creator">
-        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#contributor"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Person"/>
-        <rdfs:comment xml:lang="en">The creator/author of this Resource. </rdfs:comment>
-        <rdfs:comment xml:lang="ja">リソースの作成者</rdfs:comment>
-        <rdfs:label>creator</rdfs:label>
-      </owl:ObjectProperty>
-    </rdfs:subPropertyOf>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Person"/>
-    <rdfs:comment xml:lang="en">The creator of research data to be described in this DataManagementPlan.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">DMPにおける研究データの作成者</rdfs:comment>
-    <rdfs:label>dataCreater</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Workflow">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="ja">ワークフロー</rdfs:comment>
-    <rdfs:comment xml:lang="en">A workflow.</rdfs:comment>
-    <rdfs:label>Workflow</rdfs:label>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#thumbnail">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Image"/>
-    <rdfs:comment xml:lang="en">A thumbnail of this Resource.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">サムネイル</rdfs:comment>
-    <rdfs:label>thumbnail</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#ConferenceObject">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="ja">カンファレンスに関連するリソース</rdfs:comment>
-    <rdfs:comment xml:lang="en">A Resource related to conferences.</rdfs:comment>
-    <rdfs:label>ConferenceObject</rdfs:label>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#dmpFormatProvider">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-    <rdfs:comment xml:lang="en">A institution which provides this DataManagementPlan format.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">DMP種別の提供者</rdfs:comment>
-    <rdfs:label>dmpFormatProvider</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isIdenticalTo">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="en">A Resource which is identical to this Resource.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">主語クラスと同一である Resource</rdfs:comment>
-    <rdfs:label>isIdenticalTo</rdfs:label>
-    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isidenticalto</rdfs:seeAlso>
-  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#funder">
     <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
     <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
@@ -631,163 +342,17 @@
     <rdfs:comment xml:lang="ja">研究資金プログラム提供者</rdfs:comment>
     <rdfs:label>funder</rdfs:label>
   </owl:ObjectProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Deploy">
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Create">
     <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Resource, SoftwareApplicationをデプロイする行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of deploying SoftwareApplication or Resource.</rdfs:comment>
-    <rdfs:label>Deploy</rdfs:label>
+    <rdfs:comment xml:lang="ja">Project, Resource, Collection などを作成する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of creating/producing/generating Resource, Project, Collection etc.</rdfs:comment>
+    <rdfs:label>Create</rdfs:label>
   </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#detailedRole">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Person"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">A detailed role of this Person.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">詳細な役割</rdfs:comment>
-    <rdfs:label>detailedRole</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#email">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Person"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">Email address.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">メールアドレス</rdfs:comment>
-    <rdfs:label>email</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Rename">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Resource の名称を変更する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of renaming Resource.</rdfs:comment>
-    <rdfs:label>Rename</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Standard">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="ja">標準</rdfs:comment>
-    <rdfs:comment xml:lang="en">A standard.</rdfs:comment>
-    <rdfs:label>Standard</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#field">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-    <rdfs:comment xml:lang="en">A research field of this Project/Resource.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">プロジェクト・リソースの主題</rdfs:comment>
-    <rdfs:label>field</rdfs:label>
-    <rdfs:range>
-      <owl:DataRange rdf:nodeID="Nc32c3caee442464898b6fb6497118c55">
-        <owl:oneOf rdf:parseType="Collection">
-          <rdf:Description rdf:about="ライフサイエンス"/>
-          <rdf:Description rdf:about="情報通信"/>
-          <rdf:Description rdf:about="環境"/>
-          <rdf:Description rdf:about="ナノテク・材料"/>
-          <rdf:Description rdf:about="エネルギー"/>
-          <rdf:Description rdf:about="ものづくり技術"/>
-          <rdf:Description rdf:about="社会基盤"/>
-          <rdf:Description rdf:about="フロンティア"/>
-          <rdf:Description rdf:about="人文・社会"/>
-          <rdf:Description rdf:about="その他"/>
-        </owl:oneOf>
-      </owl:DataRange>
-    </rdfs:range>
-  </owl:DatatypeProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#result">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="en">The result produced in this Activity.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">アクションによって生成された新しいリソース</rdfs:comment>
-    <rdfs:label>result</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#language">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#language"/>
-    <rdfs:comment xml:lang="en">The language of this Resource.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">言語</rdfs:comment>
-    <rdfs:label>language</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#purpose">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">Context of this Event implementation e.g. reasons and backgrounds for implementation.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">実施に至った理由や背景など、イベント実施のコンテクスト</rdfs:comment>
-    <rdfs:label>purpose</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#funderId">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#identifierValue"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#FundingAgency"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">Funder ID.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">助成機関識別子</rdfs:comment>
-    <rdfs:label>funderId</rdfs:label>
-    <rdfs:seeAlso>https://www.crossref.org/services/funder-registry/</rdfs:seeAlso>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Visualize">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">グラフを生成するなど、データを元に可視化する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of creating a visualization based on data, such as making a graph.</rdfs:comment>
-    <rdfs:label>Visualize</rdfs:label>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#dataManager">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#contributor"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Person"/>
-    <rdfs:comment xml:lang="en">The data manager of research data to be described in this DataManagementPlan.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">DMPにおける研究データ管理者</rdfs:comment>
-    <rdfs:label>dataManager</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#target">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="en">The indirect object, or target, of this Activity.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">アクションの間接的な対象物</rdfs:comment>
-    <rdfs:label>target</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#approximateSize">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#size"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">Approximate size of research data to be described in this DataManagementPlan.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">DMPにおける概略データ量</rdfs:comment>
-    <rdfs:label>approximateSize</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Register">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Repository, SoftwareApplication もしくはその他サービスに、 Resource を登録する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of registering Resource to Repository, SoftwareApplication or other service.</rdfs:comment>
-    <rdfs:label>Register</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#additionalName">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#name"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Person"/>
-    <rdfs:comment xml:lang="en">An additional name for this Person e.g. middle name.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">ミドルネームなど、その他の名前</rdfs:comment>
-    <rdfs:label>additionalName</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Cleanse">
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Align">
     <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Edit"/>
-    <rdfs:comment xml:lang="ja">Resource をデータクレンジングする行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of performing data cleansing of Resource.</rdfs:comment>
-    <rdfs:label>Cleanse</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#familyName">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#name"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Person"/>
-    <rdfs:comment xml:lang="en">Family name.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">名字</rdfs:comment>
-    <rdfs:label>familyName</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Authorize">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">権利や許可を与える行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of granting permission or right to an object.</rdfs:comment>
-    <rdfs:label>Authorize</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Evaluate">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">ピアレビューなど、Resource を評価する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of evaluating Resource, such as peer-review.</rdfs:comment>
-    <rdfs:label>Evaluate</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Check">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">チェックボックスに印をつけるなど、規定の項目に関して確認する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of checking the regulation for Resource, such as using checkboxes.</rdfs:comment>
-    <rdfs:label>Check</rdfs:label>
+    <rdfs:comment xml:lang="ja">Resource をフォーマットに合わせて編集する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of editting Resource to format.</rdfs:comment>
+    <rdfs:label>Align</rdfs:label>
   </owl:Class>
   <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#dataAccessRightsInformation">
     <rdfs:subPropertyOf>
@@ -804,41 +369,19 @@
     <rdfs:comment xml:lang="ja">DMPにおけるデータへのアクセス権</rdfs:comment>
     <rdfs:label>dataAccessRightsInformation</rdfs:label>
   </owl:ObjectProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Archive">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Preserve"/>
-    <rdfs:comment xml:lang="ja">Resource をアーカイブする行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of archiving Resource.</rdfs:comment>
-    <rdfs:label>Archive</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#orcid">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#identifierValue"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Person"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-    <rdfs:comment xml:lang="en">ORCID iD.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">ORCID iD</rdfs:comment>
-    <rdfs:label>orcid</rdfs:label>
-    <rdfs:seeAlso>https://orcid.org/</rdfs:seeAlso>
-  </owl:DatatypeProperty>
   <owl:Class rdf:about="https://purl.org/rdm/ontology#Anonymize">
     <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Edit"/>
     <rdfs:comment xml:lang="ja">Resource を匿名化する行動</rdfs:comment>
     <rdfs:comment xml:lang="en">An act of making Resource anonymous.</rdfs:comment>
     <rdfs:label>Anonymize</rdfs:label>
   </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#identifierName">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#name"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Identifier"/>
-    <rdfs:comment xml:lang="en">A name of identifier scheme e.g. DOI.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">識別子のスキーマ名</rdfs:comment>
-    <rdfs:label>identifierName</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dateUpdated">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#date"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
-    <rdfs:comment xml:lang="en">The date on which this Event information was most recently updated.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">イベントの内容更新日</rdfs:comment>
-    <rdfs:label>dateUpdated</rdfs:label>
-  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#dmpFormatProvider">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Institution"/>
+    <rdfs:comment xml:lang="en">A institution which provides this DataManagementPlan format.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">DMP種別の提供者</rdfs:comment>
+    <rdfs:label>dmpFormatProvider</rdfs:label>
+  </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#raid">
     <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#identifierValue"/>
     <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
@@ -848,31 +391,411 @@
     <rdfs:label>raid</rdfs:label>
     <rdfs:seeAlso>https://raid.org/</rdfs:seeAlso>
   </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Convert">
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Reorganize">
     <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Resource を新たな Resource に変換する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of converting Resource into a new Resource.</rdfs:comment>
-    <rdfs:label>Convert</rdfs:label>
+    <rdfs:comment xml:lang="ja">Dataset のフォルダ構成を変更する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of changing folder structure of Dataset.</rdfs:comment>
+    <rdfs:label>Reorganize</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Add">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Resource にメタデータを付与する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of adding metadata to Resource.</rdfs:comment>
-    <rdfs:label>Add</rdfs:label>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Report">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="ja">レポート、報告書</rdfs:comment>
+    <rdfs:comment xml:lang="en">A report.</rdfs:comment>
+    <rdfs:label>Report</rdfs:label>
   </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#readme">
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#ConferenceProceeding">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="ja">カンファレンスプロシーディング</rdfs:comment>
+    <rdfs:comment xml:lang="en">A conference proceeding.</rdfs:comment>
+    <rdfs:label>ConferenceProceeding</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dmpFormat">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">A name of DataManagementPlan format.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">DMP種別名</rdfs:comment>
+    <rdfs:label>dmpFormat</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:NamedIndividual rdf:about="https://purl.org/rdm/ontology#MetadataOnlyAccess">
+    <rdf:type rdf:resource="https://purl.org/rdm/ontology#ConditionOfAccessEnumeration"/>
+    <rdfs:label>MetadataOnlyAccess</rdfs:label>
+    <rdfs:comment xml:lang="ja">メタデータのみ公開</rdfs:comment>
+    <rdfs:comment xml:lang="en">Metadata only access.</rdfs:comment>
+    <owl:sameAs>http://purl.org/coar/access_right/c_14cb</owl:sameAs>
+  </owl:NamedIndividual>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#location">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">The place where this Event is/will be held or this Resource was created.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">主語クラスの開催場所・取得場所</rdfs:comment>
+    <rdfs:label>location</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#hostingInstitution">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#contributor"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Institution"/>
+    <rdfs:comment xml:lang="en">The hosting institution of Resource and research data to be described in this DataManagementPlan.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">Resource の管理機関、もしくはDMPにおける研究データ管理機関</rdfs:comment>
+    <rdfs:label>hostingInstitution</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#familyName">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#name"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Person"/>
+    <rdfs:comment xml:lang="en">Family name.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">名字</rdfs:comment>
+    <rdfs:label>familyName</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#eradResearcherNumber">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#identifierValue"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">e-rad researcher number.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">e-rad 研究者番号</rdfs:comment>
+    <rdfs:label>eradResearcherNumber</rdfs:label>
+    <rdfs:seeAlso>https://www.e-rad.go.jp/</rdfs:seeAlso>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#result">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="en">The result produced in this Activity.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">アクションによって生成された新しいリソース</rdfs:comment>
+    <rdfs:label>result</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#storageRequirements">
     <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#description"/>
     <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-    <rdfs:comment xml:lang="en">A text description as Read Me of this SoftwareApplication.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">README</rdfs:comment>
-    <rdfs:label>readme</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">Storage requirements.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">ストレージの要件</rdfs:comment>
+    <rdfs:label>storageRequirements</rdfs:label>
   </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Dump">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">ダンプによりログファイルを作成する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of creating a log file by dumping.</rdfs:comment>
-    <rdfs:label>Dump</rdfs:label>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#localIdentifier">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#identifierValue"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="en">Local identifier.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">ローカル識別子</rdfs:comment>
+    <rdfs:label>localIdentifier</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Restructure">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Edit"/>
+    <rdfs:comment xml:lang="ja">表データをソートするなど、キュレーションの一環として Resource を再構成する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of re-structuring Resource as part of data curation, such as sorting a table.</rdfs:comment>
+    <rdfs:label>Restructure</rdfs:label>
   </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dateStarted">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#date"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="en">The end date of this Class.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">クラスの終了日</rdfs:comment>
+    <rdfs:label>dateStarted</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Check">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">チェックボックスに印をつけるなど、規定の項目に関して確認する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of checking the regulation for Resource, such as using checkboxes.</rdfs:comment>
+    <rdfs:label>Check</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dateCreated">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#date"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="en">The date on which this Resource was created.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">リソースの作成日</rdfs:comment>
+    <rdfs:label>dateCreated</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Integrate">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">キュレーションの一環として、メタデータを統合する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of integrating different forms of metadata as part of data curation.</rdfs:comment>
+    <rdfs:label>Integrate</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Upload">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Resource を SoftwareApplicationやRepository 等にアップロードする行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of uploading Resource to Repository, SoftwareApplication etc.</rdfs:comment>
+    <rdfs:label>Upload</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#datePublished">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#date"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="en">The date on which this Resource was published.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">リソースの発行日・公開日</rdfs:comment>
+    <rdfs:label>datePublished</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Ask">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Person やチャットボットなどに質問をする行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of asking questions to Person, chatbot etc.</rdfs:comment>
+    <rdfs:label>Ask</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Semantize">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">キュレーションの一環として、メタデータを意味付けする行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of semanticizing metadata as part of data curation.</rdfs:comment>
+    <rdfs:label>Semantize</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#conditionOfAccess">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#AccessRights"/>
+    <rdfs:comment xml:lang="en">Access rights type.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">アクセス権の種別</rdfs:comment>
+    <rdfs:label>conditionOfAccess</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#OtherResource">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="ja">その他のリソース</rdfs:comment>
+    <rdfs:comment xml:lang="en">An other Resource.</rdfs:comment>
+    <rdfs:label>OtherResource</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#dataLicenseInformation">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#licenseInformation">
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#License"/>
+        <rdfs:comment xml:lang="en">Information on license of this Class.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">プロジェクトやリソースのライセンス情報</rdfs:comment>
+        <rdfs:label>licenseInformation</rdfs:label>
+      </owl:ObjectProperty>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
+    <rdfs:comment xml:lang="en">The license of research data to be described in this DataManagementPlan.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">DMPにおけるデータのライセンス</rdfs:comment>
+    <rdfs:label>dataLicenseInformation</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#object">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="en">An object of the Activity.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">行動の対象物</rdfs:comment>
+    <rdfs:label>object</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Send">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Resource を送る行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of dispatching Resource.</rdfs:comment>
+    <rdfs:label>Send</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#doi">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#identifierValue"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Repository"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:comment xml:lang="en">DOI URL.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">DOI</rdfs:comment>
+    <rdfs:label>doi</rdfs:label>
+    <rdfs:seeAlso>https://www.doi.org/</rdfs:seeAlso>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#funding">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Grant"/>
+    <rdfs:comment xml:lang="en">A grant program for this Project or research activities to create this Resource.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">研究資金プログラム</rdfs:comment>
+    <rdfs:label>funding</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#instrument">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+    <rdfs:comment xml:lang="en">The object that helped the agent perform the Activity.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">行動を補助した道具、ツール</rdfs:comment>
+    <rdfs:label>instrument</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#softwareRequirements">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#description"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">Component dependency requirements for this SoftwareApplication.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">アプリケーションコンポーネントの依存要件</rdfs:comment>
+    <rdfs:label>softwareRequirements</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Assign">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Person に役割を任命する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of assigning a role to Person.</rdfs:comment>
+    <rdfs:label>Assign</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#JournalArticle">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="ja">ジャーナル論文</rdfs:comment>
+    <rdfs:comment xml:lang="en">An article published in a journal.</rdfs:comment>
+    <rdfs:label>JournalArticle</rdfs:label>
+  </owl:Class>
+  <owl:NamedIndividual rdf:about="https://purl.org/rdm/ontology#EmbargoedAccess">
+    <rdf:type rdf:resource="https://purl.org/rdm/ontology#ConditionOfAccessEnumeration"/>
+    <rdfs:label>EmbargoedAccess</rdfs:label>
+    <rdfs:comment xml:lang="ja">公開期間猶予</rdfs:comment>
+    <rdfs:comment xml:lang="en">Embargoed access (metadata only access until released for open access on a certain date).</rdfs:comment>
+    <owl:sameAs>http://purl.org/coar/access_right/c_f1cf</owl:sameAs>
+  </owl:NamedIndividual>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Visualize">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">グラフを生成するなど、データを元に可視化する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of creating a visualization based on data, such as making a graph.</rdfs:comment>
+    <rdfs:label>Visualize</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#sha256">
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#hashValue">
+        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#value"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Hash value.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">ハッシュ値</rdfs:comment>
+        <rdfs:label>hashValue</rdfs:label>
+      </owl:DatatypeProperty>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="en">sha256 hash value.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">sha256のハッシュ値</rdfs:comment>
+    <rdfs:label>sha256</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#orcid">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#identifierValue"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:comment xml:lang="en">ORCID iD.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">ORCID iD</rdfs:comment>
+    <rdfs:label>orcid</rdfs:label>
+    <rdfs:seeAlso>https://orcid.org/</rdfs:seeAlso>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#recipient">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Person"/>
+    <rdfs:comment xml:lang="en">The recipient of this Activity and the affected party of this Activity.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">行動を受け取る・行動の影響を受ける相手</rdfs:comment>
+    <rdfs:label>recipient</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#email">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">Email address.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">メールアドレス</rdfs:comment>
+    <rdfs:label>email</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#language">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#language"/>
+    <rdfs:comment xml:lang="en">The language of this Resource.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">言語</rdfs:comment>
+    <rdfs:label>language</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#givenName">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#name"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Person"/>
+    <rdfs:comment xml:lang="en">Given name.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">ファーストネーム</rdfs:comment>
+    <rdfs:label>givenName</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#isbn">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#identifierValue"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Book"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">ISBN code.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">ISBNコード</rdfs:comment>
+    <rdfs:label>isbn</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Ingest">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">キュレーションの一環として、Resource のメタデータを外部から取得し付与する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of getting and adding metadata to Resource from public information as part of data curation.</rdfs:comment>
+    <rdfs:label>Ingest</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Accept">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Resource や依頼を承認する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of approving Resource or request.</rdfs:comment>
+    <rdfs:label>Accept</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#keywords">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">Keywords used to describe this Resource.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">キーワード</rdfs:comment>
+    <rdfs:label>keywords</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#measurementTechnique">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">A technique, method or technology used to create research data.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">研究データの収集・取得方法</rdfs:comment>
+    <rdfs:label>measurementTechnique</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#agent">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Person"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Institution"/>
+    <rdfs:comment xml:lang="en">The direct performer or driver of this Activity.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">行動・行為の直接的な実施者</rdfs:comment>
+    <rdfs:label>agent</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Survey">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Resource など、何かしらについて調査する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of making a survay of Resource or something.</rdfs:comment>
+    <rdfs:label>Survey</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dataNumber">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:comment xml:lang="en">The data number assigned to this DataManagementPlan.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">DMPにおけるデータNo.</rdfs:comment>
+    <rdfs:label>dataNumber</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#operatingSystem">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#description"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">Operating systems supported by this SoftwareApplication.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">アプリケーションがサポートされているOS</rdfs:comment>
+    <rdfs:label>operatingSystem</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#funderId">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#identifierValue"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#FundingAgency"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">Funder ID.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">助成機関識別子</rdfs:comment>
+    <rdfs:label>funderId</rdfs:label>
+    <rdfs:seeAlso>https://www.crossref.org/services/funder-registry/</rdfs:seeAlso>
+  </owl:DatatypeProperty>
+  <owl:Ontology rdf:about="https://purl.org/rdm/ontology#">
+    <rdfs:comment xml:lang="en">The Research Data Management Ontology (RDM) is developed to describe research data and all activities related to its management. RDM was developed as a communication hub between the NII Research Data Cloud (NII-RDC) systems, but is being developed as an ontology that can be applied to any research data management platform.</rdfs:comment>
+    <rdfs:comment xml:lang="jp">研究データ管理オントロジー (RDM) は、研究データとその管理に関わるすべての活動を記述することを目的として設計されました。RDM は NII 研究データクラウド (NII-RDC) の基盤間でのコミュニケーションハブとして開発されましたが、あらゆる研究データ管理プラットフォームに応用できるオントロジーとしても開発</rdfs:comment>
+    <owl:versionInfo>1.0</owl:versionInfo>
+  </owl:Ontology>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#EducationalResource">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="ja">教育関連資料</rdfs:comment>
+    <rdfs:comment xml:lang="en">A Resource related to educational, such as slides for lecture.</rdfs:comment>
+    <rdfs:label>EducationalResource</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#field">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+    <rdfs:comment xml:lang="en">A research field of this Project/Resource.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">プロジェクト・リソースの主題</rdfs:comment>
+    <rdfs:label>field</rdfs:label>
+    <rdfs:range>
+      <owl:DataRange rdf:nodeID="Nd950257d3a334750818b46f6e06396ba">
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="ライフサイエンス"/>
+          <rdf:Description rdf:about="情報通信"/>
+          <rdf:Description rdf:about="環境"/>
+          <rdf:Description rdf:about="ナノテク・材料"/>
+          <rdf:Description rdf:about="エネルギー"/>
+          <rdf:Description rdf:about="ものづくり技術"/>
+          <rdf:Description rdf:about="社会基盤"/>
+          <rdf:Description rdf:about="フロンティア"/>
+          <rdf:Description rdf:about="人文・社会"/>
+          <rdf:Description rdf:about="その他"/>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
   <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#dataIdentifier">
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#identifierInformation">
@@ -895,134 +818,163 @@
     <rdfs:comment xml:lang="ja">DMPにおけるデータ識別子</rdfs:comment>
     <rdfs:label>dataIdentifier</rdfs:label>
   </owl:ObjectProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Upload">
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Deploy">
     <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Resource を SoftwareApplicationやRepository 等にアップロードする行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of uploading Resource to Repository, SoftwareApplication etc.</rdfs:comment>
-    <rdfs:label>Upload</rdfs:label>
+    <rdfs:comment xml:lang="ja">Resource, SoftwareApplicationをデプロイする行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of deploying SoftwareApplication or Resource.</rdfs:comment>
+    <rdfs:label>Deploy</rdfs:label>
   </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#keywords">
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#approximateSize">
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#size">
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment xml:lang="en">This Resource size.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">主語クラスの大きさ、サイズ</rdfs:comment>
+        <rdfs:label>size</rdfs:label>
+      </owl:DatatypeProperty>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">Approximate size of research data to be described in this DataManagementPlan.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">DMPにおける概略データ量</rdfs:comment>
+    <rdfs:label>approximateSize</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#dataCreater">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#creator">
+        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#contributor"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Person"/>
+        <rdfs:comment xml:lang="en">The creator/author of this Resource. </rdfs:comment>
+        <rdfs:comment xml:lang="ja">リソースの作成者</rdfs:comment>
+        <rdfs:label>creator</rdfs:label>
+      </owl:ObjectProperty>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Person"/>
+    <rdfs:comment xml:lang="en">The creator of research data to be described in this DataManagementPlan.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">DMPにおける研究データの作成者</rdfs:comment>
+    <rdfs:label>dataCreater</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#purpose">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">Context of this Event implementation e.g. reasons and backgrounds for implementation.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">実施に至った理由や背景など、イベント実施のコンテクスト</rdfs:comment>
+    <rdfs:label>purpose</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Standard">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="ja">標準</rdfs:comment>
+    <rdfs:comment xml:lang="en">A standard.</rdfs:comment>
+    <rdfs:label>Standard</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#researcher">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#contributor"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Person"/>
+    <rdfs:comment xml:lang="en">A researcher involved in this Project.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">プロジェクトに参加した研究者</rdfs:comment>
+    <rdfs:label>researcher</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Get">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Resource または情報などを取得する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of getting/obtaining Resource, information etc.</rdfs:comment>
+    <rdfs:label>Get</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dataDescription">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#description"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
+    <rdfs:comment xml:lang="en">The description of research data to be described in this DataManagementPlan.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">DMPにおけるデータの説明</rdfs:comment>
+    <rdfs:label>dataDescription</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#identifierManager">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#contributor"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Identifier"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Institution"/>
+    <rdfs:comment xml:lang="en">A manager of identifier scheme/service, e.g. International DOI Foundation.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">国際DOI財団など、識別子の管理者</rdfs:comment>
+    <rdfs:label>identifierManager</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#detailedType">
     <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">Keywords used to describe this Resource.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">キーワード</rdfs:comment>
-    <rdfs:label>keywords</rdfs:label>
+    <rdfs:comment xml:lang="en">A detailed type of this Resource. </rdfs:comment>
+    <rdfs:comment xml:lang="ja">詳細な資源タイプ</rdfs:comment>
+    <rdfs:label>detailedType</rdfs:label>
   </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Search">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">検索ボタンの押下など、Resoure を検索する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of searching Resource, such as by pushing "search" button.</rdfs:comment>
-    <rdfs:label>Search</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Download">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Resource をダウンロードする行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of downloading Resource.</rdfs:comment>
-    <rdfs:label>Download</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#address">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">Address of this Institution.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">研究機関の住所</rdfs:comment>
-    <rdfs:label>address</rdfs:label>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dateAvailable">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#date"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#AccessRights"/>
+    <rdfs:comment xml:lang="en">Scheduled date of open access of the Resource under the rights of embargoed access.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">公開猶予の場合の公開予定日</rdfs:comment>
+    <rdfs:label>dateAvailable</rdfs:label>
   </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Record">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">機械的に何かしらの情報を Resource などに付与する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of mechanically adding some information to Resource etc.</rdfs:comment>
-    <rdfs:label>Record</rdfs:label>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#collectionSize">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#size"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:comment xml:lang="en">The number of items in this Collection.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">所定のパッケージに含まれるデータセットの総数</rdfs:comment>
+    <rdfs:label>collectionSize</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Thesis">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="ja">学位論文</rdfs:comment>
+    <rdfs:comment xml:lang="en">A thesis.</rdfs:comment>
+    <rdfs:label>Thesis</rdfs:label>
   </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#eradResearcherNumber">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#identifierValue"/>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#detailedRole">
     <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Person"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">e-rad researcher number.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">e-rad 研究者番号</rdfs:comment>
-    <rdfs:label>eradResearcherNumber</rdfs:label>
-    <rdfs:seeAlso>https://www.e-rad.go.jp/</rdfs:seeAlso>
+    <rdfs:comment xml:lang="en">A detailed role of this Person.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">詳細な役割</rdfs:comment>
+    <rdfs:label>detailedRole</rdfs:label>
   </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Report">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="ja">レポート、報告書</rdfs:comment>
-    <rdfs:comment xml:lang="en">A report.</rdfs:comment>
-    <rdfs:label>Report</rdfs:label>
-  </owl:Class>
-  <owl:Ontology rdf:about="https://purl.org/rdm/ontology#">
-    <rdfs:comment xml:lang="en">The Research Data Management Ontology (RDM) is developed to describe research data and all activities related to its management. RDM was developed as a communication hub between the NII Research Data Cloud (NII-RDC) systems, but is being developed as an ontology that can be applied to any research data management platform.</rdfs:comment>
-    <rdfs:comment xml:lang="jp">研究データ管理オントロジー (RDM) は、研究データとその管理に関わるすべての活動を記述することを目的として設計されました。RDM は NII 研究データクラウド (NII-RDC) の基盤間でのコミュニケーションハブとして開発されましたが、あらゆる研究データ管理プラットフォームに応用できるオントロジーとしても開発</rdfs:comment>
-    <owl:versionInfo>1.0</owl:versionInfo>
-  </owl:Ontology>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Execute">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Resource, SoftwareApplication, プログラムを実行する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of executing SoftwareApplication, Resource, program etc.</rdfs:comment>
-    <rdfs:label>Execute</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#sdDatePublished">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#date"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="en">The acquisition date of this Resource.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">外部ファイルの取得日</rdfs:comment>
-    <rdfs:label>sdDatePublished</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Develop">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">プログラミングで実装する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of developing a program.</rdfs:comment>
-    <rdfs:label>Develop</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Semantize">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">キュレーションの一環として、メタデータを意味付けする行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of semanticizing metadata as part of data curation.</rdfs:comment>
-    <rdfs:label>Semantize</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Reorganize">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Dataset のフォルダ構成を変更する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of changing folder structure of Dataset.</rdfs:comment>
-    <rdfs:label>Reorganize</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Request">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Person, Institution に何らかのタスクを依頼する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of asking People/Institution to do something.</rdfs:comment>
-    <rdfs:label>Request</rdfs:label>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#items">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="en">A Resource included in this Collection.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">コレクションに含まれるリソース</rdfs:comment>
-    <rdfs:label>items</rdfs:label>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#affiliation">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Person"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Institution"/>
+    <rdfs:comment xml:lang="en">An organization that this Person is affiliated with.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">人物の所属先機関</rdfs:comment>
+    <rdfs:label>affiliation</rdfs:label>
   </owl:ObjectProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Video">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="ja">動画</rdfs:comment>
-    <rdfs:comment xml:lang="en">A video file.</rdfs:comment>
-    <rdfs:label>Video</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Inform">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Person, Institution に対して通知する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of notifying Person/Institution of information.</rdfs:comment>
-    <rdfs:label>Inform</rdfs:label>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#conditionOfAccess">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#AccessRights"/>
-    <rdfs:comment xml:lang="en">Access rights type.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">アクセス権の種別</rdfs:comment>
-    <rdfs:label>conditionOfAccess</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#storageRequirements">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#description"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#contact">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">Storage requirements.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">ストレージの要件</rdfs:comment>
-    <rdfs:label>storageRequirements</rdfs:label>
+    <rdfs:comment xml:lang="en">Contacts for data management organizations and managers to be described in this DataManagementPlan.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">DMPにおけるデータ管理機関・管理者への連絡先</rdfs:comment>
+    <rdfs:label>contact</rdfs:label>
   </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Journal">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="ja">ジャーナル</rdfs:comment>
+    <rdfs:comment xml:lang="en">A journal.</rdfs:comment>
+    <rdfs:label>Journal</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Update">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">変更を反映させるなど、Resource を更新する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of updating Resource, such as applying a change.</rdfs:comment>
+    <rdfs:label>Update</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Dataset">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="ja">データセット</rdfs:comment>
+    <rdfs:comment xml:lang="en">A dataset.</rdfs:comment>
+    <rdfs:label>Dataset</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#target">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="en">The indirect object, or target, of this Activity.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">アクションの間接的な対象物</rdfs:comment>
+    <rdfs:label>target</rdfs:label>
+  </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dataEncodingFormat">
     <rdfs:subPropertyOf>
       <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#encodingFormat">
@@ -1039,67 +991,63 @@
     <rdfs:comment xml:lang="ja">DMPで記述した研究データのフォーマット</rdfs:comment>
     <rdfs:label>dataEncodingFormat</rdfs:label>
   </owl:DatatypeProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#instrument">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-    <rdfs:comment xml:lang="en">The object that helped the agent perform the Activity.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">行動を補助した道具、ツール</rdfs:comment>
-    <rdfs:label>instrument</rdfs:label>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#dmp">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
+    <rdfs:comment xml:lang="en">Contents of data management plan of this Project/Resource.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">資源やプロジェクトに紐づくデータ管理計画</rdfs:comment>
+    <rdfs:label>dmp</rdfs:label>
   </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dataNumber">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-    <rdfs:comment xml:lang="en">The data number assigned to this DataManagementPlan.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">DMPにおけるデータNo.</rdfs:comment>
-    <rdfs:label>dataNumber</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:NamedIndividual rdf:about="https://purl.org/rdm/ontology#OpenAccess">
-    <rdf:type rdf:resource="https://purl.org/rdm/ontology#ConditionOfAccessEnumeration"/>
-    <rdfs:label>OpenAccess</rdfs:label>
-    <rdfs:comment xml:lang="ja">オープンアクセス</rdfs:comment>
-  </owl:NamedIndividual>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Publish">
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Submit">
     <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">公開ボタンを押すなどして、Resoure を公開する行動(アクセス権の種類は問わない)</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of making Resource public, such as by pushing "publish" button on publishing service. (including Resource of any access rights)</rdfs:comment>
-    <rdfs:label>Publish</rdfs:label>
+    <rdfs:comment xml:lang="ja">Resource や情報を提出・提供する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of submitting or providing Resource/information.</rdfs:comment>
+    <rdfs:label>Submit</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Restructure">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Edit"/>
-    <rdfs:comment xml:lang="ja">表データをソートするなど、キュレーションの一環として Resource を再構成する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of re-structuring Resource as part of data curation, such as sorting a table.</rdfs:comment>
-    <rdfs:label>Restructure</rdfs:label>
-  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#organizer">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#contributor"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
+    <rdfs:comment xml:lang="en">An Event organizer or host.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">イベントの開催者、主催者</rdfs:comment>
+    <rdfs:label>organizer</rdfs:label>
+  </owl:ObjectProperty>
   <owl:Class rdf:about="https://purl.org/rdm/ontology#Reject">
     <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
     <rdfs:comment xml:lang="ja">提出された Resource や提案、割り当てられた役割などを取り下げる行動</rdfs:comment>
     <rdfs:comment xml:lang="en">An act of rejecting proposal/assigned role/submitted Resource etc.</rdfs:comment>
     <rdfs:label>Reject</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Preprint">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="ja">プレプリント</rdfs:comment>
-    <rdfs:comment xml:lang="en">A preprint.</rdfs:comment>
-    <rdfs:label>Preprint</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Survey">
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Rename">
     <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Resource など、何かしらについて調査する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of making a survay of Resource or something.</rdfs:comment>
-    <rdfs:label>Survey</rdfs:label>
+    <rdfs:comment xml:lang="ja">Resource の名称を変更する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of renaming Resource.</rdfs:comment>
+    <rdfs:label>Rename</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#EducationalResource">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="ja">教育関連資料</rdfs:comment>
-    <rdfs:comment xml:lang="en">A Resource related to educational, such as slides for lecture.</rdfs:comment>
-    <rdfs:label>EducationalResource</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Get">
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Suggest">
     <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Resource または情報などを取得する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of getting/obtaining Resource, information etc.</rdfs:comment>
-    <rdfs:label>Get</rdfs:label>
+    <rdfs:comment xml:lang="ja">選択肢を提示する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of presenting or proposing options.</rdfs:comment>
+    <rdfs:label>Suggest</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#dateModified">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#date"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="en">The date on which the Resource was most recently modified.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">リソースの最終更新日</rdfs:comment>
+    <rdfs:label>dateModified</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Workflow">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="ja">ワークフロー</rdfs:comment>
+    <rdfs:comment xml:lang="en">A workflow.</rdfs:comment>
+    <rdfs:label>Workflow</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Cleanse">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Edit"/>
+    <rdfs:comment xml:lang="ja">Resource をデータクレンジングする行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of performing data cleansing of Resource.</rdfs:comment>
+    <rdfs:label>Cleanse</rdfs:label>
   </owl:Class>
   <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#version">
     <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
@@ -1110,19 +1058,271 @@
     <rdfs:comment xml:lang="ja">バージョン</rdfs:comment>
     <rdfs:label>version</rdfs:label>
   </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Send">
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Evaluate">
     <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Resource を送る行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of dispatching Resource.</rdfs:comment>
-    <rdfs:label>Send</rdfs:label>
+    <rdfs:comment xml:lang="ja">ピアレビューなど、Resource を評価する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of evaluating Resource, such as peer-review.</rdfs:comment>
+    <rdfs:label>Evaluate</rdfs:label>
   </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#detailedType">
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#address">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Institution"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">A detailed type of this Resource. </rdfs:comment>
-    <rdfs:comment xml:lang="ja">詳細な資源タイプ</rdfs:comment>
-    <rdfs:label>detailedType</rdfs:label>
+    <rdfs:comment xml:lang="en">Address of this Institution.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">研究機関の住所</rdfs:comment>
+    <rdfs:label>address</rdfs:label>
   </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Authorize">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">権利や許可を与える行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of granting permission or right to an object.</rdfs:comment>
+    <rdfs:label>Authorize</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Connect">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">サービスを別のサービスに接続する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of connecting service to another service.</rdfs:comment>
+    <rdfs:label>Connect</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Register">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Repository, SoftwareApplication もしくはその他サービスに、 Resource を登録する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of registering Resource to Repository, SoftwareApplication or other service.</rdfs:comment>
+    <rdfs:label>Register</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isIdenticalTo">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="en">A Resource which is identical to this Resource.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">主語クラスと同一である Resource</rdfs:comment>
+    <rdfs:label>isIdenticalTo</rdfs:label>
+    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isidenticalto</rdfs:seeAlso>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Request">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Person, Institution に何らかのタスクを依頼する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of asking People/Institution to do something.</rdfs:comment>
+    <rdfs:label>Request</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#thumbnail">
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Image"/>
+    <rdfs:comment xml:lang="en">A thumbnail of this Resource.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">サムネイル</rdfs:comment>
+    <rdfs:label>thumbnail</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Collect">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Resource を収集する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of collecting Resource.</rdfs:comment>
+    <rdfs:label>Collect</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Video">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="ja">動画</rdfs:comment>
+    <rdfs:comment xml:lang="en">A video file.</rdfs:comment>
+    <rdfs:label>Video</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Download">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Resource をダウンロードする行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of downloading Resource.</rdfs:comment>
+    <rdfs:label>Download</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Comment">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Resource に対してコメントをする行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of generating a comment on Resource.</rdfs:comment>
+    <rdfs:label>Comment</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Schedule">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">未来に行われる Event を設定する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of scheduling future Event.</rdfs:comment>
+    <rdfs:label>Schedule</rdfs:label>
+  </owl:Class>
+  <owl:NamedIndividual rdf:about="https://purl.org/rdm/ontology#OpenAccess">
+    <rdf:type rdf:resource="https://purl.org/rdm/ontology#ConditionOfAccessEnumeration"/>
+    <rdfs:label>OpenAccess</rdfs:label>
+    <rdfs:comment xml:lang="ja">公開</rdfs:comment>
+    <rdfs:comment xml:lang="en">Open access.</rdfs:comment>
+    <owl:sameAs>http://purl.org/coar/access_right/c_abf2</owl:sameAs>
+  </owl:NamedIndividual>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isSupplementedBy">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isSupplementTo">
+        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isSupplementedBy"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Project"/>
+        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+        <rdfs:comment xml:lang="en">A Class that supplements this Class.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">主語クラスが補足をしているクラス</rdfs:comment>
+        <rdfs:label>isSupplementTo</rdfs:label>
+        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#issupplementto</rdfs:seeAlso>
+      </owl:ObjectProperty>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Project"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+    <rdfs:comment xml:lang="en">A Class which is supplemented by this Class.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">主語クラスを補足しているクラス</rdfs:comment>
+    <rdfs:label>isSupplementedBy</rdfs:label>
+    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#issupplementby</rdfs:seeAlso>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isVersionOf">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#hasVersion">
+        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isVersionOf"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+        <rdfs:comment xml:lang="en">A Class  which is another version of this Class.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">主語クラスの異なるバージョンとして存在するクラス</rdfs:comment>
+        <rdfs:label>hasVersion</rdfs:label>
+        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ismetadatafor</rdfs:seeAlso>
+      </owl:ObjectProperty>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+    <rdfs:comment xml:lang="en">A Class  which this Class has as an another version.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">主語クラスが異なるバージョンであるクラス</rdfs:comment>
+    <rdfs:label>isVersionOf</rdfs:label>
+    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isversionof</rdfs:seeAlso>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isNewVersionOf">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isPreviousVersionOf">
+        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isNewVersionOf"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+        <rdfs:comment xml:lang="en">A Class which is a previous edition of this Class.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">主語クラスが旧版に当たる、新版のクラス</rdfs:comment>
+        <rdfs:label>isPreviousVersionOf</rdfs:label>
+        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ispreviousversionof</rdfs:seeAlso>
+      </owl:ObjectProperty>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+    <rdfs:comment xml:lang="en">A Class which is a new edition of this Class.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">主語クラスが新版に当たる、旧版のクラス</rdfs:comment>
+    <rdfs:label>isNewVersionOf</rdfs:label>
+    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isnewversionof</rdfs:seeAlso>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Preserve">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Resource を Repository, SoftwareApplication などに保存・保管する行動</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of saving and storing Resource to Repository, SoftwareApplication etc.</rdfs:comment>
+    <rdfs:label>Preserve</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Project">
+    <rdfs:comment xml:lang="ja">研究プロジェクト</rdfs:comment>
+    <rdfs:comment xml:lang="en">A research project.</rdfs:comment>
+    <rdfs:label>Project</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="N9b68453a59544ee6b3f1fc526886f8b4">
+        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#hasPart"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Project"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="N4f4059f03d1640bc984d23428069e37f">
+        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isPartOf"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Project"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="Nb3ac3a8f1b3049668a66bf8ed08007e9">
+        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#continues"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Project"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="Nd2f2f00baa5b4122b45a676e1ff1ea48">
+        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isContinuedBy"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Project"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isMetadataFor">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#hasMetadata">
+        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isMetadataFor"/>
+        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:comment xml:lang="en">A Resource which has additional metdata of this Class.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">主語クラスの追加メタデータを持つ Resource</rdfs:comment>
+        <rdfs:label>hasMetadata</rdfs:label>
+        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues</rdfs:seeAlso>
+      </owl:ObjectProperty>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="en">A Class for which this Resource has additional metdata.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">Resource が追加メタデータになっているクラス</rdfs:comment>
+    <rdfs:label>isMetadataFor</rdfs:label>
+    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ismetadatafor</rdfs:seeAlso>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isPartOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#inclusionRelation">
+        <rdfs:comment xml:lang="en">An higher-level property that indicates inclusion relationship between Classes.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">主語クラスと包含関係のあるクラスを指す上位プロパティ</rdfs:comment>
+        <rdfs:label>inclusionRelation</rdfs:label>
+      </owl:ObjectProperty>
+    </rdfs:subPropertyOf>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#hasPart">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#inclusionRelation"/>
+        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isPartOf"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Institution"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Grant"/>
+        <rdfs:comment xml:lang="en">A class consisting of multiple parts of which this class is a part.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">主語クラスが一部分となっている、複数の部分から成るクラス</rdfs:comment>
+        <rdfs:label>hasPart</rdfs:label>
+      </owl:ObjectProperty>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Institution"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Grant"/>
+    <rdfs:comment xml:lang="en">A Class of the parts that make up this class</rdfs:comment>
+    <rdfs:comment xml:lang="ja">主語クラスを構成する部分のクラス</rdfs:comment>
+    <rdfs:label>isPartOf</rdfs:label>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isCollectedBy">
     <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
     <owl:inverseOf>
@@ -1146,123 +1346,82 @@
     <rdfs:label>isCollectedBy</rdfs:label>
     <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#iscollectedby</rdfs:seeAlso>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#obsoletes">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isObsoletedBy">
-        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#obsoletes"/>
-        <rdfs:comment xml:lang="en">A Class which replaces this Class.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">主語クラスを廃止させたクラス</rdfs:comment>
-        <rdfs:label>isObsoletedBy</rdfs:label>
-        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isobsoletedby</rdfs:seeAlso>
-      </owl:ObjectProperty>
-    </owl:inverseOf>
-    <rdfs:comment xml:lang="en">A Class which is replaced by this Class.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">主語クラスによって置き換えられたクラス</rdfs:comment>
-    <rdfs:label>obsoletes</rdfs:label>
-    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#obsoletes</rdfs:seeAlso>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isPreviousVersionOf">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isNewVersionOf">
-        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isPreviousVersionOf"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-        <rdfs:comment xml:lang="en">A Class which is a new edition of this Class.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">主語クラスが新版に当たる、旧版のクラス</rdfs:comment>
-        <rdfs:label>isNewVersionOf</rdfs:label>
-        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isnewversionof</rdfs:seeAlso>
-      </owl:ObjectProperty>
-    </owl:inverseOf>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-    <rdfs:comment xml:lang="en">A Class which is a previous edition of this Class.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">主語クラスが旧版に当たる、新版のクラス</rdfs:comment>
-    <rdfs:label>isPreviousVersionOf</rdfs:label>
-    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ispreviousversionof</rdfs:seeAlso>
-  </owl:ObjectProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Person">
+    <rdfs:comment xml:lang="ja">人物</rdfs:comment>
+    <rdfs:comment xml:lang="en">A person.</rdfs:comment>
+    <rdfs:label>Person</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Institution">
+    <rdfs:comment xml:lang="ja">機関や組織</rdfs:comment>
+    <rdfs:comment xml:lang="en">An organization.</rdfs:comment>
+    <rdfs:label>Institution</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="N30dff2acd0304f1fb55de7b5d827a103">
+        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#hasPart"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Institution"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="Ne2b7613553d841d49f1943ef4ef9cc2a">
+        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isPartOf"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Institution"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="N54afd33fc4264c9aae5ee66b64499db9">
+        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#continues"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Institution"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="N42eff1595c714c9fae1c660e2df96540">
+        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isContinuedBy"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Institution"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
   <owl:Class rdf:about="https://purl.org/rdm/ontology#SoftwareApplication">
     <rdfs:comment xml:lang="ja">ソフトウェアアプリケーション</rdfs:comment>
     <rdfs:comment xml:lang="en">A software application.</rdfs:comment>
     <rdfs:label>SoftwareApplication</rdfs:label>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="Nc22b6b3d5726456ba3f9b81729d27275">
+      <owl:Restriction rdf:nodeID="N13ab2202e15f41afbe65d5bdfa27ec03">
         <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#hasPart"/>
         <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="Nedf3ffff00a2489197b0bdd091aa1b2f">
+      <owl:Restriction rdf:nodeID="Ne0607b1c4c9f4c2cb4cf6d22acbf2467">
         <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isPartOf"/>
         <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N07c375dd564d4ba7b04abfd51b92f712">
+      <owl:Restriction rdf:nodeID="Nc96ad3e8c605488391bb990c455694e3">
         <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#continues"/>
         <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N903b775aca024d58bc3c189fca862599">
+      <owl:Restriction rdf:nodeID="Nf324ae8ffe924c3db93756f62ade8971">
         <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isContinuedBy"/>
         <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
       </owl:Restriction>
     </rdfs:subClassOf>
   </owl:Class>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isOriginalFormOf">
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isSourceOf">
     <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
     <owl:inverseOf>
-      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isVariantFormOf">
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isDerivedFrom">
         <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isOriginalFormOf"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-        <rdfs:comment xml:lang="en">A Class which is the original form of this Class.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">主語クラスのオリジナルであるクラス</rdfs:comment>
-        <rdfs:label>isVariantFormOf</rdfs:label>
-        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isvariantformof</rdfs:seeAlso>
-      </owl:ObjectProperty>
-    </owl:inverseOf>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-    <rdfs:comment xml:lang="en">A Class of which this Class is the original form.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">主語クラスをオリジナルとするクラス</rdfs:comment>
-    <rdfs:label>isOriginalFormOf</rdfs:label>
-    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isoriginalformof</rdfs:seeAlso>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#inclusionRelation">
-    <rdfs:comment xml:lang="en">An higher-level property that indicates inclusion relationship between Classes.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">主語クラスと包含関係のあるクラスを指す上位プロパティ</rdfs:comment>
-    <rdfs:label>inclusionRelation</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isSupplementTo">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isSupplementedBy">
-        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isSupplementTo"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isSourceOf"/>
         <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Project"/>
         <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
         <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-        <rdfs:comment xml:lang="en">A Class which is supplemented by this Class.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">主語クラスを補足しているクラス</rdfs:comment>
-        <rdfs:label>isSupplementedBy</rdfs:label>
-        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#issupplementby</rdfs:seeAlso>
+        <rdfs:comment xml:lang="en">A Class on which this Class is based.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">主語クラスが基づいているクラス</rdfs:comment>
+        <rdfs:label>isDerivedFrom</rdfs:label>
+        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isderivedfrom</rdfs:seeAlso>
       </owl:ObjectProperty>
     </owl:inverseOf>
     <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
@@ -1271,54 +1430,28 @@
     <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Project"/>
     <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
     <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-    <rdfs:comment xml:lang="en">A Class that supplements this Class.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">主語クラスが補足をしているクラス</rdfs:comment>
-    <rdfs:label>isSupplementTo</rdfs:label>
-    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#issupplementto</rdfs:seeAlso>
+    <rdfs:comment xml:lang="en">A Class from which this Class is derived.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">主語クラスが基となっているクラス</rdfs:comment>
+    <rdfs:label>isSourceOf</rdfs:label>
+    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#issourceof</rdfs:seeAlso>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#hasVersion">
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isObsoletedBy">
     <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
     <owl:inverseOf>
-      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isVersionOf">
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#obsoletes">
         <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#hasVersion"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-        <rdfs:comment xml:lang="en">A Class  which this Class has as an another version.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">主語クラスが異なるバージョンであるクラス</rdfs:comment>
-        <rdfs:label>isVersionOf</rdfs:label>
-        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isversionof</rdfs:seeAlso>
+        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isObsoletedBy"/>
+        <rdfs:comment xml:lang="en">A Class which is replaced by this Class.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">主語クラスによって置き換えられたクラス</rdfs:comment>
+        <rdfs:label>obsoletes</rdfs:label>
+        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#obsoletes</rdfs:seeAlso>
       </owl:ObjectProperty>
     </owl:inverseOf>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-    <rdfs:comment xml:lang="en">A Class  which is another version of this Class.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">主語クラスの異なるバージョンとして存在するクラス</rdfs:comment>
-    <rdfs:label>hasVersion</rdfs:label>
-    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ismetadatafor</rdfs:seeAlso>
+    <rdfs:comment xml:lang="en">A Class which replaces this Class.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">主語クラスを廃止させたクラス</rdfs:comment>
+    <rdfs:label>isObsoletedBy</rdfs:label>
+    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isobsoletedby</rdfs:seeAlso>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isContinuedBy">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-    <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#Continues"/>
-    <rdfs:comment xml:lang="en">A Class continued by this Class</rdfs:comment>
-    <rdfs:comment xml:lang="ja">主語クラスが継続されているクラス</rdfs:comment>
-    <rdfs:label>isContinuedBy</rdfs:label>
-    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#iscontinuedby</rdfs:seeAlso>
-  </owl:ObjectProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#License">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#RightsStatement"/>
-    <rdfs:comment xml:lang="ja">リソースのライセンス</rdfs:comment>
-    <rdfs:comment xml:lang="en">An license of Resource.</rdfs:comment>
-    <rdfs:label>License</rdfs:label>
-  </owl:Class>
   <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isReviewdBy">
     <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
     <owl:inverseOf>
@@ -1340,42 +1473,127 @@
     <rdfs:label>isReviewdBy</rdfs:label>
     <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isreviewedby</rdfs:seeAlso>
   </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isDocumentedBy">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#storedItem">
     <owl:inverseOf>
-      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#documents">
-        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isDocumentedBy"/>
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#storage">
+        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#storedItem"/>
         <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:comment xml:lang="en">A  SoftwareApplication which is documented by this Resource.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">Resource がその説明文書・ドキュメントに相当する SoftwareApplication</rdfs:comment>
-        <rdfs:label>documents</rdfs:label>
-        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#documents</rdfs:seeAlso>
+        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Repository"/>
+        <rdfs:comment xml:lang="en">Repository or storage where this Resource is managed.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">リソースが管理されているリポジトリやストレージ</rdfs:comment>
+        <rdfs:label>storage</rdfs:label>
       </owl:ObjectProperty>
     </owl:inverseOf>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-    <rdfs:comment xml:lang="en">A Resource which is documentation about/explaining this SoftwareApplication.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">SoftwareApplication の説明文書・ドキュメントである Resource</rdfs:comment>
-    <rdfs:label>isDocumentedBy</rdfs:label>
-    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isdocumentedby</rdfs:seeAlso>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Repository"/>
+    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="en">A Resource stored in this Repository.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">リポジトリに保存されている資源</rdfs:comment>
+    <rdfs:label>storedItem</rdfs:label>
   </owl:ObjectProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Grant">
-    <rdfs:comment xml:lang="ja">研究資金プログラム</rdfs:comment>
-    <rdfs:comment xml:lang="en">A grant for research activities.</rdfs:comment>
-    <rdfs:label>Grant</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="Nd0a3298647c847d1a26f9226e1287f3e">
-        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#hasPart"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Grant"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="Nbf7eda91f28546738349c21ed7b8437b">
-        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isPartOf"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Grant"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#documents">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isDocumentedBy">
+        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#documents"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+        <rdfs:comment xml:lang="en">A Resource which is documentation about/explaining this SoftwareApplication.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">SoftwareApplication の説明文書・ドキュメントである Resource</rdfs:comment>
+        <rdfs:label>isDocumentedBy</rdfs:label>
+        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isdocumentedby</rdfs:seeAlso>
+      </owl:ObjectProperty>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="en">A  SoftwareApplication which is documented by this Resource.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">Resource がその説明文書・ドキュメントに相当する SoftwareApplication</rdfs:comment>
+    <rdfs:label>documents</rdfs:label>
+    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#documents</rdfs:seeAlso>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#License">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#RightsStatement"/>
+    <rdfs:comment xml:lang="ja">リソースのライセンス</rdfs:comment>
+    <rdfs:comment xml:lang="en">An license of Resource.</rdfs:comment>
+    <rdfs:label>License</rdfs:label>
   </owl:Class>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isVariantFormOf">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isOriginalFormOf">
+        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isVariantFormOf"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+        <rdfs:comment xml:lang="en">A Class of which this Class is the original form.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">主語クラスをオリジナルとするクラス</rdfs:comment>
+        <rdfs:label>isOriginalFormOf</rdfs:label>
+        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isoriginalformof</rdfs:seeAlso>
+      </owl:ObjectProperty>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+    <rdfs:comment xml:lang="en">A Class which is the original form of this Class.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">主語クラスのオリジナルであるクラス</rdfs:comment>
+    <rdfs:label>isVariantFormOf</rdfs:label>
+    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isvariantformof</rdfs:seeAlso>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#compiles">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isCompiledBy">
+        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#compiles"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+        <rdfs:comment xml:lang="en">A Class used to compile or create this Class.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">主語クラスをコンパイルまたは作成するために使用するクラス</rdfs:comment>
+        <rdfs:label>isCompiledBy</rdfs:label>
+        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#iscompiledby</rdfs:seeAlso>
+      </owl:ObjectProperty>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+    <rdfs:comment xml:lang="en">The result of a compile or creation event using this Class.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">主語クラスを使用したコンパイルまたは作成イベントの結果</rdfs:comment>
+    <rdfs:label>compiles</rdfs:label>
+    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#compiles</rdfs:seeAlso>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#value">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment xml:lang="en">An higher-level property that indicates some value of Classes.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">クラスにおける何かしらの値を示す上位プロパティ</rdfs:comment>
+    <rdfs:label>value</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#RightsStatement">
+    <rdfs:comment xml:lang="ja">権利関係全般に関連するクラス</rdfs:comment>
+    <rdfs:comment xml:lang="en">An higher-level class that relates to various rights.</rdfs:comment>
+    <rdfs:label>RightsStatement</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#references">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isReferencedBy">
+        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#references"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+        <rdfs:comment xml:lang="en">A Class which uses this Class as a source of information.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">主語クラスを情報源として参照しているクラス</rdfs:comment>
+        <rdfs:label>isReferencedBy</rdfs:label>
+        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isreferencedby</rdfs:seeAlso>
+      </owl:ObjectProperty>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+    <rdfs:comment xml:lang="en">A Class which is used as a source of information by this Class.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">主語クラスの情報源となったクラス</rdfs:comment>
+    <rdfs:label>references</rdfs:label>
+    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#references</rdfs:seeAlso>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isRequiredBy">
     <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
     <owl:inverseOf>
@@ -1395,338 +1613,20 @@
     <rdfs:label>isRequiredBy</rdfs:label>
     <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isrequiredby</rdfs:seeAlso>
   </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#value">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:comment xml:lang="en">An higher-level property that indicates some value of Classes.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">クラスにおける何かしらの値を示す上位プロパティ</rdfs:comment>
-    <rdfs:label>value</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#DataManagementPlan">
-    <rdfs:comment xml:lang="ja">データ管理計画(DMP)</rdfs:comment>
-    <rdfs:comment xml:lang="en">A data management plan (DMP).</rdfs:comment>
-    <rdfs:label>DataManagementPlan</rdfs:label>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#continues">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-    <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isContinuedBy"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Repository"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
-    <rdfs:comment xml:lang="en">A Class of which this Class is a continuation.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">主語クラスが継続しているクラス</rdfs:comment>
-    <rdfs:label>continues</rdfs:label>
-    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues</rdfs:seeAlso>
-  </owl:ObjectProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#FundingAgency">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-    <rdfs:comment xml:lang="ja">研究資金提供機関</rdfs:comment>
-    <rdfs:comment xml:lang="en">An organization that funds reserch activities.</rdfs:comment>
-    <rdfs:label>FundingAgency</rdfs:label>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#hasPart">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#inclusionRelation"/>
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isPartOf">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#inclusionRelation"/>
-        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#hasPart"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Grant"/>
-        <rdfs:comment xml:lang="en">A Class of the parts that make up this class</rdfs:comment>
-        <rdfs:comment xml:lang="ja">主語クラスを構成する部分のクラス</rdfs:comment>
-        <rdfs:label>isPartOf</rdfs:label>
-      </owl:ObjectProperty>
-    </owl:inverseOf>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Grant"/>
-    <rdfs:comment xml:lang="en">A class consisting of multiple parts of which this class is a part.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">主語クラスが一部分となっている、複数の部分から成るクラス</rdfs:comment>
-    <rdfs:label>hasPart</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#hasMetadata">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isMetadataFor">
-        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#hasMetadata"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:comment xml:lang="en">A Class for which this Resource has additional metdata.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">Resource が追加メタデータになっているクラス</rdfs:comment>
-        <rdfs:label>isMetadataFor</rdfs:label>
-        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ismetadatafor</rdfs:seeAlso>
-      </owl:ObjectProperty>
-    </owl:inverseOf>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="en">A Resource which has additional metdata of this Class.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">主語クラスの追加メタデータを持つ Resource</rdfs:comment>
-    <rdfs:label>hasMetadata</rdfs:label>
-    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues</rdfs:seeAlso>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isDerivedFrom">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isSourceOf">
-        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isDerivedFrom"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Project"/>
-        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-        <rdfs:comment xml:lang="en">A Class from which this Class is derived.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">主語クラスが基となっているクラス</rdfs:comment>
-        <rdfs:label>isSourceOf</rdfs:label>
-        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#issourceof</rdfs:seeAlso>
-      </owl:ObjectProperty>
-    </owl:inverseOf>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Project"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-    <rdfs:comment xml:lang="en">A Class on which this Class is based.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">主語クラスが基づいているクラス</rdfs:comment>
-    <rdfs:label>isDerivedFrom</rdfs:label>
-    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isderivedfrom</rdfs:seeAlso>
-  </owl:ObjectProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Resource">
-    <rdfs:comment xml:lang="ja">研究データや実験動画など、デジタルオブジェクト</rdfs:comment>
-    <rdfs:comment xml:lang="en">A digital object, such as research data, video of experiments rtc.</rdfs:comment>
-    <rdfs:label>Resource</rdfs:label>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Grant">
+    <rdfs:comment xml:lang="ja">研究資金プログラム</rdfs:comment>
+    <rdfs:comment xml:lang="en">A grant for research activities.</rdfs:comment>
+    <rdfs:label>Grant</rdfs:label>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N04d39691cc544d65820f6008b12e4f99">
+      <owl:Restriction rdf:nodeID="Nf558ad73dad741cf8c72f8d5e8b36586">
         <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#hasPart"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Grant"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N7fca999f9c414ecaacc2975bd1ca7e5e">
+      <owl:Restriction rdf:nodeID="N0dd081a5ebed44d8ab65c80ff3dfc839">
         <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isPartOf"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N1f5b7143ea23477a90393ef310e2d61d">
-        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#continues"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N7a43c806bd8f43f590dd2c2bee1d33a1">
-        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isContinuedBy"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Project">
-    <rdfs:comment xml:lang="ja">研究プロジェクト</rdfs:comment>
-    <rdfs:comment xml:lang="en">A research project.</rdfs:comment>
-    <rdfs:label>Project</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N05416391d49746ae9bb783929951d6b1">
-        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#hasPart"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Project"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N1a380604c3c34c2794fd4760b89e69ff">
-        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isPartOf"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Project"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N048f484bb4c2435e930913e4cd7233cf">
-        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#continues"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Project"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N455adabd2e844b0f9a9b15415dc10040">
-        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isContinuedBy"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Project"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isReferencedBy">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#references">
-        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isReferencedBy"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-        <rdfs:comment xml:lang="en">A Class which is used as a source of information by this Class.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">主語クラスの情報源となったクラス</rdfs:comment>
-        <rdfs:label>references</rdfs:label>
-        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#references</rdfs:seeAlso>
-      </owl:ObjectProperty>
-    </owl:inverseOf>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
-    <rdfs:comment xml:lang="en">A Class which uses this Class as a source of information.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">主語クラスを情報源として参照しているクラス</rdfs:comment>
-    <rdfs:label>isReferencedBy</rdfs:label>
-    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isreferencedby</rdfs:seeAlso>
-  </owl:ObjectProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Image">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="ja">画像</rdfs:comment>
-    <rdfs:comment xml:lang="en">An image file.</rdfs:comment>
-    <rdfs:label>Image</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Identifier">
-    <rdfs:comment xml:lang="ja">識別子</rdfs:comment>
-    <rdfs:comment xml:lang="en">An identifier.</rdfs:comment>
-    <rdfs:label>Identifier</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Collection">
-    <rdfs:comment xml:lang="ja">オブジェクトのコレクション</rdfs:comment>
-    <rdfs:comment xml:lang="en">A collection of items.</rdfs:comment>
-    <rdfs:label>Collection</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N202cdfb2df7843f49e204278e62509db">
-        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#hasPart"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N7ca590a4367a4fa391f1a39d4782a998">
-        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isPartOf"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Collection"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#AccessRights">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#RightsStatement"/>
-    <rdfs:comment xml:lang="ja">リソースへのアクセス権</rdfs:comment>
-    <rdfs:comment xml:lang="en">An access right o Resource.</rdfs:comment>
-    <rdfs:label>AccessRights</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Book">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="ja">書籍</rdfs:comment>
-    <rdfs:comment xml:lang="en">A book.</rdfs:comment>
-    <rdfs:label>Book</rdfs:label>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#storedItem">
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#storage">
-        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#storedItem"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Repository"/>
-        <rdfs:comment xml:lang="en">Repository or storage where this Resource is managed.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">リソースが管理されているリポジトリやストレージ</rdfs:comment>
-        <rdfs:label>storage</rdfs:label>
-      </owl:ObjectProperty>
-    </owl:inverseOf>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Repository"/>
-    <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:comment xml:lang="en">A Resource stored in this Repository.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">リポジトリに保存されている資源</rdfs:comment>
-    <rdfs:label>storedItem</rdfs:label>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isCompiledBy">
-    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-    <owl:inverseOf>
-      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#compiles">
-        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
-        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isCompiledBy"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-        <rdfs:comment xml:lang="en">The result of a compile or creation event using this Class.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">主語クラスを使用したコンパイルまたは作成イベントの結果</rdfs:comment>
-        <rdfs:label>compiles</rdfs:label>
-        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#compiles</rdfs:seeAlso>
-      </owl:ObjectProperty>
-    </owl:inverseOf>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
-    <rdfs:comment xml:lang="en">A Class used to compile or create this Class.</rdfs:comment>
-    <rdfs:comment xml:lang="ja">主語クラスをコンパイルまたは作成するために使用するクラス</rdfs:comment>
-    <rdfs:label>isCompiledBy</rdfs:label>
-    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#iscompiledby</rdfs:seeAlso>
-  </owl:ObjectProperty>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#RightsStatement">
-    <rdfs:comment xml:lang="ja">権利関係全般に関連するクラス</rdfs:comment>
-    <rdfs:comment xml:lang="en">An higher-level class that relates to various rights.</rdfs:comment>
-    <rdfs:label>RightsStatement</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Preserve">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Resource を Repository, SoftwareApplication などに保存・保管する行動</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of saving and storing Resource to Repository, SoftwareApplication etc.</rdfs:comment>
-    <rdfs:label>Preserve</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Institution">
-    <rdfs:comment xml:lang="ja">機関や組織</rdfs:comment>
-    <rdfs:comment xml:lang="en">An organization.</rdfs:comment>
-    <rdfs:label>Institution</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N5bd319ba09c249c68664c926123abbd0">
-        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#hasPart"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N4782aa9d99c5480082731f8c33cdccad">
-        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isPartOf"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="Ne5b84e68f1174dc49822c9d08b90e3bc">
-        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#continues"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="Nd21f2375a2c3470794554a91b31b5e0b">
-        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isContinuedBy"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Activity">
-    <rdfs:comment xml:lang="ja">行動や行為</rdfs:comment>
-    <rdfs:comment xml:lang="en">An action or activity.</rdfs:comment>
-    <rdfs:label>Activity</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Edit">
-    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
-    <rdfs:comment xml:lang="ja">Resource に変更を加える行動. 編集画面を利用したドラフトとしての変更を意味し、与えた変更の反映は含意しない</rdfs:comment>
-    <rdfs:comment xml:lang="en">An act of editing Resource. This class implies that changes have been made to the Resource as a draft, such as using edit UI, and does not involve whether they have been applied.</rdfs:comment>
-    <rdfs:label>Edit</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Repository">
-    <rdfs:comment xml:lang="ja">リポジトリ</rdfs:comment>
-    <rdfs:comment xml:lang="en">A repository.</rdfs:comment>
-    <rdfs:label>Repository</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N0e48132cf62944f789bcc7b244dff7c7">
-        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#continues"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Repository"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N915f41eab5d94ef3be42167383c1e64d">
-        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isContinuedBy"/>
-        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Repository"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Grant"/>
       </owl:Restriction>
     </rdfs:subClassOf>
   </owl:Class>
@@ -1741,26 +1641,152 @@
     <rdfs:comment xml:lang="en">A Class for individuals of object enumeration.</rdfs:comment>
     <rdfs:label>Enumeration</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:about="https://purl.org/rdm/ontology#Person">
-    <rdfs:comment xml:lang="ja">人物</rdfs:comment>
-    <rdfs:comment xml:lang="en">A person.</rdfs:comment>
-    <rdfs:label>Person</rdfs:label>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Repository">
+    <rdfs:comment xml:lang="ja">リポジトリ</rdfs:comment>
+    <rdfs:comment xml:lang="en">A repository.</rdfs:comment>
+    <rdfs:label>Repository</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="N031c6c822770436da386e3877c6184ce">
+        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#continues"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Repository"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="N8f0b95938af6463e8c768cf2b7f1954e">
+        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isContinuedBy"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Repository"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="https://purl.org/rdm/ontology#Event">
     <rdfs:comment xml:lang="ja">学会など、イベントや催し物</rdfs:comment>
     <rdfs:comment xml:lang="en">An event, such as conferences etc.</rdfs:comment>
     <rdfs:label>Event</rdfs:label>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N0082cecbaf774a5c82c03c021d761307">
+      <owl:Restriction rdf:nodeID="Nfe42b33531254f57bd02920ee9fc4897">
         <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#continues"/>
         <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Event"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="N44fbca2f94fa43fe98c2d0a27b1c8382">
+      <owl:Restriction rdf:nodeID="Na3f942619c1d4d88b552c82e29b4275c">
         <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isContinuedBy"/>
         <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Event"/>
       </owl:Restriction>
     </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Image">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="ja">画像</rdfs:comment>
+    <rdfs:comment xml:lang="en">An image file.</rdfs:comment>
+    <rdfs:label>Image</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#AccessRights">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#RightsStatement"/>
+    <rdfs:comment xml:lang="ja">リソースへのアクセス権</rdfs:comment>
+    <rdfs:comment xml:lang="en">An access right o Resource.</rdfs:comment>
+    <rdfs:label>AccessRights</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#DataManagementPlan">
+    <rdfs:comment xml:lang="ja">データ管理計画(DMP)</rdfs:comment>
+    <rdfs:comment xml:lang="en">A data management plan (DMP).</rdfs:comment>
+    <rdfs:label>DataManagementPlan</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#continues">
+    <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isContinuedBy">
+        <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
+        <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#Continues"/>
+        <rdfs:comment xml:lang="en">A Class continued by this Class</rdfs:comment>
+        <rdfs:comment xml:lang="ja">主語クラスが継続されているクラス</rdfs:comment>
+        <rdfs:label>isContinuedBy</rdfs:label>
+        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#iscontinuedby</rdfs:seeAlso>
+      </owl:ObjectProperty>
+    </owl:inverseOf>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Institution"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#SoftwareApplication"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Repository"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
+    <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Event"/>
+    <rdfs:comment xml:lang="en">A Class of which this Class is a continuation.</rdfs:comment>
+    <rdfs:comment xml:lang="ja">主語クラスが継続しているクラス</rdfs:comment>
+    <rdfs:label>continues</rdfs:label>
+    <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues</rdfs:seeAlso>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Book">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+    <rdfs:comment xml:lang="ja">書籍</rdfs:comment>
+    <rdfs:comment xml:lang="en">A book.</rdfs:comment>
+    <rdfs:label>Book</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Resource">
+    <rdfs:comment xml:lang="ja">研究データや実験動画など、デジタルオブジェクト</rdfs:comment>
+    <rdfs:comment xml:lang="en">A digital object, such as research data, video of experiments rtc.</rdfs:comment>
+    <rdfs:label>Resource</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="N3341683ddfb54dc6b578af6c39cc3c11">
+        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#hasPart"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="N0022e8b852614c57b37ee80e7ae97c5c">
+        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isPartOf"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="N3bf7cc346f304a97857c4c163687ba50">
+        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#continues"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="N988928028d4a45cca6fb6025dff2bbad">
+        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isContinuedBy"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Resource"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Collection">
+    <rdfs:comment xml:lang="ja">オブジェクトのコレクション</rdfs:comment>
+    <rdfs:comment xml:lang="en">A collection of items.</rdfs:comment>
+    <rdfs:label>Collection</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="N7b47cf19b1e1497f865ab4c1881e3667">
+        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#hasPart"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="N88647aedc7154314b11c8f8763ba327b">
+        <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#isPartOf"/>
+        <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology#Collection"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#FundingAgency">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Institution"/>
+    <rdfs:comment xml:lang="ja">研究資金提供機関</rdfs:comment>
+    <rdfs:comment xml:lang="en">An organization that funds reserch activities.</rdfs:comment>
+    <rdfs:label>FundingAgency</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Identifier">
+    <rdfs:comment xml:lang="ja">識別子</rdfs:comment>
+    <rdfs:comment xml:lang="en">An identifier.</rdfs:comment>
+    <rdfs:label>Identifier</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Edit">
+    <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
+    <rdfs:comment xml:lang="ja">Resource に変更を加える行動. 編集画面を利用したドラフトとしての変更を意味し、与えた変更の反映は含意しない</rdfs:comment>
+    <rdfs:comment xml:lang="en">An act of editing Resource. This class implies that changes have been made to the Resource as a draft, such as using edit UI, and does not involve whether they have been applied.</rdfs:comment>
+    <rdfs:label>Edit</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://purl.org/rdm/ontology#Activity">
+    <rdfs:comment xml:lang="ja">行動や行為</rdfs:comment>
+    <rdfs:comment xml:lang="en">An action or activity.</rdfs:comment>
+    <rdfs:label>Activity</rdfs:label>
   </owl:Class>
 </rdf:RDF>
