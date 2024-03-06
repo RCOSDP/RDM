@@ -5,7 +5,7 @@ The Research Data Management Ontology (RDM Ontology) is developed to describe re
 The purpose of RDM Ontology is to represent the lifecycle of NII-RDC compliant research data as a metadata specification that can be described in RDF. The phases covered by RDM Ontology are the management, publication, discovery, and potentially future extraction phases that comprise the research data lifecycle.
 
 # Namespace
-https://purl.org/rdm/ontology
+https://purl.org/rdm/ontology#
 
 ## suggested prefix
 rdm
@@ -32,8 +32,11 @@ rdm
 - Data Curation
 
 ## Mappings <!-- 他のスキーマへのマッピング -->
+- [Summary Document](./ontology/mapping/mapping_summary.md)
 - Mapping the RDM Ontology to schema.org
+  - [turtle](./ontology/mapping/mapping_to_schemaorg.ttl)
 - Mapping the RDM Ontology to JPCOAR schema
+  - [turtle](./ontology/mapping/mapping_to_jpcoar.ttl)
 
 # Publications <!-- 関連出版物 -->
 (Coming soon)
