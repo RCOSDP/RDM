@@ -428,16 +428,6 @@ rdm:approximateSize a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf rdm:size .
 
-rdm:cites a owl:ObjectProperty ;
-    rdfs:label "cites" ;
-    rdfs:comment "A Resource that this Class cites."@en,
-        "主語クラスが引用しているリソース"@ja ;
-    rdfs:domain rdm:Resource ;
-    rdfs:range rdm:Resource ;
-    rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#cites" ;
-    rdfs:subPropertyOf rdm:isRelatedTo ;
-    owl:inverseOf rdm:isCitedBy .
-
 rdm:collectionSize a owl:DatatypeProperty ;
     rdfs:label "collectionSize" ;
     rdfs:comment "The number of items in this Collection."@en,
@@ -450,7 +440,8 @@ rdm:conditionOfAccess a owl:ObjectProperty ;
     rdfs:label "conditionOfAccess" ;
     rdfs:comment "Access rights type."@en,
         "アクセス権の種別"@ja ;
-    rdfs:domain rdm:AccessRights .
+    rdfs:domain rdm:AccessRights ;
+    rdfs:range rdm:ConditionOfAccessEnumeration .
 
 rdm:contact a owl:DatatypeProperty ;
     rdfs:label "contact" ;
@@ -584,15 +575,6 @@ rdm:dateUpdated a owl:DatatypeProperty ;
         "イベントの内容更新日"@ja ;
     rdfs:domain rdm:Event ;
     rdfs:subPropertyOf rdm:date .
-
-rdm:describes a owl:ObjectProperty ;
-    rdfs:label "describes" ;
-    rdfs:comment "A Class that this Resource describes."@en,
-        "Resource が説明しているクラス"@ja ;
-    rdfs:domain rdm:Resource ;
-    rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues" ;
-    rdfs:subPropertyOf rdm:isRelatedTo ;
-    owl:inverseOf rdm:isDescribedBy .
 
 rdm:detailedRole a owl:DatatypeProperty ;
     rdfs:label "detailedRole" ;
@@ -782,14 +764,6 @@ rdm:isbn a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf rdm:identifierValue .
 
-rdm:items a owl:ObjectProperty ;
-    rdfs:label "items" ;
-    rdfs:comment "A Resource included in this Collection/Project."@en,
-        "コレクションやプロジェクトに含まれるリソース"@ja ;
-    rdfs:domain rdm:Collection,
-        rdm:Project ;
-    rdfs:range rdm:Resource .
-
 rdm:japanGrantNumber a owl:DatatypeProperty ;
     rdfs:label "japanGrantNumber" ;
     rdfs:comment "Japan grant number."@en,
@@ -822,7 +796,7 @@ rdm:localIdentifier a owl:DatatypeProperty ;
 
 rdm:location a owl:DatatypeProperty ;
     rdfs:label "location" ;
-    rdfs:comment "The place where this Event is/will be held or this Resource was created."@en,
+    rdfs:comment "The place where this Event was/will be held or this Resource was created."@en,
         "主語クラスの開催場所・取得場所"@ja ;
     rdfs:domain rdm:Event,
         rdm:Resource ;
@@ -834,13 +808,6 @@ rdm:measurementTechnique a owl:DatatypeProperty ;
         "研究データの収集・取得方法"@ja ;
     rdfs:domain rdm:DataManagementPlan ;
     rdfs:range xsd:string .
-
-rdm:object a owl:ObjectProperty ;
-    rdfs:label "object" ;
-    rdfs:comment "An object of the Activity."@en,
-        "行動の対象物"@ja ;
-    rdfs:domain rdm:Activity ;
-    rdfs:range rdm:Resource .
 
 rdm:operatingSystem a owl:DatatypeProperty ;
     rdfs:label "operatingSystem" ;
@@ -912,13 +879,6 @@ rdm:researcher a owl:ObjectProperty ;
     rdfs:range rdm:Person ;
     rdfs:subPropertyOf rdm:contributor .
 
-rdm:result a owl:ObjectProperty ;
-    rdfs:label "result" ;
-    rdfs:comment "The result produced in this Activity."@en,
-        "アクションによって生成された新しいリソース"@ja ;
-    rdfs:domain rdm:Activity ;
-    rdfs:range rdm:Resource .
-
 rdm:ror a owl:DatatypeProperty ;
     rdfs:label "ror" ;
     rdfs:comment "ROR ID."@en,
@@ -940,6 +900,7 @@ rdm:sha256 a owl:DatatypeProperty ;
     rdfs:comment "sha256 hash value."@en,
         "sha256のハッシュ値"@ja ;
     rdfs:domain rdm:Resource ;
+    rdfs:range xsd:string ;
     rdfs:subPropertyOf rdm:hashValue .
 
 rdm:softwareRequirements a owl:DatatypeProperty ;
@@ -1001,6 +962,16 @@ rdm:version a owl:DatatypeProperty ;
     rdfs:range xsd:nonNegativeInteger,
         xsd:string .
 
+rdm:wasGeneratedBy a owl:ObjectProperty ;
+    rdfs:label "wasGeneratedBy" ;
+    rdfs:comment "An Activity which created/generated this Class."@en,
+        "主語クラスが生成された行動"@ja ;
+    rdfs:domain rdm:Collection,
+        rdm:Project,
+        rdm:Resource ;
+    rdfs:range rdm:Activity ;
+    owl:inverseOf rdm:result .
+
 rdm:Book a owl:Class ;
     rdfs:label "Book" ;
     rdfs:comment "A book."@en,
@@ -1031,6 +1002,33 @@ rdm:accessRightsInformation a owl:ObjectProperty ;
     rdfs:domain rdm:Project ;
     rdfs:range rdm:AccessRights .
 
+rdm:cites a owl:ObjectProperty ;
+    rdfs:label "cites" ;
+    rdfs:comment "A Resource that this Class cites."@en,
+        "主語クラスが引用しているリソース"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:range rdm:Resource ;
+    rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#cites" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isCitedBy .
+
+rdm:collectedIn a owl:ObjectProperty ;
+    rdfs:label "collectedIn" ;
+    rdfs:comment "A Collection which includes this Resource as a member of Collection."@en,
+        "リソースをメンバーとして含むCollection"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:range rdm:Collection ;
+    owl:inverseOf rdm:collectionItem .
+
+rdm:collectionItem a owl:ObjectProperty ;
+    rdfs:label "collectionItem" ;
+    rdfs:comment "A Resource included in this Collection."@en,
+        "コレクションに含まれるリソース"@ja ;
+    rdfs:domain rdm:Collection ;
+    rdfs:range rdm:Resource ;
+    rdfs:subPropertyOf rdm:item ;
+    owl:inverseOf rdm:collectedIn .
+
 rdm:collects a owl:ObjectProperty ;
     rdfs:label "collects" ;
     rdfs:comment "A Class which collected/created by using this Class."@en,
@@ -1060,6 +1058,15 @@ rdm:creator a owl:ObjectProperty ;
         rdm:SoftwareApplication ;
     rdfs:range rdm:Person ;
     rdfs:subPropertyOf rdm:contributor .
+
+rdm:describes a owl:ObjectProperty ;
+    rdfs:label "describes" ;
+    rdfs:comment "A Class that this Resource describes."@en,
+        "Resource が説明しているクラス"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues" ;
+    rdfs:subPropertyOf rdm:isRelatedTo ;
+    owl:inverseOf rdm:isDescribedBy .
 
 rdm:documents a owl:ObjectProperty ;
     rdfs:label "documents" ;
@@ -1122,6 +1129,14 @@ rdm:identifierInformation a owl:ObjectProperty ;
         rdm:Resource ;
     rdfs:range rdm:Identifier .
 
+rdm:inProject a owl:ObjectProperty ;
+    rdfs:label "inProject" ;
+    rdfs:comment "A Project this Resource is within/included in."@en,
+        "リソースが属するプロジェクト"@ja ;
+    rdfs:domain rdm:Resource ;
+    rdfs:range rdm:Project ;
+    owl:inverseOf rdm:projectItem .
+
 rdm:isCitedBy a owl:ObjectProperty ;
     rdfs:label "isCitedBy" ;
     rdfs:comment "A Resource that this Class is cited."@en,
@@ -1130,7 +1145,7 @@ rdm:isCitedBy a owl:ObjectProperty ;
     rdfs:range rdm:Resource ;
     rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#iscitedby" ;
     rdfs:subPropertyOf rdm:isRelatedTo ;
-    owl:inverseOf rdm:Cites .
+    owl:inverseOf rdm:cites .
 
 rdm:isCollectedBy a owl:ObjectProperty ;
     rdfs:label "isCollectedBy" ;
@@ -1170,7 +1185,7 @@ rdm:isDescribedBy a owl:ObjectProperty ;
         "主語クラスを説明している Resource"@ja ;
     rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues" ;
     rdfs:subPropertyOf rdm:isRelatedTo ;
-    owl:inverseOf rdm:Describes .
+    owl:inverseOf rdm:describes .
 
 rdm:isDocumentedBy a owl:ObjectProperty ;
     rdfs:label "isDocumentedBy" ;
@@ -1342,6 +1357,16 @@ rdm:licenseInformation a owl:ObjectProperty ;
         rdm:Resource ;
     rdfs:range rdm:License .
 
+rdm:object a owl:ObjectProperty ;
+    rdfs:label "object" ;
+    rdfs:comment "An object of the Activity."@en,
+        "行動の対象物"@ja ;
+    rdfs:domain rdm:Activity ;
+    rdfs:range rdm:Collection,
+        rdm:Project,
+        rdm:Resource ;
+    owl:inverseOf rdm:wasInfluencedBy .
+
 rdm:obsoletes a owl:ObjectProperty ;
     rdfs:label "obsoletes" ;
     rdfs:comment "A Class which is replaced by this Class."@en,
@@ -1349,6 +1374,15 @@ rdm:obsoletes a owl:ObjectProperty ;
     rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#obsoletes" ;
     rdfs:subPropertyOf rdm:isRelatedTo ;
     owl:inverseOf rdm:isObsoletedBy .
+
+rdm:projectItem a owl:ObjectProperty ;
+    rdfs:label "projectItem" ;
+    rdfs:comment "A Resource whithin this Project."@en,
+        "プロジェクトに含まれるリソース"@ja ;
+    rdfs:domain rdm:Project ;
+    rdfs:range rdm:Resource ;
+    rdfs:subPropertyOf rdm:item ;
+    owl:inverseOf rdm:inProject .
 
 rdm:references a owl:ObjectProperty ;
     rdfs:label "references" ;
@@ -1370,6 +1404,15 @@ rdm:requires a owl:ObjectProperty ;
     rdfs:subPropertyOf rdm:isRelatedTo ;
     owl:inverseOf rdm:isRequiredBy .
 
+rdm:result a owl:ObjectProperty ;
+    rdfs:label "result" ;
+    rdfs:comment "The result produced in this Activity."@en,
+        "アクションによって生成された新しいエンティティ"@ja ;
+    rdfs:domain rdm:Activity ;
+    rdfs:range rdm:Collection,
+        rdm:Project,
+        rdm:Resource .
+
 rdm:reviews a owl:ObjectProperty ;
     rdfs:label "reviews" ;
     rdfs:comment "A Class which is reviewed by this Class."@en,
@@ -1380,8 +1423,8 @@ rdm:reviews a owl:ObjectProperty ;
     rdfs:subPropertyOf rdm:isRelatedTo ;
     owl:inverseOf rdm:isReviewdBy .
 
-rdm:storage a owl:ObjectProperty ;
-    rdfs:label "storage" ;
+rdm:storedIn a owl:ObjectProperty ;
+    rdfs:label "storedIn" ;
     rdfs:comment "Repository or storage where this Resource is managed."@en,
         "リソースが管理されているリポジトリやストレージ"@ja ;
     rdfs:domain rdm:Resource ;
@@ -1394,7 +1437,18 @@ rdm:storedItem a owl:ObjectProperty ;
         "リポジトリに保存されている資源"@ja ;
     rdfs:domain rdm:Repository ;
     rdfs:range rdm:Resource ;
-    owl:inverseOf rdm:storage .
+    rdfs:subPropertyOf rdm:item ;
+    owl:inverseOf rdm:storedIn .
+
+rdm:wasInfluencedBy a owl:ObjectProperty ;
+    rdfs:label "wasInfluencedBy" ;
+    rdfs:comment "An Activity that has had some influence on this Class."@en,
+        "主語クラスが何らかの影響を受けた行動"@ja ;
+    rdfs:domain rdm:Collection,
+        rdm:Project,
+        rdm:Resource ;
+    rdfs:range rdm:Activity ;
+    owl:inverseOf rdm:object .
 
 rdm:FundingAgency a owl:Class ;
     rdfs:label "FundingAgency" ;
@@ -1425,19 +1479,21 @@ rdm:value a owl:DatatypeProperty ;
     rdfs:comment "An higher-level property that indicates some value of Classes."@en,
         "クラスにおける何かしらの値を示す上位プロパティ"@ja ;
     rdfs:range xsd:anyURI,
+        xsd:double,
+        xsd:integer,
         xsd:string .
+
+rdm:item a owl:ObjectProperty ;
+    rdfs:label "item" ;
+    rdfs:comment "A Resource included in/within this Class."@en,
+        "主語クラスに含まれる、もしくは内部にあるリソース"@ja ;
+    rdfs:range rdm:Resource .
 
 rdm:AccessRights a owl:Class ;
     rdfs:label "AccessRights" ;
     rdfs:comment "An access right o Resource."@en,
         "リソースへのアクセス権"@ja ;
     rdfs:subClassOf rdm:RightsStatement .
-
-rdm:ConditionOfAccessEnumeration a owl:Class ;
-    rdfs:label "ConditionOfAccessEnumeration" ;
-    rdfs:comment "An option of object for property rdm:conditionOfAccess."@en,
-        "プロパティ rdm:conditionOfAccess の目的語の選択肢"@ja ;
-    rdfs:subClassOf rdm:Enumeration .
 
 rdm:Edit a owl:Class ;
     rdfs:label "Edit" ;
@@ -1465,10 +1521,28 @@ rdm:name a owl:DatatypeProperty ;
         rdm:SoftwareApplication ;
     rdfs:range xsd:string .
 
+rdm:ConditionOfAccessEnumeration a owl:Class ;
+    rdfs:label "ConditionOfAccessEnumeration" ;
+    rdfs:comment "An option of object for property rdm:conditionOfAccess."@en,
+        "プロパティ rdm:conditionOfAccess の目的語の選択肢"@ja ;
+    rdfs:subClassOf rdm:Enumeration .
+
 rdm:Identifier a owl:Class ;
     rdfs:label "Identifier" ;
     rdfs:comment "An identifier."@en,
         "識別子"@ja .
+
+rdm:contributor a owl:ObjectProperty ;
+    rdfs:label "contributor" ;
+    rdfs:comment "A contributor to this Class."@en,
+        "クラスへの寄与者"@ja ;
+    rdfs:domain rdm:Collection,
+        rdm:Event,
+        rdm:Project,
+        rdm:Resource,
+        rdm:SoftwareApplication ;
+    rdfs:range rdm:Institution,
+        rdm:Person .
 
 rdm:continues a owl:ObjectProperty ;
     rdfs:label "continues" ;
@@ -1483,18 +1557,6 @@ rdm:continues a owl:ObjectProperty ;
     rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues" ;
     rdfs:subPropertyOf rdm:isRelatedTo ;
     owl:inverseOf rdm:isContinuedBy .
-
-rdm:contributor a owl:ObjectProperty ;
-    rdfs:label "contributor" ;
-    rdfs:comment "A contributor to this Class."@en,
-        "クラスへの寄与者"@ja ;
-    rdfs:domain rdm:Collection,
-        rdm:Event,
-        rdm:Project,
-        rdm:Resource,
-        rdm:SoftwareApplication ;
-    rdfs:range rdm:Institution,
-        rdm:Person .
 
 rdm:description a owl:DatatypeProperty ;
     rdfs:label "description" ;
@@ -1526,7 +1588,7 @@ rdm:isContinuedBy a owl:ObjectProperty ;
         "主語クラスが継続されているクラス"@ja ;
     rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#iscontinuedby" ;
     rdfs:subPropertyOf rdm:isRelatedTo ;
-    owl:inverseOf rdm:Continues .
+    owl:inverseOf rdm:continues .
 
 rdm:isPartOf a owl:ObjectProperty,
         owl:TransitiveProperty ;
@@ -1547,13 +1609,15 @@ rdm:date a owl:DatatypeProperty ;
     rdfs:comment "A date or datetime."@en,
         "日付または日時"@ja ;
     rdfs:range xsd:date,
-        xsd:dateTime .
+        xsd:datetime .
 
 rdm:identifierValue a owl:DatatypeProperty ;
     rdfs:label "identifierValue" ;
     rdfs:comment "Identifier value."@en,
         "識別子の値"@ja ;
     rdfs:domain rdm:Identifier ;
+    rdfs:range xsd:anyURI,
+        xsd:string ;
     rdfs:subPropertyOf rdm:value .
 
 rdm:Repository a owl:Class ;
@@ -1562,10 +1626,10 @@ rdm:Repository a owl:Class ;
         "リポジトリ"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:Repository ;
-            owl:onProperty rdm:continues ],
+            owl:onProperty rdm:isContinuedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Repository ;
-            owl:onProperty rdm:isContinuedBy ] .
+            owl:onProperty rdm:continues ] .
 
 rdm:Event a owl:Class ;
     rdfs:label "Event" ;
@@ -1608,10 +1672,10 @@ rdm:Institution a owl:Class ;
             owl:onProperty rdm:hasPart ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Institution ;
-            owl:onProperty rdm:isContinuedBy ],
+            owl:onProperty rdm:continues ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Institution ;
-            owl:onProperty rdm:continues ],
+            owl:onProperty rdm:isContinuedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Institution ;
             owl:onProperty rdm:isPartOf ] .
@@ -1627,6 +1691,11 @@ rdm:Collection a owl:Class ;
             owl:allValuesFrom rdm:Collection ;
             owl:onProperty rdm:isPartOf ] .
 
+rdm:isRelatedTo a owl:ObjectProperty ;
+    rdfs:label "isRelatedTo" ;
+    rdfs:comment "A Class independent of this Class that is related to this Class."@en,
+        "主語クラスと何らかの関連がある、独立したクラス"@ja .
+
 rdm:Project a owl:Class ;
     rdfs:label "Project" ;
     rdfs:comment "A research project."@en,
@@ -1636,18 +1705,13 @@ rdm:Project a owl:Class ;
             owl:onProperty rdm:isPartOf ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Project ;
+            owl:onProperty rdm:isContinuedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Project ;
             owl:onProperty rdm:hasPart ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Project ;
-            owl:onProperty rdm:continues ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:Project ;
-            owl:onProperty rdm:isContinuedBy ] .
-
-rdm:isRelatedTo a owl:ObjectProperty ;
-    rdfs:label "isRelatedTo" ;
-    rdfs:comment "A Class independent of this Class that is related to this Class."@en,
-        "主語クラスと何らかの関連がある、独立したクラス"@ja .
+            owl:onProperty rdm:continues ] .
 
 rdm:SoftwareApplication a owl:Class ;
     rdfs:label "SoftwareApplication" ;
@@ -1655,16 +1719,16 @@ rdm:SoftwareApplication a owl:Class ;
         "ソフトウェアアプリケーション"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:SoftwareApplication ;
-            owl:onProperty rdm:hasPart ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:SoftwareApplication ;
             owl:onProperty rdm:continues ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:SoftwareApplication ;
-            owl:onProperty rdm:isPartOf ],
+            owl:onProperty rdm:isContinuedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:SoftwareApplication ;
-            owl:onProperty rdm:isContinuedBy ] .
+            owl:onProperty rdm:hasPart ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:SoftwareApplication ;
+            owl:onProperty rdm:isPartOf ] .
 
 rdm:Activity a owl:Class ;
     rdfs:label "Activity" ;
@@ -1680,11 +1744,11 @@ rdm:Resource a owl:Class ;
             owl:onProperty rdm:isPartOf ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Resource ;
-            owl:onProperty rdm:hasPart ],
+            owl:onProperty rdm:isContinuedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Resource ;
             owl:onProperty rdm:continues ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Resource ;
-            owl:onProperty rdm:isContinuedBy ] .
+            owl:onProperty rdm:hasPart ] .
 
