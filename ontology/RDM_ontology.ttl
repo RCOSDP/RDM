@@ -420,14 +420,6 @@ rdm:agent a owl:ObjectProperty ;
     rdfs:range rdm:Institution,
         rdm:Person .
 
-rdm:approximateSize a owl:DatatypeProperty ;
-    rdfs:label "approximateSize" ;
-    rdfs:comment "Approximate size of research data to be described in this DataManagementPlan."@en,
-        "DMPにおける概略データ量"@ja ;
-    rdfs:domain rdm:DataManagementPlan ;
-    rdfs:range xsd:string ;
-    rdfs:subPropertyOf rdm:size .
-
 rdm:collectionSize a owl:DatatypeProperty ;
     rdfs:label "collectionSize" ;
     rdfs:comment "The number of items in this Collection."@en,
@@ -509,20 +501,6 @@ rdm:dataManager a owl:ObjectProperty ;
     rdfs:range rdm:Person ;
     rdfs:subPropertyOf rdm:contributor .
 
-rdm:dataNumber a owl:DatatypeProperty ;
-    rdfs:label "dataNumber" ;
-    rdfs:comment "The data number assigned to this DataManagementPlan."@en,
-        "DMPにおけるデータNo."@ja ;
-    rdfs:domain rdm:DataManagementPlan ;
-    rdfs:range xsd:nonNegativeInteger .
-
-rdm:dateAvailable a owl:DatatypeProperty ;
-    rdfs:label "dateAvailable" ;
-    rdfs:comment "Scheduled date of open access of the Resource under the rights of embargoed access."@en,
-        "公開猶予の場合の公開予定日"@ja ;
-    rdfs:domain rdm:AccessRights ;
-    rdfs:subPropertyOf rdm:date .
-
 rdm:dateCreated a owl:DatatypeProperty ;
     rdfs:label "dateCreated" ;
     rdfs:comment "The date on which this Resource was created."@en,
@@ -532,8 +510,8 @@ rdm:dateCreated a owl:DatatypeProperty ;
 
 rdm:dateEnded a owl:DatatypeProperty ;
     rdfs:label "dateEnded" ;
-    rdfs:comment "The start date of this Class."@en,
-        "クラスの開始日"@ja ;
+    rdfs:comment "The end date of this Class."@en,
+        "クラスの終了日"@ja ;
     rdfs:domain rdm:Activity,
         rdm:Event,
         rdm:Project ;
@@ -555,8 +533,8 @@ rdm:datePublished a owl:DatatypeProperty ;
 
 rdm:dateStarted a owl:DatatypeProperty ;
     rdfs:label "dateStarted" ;
-    rdfs:comment "The end date of this Class."@en,
-        "クラスの終了日"@ja ;
+    rdfs:comment "The start date of this Class."@en,
+        "クラスの開始日"@ja ;
     rdfs:domain rdm:Activity,
         rdm:Event,
         rdm:Project ;
@@ -591,19 +569,13 @@ rdm:dmp a owl:ObjectProperty ;
         rdm:Resource ;
     rdfs:range rdm:DataManagementPlan .
 
-rdm:dmpFormat a owl:DatatypeProperty ;
-    rdfs:label "dmpFormat" ;
-    rdfs:comment "A name of DataManagementPlan format."@en,
-        "DMP種別名"@ja ;
+rdm:dmpTargetItem a owl:ObjectProperty ;
+    rdfs:label "dmpTargetItem" ;
+    rdfs:comment "A Resource described in DataManagementPlan."@en,
+        "DMPで対象になっているリソース"@ja ;
     rdfs:domain rdm:DataManagementPlan ;
-    rdfs:range xsd:string .
-
-rdm:dmpFormatProvider a owl:ObjectProperty ;
-    rdfs:label "dmpFormatProvider" ;
-    rdfs:comment "A institution which provides this DataManagementPlan format."@en,
-        "DMP種別の提供者"@ja ;
-    rdfs:domain rdm:DataManagementPlan ;
-    rdfs:range rdm:Institution .
+    rdfs:range rdm:Resource ;
+    rdfs:subPropertyOf rdm:item .
 
 rdm:doi a owl:DatatypeProperty ;
     rdfs:label "doi" ;
@@ -637,33 +609,6 @@ rdm:familyName a owl:DatatypeProperty ;
         "名字"@ja ;
     rdfs:domain rdm:Person ;
     rdfs:subPropertyOf rdm:name .
-
-rdm:field a owl:DatatypeProperty ;
-    rdfs:label "field" ;
-    rdfs:comment "A research field of this Project/Resource."@en,
-        "プロジェクト・リソースの主題"@ja ;
-    rdfs:domain rdm:Project,
-        rdm:Resource ;
-    rdfs:range [ a owl:DataRange ;
-            owl:oneOf [ a rdf:List ;
-                    rdf:first "ライフサイエンス"^^xsd:string ;
-                    rdf:rest [ a rdf:List ;
-                            rdf:first "情報通信"^^xsd:string ;
-                            rdf:rest [ a rdf:List ;
-                                    rdf:first "環境"^^xsd:string ;
-                                    rdf:rest [ a rdf:List ;
-                                            rdf:first "ナノテク・材料"^^xsd:string ;
-                                            rdf:rest [ a rdf:List ;
-                                                    rdf:first "エネルギー"^^xsd:string ;
-                                                    rdf:rest [ a rdf:List ;
-                                                            rdf:first "ものづくり技術"^^xsd:string ;
-                                                            rdf:rest [ a rdf:List ;
-                                                                    rdf:first "社会基盤"^^xsd:string ;
-                                                                    rdf:rest [ a rdf:List ;
-                                                                            rdf:first "フロンティア"^^xsd:string ;
-                                                                            rdf:rest [ a rdf:List ;
-                                                                                    rdf:first "人文・社会"^^xsd:string ;
-                                                                                    rdf:rest ( "その他"^^xsd:string ) ] ] ] ] ] ] ] ] ] ] .
 
 rdm:funder a owl:ObjectProperty ;
     rdfs:label "funder" ;
@@ -934,18 +879,6 @@ rdm:thumbnail a owl:ObjectProperty ;
     rdfs:domain rdm:Resource ;
     rdfs:range rdm:Image .
 
-rdm:url a owl:DatatypeProperty ;
-    rdfs:label "url" ;
-    rdfs:comment "A URL related to this Class."@en,
-        "主語クラスに関連するURL"@ja ;
-    rdfs:domain rdm:Grant,
-        rdm:Identifier,
-        rdm:License,
-        rdm:Project,
-        rdm:Repository,
-        rdm:Resource ;
-    rdfs:range xsd:anyURI .
-
 rdm:version a owl:DatatypeProperty ;
     rdfs:label "version" ;
     rdfs:comment "The version of this Class."@en,
@@ -988,12 +921,13 @@ rdm:Preserve a owl:Class ;
         "Resource を Repository, SoftwareApplication などに保存・保管する行動"@ja ;
     rdfs:subClassOf rdm:Activity .
 
-rdm:accessRightsInformation a owl:ObjectProperty ;
-    rdfs:label "accessRightsInformation" ;
-    rdfs:comment "Information on access rights of this Class."@en,
-        "クラスのアクセス権関連情報"@ja ;
-    rdfs:domain rdm:Project ;
-    rdfs:range rdm:AccessRights .
+rdm:approximateSize a owl:DatatypeProperty ;
+    rdfs:label "approximateSize" ;
+    rdfs:comment "Approximate size of research data to be described in this DataManagementPlan."@en,
+        "DMPにおける概略データ量"@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf rdm:size .
 
 rdm:cites a owl:ObjectProperty ;
     rdfs:label "cites" ;
@@ -1059,6 +993,20 @@ rdm:creator a owl:ObjectProperty ;
     rdfs:range rdm:Person ;
     rdfs:subPropertyOf rdm:contributor .
 
+rdm:dataNumber a owl:DatatypeProperty ;
+    rdfs:label "dataNumber" ;
+    rdfs:comment "The data number assigned to this DataManagementPlan."@en,
+        "DMPにおけるデータNo."@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:range xsd:nonNegativeInteger .
+
+rdm:dateAvailable a owl:DatatypeProperty ;
+    rdfs:label "dateAvailable" ;
+    rdfs:comment "Scheduled date of open access of the Resource under the rights of embargoed access."@en,
+        "公開猶予の場合の公開予定日"@ja ;
+    rdfs:domain rdm:AccessRights ;
+    rdfs:subPropertyOf rdm:date .
+
 rdm:describes a owl:ObjectProperty ;
     rdfs:label "describes" ;
     rdfs:comment "A Class that this Resource describes."@en,
@@ -1067,6 +1015,20 @@ rdm:describes a owl:ObjectProperty ;
     rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues" ;
     rdfs:subPropertyOf rdm:isRelatedTo ;
     owl:inverseOf rdm:isDescribedBy .
+
+rdm:dmpFormat a owl:DatatypeProperty ;
+    rdfs:label "dmpFormat" ;
+    rdfs:comment "A name of DataManagementPlan format."@en,
+        "DMP種別名"@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:range xsd:string .
+
+rdm:dmpFormatProvider a owl:ObjectProperty ;
+    rdfs:label "dmpFormatProvider" ;
+    rdfs:comment "A institution which provides this DataManagementPlan format."@en,
+        "DMP種別の提供者"@ja ;
+    rdfs:domain rdm:DataManagementPlan ;
+    rdfs:range rdm:Institution .
 
 rdm:documents a owl:ObjectProperty ;
     rdfs:label "documents" ;
@@ -1349,14 +1311,6 @@ rdm:isVersionOf a owl:ObjectProperty ;
     rdfs:subPropertyOf rdm:isRelatedTo ;
     owl:inverseOf rdm:hasVersion .
 
-rdm:licenseInformation a owl:ObjectProperty ;
-    rdfs:label "licenseInformation" ;
-    rdfs:comment "Information on license of this Class."@en,
-        "プロジェクトやリソースのライセンス情報"@ja ;
-    rdfs:domain rdm:Project,
-        rdm:Resource ;
-    rdfs:range rdm:License .
-
 rdm:object a owl:ObjectProperty ;
     rdfs:label "object" ;
     rdfs:comment "An object of the Activity."@en,
@@ -1440,6 +1394,18 @@ rdm:storedItem a owl:ObjectProperty ;
     rdfs:subPropertyOf rdm:item ;
     owl:inverseOf rdm:storedIn .
 
+rdm:url a owl:DatatypeProperty ;
+    rdfs:label "url" ;
+    rdfs:comment "A URL related to this Class."@en,
+        "主語クラスに関連するURL"@ja ;
+    rdfs:domain rdm:Grant,
+        rdm:Identifier,
+        rdm:License,
+        rdm:Project,
+        rdm:Repository,
+        rdm:Resource ;
+    rdfs:range xsd:anyURI .
+
 rdm:wasInfluencedBy a owl:ObjectProperty ;
     rdfs:label "wasInfluencedBy" ;
     rdfs:comment "An Activity that has had some influence on this Class."@en,
@@ -1461,10 +1427,52 @@ rdm:RightsStatement a owl:Class ;
     rdfs:comment "An higher-level class that relates to various rights."@en,
         "権利関係全般に関連するクラス"@ja .
 
+rdm:accessRightsInformation a owl:ObjectProperty ;
+    rdfs:label "accessRightsInformation" ;
+    rdfs:comment "Information on access rights of this Class."@en,
+        "クラスのアクセス権関連情報"@ja ;
+    rdfs:domain rdm:Project ;
+    rdfs:range rdm:AccessRights .
+
+rdm:field a owl:DatatypeProperty ;
+    rdfs:label "field" ;
+    rdfs:comment "A research field of this Project/Resource."@en,
+        "プロジェクト・リソースの主題"@ja ;
+    rdfs:domain rdm:Project,
+        rdm:Resource ;
+    rdfs:range [ a owl:DataRange ;
+            owl:oneOf [ a rdf:List ;
+                    rdf:first "ライフサイエンス"^^xsd:string ;
+                    rdf:rest [ a rdf:List ;
+                            rdf:first "情報通信"^^xsd:string ;
+                            rdf:rest [ a rdf:List ;
+                                    rdf:first "環境"^^xsd:string ;
+                                    rdf:rest [ a rdf:List ;
+                                            rdf:first "ナノテク・材料"^^xsd:string ;
+                                            rdf:rest [ a rdf:List ;
+                                                    rdf:first "エネルギー"^^xsd:string ;
+                                                    rdf:rest [ a rdf:List ;
+                                                            rdf:first "ものづくり技術"^^xsd:string ;
+                                                            rdf:rest [ a rdf:List ;
+                                                                    rdf:first "社会基盤"^^xsd:string ;
+                                                                    rdf:rest [ a rdf:List ;
+                                                                            rdf:first "フロンティア"^^xsd:string ;
+                                                                            rdf:rest [ a rdf:List ;
+                                                                                    rdf:first "人文・社会"^^xsd:string ;
+                                                                                    rdf:rest ( "その他"^^xsd:string ) ] ] ] ] ] ] ] ] ] ] .
+
 rdm:inclusionRelation a owl:ObjectProperty ;
     rdfs:label "inclusionRelation" ;
     rdfs:comment "An higher-level property that indicates inclusion relationship between Classes."@en,
         "主語クラスと包含関係のあるクラスを指す上位プロパティ"@ja .
+
+rdm:licenseInformation a owl:ObjectProperty ;
+    rdfs:label "licenseInformation" ;
+    rdfs:comment "Information on license of this Class."@en,
+        "プロジェクトやリソースのライセンス情報"@ja ;
+    rdfs:domain rdm:Project,
+        rdm:Resource ;
+    rdfs:range rdm:License .
 
 rdm:size a owl:DatatypeProperty ;
     rdfs:label "size" ;
@@ -1483,12 +1491,6 @@ rdm:value a owl:DatatypeProperty ;
         xsd:integer,
         xsd:string .
 
-rdm:item a owl:ObjectProperty ;
-    rdfs:label "item" ;
-    rdfs:comment "A Resource included in/within this Class."@en,
-        "主語クラスに含まれる、もしくは内部にあるリソース"@ja ;
-    rdfs:range rdm:Resource .
-
 rdm:AccessRights a owl:Class ;
     rdfs:label "AccessRights" ;
     rdfs:comment "An access right o Resource."@en,
@@ -1496,6 +1498,9 @@ rdm:AccessRights a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:cardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty rdm:conditionOfAccess ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:dateAvailable ],
         rdm:RightsStatement .
 
 rdm:Edit a owl:Class ;
@@ -1510,8 +1515,28 @@ rdm:License a owl:Class ;
         "リソースのライセンス"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty rdm:name ],
+            owl:onProperty rdm:url ],
         rdm:RightsStatement .
+
+rdm:item a owl:ObjectProperty ;
+    rdfs:label "item" ;
+    rdfs:comment "A Resource included in/within this Class."@en,
+        "主語クラスに含まれる、もしくは内部にあるリソース"@ja ;
+    rdfs:range rdm:Resource .
+
+rdm:name a owl:DatatypeProperty ;
+    rdfs:label "name" ;
+    rdfs:comment "A name of this Class."@en,
+        "主語クラスの名称"@ja ;
+    rdfs:domain rdm:Event,
+        rdm:Grant,
+        rdm:Institution,
+        rdm:License,
+        rdm:Project,
+        rdm:Repository,
+        rdm:Resource,
+        rdm:SoftwareApplication ;
+    rdfs:range xsd:string .
 
 rdm:ConditionOfAccessEnumeration a owl:Class ;
     rdfs:label "ConditionOfAccessEnumeration" ;
@@ -1522,7 +1547,10 @@ rdm:ConditionOfAccessEnumeration a owl:Class ;
 rdm:Identifier a owl:Class ;
     rdfs:label "Identifier" ;
     rdfs:comment "An identifier."@en,
-        "識別子"@ja .
+        "識別子"@ja ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:identifierValue ] .
 
 rdm:contributor a owl:ObjectProperty ;
     rdfs:label "contributor" ;
@@ -1603,6 +1631,17 @@ rdm:date a owl:DatatypeProperty ;
     rdfs:range xsd:date,
         xsd:dateTime .
 
+rdm:Repository a owl:Class ;
+    rdfs:label "Repository" ;
+    rdfs:comment "A repository."@en,
+        "リポジトリ"@ja ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Repository ;
+            owl:onProperty rdm:continues ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Repository ;
+            owl:onProperty rdm:isContinuedBy ] .
+
 rdm:identifierValue a owl:DatatypeProperty ;
     rdfs:label "identifierValue" ;
     rdfs:comment "Identifier value."@en,
@@ -1612,20 +1651,6 @@ rdm:identifierValue a owl:DatatypeProperty ;
         xsd:string ;
     rdfs:subPropertyOf rdm:value .
 
-rdm:Repository a owl:Class ;
-    rdfs:label "Repository" ;
-    rdfs:comment "A repository."@en,
-        "リポジトリ"@ja ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty rdm:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:Repository ;
-            owl:onProperty rdm:continues ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:Repository ;
-            owl:onProperty rdm:isContinuedBy ] .
-
 rdm:Event a owl:Class ;
     rdfs:label "Event" ;
     rdfs:comment "An event, such as conferences etc."@en,
@@ -1633,9 +1658,6 @@ rdm:Event a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:Event ;
             owl:onProperty rdm:continues ],
-        [ a owl:Restriction ;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty rdm:name ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Event ;
             owl:onProperty rdm:isContinuedBy ] .
@@ -1646,32 +1668,33 @@ rdm:Grant a owl:Class ;
         "研究資金プログラム"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:Grant ;
-            owl:onProperty rdm:isPartOf ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:Grant ;
             owl:onProperty rdm:hasPart ],
         [ a owl:Restriction ;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty rdm:name ] .
-
-rdm:name a owl:DatatypeProperty ;
-    rdfs:label "name" ;
-    rdfs:comment "A name of this Class."@en,
-        "主語クラスの名称"@ja ;
-    rdfs:domain rdm:Event,
-        rdm:Grant,
-        rdm:Institution,
-        rdm:License,
-        rdm:Project,
-        rdm:Repository,
-        rdm:Resource,
-        rdm:SoftwareApplication ;
-    rdfs:range xsd:string .
+            owl:allValuesFrom rdm:Grant ;
+            owl:onProperty rdm:isPartOf ] .
 
 rdm:DataManagementPlan a owl:Class ;
     rdfs:label "DataManagementPlan" ;
     rdfs:comment "A data management plan (DMP)."@en,
-        "データ管理計画(DMP)"@ja .
+        "データ管理計画(DMP)"@ja ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:licenseInformation ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:dmpFormat ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:dmpFormatProvider ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:approximateSize ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:accessRightsInformation ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:dataNumber ] .
 
 rdm:Person a owl:Class ;
     rdfs:label "Person" ;
@@ -1684,19 +1707,16 @@ rdm:Institution a owl:Class ;
         "機関や組織"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:Institution ;
-            owl:onProperty rdm:continues ],
-        [ a owl:Restriction ;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty rdm:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:Institution ;
-            owl:onProperty rdm:isContinuedBy ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:Institution ;
             owl:onProperty rdm:hasPart ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Institution ;
-            owl:onProperty rdm:isPartOf ] .
+            owl:onProperty rdm:continues ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Institution ;
+            owl:onProperty rdm:isPartOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Institution ;
+            owl:onProperty rdm:isContinuedBy ] .
 
 rdm:Collection a owl:Class ;
     rdfs:label "Collection" ;
@@ -1704,10 +1724,10 @@ rdm:Collection a owl:Class ;
         "オブジェクトのコレクション"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:Collection ;
-            owl:onProperty rdm:hasPart ],
+            owl:onProperty rdm:isPartOf ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Collection ;
-            owl:onProperty rdm:isPartOf ] .
+            owl:onProperty rdm:hasPart ] .
 
 rdm:isRelatedTo a owl:ObjectProperty ;
     rdfs:label "isRelatedTo" ;
@@ -1720,19 +1740,19 @@ rdm:Project a owl:Class ;
         "研究プロジェクト"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty rdm:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:Project ;
-            owl:onProperty rdm:isContinuedBy ],
+            owl:onProperty rdm:field ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Project ;
             owl:onProperty rdm:continues ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Project ;
-            owl:onProperty rdm:hasPart ],
+            owl:onProperty rdm:isPartOf ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Project ;
-            owl:onProperty rdm:isPartOf ] .
+            owl:onProperty rdm:isContinuedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Project ;
+            owl:onProperty rdm:hasPart ] .
 
 rdm:SoftwareApplication a owl:Class ;
     rdfs:label "SoftwareApplication" ;
@@ -1740,13 +1760,10 @@ rdm:SoftwareApplication a owl:Class ;
         "ソフトウェアアプリケーション"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom rdm:SoftwareApplication ;
-            owl:onProperty rdm:isContinuedBy ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:SoftwareApplication ;
             owl:onProperty rdm:hasPart ],
         [ a owl:Restriction ;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty rdm:name ],
+            owl:allValuesFrom rdm:SoftwareApplication ;
+            owl:onProperty rdm:isContinuedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:SoftwareApplication ;
             owl:onProperty rdm:isPartOf ],
@@ -1768,14 +1785,14 @@ rdm:Resource a owl:Class ;
             owl:onProperty rdm:isContinuedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Resource ;
-            owl:onProperty rdm:isPartOf ],
-        [ a owl:Restriction ;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty rdm:name ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdm:Resource ;
             owl:onProperty rdm:hasPart ],
         [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:field ],
+        [ a owl:Restriction ;
             owl:allValuesFrom rdm:Resource ;
-            owl:onProperty rdm:continues ] .
+            owl:onProperty rdm:continues ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdm:Resource ;
+            owl:onProperty rdm:isPartOf ] .
 
