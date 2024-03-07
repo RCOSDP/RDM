@@ -109,7 +109,16 @@ A recommended mapping from the RDM Ontology to [schema.org](https://schema.org/)
 A recommended mapping from the RDM Ontology to [JPCOAR](https://github.com/JPCOAR/schema) version 2.0 is available in an [RDF file](./mapping_to_jpcoar.ttl). 
 
 ### About JPCOAR Scheme
-<!-- TODO -->
+JPCOAR schema is developed to describe Japanese research products and defined in XML schema. It does not have named class definition, therefore the mapping from RDM Ontology to JPCOAR is limited to properties only. The mapping is based on following table, which aligns the classes of RDM Ontology to unnamed classes iof JPCOAR.
+
+|RDM Class|JPCOAR unnamed class (as object of property)|
+|--|--|
+|Person|object of property _creator_*, _contributor_*, _rightsHolder_*|
+|Institution|object of property _affiliation_, _holdingAgent_, _publisher_, _creator_*, _contributor_*, _rightsHolder_*, _degreeGrantor_|
+|Resource|object of property _file_, _relation_|
+|Event|object of property _conference_|
+
+*object of property _creator_ _contributor_, _rightsHolder_ can align to both Person and Institution
 
 ### Property
 |RDM property|Target property from JPCOAR|
