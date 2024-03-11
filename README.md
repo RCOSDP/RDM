@@ -1,5 +1,5 @@
 # Introduction
-The Research Data Management Ontology (RDM Ontology) is developed to describe research data and all activities related to its management. RDM was developed as a communication hub between the NII Research Data Cloud (NII-RDC) systems, but is being developed as an ontology that can be applied to any research data management platform. The definition of Activity Class and its sub-classes in RDM Ontology is inspired by the Activity Streams 2.0 Terms, W3C Document 13 April 2018 (https://www.w3.org/ns/activitystreams#.) published by W3C.
+The Research Data Management ontology (RDM ontology) is developed to describe research data and all activities related to its management. RDM ontology was developed as a communication hub between the NII Research Data Cloud (NII-RDC) systems, but is being developed as an ontology that can be applied to any research data management platform. The domain model of RDM ontology is designed to comply with best practices regarding persistent identifiers. RDM ontology is also activity-centered in its design philosophy inspired by the Activity Streams 2.0, W3C Document 13 April 2018 (https://www.w3.org/ns/activitystreams#.)
 
 # Objectives
 The purpose of RDM Ontology is to represent the lifecycle of NII-RDC compliant research data as a metadata specification that can be described in RDF. The phases covered by RDM Ontology are the management, publication, discovery, and potentially future extraction phases that comprise the research data lifecycle.
@@ -43,7 +43,8 @@ rdm
   - [turtle](./ontology/mapping/mapping_to_jpcoar.ttl)
 
 # Publications <!-- 関連出版物 -->
-(Coming soon)
+1. Minamiyama, Y., Hayashi, M., Fujiwara, I., Onami, J., Yokoyama, S., Komiyama, Y., & Yamaji, K. (2023). Toward the Development of NII RDC Application Profile Using Ontology Technology. In Proceedings of the Conference on Research Data Infrastructure (Vol. 1). TIB Open Publishing. https://doi.org/10.52825/cordi.v1i.260
+2. 南山泰之, 林正治, 藤原一毅, 大波純一, 横山重俊, 込山悠介, 山地一禎 (2023). オントロジー技術を用いたNII RDCアプリケーションプロファイル開発に向けて. 情報知識学会誌. Vol.33, No.2, p.212-220.
 
 # License
 [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/). See [LICENSE](./LICENSE.txt) for more detail.
