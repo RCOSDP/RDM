@@ -307,7 +307,7 @@
         <ObjectProperty IRI="#dataAccessRightsInformation"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#dataCreater"/>
+        <ObjectProperty IRI="#dataCreator"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#dataIdentifier"/>
@@ -1234,7 +1234,7 @@
         <ObjectProperty IRI="#accessRightsInformation"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#dataCreater"/>
+        <ObjectProperty IRI="#dataCreator"/>
         <ObjectProperty IRI="#creator"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
@@ -1575,7 +1575,7 @@
         <Class IRI="#DataManagementPlan"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#dataCreater"/>
+        <ObjectProperty IRI="#dataCreator"/>
         <Class IRI="#DataManagementPlan"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
@@ -1962,7 +1962,7 @@
         <Class IRI="#Person"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#dataCreater"/>
+        <ObjectProperty IRI="#dataCreator"/>
         <Class IRI="#Person"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
@@ -4431,18 +4431,18 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#dataCreater</IRI>
+        <IRI>#dataCreator</IRI>
         <Literal xml:lang="ja">DMPにおける研究データの作成者</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#dataCreater</IRI>
+        <IRI>#dataCreator</IRI>
         <Literal xml:lang="en">The creator of research data to be described in this DataManagementPlan.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#dataCreater</IRI>
-        <Literal>dataCreater</Literal>
+        <IRI>#dataCreator</IRI>
+        <Literal>dataCreator</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>

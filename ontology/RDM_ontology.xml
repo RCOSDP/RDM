@@ -314,15 +314,15 @@
     
 
 
-    <!-- https://purl.org/rdm/ontology#dataCreater -->
+    <!-- https://purl.org/rdm/ontology#dataCreator -->
 
-    <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#dataCreater">
+    <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#dataCreator">
         <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#creator"/>
         <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#DataManagementPlan"/>
         <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Person"/>
         <rdfs:comment xml:lang="ja">DMPにおける研究データの作成者</rdfs:comment>
         <rdfs:comment xml:lang="en">The creator of research data to be described in this DataManagementPlan.</rdfs:comment>
-        <rdfs:label>dataCreater</rdfs:label>
+        <rdfs:label>dataCreator</rdfs:label>
     </owl:ObjectProperty>
     
 

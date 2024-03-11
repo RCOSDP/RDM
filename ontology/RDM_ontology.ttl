@@ -456,8 +456,8 @@ rdm:dataAccessRightsInformation a owl:ObjectProperty ;
     rdfs:domain rdm:DataManagementPlan ;
     rdfs:subPropertyOf rdm:accessRightsInformation .
 
-rdm:dataCreater a owl:ObjectProperty ;
-    rdfs:label "dataCreater" ;
+rdm:dataCreator a owl:ObjectProperty ;
+    rdfs:label "dataCreator" ;
     rdfs:comment "The creator of research data to be described in this DataManagementPlan."@en,
         "DMPにおける研究データの作成者"@ja ;
     rdfs:domain rdm:DataManagementPlan ;
