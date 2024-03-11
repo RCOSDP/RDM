@@ -243,7 +243,7 @@ rdm:Preprint a owl:Class ;
 rdm:Publish a owl:Class ;
     rdfs:label "Publish" ;
     rdfs:comment "An act of making Resource public, such as by pushing \"publish\" button on publishing service. (including Resource of any access rights)"@en,
-        "公開ボタンを押すなどして、Resoure を公開する行動(アクセス権の種類は問わない)"@ja ;
+        "公開ボタンを押すなどして、Resource を公開する行動(アクセス権の種類は問わない)"@ja ;
     rdfs:subClassOf rdm:Activity .
 
 rdm:Record a owl:Class ;
@@ -310,7 +310,7 @@ rdm:Schedule a owl:Class ;
 rdm:Search a owl:Class ;
     rdfs:label "Search" ;
     rdfs:comment "An act of searching Resource, such as by pushing \"search\" button."@en,
-        "検索ボタンの押下など、Resoure を検索する行動"@ja ;
+        "検索ボタンの押下など、Resource を検索する行動"@ja ;
     rdfs:subClassOf rdm:Activity .
 
 rdm:Select a owl:Class ;
@@ -319,8 +319,8 @@ rdm:Select a owl:Class ;
         "選択肢の中から利用するものを選択する行動"@ja ;
     rdfs:subClassOf rdm:Activity .
 
-rdm:Semantize a owl:Class ;
-    rdfs:label "Semantize" ;
+rdm:Semanticize a owl:Class ;
+    rdfs:label "Semanticize" ;
     rdfs:comment "An act of semanticizing metadata as part of data curation."@en,
         "キュレーションの一環として、メタデータを意味付けする行動"@ja ;
     rdfs:subClassOf rdm:Activity .
@@ -1403,7 +1403,7 @@ rdm:wasInfluencedBy a owl:ObjectProperty ;
 
 rdm:FundingAgency a owl:Class ;
     rdfs:label "FundingAgency" ;
-    rdfs:comment "An organization that funds reserch activities."@en,
+    rdfs:comment "An organization that funds research activities."@en,
         "研究資金提供機関"@ja ;
     rdfs:subClassOf rdm:Institution .
 

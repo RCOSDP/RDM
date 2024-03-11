@@ -229,7 +229,7 @@
         <Class IRI="#Select"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Semantize"/>
+        <Class IRI="#Semanticize"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Send"/>
@@ -1114,7 +1114,7 @@
         <Class IRI="#Activity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Semantize"/>
+        <Class IRI="#Semanticize"/>
         <Class IRI="#Activity"/>
     </SubClassOf>
     <SubClassOf>
@@ -3377,7 +3377,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#FundingAgency</IRI>
-        <Literal xml:lang="en">An organization that funds reserch activities.</Literal>
+        <Literal xml:lang="en">An organization that funds research activities.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -3677,7 +3677,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Publish</IRI>
-        <Literal xml:lang="ja">公開ボタンを押すなどして、Resoure を公開する行動(アクセス権の種類は問わない)</Literal>
+        <Literal xml:lang="ja">公開ボタンを押すなどして、Resource を公開する行動(アクセス権の種類は問わない)</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3892,7 +3892,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Search</IRI>
-        <Literal xml:lang="ja">検索ボタンの押下など、Resoure を検索する行動</Literal>
+        <Literal xml:lang="ja">検索ボタンの押下など、Resource を検索する行動</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3916,18 +3916,18 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Semantize</IRI>
+        <IRI>#Semanticize</IRI>
         <Literal xml:lang="en">An act of semanticizing metadata as part of data curation.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Semantize</IRI>
+        <IRI>#Semanticize</IRI>
         <Literal xml:lang="ja">キュレーションの一環として、メタデータを意味付けする行動</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Semantize</IRI>
-        <Literal>Semantize</Literal>
+        <IRI>#Semanticize</IRI>
+        <Literal>Semanticize</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>

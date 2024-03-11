@@ -2882,7 +2882,7 @@
 
     <owl:Class rdf:about="https://purl.org/rdm/ontology#FundingAgency">
         <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Institution"/>
-        <rdfs:comment xml:lang="en">An organization that funds reserch activities.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An organization that funds research activities.</rdfs:comment>
         <rdfs:comment xml:lang="ja">研究資金提供機関</rdfs:comment>
         <rdfs:label>FundingAgency</rdfs:label>
     </owl:Class>
@@ -3143,7 +3143,7 @@
     <owl:Class rdf:about="https://purl.org/rdm/ontology#Publish">
         <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
         <rdfs:comment xml:lang="en">An act of making Resource public, such as by pushing &quot;publish&quot; button on publishing service. (including Resource of any access rights)</rdfs:comment>
-        <rdfs:comment xml:lang="ja">公開ボタンを押すなどして、Resoure を公開する行動(アクセス権の種類は問わない)</rdfs:comment>
+        <rdfs:comment xml:lang="ja">公開ボタンを押すなどして、Resource を公開する行動(アクセス権の種類は問わない)</rdfs:comment>
         <rdfs:label>Publish</rdfs:label>
     </owl:Class>
     
@@ -3325,7 +3325,7 @@
     <owl:Class rdf:about="https://purl.org/rdm/ontology#Search">
         <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
         <rdfs:comment xml:lang="en">An act of searching Resource, such as by pushing &quot;search&quot; button.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">検索ボタンの押下など、Resoure を検索する行動</rdfs:comment>
+        <rdfs:comment xml:lang="ja">検索ボタンの押下など、Resource を検索する行動</rdfs:comment>
         <rdfs:label>Search</rdfs:label>
     </owl:Class>
     
@@ -3342,13 +3342,13 @@
     
 
 
-    <!-- https://purl.org/rdm/ontology#Semantize -->
+    <!-- https://purl.org/rdm/ontology#Semanticize -->
 
-    <owl:Class rdf:about="https://purl.org/rdm/ontology#Semantize">
+    <owl:Class rdf:about="https://purl.org/rdm/ontology#Semanticize">
         <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Activity"/>
         <rdfs:comment xml:lang="en">An act of semanticizing metadata as part of data curation.</rdfs:comment>
         <rdfs:comment xml:lang="ja">キュレーションの一環として、メタデータを意味付けする行動</rdfs:comment>
-        <rdfs:label>Semantize</rdfs:label>
+        <rdfs:label>Semanticize</rdfs:label>
     </owl:Class>
     
 
