@@ -16,11 +16,14 @@ rdm
 
 ## Domain Model
 - RDM Ontology domain model <!-- データモデル図 -->
+  - [focused on Resource](./docs/domain_model_Resource.png)
+  - [focused on Activity](./docs/domain_model_Activity.png) 
 
 ## Description Set Profile
 - RDM Ontology <!-- 記述項目の一覧 -->
   - [turtle](./ontology/RDM_ontology.ttl)
-  - [XML](./ontology/RDM_ontology.xml)
+  - [RDF/XML](./ontology/RDM_ontology.xml)
+  - [OWL/XML](./ontology/RDM_ontology.owl)
 - RDM Ontology usage guidelines <!-- 記入方法、推奨例／非推奨例、注意点等 -->
 
 ## Syntax Encoding as Application Profile <!-- 各基盤／機能でのエンコーディング例 -->
@@ -28,6 +31,7 @@ rdm
 - WEKO3
 - CiNii Research
 - Data Governance
+  - [DG-AP](./ontology/DG-AP/)
 - Code Package
 - Data Curation
 
