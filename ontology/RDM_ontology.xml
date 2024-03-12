@@ -8,8 +8,8 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="https://purl.org/rdm/ontology">
-        <rdfs:comment xml:lang="en">The Research Data Management Ontology (RDM) is developed to describe research data and all activities related to its management. RDM was developed as a communication hub between the NII Research Data Cloud (NII-RDC) systems, but is being developed as an ontology that can be applied to any research data management platform.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">研究データ管理オントロジー (RDM) は、研究データとその管理に関わるすべての活動を記述することを目的として設計されました。RDM は NII 研究データクラウド (NII-RDC) の基盤間でのコミュニケーションハブとして開発されましたが、あらゆる研究データ管理プラットフォームに応用できるオントロジーとしても開発が進んでいます。</rdfs:comment>
+        <rdfs:comment xml:lang="en">The Research Data Management ontology (RDM ontology) is developed to describe research data and all activities related to its management. RDM ontology was developed as a communication hub between the NII Research Data Cloud (NII-RDC) systems, but is being developed as an ontology that can be applied to any research data management platform. The domain model of RDM ontology is designed to comply with best practices regarding persistent identifiers. RDM ontology is also activity-centered in its design philosophy inspired by the Activity Streams 2.0, W3C Document 13 April 2018 (https://www.w3.org/ns/activitystreams#).</rdfs:comment>
+        <rdfs:comment xml:lang="ja">研究データ管理オントロジー (RDM オントロジー) は、研究データとその管理に関わるすべての活動を記述することを目的として設計されました。RDM オントロジーは、 NII 研究データクラウド (NII-RDC) の基盤間でのコミュニケーションハブとして開発されましたが、あらゆる研究データ管理プラットフォームに応用できるオントロジーとしても開発が進んでいます。RDM オントロジーのドメインモデルは、永続識別子に関するベストプラクティスに準拠するよう設計されました。また、 RDM オントロジーは、 Activity Streams 2.0、W3C Document 13 April 2018 (https://www.w3.org/ns/activitystreams#) にインスパイアされた設計思想で、アクティビティ中心でもあります。</rdfs:comment>
         <owl:versionInfo>1.0</owl:versionInfo>
     </owl:Ontology>
     
