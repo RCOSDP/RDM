@@ -482,7 +482,7 @@
         <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
         <owl:inverseOf rdf:resource="https://purl.org/rdm/ontology#isMetadataFor"/>
         <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:comment xml:lang="en">A Resource which has additional metdata of this Class.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Resource which has additional metadata of this Class.</rdfs:comment>
         <rdfs:comment xml:lang="ja">主語クラスの追加メタデータを持つ Resource</rdfs:comment>
         <rdfs:label>hasMetadata</rdfs:label>
         <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues</rdfs:seeAlso>
@@ -794,7 +794,7 @@
     <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology#isMetadataFor">
         <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#isRelatedTo"/>
         <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:comment xml:lang="en">A Class for which this Resource has additional metdata.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Class for which this Resource has additional metadata.</rdfs:comment>
         <rdfs:comment xml:lang="ja">Resource が追加メタデータになっているクラス</rdfs:comment>
         <rdfs:label>isMetadataFor</rdfs:label>
         <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ismetadatafor</rdfs:seeAlso>
@@ -1292,7 +1292,7 @@
         <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology#item"/>
         <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#Project"/>
         <rdfs:range rdf:resource="https://purl.org/rdm/ontology#Resource"/>
-        <rdfs:comment xml:lang="en">A Resource whithin this Project.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A Resource within this Project.</rdfs:comment>
         <rdfs:comment xml:lang="ja">プロジェクトに含まれるリソース</rdfs:comment>
         <rdfs:label>projectItem</rdfs:label>
     </owl:ObjectProperty>
@@ -1585,7 +1585,7 @@
     <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology#copyright">
         <rdfs:domain rdf:resource="https://purl.org/rdm/ontology#License"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment xml:lang="en">A copytright notice.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A copyright notice.</rdfs:comment>
         <rdfs:comment xml:lang="ja">コピーライト表記</rdfs:comment>
         <rdfs:label>copyright</rdfs:label>
     </owl:DatatypeProperty>
@@ -2474,7 +2474,7 @@
 
     <owl:Class rdf:about="https://purl.org/rdm/ontology#Align">
         <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology#Edit"/>
-        <rdfs:comment xml:lang="en">An act of editting Resource to format.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An act of editing Resource to format.</rdfs:comment>
         <rdfs:comment xml:lang="ja">Resource をフォーマットに合わせて編集する行動</rdfs:comment>
         <rdfs:label>Align</rdfs:label>
     </owl:Class>
@@ -2925,6 +2925,18 @@
     <!-- https://purl.org/rdm/ontology#Identifier -->
 
     <owl:Class rdf:about="https://purl.org/rdm/ontology#Identifier">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#identifierName"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#identifierManager"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://purl.org/rdm/ontology#identifierValue"/>

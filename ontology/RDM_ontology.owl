@@ -905,6 +905,18 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Identifier"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#identifierManager"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Identifier"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#identifierName"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Identifier"/>
         <DataExactCardinality cardinality="1">
             <DataProperty IRI="#identifierValue"/>
         </DataExactCardinality>
@@ -2877,7 +2889,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Align</IRI>
-        <Literal xml:lang="en">An act of editting Resource to format.</Literal>
+        <Literal xml:lang="en">An act of editing Resource to format.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -4372,7 +4384,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#copyright</IRI>
-        <Literal xml:lang="en">A copytright notice.</Literal>
+        <Literal xml:lang="en">A copyright notice.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -4972,7 +4984,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#hasMetadata</IRI>
-        <Literal xml:lang="en">A Resource which has additional metdata of this Class.</Literal>
+        <Literal xml:lang="en">A Resource which has additional metadata of this Class.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -5322,7 +5334,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#isMetadataFor</IRI>
-        <Literal xml:lang="en">A Class for which this Resource has additional metdata.</Literal>
+        <Literal xml:lang="en">A Class for which this Resource has additional metadata.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -5887,7 +5899,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#projectItem</IRI>
-        <Literal xml:lang="en">A Resource whithin this Project.</Literal>
+        <Literal xml:lang="en">A Resource within this Project.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>

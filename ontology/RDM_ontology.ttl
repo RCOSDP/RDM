@@ -23,7 +23,7 @@ rdm:Add a owl:Class ;
 
 rdm:Align a owl:Class ;
     rdfs:label "Align" ;
-    rdfs:comment "An act of editting Resource to format."@en,
+    rdfs:comment "An act of editing Resource to format."@en,
         "Resource をフォーマットに合わせて編集する行動"@ja ;
     rdfs:subClassOf rdm:Edit .
 
@@ -437,7 +437,7 @@ rdm:contact a owl:DatatypeProperty ;
 
 rdm:copyright a owl:DatatypeProperty ;
     rdfs:label "copyright" ;
-    rdfs:comment "A copytright notice."@en,
+    rdfs:comment "A copyright notice."@en,
         "コピーライト表記"@ja ;
     rdfs:domain rdm:License ;
     rdfs:range xsd:string .
@@ -1048,7 +1048,7 @@ rdm:encodingFormat a owl:DatatypeProperty ;
 
 rdm:hasMetadata a owl:ObjectProperty ;
     rdfs:label "hasMetadata" ;
-    rdfs:comment "A Resource which has additional metdata of this Class."@en,
+    rdfs:comment "A Resource which has additional metadata of this Class."@en,
         "主語クラスの追加メタデータを持つ Resource"@ja ;
     rdfs:range rdm:Resource ;
     rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues" ;
@@ -1154,7 +1154,7 @@ rdm:isDocumentedBy a owl:ObjectProperty ;
 
 rdm:isMetadataFor a owl:ObjectProperty ;
     rdfs:label "isMetadataFor" ;
-    rdfs:comment "A Class for which this Resource has additional metdata."@en,
+    rdfs:comment "A Class for which this Resource has additional metadata."@en,
         "Resource が追加メタデータになっているクラス"@ja ;
     rdfs:domain rdm:Resource ;
     rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ismetadatafor" ;
@@ -1320,7 +1320,7 @@ rdm:obsoletes a owl:ObjectProperty ;
 
 rdm:projectItem a owl:ObjectProperty ;
     rdfs:label "projectItem" ;
-    rdfs:comment "A Resource whithin this Project."@en,
+    rdfs:comment "A Resource within this Project."@en,
         "プロジェクトに含まれるリソース"@ja ;
     rdfs:domain rdm:Project ;
     rdfs:range rdm:Resource ;
@@ -1559,6 +1559,12 @@ rdm:Identifier a owl:Class ;
     rdfs:comment "An identifier."@en,
         "識別子"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:identifierName ],
+            [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:identifierManager ],
+            [ a owl:Restriction ;
             owl:cardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty rdm:identifierValue ] .
 

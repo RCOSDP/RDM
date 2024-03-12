@@ -1,0 +1,79 @@
+@prefix rdm: <https://purl.org/rdm/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+_:Research_0  a <https://purl.org/rdm/ontology#Dataset> ;
+  rdm:accessRightsInformation _:AccessRights_1 ;
+  rdm:creator _:Person_1, _:Person_2 ;
+  rdm:dateCreated "2024-03-01" ;
+  rdm:dateModified "2024-03-31" ;
+  rdm:description "This dataset is ..." ;
+  rdm:dmp [
+    a rdm:DataManagementPlan ;
+    rdm:dataAccessRightsInformation _:AccessRights_1 ;
+    rdm:dataCreator _:Person_1, _:Person_2 ;
+    rdm:dataEncodingFormat "text/csv" ;
+    rdm:dataLicenseInformation _:License_1 ;
+    rdm:dataManager _:Person_1 ;
+    rdm:dataNumber 1 ;
+    rdm:dmpFormat "Sample Grant Format" ;
+    rdm:dmpFormatProvider _:FundingAgency_1 ;
+    rdm:hostingInstitution _:Institution_1
+  ] ;
+  rdm:doi "https://doi.org/xxxxxxxxxxx" ;
+  rdm:encodingFormat "text/csv" ;
+  rdm:field "環境" ;
+  rdm:funding [
+    a rdm:Grant ;
+    rdm:funder _:FundingAgency_1 ;
+    rdm:name "Sample Grant Program"
+  ] ;
+  rdm:inProject [
+    a rdm:Project ;
+    rdm:name "Example Project" ;
+    rdm:researcher _:Person_1, _:Person_2
+  ] ;
+  rdm:licenseInformation _:License_1 ;
+  rdm:name "Example_Dataset" ;
+  rdm:size "867GB" ;
+  rdm:storedIn [
+    a rdm:Repository ;
+    rdm:name "WEKO3"
+  ] ;
+  rdm:version 5 .
+
+_:AccessRights_1
+  a rdm:AccessRights ;
+  rdm:conditionOfAccess rdm:EmbargoedAccess ;
+  rdm:dateAvailable "2025-04-01" .
+
+_:Person_1
+  a rdm:Person ;
+  rdm:affiliation _:Institution_1 ;
+  rdm:email "tyamada@example.com" ;
+  rdm:eradResearcherNumber "90050426" ;
+  rdm:familyName "Yamada" ;
+  rdm:givenName "Taro" ;
+  rdm:name "Taro Yamada"@en, "山田太郎"@ja ;
+  rdm:orcid "https://orcid.org/0000-0001-2345-6789" .
+
+_:Person_2
+  a rdm:Person ;
+  rdm:affiliation _:Institution_1 ;
+  rdm:familyName "Smith" ;
+  rdm:givenName "Jane" ;
+  rdm:name "Jane Smith" ;
+  rdm:orcid "https://orcid.org/0000-0002-3456-7890" .
+
+_:License_1
+  a rdm:License ;
+  rdm:name " Apache License Version 2.0" ;
+  rdm:url "http://www.apache.org/licenses/LICENSE-2.0" .
+
+_:FundingAgency_1
+  a rdm:FundingAgency ;
+  rdm:name "Sample Grant Organization" .
+
+_:Institution_1
+  a rdm:Institution ;
+  rdm:name "Example University" ;
+  rdm:ror "https://ror.org/xxxxxxxxxx" .

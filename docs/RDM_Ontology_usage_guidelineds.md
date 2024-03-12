@@ -3,9 +3,14 @@ There is two domain model of RDM Ontology; focused on Resource and focused on Ac
 
 ## Domain Model Focused on Resource
 ![Resource domain model](domain_model_Resource.png)
+To describe research outcomes such as research data, the main entity should be of type Resource. (It is recommended that a subclass of Resource be selected and used according to the category of research outcomes.) Related entities such as research project can be described by linking to the main entity. Activity entities is not recommended to add to this style of describing to divide the result of research activity (Resource) and the process (Activity).
+Examples of Resource focused description is in two formats:
+- [JSON-LD](../example/example_research_data.json)
+- [turtle](../example/example_research_data.ttl)
 
 ## Domain Model Focused on Activity
 ![Resource domain model](domain_model_Activity.png)
+To describe research activities as a log, the main entity should be a subclass of Activity class. Resource entities can be linked as a result, a target and a used tool of the activity. Linking other entities to Resource is not recommended when the main entity is subclass of Activity, as well as Resourced focused case. 
 
 # Term Definitions Overview
 |prefix|Namespace|
@@ -56,7 +61,7 @@ The following is a legend of term description.
 ||rdm:Align|
 |--|--|
 |URI|https://purl.org/rdm/ontology#Align|
-|rdfs:comment|An act of editting Resource to format.<br>Resource をフォーマットに合わせて編集する行動|
+|rdfs:comment|An act of editing Resource to format.<br>Resource をフォーマットに合わせて編集する行動|
 |rdfs:subClassOf|Edit|
 
 ||rdm:Anonymize|
@@ -346,7 +351,7 @@ The following is a legend of term description.
 ||rdm:Publish|
 |--|--|
 |URI|https://purl.org/rdm/ontology#Publish|
-|rdfs:comment|An act of making Resource public, such as by pushing "publish" button on publishing service. (including Resource of any access rights)<br>公開ボタンを押すなどして、Resoure を公開する行動(アクセス権の種類は問わない)|
+|rdfs:comment|An act of making Resource public, such as by pushing "publish" button on publishing service. (including Resource of any access rights)<br>公開ボタンを押すなどして、Resource を公開する行動(アクセス権の種類は問わない)|
 |rdfs:subClassOf|Activity|
 
 ||rdm:Record|
@@ -652,13 +657,13 @@ The following is a legend of term description.
 |rdfs:comment|A contributor to this Class.<br>クラスへの寄与者|
 |rdfs:domain|rdm:Resource<br>rdm:Project<br>rdm:Collection<br>rdm:Event<br>rdm:SoftwareApplication|
 |rdfs:range|rdm:Person<br>rdm:Institution|
-|note|This property can be used only when no other sub-property of this property is appropriate.|
+|note|This property can be used only when no other subproperty of this property is appropriate.|
 
 ||rdm:copyright|
 |--|--|
 |URI|https://purl.org/rdm/ontology#copyright|
 |rdf:type|DatatypeProperty|
-|rdfs:comment|A copytright notice.<br>コピーライト表記|
+|rdfs:comment|A copyright notice.<br>コピーライト表記|
 |rdfs:domain|rdm:License|
 |rdfs:range|xsd:string|
 
@@ -835,7 +840,7 @@ The following is a legend of term description.
 |rdfs:comment|A detailed role of this Person.<br>詳細な役割|
 |rdfs:domain|rdm:Person|
 |rdfs:range|xsd:string|
-|note|This property is for describing detailed role of a Person. When the role can be categorized to one of sub-properties of rdm:contributor, e.g. creator, it is recommended to use it instead of using this property.|
+|note|This property is for describing detailed role of a Person. When the role can be categorized to one of the subproperties of rdm:contributor, e.g. creator, it is recommended to use it instead of using this property.|
 
 ||rdm:detailedType|
 |--|--|
@@ -844,7 +849,7 @@ The following is a legend of term description.
 |rdfs:comment|A detailed type of this Resource. <br>詳細な資源タイプ|
 |rdfs:domain|rdm:Resource|
 |rdfs:range|xsd:string|
-|note|This property is for describing detailed type of a Resource. When the role can be categorized to one of sub-classes of Resource, e.g. Audio, it is recommended to use it instead of using this property.|
+|note|This property is for describing detailed type of a Resource. When the role can be categorized to one of the subclasses of Resource, e.g. Audio, it is recommended to use it instead of using this property.|
 
 ||rdm:dmp|
 |--|--|
@@ -985,7 +990,7 @@ The following is a legend of term description.
 |URI|https://purl.org/rdm/ontology#hasMetadata|
 |rdf:type|ObjectProperty|
 |rdfs:subPropertyOf|rdm:isRelatedTo|
-|rdfs:comment|A Resource which has additional metdata of this Class.<br>主語クラスの追加メタデータを持つ Resource|
+|rdfs:comment|A Resource which has additional metadata of this Class.<br>主語クラスの追加メタデータを持つ Resource|
 |owl:inverseOf|rdm:isMetadataFor|
 |rdfs:range|rdm:Resource|
 |rdfs:seeAlso|https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues|
@@ -1171,7 +1176,7 @@ The following is a legend of term description.
 |URI|https://purl.org/rdm/ontology#isMetadataFor|
 |rdf:type|ObjectProperty|
 |rdfs:subPropertyOf|rdm:isRelatedTo|
-|rdfs:comment|A Class for which this Resource has additional metdata.<br>Resource が追加メタデータになっているクラス|
+|rdfs:comment|A Class for which this Resource has additional metadata.<br>Resource が追加メタデータになっているクラス|
 |owl:inverseOf|rdm:hasMetadata|
 |rdfs:domain|rdm:Resource|
 |rdfs:seeAlso|https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ismetadatafor|
@@ -1471,7 +1476,7 @@ The following is a legend of term description.
 |URI|https://purl.org/rdm/ontology#projectItem|
 |rdf:type|ObjectProperty|
 |rdfs:subPropertyOf|rdm:item|
-|rdfs:comment|A Resource whithin this Project.<br>プロジェクトに含まれるリソース|
+|rdfs:comment|A Resource within this Project.<br>プロジェクトに含まれるリソース|
 |owl:inverseOf|rdm:inProject|
 |rdfs:domain|rdm:Project|
 |rdfs:range|rdm:Resource|
@@ -1611,7 +1616,7 @@ The following is a legend of term description.
 |rdfs:comment|Other requirements for this SoftwareApplication.<br>他のプロパティに当てはまらないアプリケーションに必要な条件|
 |rdfs:domain|rdm:SoftwareApplication|
 |rdfs:range|xsd:string|
-|note|This class can be used only when no other sub-property of description is appropriate.|
+|note|This class can be used only when no other subproperty of description is appropriate.|
 
 ||rdm:storageRequirements|
 |--|--|
@@ -1726,3 +1731,55 @@ The following is a legend of term description.
 |rdf:type|rdm:ConditionOfAccessEnumeration|
 |rdfs:comment|Restricted access.<br>限定公開|
 |rdfs:sameAs|http://purl.org/coar/access_right/c_16ec|
+
+# Usage Guideline
+## Identifier
+rdm:Identifier class is to describe unique identifier. An identifier system described in this class MUST have its own namespace and be properly managed. Therefore, this class requires the following properties:_rdm:identifierName_, _rdm:identifierManager_ and _rdm:identifierValue_.
+
+### Subproperties of identifierValue
+RDM Ontology provides some properties of a particular identifier system for simplicity.
+```:JSON
+{ 
+  "@context":{
+    "@vocab":"https://purl.org/rdm/ontology#"
+  }
+  "@type": "Resource",
+  "identifierInformation":{
+    "@type": "Identifier",
+    "identifierValue":"https://doi.org/xxxxxxxxxxx",
+    "identifierName":"DOI",
+    "url":"https://www.doi.org/"
+    "identifierManager": {
+      "@type":"Institution",
+      "name":"The DOI foundation",
+      "url":"https://www.doi.org/"
+    }
+  }
+}
+```:JSON
+The DOI identifier can be described by rdm:Identifier class as above. In contrast, the description by _rdm:doi_ property is simpler:
+```:JSON
+{ 
+  "@context":{
+    "@vocab":"https://purl.org/rdm/ontology#"
+  }
+  "@type": "Resource",
+  "doi":"https://doi.org/xxxxxxxxxxx"
+}
+```
+
+This is correspondence table for the properties that is subproperty of rdm:identifierValue and its description by using rdm:Identifier class.
+
+|property|Identifier.identifierName|Identifier.url|Identifier.identifierManager.name|Identifier.identifierManager.url|
+|--|--|--|--|--|
+|rdm:doi|DOI|https://www.doi.org/|The DOI foundation||
+|rdm:eradResearcherNumber|e-rad 研究者番号@ja||Cabinet Office,Government of Japan|https://www.e-rad.go.jp/|
+|rdm:funderId|Open Funder Registry Funder Identifier|https://www.crossref.org/services/funder-registry/|Crossref|https://www.crossref.org/|
+|rdm:isbn|International Standard Book Number||International ISBN Agency|https://www.isbn-international.org/|
+|rdm:japanGrantNumber|体系的課題番号@ja||NISTEP|https://www.nistep.go.jp/|
+|rdm:orcid|ORCID iD||ORCID, Inc.|https://orcid.org/|
+|rdm:raid|RAiD|https://raid.org/|Australian Research Data Commons|https://ardc.edu.au/|
+|rdm:ror|ROR ID|https://ror.org/|ROR|
+
+## Value of Field Property
+The value of rdm:field is from e-Rad research field. This enumeration list could change based on update of e-Rad definition.
