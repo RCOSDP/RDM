@@ -1783,3 +1783,7 @@ This is correspondence table for the properties that is subproperty of rdm:ident
 
 ## Value of Field Property
 The value of rdm:field is from e-Rad research field. This enumeration list could change based on update of e-Rad definition.
+
+## Class Relationship
+Two super-property is defined in RDM Ontology to describe relationship between instances (including instances of same class):rdm:inclusionRelation and rdm:isRelatedTo.
+![Figure](class_relationship.png)
