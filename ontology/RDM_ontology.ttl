@@ -1552,7 +1552,14 @@ rdm:Event a owl:Class ;
             owl:onProperty rdm:continues ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Event ;
-            owl:onProperty rdm:isContinuedBy ] .
+            owl:onProperty rdm:isContinuedBy ] ,
+         [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:dateStarted ],
+            [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:dateEnded ] .
+
 
 rdm:Identifier a owl:Class ;
     rdfs:label "Identifier" ;
@@ -1693,9 +1700,6 @@ rdm:DataManagementPlan a owl:Class ;
             owl:onProperty rdm:accessRightsInformation ],
         [ a owl:Restriction ;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty rdm:dmpFormatProvider ],
-        [ a owl:Restriction ;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty rdm:approximateSize ] .
 
 rdm:Person a owl:Class ;
@@ -1721,7 +1725,13 @@ rdm:Project a owl:Class ;
             owl:onProperty rdm:field ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdm:Project ;
-            owl:onProperty rdm:isContinuedBy ] .
+            owl:onProperty rdm:isContinuedBy ] ,
+         [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:dateStarted ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:dateEnded ] .
 
 rdm:SoftwareApplication a owl:Class ;
     rdfs:label "SoftwareApplication" ;
@@ -1748,7 +1758,14 @@ rdm:isRelatedTo a owl:ObjectProperty ;
 rdm:Activity a owl:Class ;
     rdfs:label "Activity" ;
     rdfs:comment "An action or activity."@en,
-        "行動や行為"@ja .
+        "行動や行為"@ja ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:dateStarted ],
+            [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty rdm:dateEnded ] .
+
 
 rdm:Resource a owl:Class ;
     rdfs:label "Resource" ;

@@ -702,6 +702,18 @@
         </DataMaxCardinality>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="/Activity"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="/dateEnded"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Activity"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="/dateStarted"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="/Add"/>
         <Class IRI="/Activity"/>
     </SubClassOf>
@@ -804,12 +816,6 @@
     <SubClassOf>
         <Class IRI="/DataManagementPlan"/>
         <ObjectMaxCardinality cardinality="1">
-            <ObjectProperty IRI="/dmpFormatProvider"/>
-        </ObjectMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="/DataManagementPlan"/>
-        <ObjectMaxCardinality cardinality="1">
             <ObjectProperty IRI="/licenseInformation"/>
         </ObjectMaxCardinality>
     </SubClassOf>
@@ -876,6 +882,18 @@
             <ObjectProperty IRI="/isContinuedBy"/>
             <Class IRI="/Event"/>
         </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Event"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="/dateEnded"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Event"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="/dateStarted"/>
+        </DataMaxCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="/Execute"/>
@@ -1022,6 +1040,18 @@
             <ObjectProperty IRI="/isPartOf"/>
             <Class IRI="/Project"/>
         </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Project"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="/dateEnded"/>
+        </DataMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Project"/>
+        <DataMaxCardinality cardinality="1">
+            <DataProperty IRI="/dateStarted"/>
+        </DataMaxCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="/Project"/>

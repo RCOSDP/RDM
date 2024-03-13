@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://purl.org/rdm/ontology/"
+<rdf:RDF xmlns="https://purl.org/rdm/ontology#"
      xml:base="https://purl.org/rdm/ontology"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -2452,6 +2452,18 @@
     <!-- https://purl.org/rdm/ontology/Activity -->
 
     <owl:Class rdf:about="https://purl.org/rdm/ontology/Activity">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/dateEnded"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/dateStarted"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An action or activity.</rdfs:comment>
         <rdfs:comment xml:lang="ja">行動や行為</rdfs:comment>
         <rdfs:label>Activity</rdfs:label>
@@ -2712,12 +2724,6 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/dmpFormatProvider"/>
-                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/licenseInformation"/>
                 <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
@@ -2860,6 +2866,18 @@
                 <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology/Event"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/dateEnded"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/dateStarted"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An event, such as conferences etc.</rdfs:comment>
         <rdfs:comment xml:lang="ja">学会など、イベントや催し物</rdfs:comment>
         <rdfs:label>Event</rdfs:label>
@@ -2927,13 +2945,13 @@
     <owl:Class rdf:about="https://purl.org/rdm/ontology/Identifier">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/identifierName"/>
+                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/identifierManager"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/identifierManager"/>
+                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/identifierName"/>
                 <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -3135,6 +3153,18 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/isPartOf"/>
                 <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology/Project"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/dateEnded"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/dateStarted"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>

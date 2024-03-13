@@ -1,4 +1,4 @@
-@prefix dgap: <https://github.com/RCOSDP/RDM/tree/main/ontology/DG-AP/dg_ap.ttl#> .
+@prefix dgap: <https://raw.githubusercontent.com/RCOSDP/RDM/main/ontology/DG-AP/dg_ap.ttl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -11,7 +11,7 @@ rdm: a owl:Ontology ;
     owl:versionInfo "1.0" ;
     owl:imports rdm: .
 
-dgap:filaPath a owl:DatatypeProperty;
+dgap:filePath a owl:DatatypeProperty;
   rdfs:label "filePath" ;
   rdfs:comment "File path in Gakunin RDM."@en,
     "Gakunin RDMにおけるファイルパス"@jp ;
@@ -19,10 +19,17 @@ dgap:filaPath a owl:DatatypeProperty;
   rdfs:range xsd:string ;
   rdfs:subPropertyOf rdm:localIdentifier .
 
+dgap:runCrate a owl:DatatypeProperty;
+  rdfs:label "runCrate" ;
+  rdfs:comment "URL of a run-crate file in a project of Gakunin RDM."@en,
+    "Gakunin RDM プロジェクト内にある run-crate ファイルの URL"@jp ;
+  rdfs:domain rdm:Resource ;
+  rdfs:range xsd:string .
+
 rdm:version rdfs:range xsd:string .
 
-rdm:Property rdfs:subClassOf [ a owl:Restriction ;
-              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+rdm:Project rdfs:subClassOf [ a owl:Restriction ;
+              owl:cardinality "1"^^xsd:nonNegativeInteger ;
               owl:onProperty rdm:name ] ,
               [ a owl:Restriction ;
               owl:minCardinality "1"^^xsd:nonNegativeInteger ;
@@ -30,6 +37,9 @@ rdm:Property rdfs:subClassOf [ a owl:Restriction ;
               [ a owl:Restriction ;
               owl:cardinality "1"^^xsd:nonNegativeInteger ;
               owl:onProperty rdm:url ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:description ] ,
               [ a owl:Restriction ;
               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
               owl:onProperty rdm:raid ] ,
@@ -60,6 +70,9 @@ rdm:Resource rdfs:subClassOf [ a owl:Restriction ;
               owl:onProperty rdm:dateModified ] ,
               [ a owl:Restriction ;
               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:description ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
               owl:onProperty rdm:encodingFormat ] ,
               [ a owl:Restriction ;
               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
@@ -73,12 +86,18 @@ rdm:Resource rdfs:subClassOf [ a owl:Restriction ;
 
 rdm:Person rdfs:subClassOf [ a owl:Restriction ;
               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:name ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
               owl:onProperty rdm:orcid ] ,
               [ a owl:Restriction ;
               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
               owl:onProperty rdm:eradResearcherNumber ] .
 
 rdm:Institution rdfs:subClassOf [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:name ] ,
+              [ a owl:Restriction ;
               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
               owl:onProperty rdm:ror ] .
 
@@ -88,4 +107,24 @@ rdm:FundingAgency rdfs:subClassOf [ a owl:Restriction ;
 
 rdm:Grant rdfs:subClassOf [ a owl:Restriction ;
               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:description ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:name ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
               owl:onProperty rdm:japanGrantNumber ] .
+
+rdm:License rdfs:subClassOf [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:name ] .
+
+rdm:DataManagementPlan  rdfs:subClassOf [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:dmpFormatProvider ],
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:description ] ;
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:measurementTechnique ] .

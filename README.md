@@ -24,7 +24,8 @@ rdm
   - [turtle](./ontology/RDM_ontology.ttl)
   - [RDF/XML](./ontology/RDM_ontology.xml)
   - [OWL/XML](./ontology/RDM_ontology.owl)
-- RDM Ontology usage guidelines <!-- 記入方法、推奨例／非推奨例、注意点等 -->
+- [RDM Ontology usage guidelines](./docs/RDM_Ontology_usage_guidelineds.md) <!-- 記入方法、推奨例／非推奨例、注意点等 -->
+- [expansion guidelines](./docs/RDM_Ontology_expansion_guidelines.md)
 
 ## Syntax Encoding as Application Profile <!-- 各基盤／機能でのエンコーディング例 -->
 - GakuNin RDM

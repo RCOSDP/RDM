@@ -7,7 +7,7 @@ In DG-AP, root entity of metadata MUST be the instance of rdm:Project class beca
 DG-AP has minimal description of cardinality restrictions and required level. Most of these restriction depends on a governance sheet, which is a rule set that is applied to monitoring by DG application.
 
 # Namespace
-https://github.com/RCOSDP/RDM/tree/main/ontology/DG-AP/dg_ap.ttl#
+https://raw.githubusercontent.com/RCOSDP/RDM/main/ontology/DG-AP/dg_ap.ttl#
 
 ## suggested prefix
 dgap
@@ -20,4 +20,4 @@ dgap
 - [turtle](./dg_ap.ttl)
 
 ## Usage Guides
-- DG-AP usage guidelines <!-- 記入方法、推奨例／非推奨例、注意点等 -->
+- [DG-AP usage guidelines](./DG_AP_usage_guidelines.md) <!-- 記入方法、推奨例／非推奨例、注意点等 -->

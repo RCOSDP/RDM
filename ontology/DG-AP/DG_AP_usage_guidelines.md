@@ -6,6 +6,7 @@ The main entity is Project class in DG-AP domain model, unlike Resource and Acti
 # Term Definitions Overview
 |prefix|Namespace|
 |--|--|
+|dgap|https://raw.githubusercontent.com/RCOSDP/RDM/main/ontology/DG-AP/dg_ap.ttl#|
 |rdm|https://purl.org/rdm/ontology/|
 |owl|http://www.w3.org/2002/07/owl#|
 |rdf|http://www.w3.org/1999/02/22-rdf-syntax-ns#|
