@@ -51,7 +51,9 @@ rdm:Project rdfs:subClassOf [ a owl:Restriction ;
               owl:onProperty rdm:accessRightsInformation ] ,
               [ a owl:Restriction ;
               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-              owl:onProperty rdm:licenseInformation ] .
+              owl:onProperty rdm:licenseInformation ] ;
+            rdf:comment "A Gakunin RDM project."@en,
+              "GRDM の 1 プロジェクト"@ja .
 
 rdm:Resource rdfs:subClassOf [ a owl:Restriction ;
               owl:cardinality "1"^^xsd:nonNegativeInteger ;
@@ -82,7 +84,9 @@ rdm:Resource rdfs:subClassOf [ a owl:Restriction ;
               owl:onProperty rdm:doi ] ,
               [ a owl:Restriction ;
               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-              owl:onProperty rdm:sha256 ] .
+              owl:onProperty rdm:sha256 ] ;
+            rdf:comment "A file managed in Gakunin RDM."@en,
+              "GRDMで管理されている1ファイル"@ja .
 
 rdm:Person rdfs:subClassOf [ a owl:Restriction ;
               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
@@ -92,7 +96,9 @@ rdm:Person rdfs:subClassOf [ a owl:Restriction ;
               owl:onProperty rdm:orcid ] ,
               [ a owl:Restriction ;
               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-              owl:onProperty rdm:eradResearcherNumber ] .
+              owl:onProperty rdm:eradResearcherNumber ];
+            rdfs:comment "A user of Gakunin RDM or any other person related to a research project."@en,
+              "GRDMの1ユーザーもしくはその他研究関係者"@jp .
 
 rdm:Institution rdfs:subClassOf [ a owl:Restriction ;
               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
