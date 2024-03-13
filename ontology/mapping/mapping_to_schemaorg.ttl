@@ -1,6 +1,6 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix rdm: <https://purl.org/rdm/ontology#> .
+@prefix rdm: <https://purl.org/rdm/ontology/> .
 @prefix schema: <https://schema.org/> .
 
 rdm:Accept owl:equivalentClass schema:AcceptAction .

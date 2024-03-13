@@ -1,8 +1,7 @@
 {
   "@context": {
     "@version": 1.0,
-    "@base": "https://purl.org/rdm/ontology",
-    "@vocab": "#"
+    "@vocab": "https://purl.org/rdm/ontology/"
   },
   "@type": "Dataset",
   "name": "Example_Dataset",
@@ -82,7 +81,7 @@
     "@id": "_:AccessRights_1",
     "@type": "AccessRights",
     "conditionOfAccess": {
-      "@id": "https://purl.org/rdm/ontology#EmbargoedAccess"
+      "@id": "https://purl.org/rdm/ontology/EmbargoedAccess"
     },
     "dateAvailable": "2025-04-01"
   },

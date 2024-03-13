@@ -1,7 +1,7 @@
-@prefix rdm: <https://purl.org/rdm/ontology#> .
+@prefix rdm: <https://purl.org/rdm/ontology/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-_:Research_0  a <https://purl.org/rdm/ontology#Dataset> ;
+_:Research_0  a <https://purl.org/rdm/ontology/Dataset> ;
   rdm:accessRightsInformation _:AccessRights_1 ;
   rdm:creator _:Person_1, _:Person_2 ;
   rdm:dateCreated "2024-03-01" ;

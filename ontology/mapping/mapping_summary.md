@@ -4,7 +4,7 @@ This document is a summary of mapping from the RDM Ontology to schema.org and JP
 ## Used Namespace
 |Prefix|Namespace URI|
 |--|--|
-|rdm|https://purl.org/rdm/ontology#|
+|rdm|https://purl.org/rdm/ontology/|
 |schema|https://schema.org/|
 |jpcoar|https://github.com/JPCOAR/schema/blob/master/2.0/#|
 
