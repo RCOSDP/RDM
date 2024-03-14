@@ -3584,7 +3584,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>/License</IRI>
-        <Literal xml:lang="en">An license of Resource.</Literal>
+        <Literal xml:lang="en">A license of Resource.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -3899,7 +3899,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>/RightsStatement</IRI>
-        <Literal xml:lang="en">An higher-level class that relates to various rights.</Literal>
+        <Literal xml:lang="en">A higer-level class that relates to various rights.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -5174,7 +5174,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>/inclusionRelation</IRI>
-        <Literal xml:lang="en">An higher-level property that indicates inclusion relationship between Classes.</Literal>
+        <Literal xml:lang="en">A higer-level property that indicates inclusion relationship between Classes.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -6284,7 +6284,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>/value</IRI>
-        <Literal xml:lang="en">An higher-level property that indicates some value of Classes.</Literal>
+        <Literal xml:lang="en">A higer-level property that indicates some value of Classes.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>

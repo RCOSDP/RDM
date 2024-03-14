@@ -1409,7 +1409,7 @@ rdm:FundingAgency a owl:Class ;
 
 rdm:License a owl:Class ;
     rdfs:label "License" ;
-    rdfs:comment "An license of Resource."@en,
+    rdfs:comment "A license of Resource."@en,
         "リソースのライセンス"@ja ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
@@ -1418,7 +1418,7 @@ rdm:License a owl:Class ;
 
 rdm:RightsStatement a owl:Class ;
     rdfs:label "RightsStatement" ;
-    rdfs:comment "An higher-level class that relates to various rights."@en,
+    rdfs:comment "A higer-level class that relates to various rights."@en,
         "権利関係全般に関連するクラス"@ja .
 
 rdm:accessRightsInformation a owl:ObjectProperty ;
@@ -1457,7 +1457,7 @@ rdm:field a owl:DatatypeProperty ;
 
 rdm:inclusionRelation a owl:ObjectProperty ;
     rdfs:label "inclusionRelation" ;
-    rdfs:comment "An higher-level property that indicates inclusion relationship between Classes."@en,
+    rdfs:comment "A higer-level property that indicates inclusion relationship between Classes."@en,
         "主語クラスと包含関係のあるクラスを指す上位プロパティ"@ja .
 
 rdm:licenseInformation a owl:ObjectProperty ;
@@ -1478,7 +1478,7 @@ rdm:size a owl:DatatypeProperty ;
 
 rdm:value a owl:DatatypeProperty ;
     rdfs:label "value" ;
-    rdfs:comment "An higher-level property that indicates some value of Classes."@en,
+    rdfs:comment "A higer-level property that indicates some value of Classes."@en,
         "クラスにおける何かしらの値を示す上位プロパティ"@ja ;
     rdfs:range [ a rdfs:Datatype ;
         owl:unionOf ( xsd:anyURI xsd:double xsd:integer xsd:string ) ] .

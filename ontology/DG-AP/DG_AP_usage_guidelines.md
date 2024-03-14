@@ -32,6 +32,19 @@ The main entity is Project class in DG-AP domain model, unlike Resource and Acti
 |rdfs:range|xsd:string|
 
 # Classes and Properties
+## AccessRights
+||rdm:AccessRights|
+|--|--|
+|URI|https://purl.org/rdm/ontology/AccessRights|
+|rdfs:comment|Access rights.<br>アクセス権関連情報|
+
+### Properties used with AccessRights Class
+|Property|rdfs:range|Cardinality|Definition|Usage Note|
+|--|--|--|--|--|
+|rdf:conditionOfAccess|rdm:ConditionOfAccessEnumeration|0..1|Access rights type.|Select from 4 types of ConditionOfAccessEnumeration.|
+|rdf:dataAccessRequirements|csd:string|0..1|Conditions and method of access to the data under access restrictions.|The value is required when rdm:conditionOfAccess is rdm:RestrictedAccess.|
+|rdf:dateAvailable|xsd:date or xsd:dateTime|0..1|A date the data becomes rdm:OpenAccess status.|The value is required when rdm:conditionOfAccess is rdm:EmbargoedAccess.|
+
 ## DataManagementPlan
 ||rdm:DataManagementPlan|
 |--|--|
@@ -94,8 +107,21 @@ The main entity is Project class in DG-AP domain model, unlike Resource and Acti
 |Property|rdfs:range|Cardinality|Definition|Usage Note|
 |--|--|--|--|--|
 |rdf:address|xsd:string|0..*|An address of this Institution.|The value MUST be either in Japanese or in English. When this property has multiple values, all values MUST be in the same language.<br>(additional usage notes compared to RDM-O)|
-|rdf:name|xsd:string|0..1|A name of FundingAgency.|The value MUST be either in Japanese or in English.<br>(additional usage notes compared to RDM-O)|
+|rdf:name|xsd:string|0..1|A name of Institution.|The value MUST be either in Japanese or in English.<br>(additional usage notes compared to RDM-O)|
 |rdf:ror|xsd:anyURI|0..1|ROR ID of this Institution.||
+
+## License
+||rdm:License|
+|--|--|
+|URI|https://purl.org/rdm/ontology/License|
+|rdfs:comment|A license of the data.<br>ライセンス情報|
+
+### Properties used with License Class
+|Property|rdfs:range|Cardinality|Definition|Usage Note|
+|--|--|--|--|--|
+|rdf:copyright|xsd:string|0..*|A copyright note.||
+|rdf:name|xsd:string|0..1|A name of this License.|The value MUST be either in Japanese or in English.<br>(additional usage notes compared to RDM-O)|
+|rdf:url|xsd:anyURI|0..1|A url of this License.||
 
 ## Person
 ||rdm:Person|
@@ -134,7 +160,7 @@ The main entity is Project class in DG-AP domain model, unlike Resource and Acti
 |rdf:raid|xsd:string|0..1|RAiD of this Project.||
 |rdf:researcher|rdm:Person|0..*|A researcher or participant of this Project.||
 |dgap:runCrate|xsd:anyURI|0..*|A run-crate file in this Project.||
-|rdf:url|xsd:anyURI|1|URL of this Project.|This value MUST be a URL of GRDM, e.g. "https://rdm.nii.ac.jp/{project_id}", and is mandatory.<br>(additional usage notes compared to RDM-O)|
+|rdf:url|xsd:anyURI|1|URL of this Project.|This value MUST be a URL of GRDM, e.g. `https://rdm.nii.ac.jp/{project_id}`, and is mandatory.<br>(additional usage notes compared to RDM-O)|
 
 ## Resource
 ||rdm:Resource|
@@ -156,5 +182,5 @@ The main entity is Project class in DG-AP domain model, unlike Resource and Acti
 |rdf:name|xsd:string|0..1|A file name.|The value can contain a file extension as well as the filename obtained from GRDM's API.<br>(additional usage notes compared to RDM-O)|
 |rdf:sha256|xsd:string|0..1|A sha256 hash value.||
 |rdf:size|xsd:string or xsd:nonNegativeInteger|0..1|A file size of this Resource.|When the value is in xsd:nonNegativeInteger, the unit is `B` as well as the file size obtained from GRDM's API.<br>(additional usage notes compared to RDM-O)|
-|rdf:url|xsd:anyURI|1|URL of this Resource.|This value MUST be a URL of GRDM, e.g. "https://rdm.nii.ac.jp/{project_id}/files/{path}", and is mandatory.<br>(additional usage notes compared to RDM-O)|
+|rdf:url|xsd:anyURI|1|URL of this Resource.|This value MUST be a URL of GRDM, e.g. `https://rdm.nii.ac.jp/{project_id}/files/{path}`, and is mandatory.<br>(additional usage notes compared to RDM-O)|
 |rdf:version|xsd:string|1|A version of this Resource.|This value MUST be in xsd:string (not in xsd:nonNegativeInteger) and is mandatory.<br>(DG-AP specific extension)|

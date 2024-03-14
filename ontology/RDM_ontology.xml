@@ -619,7 +619,7 @@
     <!-- https://purl.org/rdm/ontology/inclusionRelation -->
 
     <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology/inclusionRelation">
-        <rdfs:comment xml:lang="en">An higher-level property that indicates inclusion relationship between Classes.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A higer-level property that indicates inclusion relationship between Classes.</rdfs:comment>
         <rdfs:comment xml:lang="ja">主語クラスと包含関係のあるクラスを指す上位プロパティ</rdfs:comment>
         <rdfs:label>inclusionRelation</rdfs:label>
     </owl:ObjectProperty>
@@ -2371,7 +2371,7 @@
                 </owl:unionOf>
             </rdfs:Datatype>
         </rdfs:range>
-        <rdfs:comment xml:lang="en">An higher-level property that indicates some value of Classes.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A higer-level property that indicates some value of Classes.</rdfs:comment>
         <rdfs:comment xml:lang="ja">クラスにおける何かしらの値を示す上位プロパティ</rdfs:comment>
         <rdfs:label>value</rdfs:label>
     </owl:DatatypeProperty>
@@ -3078,7 +3078,7 @@
                 <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">An license of Resource.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A license of Resource.</rdfs:comment>
         <rdfs:comment xml:lang="ja">リソースのライセンス</rdfs:comment>
         <rdfs:label>License</rdfs:label>
     </owl:Class>
@@ -3344,7 +3344,7 @@
     <!-- https://purl.org/rdm/ontology/RightsStatement -->
 
     <owl:Class rdf:about="https://purl.org/rdm/ontology/RightsStatement">
-        <rdfs:comment xml:lang="en">An higher-level class that relates to various rights.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A higer-level class that relates to various rights.</rdfs:comment>
         <rdfs:comment xml:lang="ja">権利関係全般に関連するクラス</rdfs:comment>
         <rdfs:label>RightsStatement</rdfs:label>
     </owl:Class>
