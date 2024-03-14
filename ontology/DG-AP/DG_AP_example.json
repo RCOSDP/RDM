@@ -8,6 +8,7 @@
     {
       "@id": "_:Project_1",
       "@type": "Project",
+      "url": "https://rdm.nii.ac.jp/xxxxx",
       "name": "Sample Project",
       "description": "This project is ...",
       "field": "環境",
@@ -69,6 +70,7 @@
     {
       "@id": "_:Resource_1",
       "@type": "Resource",
+      "url": "https://rdm.nii.ac.jp/xxxxx/files/abcdefgh",
       "name": "test_data.csv",
       "filePath": "/osfstorage/dir/test_data.csv",
       "encodingFormat": "text/csv",
