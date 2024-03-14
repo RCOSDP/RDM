@@ -12,9 +12,11 @@
       "description": "This project is ...",
       "field": "環境",
       "dateStarted": "2024-03-01",
-      "projectItem": {
-        "@id": "_:Resource_1"
-      },
+      "projectItem": [
+        {
+          "@id": "_:Resource_1"
+        }
+      ],
       "researcher": [
         {
           "@id": "_:Person_1"
@@ -23,18 +25,22 @@
           "@id": "_:Person_2"
         }
       ],
-      "funding": {
-        "@id": "_:Grant_1"
-      },
+      "funding": [
+        {
+          "@id": "_:Grant_1"
+        }
+      ],
       "accessRightsInformation": {
         "@id": "_:AccessRights_1"
       },
       "licenseInformation": {
         "@id": "_:License_1"
       },
-      "dmp": {
-        "@id": "_:DataManagementPlan_1"
-      }
+      "dmp": [
+        {
+          "@id": "_:DataManagementPlan_1"
+        }
+      ]
     },
     {
       "@id": "_:Person_1",
@@ -43,18 +49,22 @@
       "email": "tyamada@example.com",
       "orcid": "https://orcid.org/0000-0001-2345-6789",
       "eradResearcherNumber": "90050426",
-      "affiliation": {
-        "@id": "_:Institution_1"
-      }
+      "affiliation": [
+        {
+          "@id": "_:Institution_1"
+        }
+      ]
     },
     {
       "@id": "_:Person_2",
       "@type": "Person",
       "name": "Jane Smith",
       "orcid": "https://orcid.org/0000-0002-3456-7890",
-      "affiliation": {
-        "@id": "_:Institution_1"
-      }
+      "affiliation": [
+        {
+          "@id": "_:Institution_1"
+        }
+      ]
     },
     {
       "@id": "_:Resource_1",
@@ -69,9 +79,11 @@
       "@id": "_:Grant_1",
       "@type": "Grant",
       "name": "Sample Grant Program",
-      "funder": {
-        "@id": "_:FundingAgency_1"
-      }
+      "funder": [
+        {
+          "@id": "_:FundingAgency_1"
+        }
+      ]
     },
     {
       "@id": "_:AccessRights_1",
@@ -97,12 +109,16 @@
         },
         { "@id": "_:Person_2" }
       ],
-      "dataManager": {
-        "@id": "_:Person_1"
-      },
-      "hostingInstitution": {
-        "@id": "_:Institution_1"
-      },
+      "dataManager": [
+        {
+          "@id": "_:Person_1"
+        }
+      ],
+      "hostingInstitution": [
+        {
+          "@id": "_:Institution_1"
+        }
+      ],
       "dataAccessRightsInformation": {
         "@id": "_:AccessRights_1"
       },
@@ -111,9 +127,11 @@
       },
       "dataEncodingFormat": "text/csv",
       "dataNumber": 1,
-      "dmpFormatProvider": {
-        "@id": "_:FundingAgency_1"
-      }
+      "dmpFormatProvider": [
+        {
+          "@id": "_:FundingAgency_1"
+        }
+      ]
     },
     {
       "@id": "_:Institution_1",
