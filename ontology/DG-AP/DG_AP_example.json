@@ -12,7 +12,6 @@
       "description": "This project is ...",
       "field": "環境",
       "dateStarted": "2024-03-01",
-      "doi": "https://doi.org/xxxxxxxxxxx",
       "projectItem": {
         "@id": "_:Resource_1"
       },
@@ -40,18 +39,7 @@
     {
       "@id": "_:Person_1",
       "@type": "Person",
-      "name": [
-        {
-          "@value": "Taro Yamada",
-          "@language": "en"
-        },
-        {
-          "@value": "山田太郎",
-          "@language": "ja"
-        }
-      ],
-      "givenName": "Taro",
-      "familyName": "Yamada",
+      "name": "山田太郎",
       "email": "tyamada@example.com",
       "orcid": "https://orcid.org/0000-0001-2345-6789",
       "eradResearcherNumber": "90050426",
@@ -63,8 +51,6 @@
       "@id": "_:Person_2",
       "@type": "Person",
       "name": "Jane Smith",
-      "givenName": "Jane",
-      "familyName": "Smith",
       "orcid": "https://orcid.org/0000-0002-3456-7890",
       "affiliation": {
         "@id": "_:Institution_1"
