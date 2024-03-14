@@ -2,6 +2,8 @@
 ![Domain Model](DG_AP_domain_model.png)
 The main entity is Project class in DG-AP domain model, unlike Resource and Activity class in RDM Ontology. This is because DG-AP supports only [Gakunin RDM](https://rdm.nii.ac.jp/) as a research data management platform for now. A project is base unit in Gakunin RDM and can exist without any files that is described by using Resource class. A instance of Project class in DG-AP indicates a single project of Gakunin RDM.
 
+# Example
+- [JSON-LD](./DG_AP_example.json).
 
 # Term Definitions Overview
 |prefix|Namespace|
