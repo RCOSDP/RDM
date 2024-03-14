@@ -1,10 +1,11 @@
+@prefix coar: <http://purl.org/coar/access_right/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdm: <https://purl.org/rdm/ontology/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://purl.org/rdm/ontology> a owl:Ontology ;
+<https://purl.org/rdm/ontology/> a owl:Ontology ;
     rdfs:comment "The Research Data Management ontology (RDM ontology) is developed to describe research data and all activities related to its management. RDM ontology was developed as a communication hub between the NII Research Data Cloud (NII-RDC) systems, but is being developed as an ontology that can be applied to any research data management platform. The domain model of RDM ontology is designed to comply with best practices regarding persistent identifiers. RDM ontology is also activity-centered in its design philosophy inspired by the Activity Streams 2.0, W3C Document 13 April 2018 (https://www.w3.org/ns/activitystreams#)."@en,
         "研究データ管理オントロジー (RDM オントロジー) は、研究データとその管理に関わるすべての活動を記述することを目的として設計されました。RDM オントロジーは、 NII 研究データクラウド (NII-RDC) の基盤間でのコミュニケーションハブとして開発されましたが、あらゆる研究データ管理プラットフォームに応用できるオントロジーとしても開発が進んでいます。RDM オントロジーのドメインモデルは、永続識別子に関するベストプラクティスに準拠するよう設計されました。また、 RDM オントロジーは、 Activity Streams 2.0、W3C Document 13 April 2018 (https://www.w3.org/ns/activitystreams#) にインスパイアされた設計思想で、アクティビティ中心でもあります。"@ja ;
     owl:versionInfo "1.0" .
@@ -164,7 +165,7 @@ rdm:EmbargoedAccess a owl:NamedIndividual,
     rdfs:label "EmbargoedAccess" ;
     rdfs:comment "Embargoed access (metadata only access until released for open access on a certain date)."@en,
         "公開期間猶予"@ja ;
-    owl:sameAs "http://purl.org/coar/access_right/c_f1cf" .
+    owl:sameAs coar:c_f1cf .
 
 rdm:Evaluate a owl:Class ;
     rdfs:label "Evaluate" ;
@@ -219,14 +220,14 @@ rdm:MetadataOnlyAccess a owl:NamedIndividual,
     rdfs:label "MetadataOnlyAccess" ;
     rdfs:comment "Metadata only access."@en,
         "メタデータのみ公開"@ja ;
-    owl:sameAs "http://purl.org/coar/access_right/c_14cb" .
+    owl:sameAs coar:c_14cb .
 
 rdm:OpenAccess a owl:NamedIndividual,
         rdm:ConditionOfAccessEnumeration ;
     rdfs:label "OpenAccess" ;
     rdfs:comment "Open access."@en,
         "公開"@ja ;
-    owl:sameAs "http://purl.org/coar/access_right/c_abf2" .
+    owl:sameAs coar:c_abf2 .
 
 rdm:OtherResource a owl:Class ;
     rdfs:label "OtherResource" ;
@@ -293,7 +294,7 @@ rdm:RestrictedAccess a owl:NamedIndividual,
     rdfs:label "RestrictedAccess" ;
     rdfs:comment "Restricted access."@en,
         "限定公開"@ja ;
-    owl:sameAs "http://purl.org/coar/access_right/c_16ec" .
+    owl:sameAs coar:c_16ec .
 
 rdm:Restructure a owl:Class ;
     rdfs:label "Restructure" ;
@@ -642,10 +643,10 @@ rdm:givenName a owl:DatatypeProperty ;
 
 rdm:hostingInstitution a owl:ObjectProperty ;
     rdfs:label "hostingInstitution" ;
-    rdfs:comment "The hosting institution of Resource and research data to be described in this DataManagementPlan."@en,
-        "Resource の管理機関、もしくはDMPにおける研究データ管理機関"@ja ;
+    rdfs:comment "The hosting institution of Resource (in Project) and research data to be described in this DataManagementPlan."@en,
+        "(Project に属する)Resource の管理機関、もしくはDMPにおける研究データ管理機関"@ja ;
     rdfs:domain [ a owl:Class ;
-        owl:unionOf ( rdm:DataManagementPlan rdm:Resource ) ] ;
+        owl:unionOf ( rdm:DataManagementPlan rdm:Project rdm:Resource ) ] ;
     rdfs:range rdm:Institution ;
     rdfs:subPropertyOf rdm:contributor .
 
@@ -1425,7 +1426,8 @@ rdm:accessRightsInformation a owl:ObjectProperty ;
     rdfs:label "accessRightsInformation" ;
     rdfs:comment "Information on access rights of this Class."@en,
         "クラスのアクセス権関連情報"@ja ;
-    rdfs:domain rdm:Project ;
+    rdfs:domain [ a owl:Class ;
+                owl:unionOf ( rdm:Project rdm:Resource ) ] ;
     rdfs:range rdm:AccessRights .
 
 rdm:field a owl:DatatypeProperty ;
@@ -1787,3 +1789,4 @@ rdm:Resource a owl:Class ;
             owl:allValuesFrom rdm:Resource ;
             owl:onProperty rdm:continues ] .
 
+xsd:date rdf:type rdfs:Datatype .

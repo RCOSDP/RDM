@@ -1,6 +1,5 @@
 {
   "@context": {
-    "@version": 1.0,
     "@vocab": "https://purl.org/rdm/ontology/"
   },
   "@type": "Dataset",

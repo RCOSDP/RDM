@@ -1,0 +1,144 @@
+{
+  "@context": {
+    "@vocab": "https://purl.org/rdm/ontology/",
+    "filePath": "https://raw.githubusercontent.com/RCOSDP/RDM/main/ontology/DG-AP/dg_ap.ttl#filePath",
+    "runCrate": "https://raw.githubusercontent.com/RCOSDP/RDM/main/ontology/DG-AP/dg_ap.ttl#runCrate"
+  },
+  "@graph": [
+    {
+      "@id": "_:Project_1",
+      "@type": "Project",
+      "name": "Sample Project",
+      "description": "This project is ...",
+      "field": "環境",
+      "dateStarted": "2024-03-01",
+      "doi": "https://doi.org/xxxxxxxxxxx",
+      "projectItem": {
+        "@id": "_:Resource_1"
+      },
+      "researcher": [
+        {
+          "@id": "_:Person_1"
+        },
+        {
+          "@id": "_:Person_2"
+        }
+      ],
+      "funding": {
+        "@id": "_:Grant_1"
+      },
+      "accessRightsInformation": {
+        "@id": "_:AccessRights_1"
+      },
+      "licenseInformation": {
+        "@id": "_:License_1"
+      },
+      "dmp": {
+        "@id": "_:DataManagementPlan_1"
+      }
+    },
+    {
+      "@id": "_:Person_1",
+      "@type": "Person",
+      "name": [
+        {
+          "@value": "Taro Yamada",
+          "@language": "en"
+        },
+        {
+          "@value": "山田太郎",
+          "@language": "ja"
+        }
+      ],
+      "givenName": "Taro",
+      "familyName": "Yamada",
+      "email": "tyamada@example.com",
+      "orcid": "https://orcid.org/0000-0001-2345-6789",
+      "eradResearcherNumber": "90050426",
+      "affiliation": {
+        "@id": "_:Institution_1"
+      }
+    },
+    {
+      "@id": "_:Person_2",
+      "@type": "Person",
+      "name": "Jane Smith",
+      "givenName": "Jane",
+      "familyName": "Smith",
+      "orcid": "https://orcid.org/0000-0002-3456-7890",
+      "affiliation": {
+        "@id": "_:Institution_1"
+      }
+    },
+    {
+      "@id": "_:Resource_1",
+      "@type": "Resource",
+      "name": "test_data.csv",
+      "filePath": "/osfstorage/dir/test_data.csv",
+      "encodingFormat": "text/csv",
+      "dateCreated": "2024-03-04",
+      "version": 2
+    },
+    {
+      "@id": "_:Grant_1",
+      "@type": "Grant",
+      "name": "Sample Grant Program",
+      "funder": {
+        "@id": "_:FundingAgency_1"
+      }
+    },
+    {
+      "@id": "_:AccessRights_1",
+      "@type": "AccessRights",
+      "conditionOfAccess": {
+        "@id": "https://purl.org/rdm/ontology/EmbargoedAccess"
+      },
+      "dateAvailable": "2025-04-01"
+    },
+    {
+      "@id": "_:License_1",
+      "@type": "License",
+      "name": "Apache License Version 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    },
+    {
+      "@id": "_:DataManagementPlan_1",
+      "@type": "DataManagementPlan",
+      "dmpFormat": "Sample Grant Format",
+      "dataCreator": [
+        {
+          "@id": "_:Person_1"
+        },
+        { "@id": "_:Person_2" }
+      ],
+      "dataManager": {
+        "@id": "_:Person_1"
+      },
+      "hostingInstitution": {
+        "@id": "_:Institution_1"
+      },
+      "dataAccessRightsInformation": {
+        "@id": "_:AccessRights_1"
+      },
+      "dataLicenseInformation": {
+        "@id": "_:License_1"
+      },
+      "dataEncodingFormat": "text/csv",
+      "dataNumber": 1,
+      "dmpFormatProvider": {
+        "@id": "_:FundingAgency_1"
+      }
+    },
+    {
+      "@id": "_:Institution_1",
+      "@type": "Institution",
+      "name": "Example University",
+      "ror": "https://ror.org/xxxxxxxxxx"
+    },
+    {
+      "@id": "_:FundingAgency_1",
+      "@type": "FundingAgency",
+      "name": "Sample Grant Organization"
+    }
+  ]
+}

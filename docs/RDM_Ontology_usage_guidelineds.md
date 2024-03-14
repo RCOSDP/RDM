@@ -315,7 +315,7 @@ The following is a legend of term description.
 ||rdm:License|
 |--|--|
 |URI|https://purl.org/rdm/ontology/License|
-|rdfs:comment|An license of Resource.<br>リソースのライセンス|
+|rdfs:comment|A license of Resource.<br>リソースのライセンス|
 |rdfs:subClassOf|RightsStatement|
 |note|A value of property rdm:url is required.|
 
@@ -415,7 +415,7 @@ The following is a legend of term description.
 ||rdm:RightsStatement|
 |--|--|
 |URI|https://purl.org/rdm/ontology/RightsStatement|
-|rdfs:comment|An higher-level class that relates to various rights.<br>権利関係全般に関連するクラス|
+|rdfs:comment|A higer-level class that relates to various rights.<br>権利関係全般に関連するクラス|
 |note|This class is only used as a super-class of rdm:AccessRights and rdm:License, not for instance.|
 
 ||rdm:Schedule|
@@ -1030,8 +1030,8 @@ The following is a legend of term description.
 |URI|https://purl.org/rdm/ontology/hostingInstitution|
 |rdf:type|ObjectProperty|
 |rdfs:subPropertyOf|rdm:contributor|
-|rdfs:comment|The hosting institution of Resource and research data to be described in this DataManagementPlan.<br>Resource の管理機関、もしくはDMPにおける研究データ管理機関|
-|rdfs:domain|rdm:Resource<br>rdm:DataManagementPlan|
+|rdfs:comment|The hosting institution of Resource (in Project) and research data to be described in this DataManagementPlan.<br>(Project に属する)Resource の管理機関、もしくはDMPにおける研究データ管理機関|
+|rdfs:domain|rdm:Project<br>rdm:Resource<br>rdm:DataManagementPlan|
 |rdfs:range|rdm:Institution|
 
 ||rdm:identifierInformation|
@@ -1082,7 +1082,7 @@ The following is a legend of term description.
 |--|--|
 |URI|https://purl.org/rdm/ontology/inclusionRelation|
 |rdf:type|ObjectProperty|
-|rdfs:comment|An higher-level property that indicates inclusion relationship between Classes.<br>主語クラスと包含関係のあるクラスを指す上位プロパティ|
+|rdfs:comment|A higer-level property that indicates inclusion relationship between Classes.<br>主語クラスと包含関係のあるクラスを指す上位プロパティ|
 |note|This class is only used as a super-class of properties indicating overlap between classes, not for instance.|
 
 ||rdm:instrument|
@@ -1674,7 +1674,7 @@ The following is a legend of term description.
 |--|--|
 |URI|https://purl.org/rdm/ontology/value|
 |rdf:type|DatatypeProperty|
-|rdfs:comment|An higher-level property that indicates some value of Classes.<br>クラスにおける何かしらの値を示す上位プロパティ|
+|rdfs:comment|A higer-level property that indicates some value of Classes.<br>クラスにおける何かしらの値を示す上位プロパティ|
 |rdfs:range|xsd:anyURI<br>xsd:string<br>xsd:integer<br>xsd:double|
 
 ||rdm:version|
