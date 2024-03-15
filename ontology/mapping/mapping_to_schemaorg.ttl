@@ -1,0 +1,176 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdm: <https://purl.org/rdm/ontology/> .
+@prefix schema: <https://schema.org/> .
+
+rdm:Accept owl:equivalentClass schema:AcceptAction .
+
+rdm:AccessRights rdfs:subClassOf schema:DigitalDocumentPermission .
+
+rdm:Activity owl:equivalentClass schema:Action .
+
+rdm:Add rdfs:subClassOf schema:AddAction .
+
+rdm:Ask owl:equivalentClass schema:AskAction .
+
+rdm:Assign owl:equivalentClass schema:AssignAction .
+
+rdm:Audio owl:equivalentClass schema:AudioObject .
+
+rdm:Authorize owl:equivalentClass schema:AuthorizeAction .
+
+rdm:Book owl:equivalentClass schema:Book .
+
+rdm:Check owl:equivalentClass schema:CheckAction .
+
+rdm:Collection owl:equivalentClass schema:Collection .
+
+rdm:Comment owl:equivalentClass schema:CommentAction .
+
+rdm:Create owl:equivalentClass schema:CreateAction .
+
+rdm:DataManagementPlan rdfs:subClassOf schema:CreativeWork .
+
+rdm:Dataset owl:equivalentClass schema:Dataset .
+
+rdm:Download owl:equivalentClass schema:DownloadAction .
+
+rdm:Enumeration rdfs:subClassOf schema:DefinedTerm .
+
+rdm:Event owl:equivalentClass schema:Event .
+
+rdm:FundingAgency owl:equivalentClass schema:FundingAgency .
+
+rdm:Grant owl:equivalentClass schema:Grant .
+
+rdm:Identifier rdfs:subClassOf schema:PropertyValue .
+
+rdm:Image owl:equivalentClass schema:ImageObject .
+
+rdm:Inform owl:equivalentClass schema:InformAction .
+
+rdm:Institution owl:equivalentClass schema:Organization .
+
+rdm:Journal rdfs:subClassOf schema:Periodical .
+
+rdm:JournalArticle rdfs:subClassOf schema:ScholarlyArticle .
+
+rdm:License rdfs:subClassOf schema:CreativeWork .
+
+rdm:Person owl:equivalentClass schema:Person .
+
+rdm:Preprint rdfs:subClassOf schema:ScholarlyArticle .
+
+rdm:Project owl:equivalentClass schema:ResearchProject .
+
+rdm:Register owl:equivalentClass schema:RegisterAction .
+
+rdm:Reject owl:equivalentClass schema:RejectAction .
+
+rdm:Report owl:equivalentClass schema:Report .
+
+rdm:Repository rdfs:subClassOf schema:CreativeWork .
+
+rdm:Resource owl:equivalentClass schema:MediaObject .
+
+rdm:Schedule owl:equivalentClass schema:ScheduleAction .
+
+rdm:Search rdfs:subClassOf schema:SearchAction .
+
+rdm:Select owl:equivalentClass schema:ChooseAction .
+
+rdm:Send owl:equivalentClass schema:SendAction .
+
+rdm:SoftwareApplication owl:equivalentClass schema:SoftwareApplication .
+
+rdm:Thesis owl:equivalentClass schema:Thesis .
+
+rdm:Update owl:equivalentClass schema:UpdateAction .
+
+rdm:Video owl:equivalentClass schema:VideoObject .
+
+rdm:additionalName owl:equivalentProperty schema:additionalName .
+
+rdm:address rdfs:subPropertyOf schema:address .
+
+rdm:affiliation owl:equivalentProperty schema:affiliation .
+
+rdm:agent owl:equivalentProperty schema:agent .
+
+rdm:collectionSize owl:equivalentProperty schema:collectionSize .
+
+rdm:contributor rdfs:subPropertyOf schema:contributor .
+
+rdm:copyright rdfs:subPropertyOf schema:copyrightNotice .
+
+rdm:creator rdfs:subPropertyOf schema:creator .
+
+rdm:dateCreated rdfs:subPropertyOf schema:dateCreated .
+
+rdm:dateEnded rdfs:subPropertyOf schema:startDate .
+
+rdm:dateModified rdfs:subPropertyOf schema:dateModified .
+
+rdm:datePublished rdfs:subPropertyOf schema:datePublished .
+
+rdm:dateStarted rdfs:subPropertyOf schema:endDate .
+
+rdm:description rdfs:subPropertyOf schema:description .
+
+rdm:detailedRole rdfs:subPropertyOf schema:jobTitle .
+
+rdm:email rdfs:subPropertyOf schema:email .
+
+rdm:encodingFormat rdfs:subPropertyOf schema:encodingFormat .
+
+rdm:familyName owl:equivalentProperty schema:familyName .
+
+rdm:funder rdfs:subPropertyOf schema:funder .
+
+rdm:funding rdfs:subPropertyOf schema:funding .
+
+rdm:givenName owl:equivalentProperty schema:givenName .
+
+rdm:hasPart rdfs:subPropertyOf schema:hasPart .
+
+rdm:identifierInformation rdfs:subPropertyOf schema:identifier .
+
+rdm:instrument rdfs:subPropertyOf schema:instrument .
+
+rdm:isPartOf rdfs:subPropertyOf schema:isPartOf .
+
+rdm:keywords rdfs:subPropertyOf schema:keywords .
+
+rdm:language rdfs:subPropertyOf schema:inLanguage .
+
+rdm:licenseInformation rdfs:subPropertyOf schema:license .
+
+rdm:name rdfs:subPropertyOf schema:name .
+
+rdm:operatingSystem owl:equivalentProperty schema:operatingSystem .
+
+rdm:organizer owl:equivalentProperty schema:organizer .
+
+rdm:processorRequirements owl:equivalentProperty schema:processorRequirements .
+
+rdm:object rdfs:subPropertyOf schema:object .
+
+rdm:result rdfs:subPropertyOf schema:result .
+
+rdm:sdDatePublished rdfs:subPropertyOf schema:sdDatePublished .
+
+rdm:sha256 owl:equivalentProperty schema:sha256 .
+
+rdm:size rdfs:subPropertyOf schema:size .
+
+rdm:softwareRequirements rdfs:subPropertyOf schema:softwareRequirements .
+
+rdm:storageRequirements rdfs:subPropertyOf schema:storageRequirements .
+
+rdm:thumbnail owl:equivalentProperty schema:thumbnail .
+
+rdm:url rdfs:subPropertyOf schema:url .
+
+rdm:value rdfs:subPropertyOf schema:value .
+
+rdm:version rdfs:subPropertyOf schema:version .

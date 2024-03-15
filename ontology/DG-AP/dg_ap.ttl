@@ -1,0 +1,136 @@
+@prefix dgap: <https://raw.githubusercontent.com/RCOSDP/RDM/main/ontology/DG-AP/dg_ap.ttl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdm: <https://purl.org/rdm/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rdm: a owl:Ontology ;
+    rdfs:comment "The Data Governance Application Profile (DG-AP) is an application profile of Research Data Management Ontology (RDM Ontology) specialized to Data Governance application, which can monitor the status of research data and its metadata."@en,
+        "データガバナンスアプリケーションプロファイル (DG-AP) は、RDM オントロジーに基づいた、研究データの状態とそのメタデータをモニタリングするデータガバナンス機能に特化したアプリケーションプロファイルです。"@jp ;
+    owl:versionInfo "1.0" ;
+    owl:imports rdm: .
+
+dgap:filePath a owl:DatatypeProperty;
+  rdfs:label "filePath" ;
+  rdfs:comment "File path in Gakunin RDM."@en,
+    "Gakunin RDMにおけるファイルパス"@jp ;
+  rdfs:domain rdm:Resource ;
+  rdfs:range xsd:string ;
+  rdfs:subPropertyOf rdm:localIdentifier .
+
+dgap:runCrate a owl:DatatypeProperty;
+  rdfs:label "runCrate" ;
+  rdfs:comment "URL of a run-crate file in a project of Gakunin RDM."@en,
+    "Gakunin RDM プロジェクト内にある run-crate ファイルの URL"@jp ;
+  rdfs:domain rdm:Resource ;
+  rdfs:range xsd:string .
+
+rdm:version rdfs:range xsd:string .
+
+rdm:Project rdfs:subClassOf [ a owl:Restriction ;
+              owl:cardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:name ] ,
+              [ a owl:Restriction ;
+              owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:researcher ] ,
+              [ a owl:Restriction ;
+              owl:cardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:url ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:description ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:raid ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:dateStarted ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:accessRightsInformation ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:licenseInformation ] ;
+            rdf:comment "A Gakunin RDM project."@en,
+              "GRDM の 1 プロジェクト"@ja .
+
+rdm:Resource rdfs:subClassOf [ a owl:Restriction ;
+              owl:cardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:name ] ,
+              [ a owl:Restriction ;
+              owl:cardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:dateCreated ] ,
+              [ a owl:Restriction ;
+              owl:cardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:version ] ,
+              [ a owl:Restriction ;
+              owl:cardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:url ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:dateModified ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:description ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:encodingFormat ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty dgap:filaPath ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:doi ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:sha256 ] ;
+            rdf:comment "A file managed in Gakunin RDM."@en,
+              "GRDMで管理されている1ファイル"@ja .
+
+rdm:Person rdfs:subClassOf [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:name ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:orcid ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:eradResearcherNumber ];
+            rdfs:comment "A user of Gakunin RDM or any other person related to a research project."@en,
+              "GRDMの1ユーザーもしくはその他研究関係者"@jp .
+
+rdm:Institution rdfs:subClassOf [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:name ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:ror ] .
+
+rdm:FundingAgency rdfs:subClassOf [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:funderId ] .
+
+rdm:Grant rdfs:subClassOf [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:description ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:name ] ,
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:japanGrantNumber ] .
+
+rdm:License rdfs:subClassOf [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:name ] .
+
+rdm:DataManagementPlan  rdfs:subClassOf [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:dmpFormatProvider ],
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:description ] ;
+              [ a owl:Restriction ;
+              owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+              owl:onProperty rdm:measurementTechnique ] .
