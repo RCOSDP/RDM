@@ -46,6 +46,3 @@ rdm
 # Publications <!-- 関連出版物 -->
 1. Minamiyama, Y., Hayashi, M., Fujiwara, I., Onami, J., Yokoyama, S., Komiyama, Y., & Yamaji, K. (2023). Toward the Development of NII RDC Application Profile Using Ontology Technology. In Proceedings of the Conference on Research Data Infrastructure (Vol. 1). TIB Open Publishing. https://doi.org/10.52825/cordi.v1i.260
 2. 南山泰之, 林正治, 藤原一毅, 大波純一, 横山重俊, 込山悠介, 山地一禎 (2023). オントロジー技術を用いたNII RDCアプリケーションプロファイル開発に向けて. 情報知識学会誌. Vol.33, No.2, p.212-220.
-
-# License
-[CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/). See [LICENSE](./LICENSE.txt) for more detail.
