@@ -12,7 +12,7 @@ rdm
 
 # Deliverables
 ## Functional Requirements
-- [Functional requirements specification](./userstories/list.md) <!-- 機能要件と対応するユーザーストーリー一覧へのリンク -->
+- [Functional requirements specification] <!-- 機能要件と対応するユーザーストーリー一覧へのリンク -->
 
 ## Domain Model
 - RDM Ontology domain model <!-- データモデル図 -->
