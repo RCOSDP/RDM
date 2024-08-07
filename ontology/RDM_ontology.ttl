@@ -1805,7 +1805,8 @@ rdm:storageRequirements rdf:type owl:DatatypeProperty ;
 rdm:textContent rdf:type owl:DatatypeProperty ;
                 rdfs:domain rdm:Resource ;
                 rdfs:range xsd:string ;
-                rdfs:comment "Resource の内容であるテキスト"@ja ;
+                rdfs:comment "The textual content of this Resource."@en ,
+                              "Resource の内容であるテキスト"@ja ;
                 rdfs:label "textContent" .
 
 

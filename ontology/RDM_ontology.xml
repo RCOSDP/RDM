@@ -2506,6 +2506,7 @@
     <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology/textContent">
         <rdfs:domain rdf:resource="https://purl.org/rdm/ontology/Resource"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">The textual content of this Resource.</rdfs:comment>
         <rdfs:comment xml:lang="ja">Resource の内容であるテキスト</rdfs:comment>
         <rdfs:label>textContent</rdfs:label>
     </owl:DatatypeProperty>

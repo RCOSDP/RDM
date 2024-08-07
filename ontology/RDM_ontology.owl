@@ -5574,11 +5574,6 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>describedItem</IRI>
-        <Literal xml:lang="en">Resource which this class describes as metadata.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>describedItem</IRI>
         <Literal xml:lang="ja">このクラスがメタデータとして説明している対象の Resource</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
@@ -7235,6 +7230,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>textContent</IRI>
         <Literal xml:lang="ja">Resource の内容であるテキスト</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>textContent</IRI>
+        <Literal xml:lang="en">The textual content of this Resource.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
