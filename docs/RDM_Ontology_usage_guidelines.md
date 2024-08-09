@@ -5,6 +5,7 @@ There is two domain models of RDM Ontology; focused on Resource and focused on A
 ## Domain Model Focused on Resource
 
 ![Resource domain model](domain_model_Resource.png)
+
 To describe research outcomes such as research data, the main entity should be of type Resource. (It is recommended that a subclass of Resource be selected and used according to the category of research outcomes.) Related entities such as research project can be described by linking to the main entity. Activity entities is not recommended to add to this style of describing to divide the result of research activity (Resource) and the process (Activity).
 Examples of Resource focused description is in two formats:
 
@@ -14,6 +15,7 @@ Examples of Resource focused description is in two formats:
 ## Domain Model Focused on Activity
 
 ![Resource domain model](domain_model_Activity.png)
+
 To describe research activities as a log, the main entity should be a subclass of Activity class. Resource entities can be linked as a result, a target and a used tool of the activity. Linking other entities to Resource is not recommended when the main entity is subclass of Activity, as well as Resourced focused case.
 
 # Term Definitions Overview
@@ -596,7 +598,7 @@ The following is a legend of term description.
 | rdf:type     | ObjectProperty                                                                                |
 | rdfs:comment | A contributor to this Class.<br>クラスへの寄与者                                              |
 | rdfs:domain  | rdm:Collection, rdm:Event, rdm:Experiment, rdm:Project, rdm:Resource, rdm:SoftwareApplication |
-| rdfs:range   | rdm:Person<br>rdm:Institution                                                                 |
+| rdfs:range   | rdm:Person, rdm:Institution                                                                   |
 | note         | This property can be used only when no other subproperty of this property is appropriate.     |
 
 |                    | rdm:creator                                               |
@@ -605,7 +607,7 @@ The following is a legend of term description.
 | rdf:type           | ObjectProperty                                            |
 | rdfs:subPropertyOf | rdm:contributor                                           |
 | rdfs:comment       | The creator/author of this Resource. <br>リソースの作成者 |
-| rdfs:domain        | rdm:Resource<br>rdm:SoftwareApplication                   |
+| rdfs:domain        | rdm:Resource, rdm:SoftwareApplication                     |
 | rdfs:range         | rdm:Person                                                |
 
 |                    | rdm:dataCreator                                                                                            |
@@ -626,63 +628,23 @@ The following is a legend of term description.
 | rdfs:domain        | rdm:DataManagementPlan                                                                                        |
 | rdfs:range         | rdm:Person                                                                                                    |
 
+|                    | rdm:experimenter                                                                      |
+| ------------------ | ------------------------------------------------------------------------------------- |
+| URI                | https://purl.org/rdm/ontology/experimenter                                            |
+| rdf:type           | ObjectProperty                                                                        |
+| rdfs:subPropertyOf | rdm:contributor                                                                       |
+| rdfs:comment       | The practitioner, performer and executor of this Experiment. <br>実験の実施者、実行者 |
+| rdfs:domain        | rdm:Experiment                                                                        |
+| rdfs:range         | rdm:Person                                                                            |
+
 |                    | rdm:hostingInstitution                                                                                                                                                                           |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | URI                | https://purl.org/rdm/ontology/hostingInstitution                                                                                                                                                 |
 | rdf:type           | ObjectProperty                                                                                                                                                                                   |
 | rdfs:subPropertyOf | rdm:contributor                                                                                                                                                                                  |
 | rdfs:comment       | The hosting institution of Resource (in Project) and research data to be described in this DataManagementPlan.<br>(Project に属する)Resource の管理機関、もしくは DMP における研究データ管理機関 |
-| rdfs:domain        | rdm:Project<br>rdm:Resource<br>rdm:DataManagementPlan                                                                                                                                            |
+| rdfs:domain        | rdm:Project, rdm:Resource, rdm:DataManagementPlan                                                                                                                                                |
 | rdfs:range         | rdm:Institution                                                                                                                                                                                  |
-
-|              | rdm:dmp                                                                                                |
-| ------------ | ------------------------------------------------------------------------------------------------------ |
-| URI          | https://purl.org/rdm/ontology/dmp                                                                      |
-| rdf:type     | ObjectProperty                                                                                         |
-| rdfs:comment | Contents of data management plan of this Project/Resource.<br>資源やプロジェクトに紐づくデータ管理計画 |
-| rdfs:domain  | rdm:Resource<br>rdm:Project                                                                            |
-| rdfs:range   | rdm:DataManagementPlan                                                                                 |
-
-|              | rdm:dmpFormatProvider                                                            |
-| ------------ | -------------------------------------------------------------------------------- |
-| URI          | https://purl.org/rdm/ontology/dmpFormatProvider                                  |
-| rdf:type     | ObjectProperty                                                                   |
-| rdfs:comment | A institution which provides this DataManagementPlan format.<br>DMP 種別の提供者 |
-| rdfs:domain  | rdm:DataManagementPlan                                                           |
-| rdfs:range   | rdm:Institution                                                                  |
-
-|              | rdm:funder                                                                                                          |
-| ------------ | ------------------------------------------------------------------------------------------------------------------- |
-| URI          | https://purl.org/rdm/ontology/funder                                                                                |
-| rdf:type     | ObjectProperty                                                                                                      |
-| rdfs:comment | An organization that funds this Project or research activities to create this Resource.<br>研究資金プログラム提供者 |
-| rdfs:domain  | rdm:Resource<br>rdm:Project<br>rdm:Grant                                                                            |
-| rdfs:range   | rdm:FundingAgency                                                                                                   |
-
-|              | rdm:funding                                                                                            |
-| ------------ | ------------------------------------------------------------------------------------------------------ |
-| URI          | https://purl.org/rdm/ontology/funding                                                                  |
-| rdf:type     | ObjectProperty                                                                                         |
-| rdfs:comment | A grant program for this Project or research activities to create this Resource.<br>研究資金プログラム |
-| rdfs:domain  | rdm:Resource<br>rdm:Project                                                                            |
-| rdfs:range   | rdm:Grant                                                                                              |
-
-|              | rdm:identifierInformation                                                |
-| ------------ | ------------------------------------------------------------------------ |
-| URI          | https://purl.org/rdm/ontology/identifierInformation                      |
-| rdf:type     | ObjectProperty                                                           |
-| rdfs:comment | An identifier information of this Class.<br>識別子                       |
-| rdfs:domain  | rdm:Resource, Repository, Project, Collection, Person, Institution,Grant |
-| rdfs:range   | rdm:Identifier                                                           |
-
-|                    | rdm:dataIdentifier                                                                                      |
-| ------------------ | ------------------------------------------------------------------------------------------------------- |
-| URI                | https://purl.org/rdm/ontology/dataIdentifier                                                            |
-| rdf:type           | ObjectProperty                                                                                          |
-| rdfs:subPropertyOf | rdm:identifierInformation                                                                               |
-| rdfs:comment       | The identifier of research data to be described in this DataManagementPlan.<br>DMP におけるデータ識別子 |
-| rdfs:domain        | rdm:DataManagementPlan                                                                                  |
-| rdfs:range         | rdm:Identifier                                                                                          |
 
 |                    | rdm:identifierManager                                                                                           |
 | ------------------ | --------------------------------------------------------------------------------------------------------------- |
@@ -710,12 +672,61 @@ The following is a legend of term description.
 | rdfs:domain        | rdm:Project                                                            |
 | rdfs:range         | rdm:Person                                                             |
 
-|              | rdm:inclusionRelation                                                                                                                 |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| URI          | https://purl.org/rdm/ontology/inclusionRelation                                                                                       |
-| rdf:type     | ObjectProperty                                                                                                                        |
-| rdfs:comment | A higer-level property that indicates inclusion relationship between Classes.<br>主語クラスと包含関係のあるクラスを指す上位プロパティ |
-| note         | This class is only used as a super-class of properties indicating overlap between classes, not for instance.                          |
+|              | rdm:dmp                                                                                                |
+| ------------ | ------------------------------------------------------------------------------------------------------ |
+| URI          | https://purl.org/rdm/ontology/dmp                                                                      |
+| rdf:type     | ObjectProperty                                                                                         |
+| rdfs:comment | Contents of data management plan of this Project/Resource.<br>資源やプロジェクトに紐づくデータ管理計画 |
+| rdfs:domain  | rdm:Resource, rdm:Project                                                                              |
+| rdfs:range   | rdm:DataManagementPlan                                                                                 |
+
+|              | rdm:dmpFormatProvider                                                            |
+| ------------ | -------------------------------------------------------------------------------- |
+| URI          | https://purl.org/rdm/ontology/dmpFormatProvider                                  |
+| rdf:type     | ObjectProperty                                                                   |
+| rdfs:comment | A institution which provides this DataManagementPlan format.<br>DMP 種別の提供者 |
+| rdfs:domain  | rdm:DataManagementPlan                                                           |
+| rdfs:range   | rdm:Institution                                                                  |
+
+|              | rdm:funder                                                                                                          |
+| ------------ | ------------------------------------------------------------------------------------------------------------------- |
+| URI          | https://purl.org/rdm/ontology/funder                                                                                |
+| rdf:type     | ObjectProperty                                                                                                      |
+| rdfs:comment | An organization that funds this Project or research activities to create this Resource.<br>研究資金プログラム提供者 |
+| rdfs:domain  | rdm:Resource, rdm:Project, rdm:Grant                                                                                |
+| rdfs:range   | rdm:FundingAgency                                                                                                   |
+
+|              | rdm:funding                                                                                            |
+| ------------ | ------------------------------------------------------------------------------------------------------ |
+| URI          | https://purl.org/rdm/ontology/funding                                                                  |
+| rdf:type     | ObjectProperty                                                                                         |
+| rdfs:comment | A grant program for this Project or research activities to create this Resource.<br>研究資金プログラム |
+| rdfs:domain  | rdm:Resource, rdm:Project                                                                              |
+| rdfs:range   | rdm:Grant                                                                                              |
+
+|              | rdm:identifierInformation                                                |
+| ------------ | ------------------------------------------------------------------------ |
+| URI          | https://purl.org/rdm/ontology/identifierInformation                      |
+| rdf:type     | ObjectProperty                                                           |
+| rdfs:comment | An identifier information of this Class.<br>識別子                       |
+| rdfs:domain  | rdm:Resource, Repository, Project, Collection, Person, Institution,Grant |
+| rdfs:range   | rdm:Identifier                                                           |
+
+|                    | rdm:dataIdentifier                                                                                      |
+| ------------------ | ------------------------------------------------------------------------------------------------------- |
+| URI                | https://purl.org/rdm/ontology/dataIdentifier                                                            |
+| rdf:type           | ObjectProperty                                                                                          |
+| rdfs:subPropertyOf | rdm:identifierInformation                                                                               |
+| rdfs:comment       | The identifier of research data to be described in this DataManagementPlan.<br>DMP におけるデータ識別子 |
+| rdfs:domain        | rdm:DataManagementPlan                                                                                  |
+| rdfs:range         | rdm:Identifier                                                                                          |
+
+|              | rdm:inclusionRelation                                                                                                                  |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| URI          | https://purl.org/rdm/ontology/inclusionRelation                                                                                        |
+| rdf:type     | ObjectProperty                                                                                                                         |
+| rdfs:comment | A higher-level property that indicates inclusion relationship between Classes.<br>主語クラスと包含関係のあるクラスを指す上位プロパティ |
+| note         | This class is only used as a super-class of properties indicating overlap between classes, not for instance.                           |
 
 |                    | rdm:hasPart                                                                                                                     |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -724,16 +735,16 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:inclusionRelation                                                                                                           |
 | rdfs:comment       | A class consisting of multiple parts of which this class is a part.<br>主語クラスが一部分となっている、複数の部分から成るクラス |
 | owl:inverseOf      | rdm:isPartOf                                                                                                                    |
-| rdfs:domain        | rdm:Project<br>rdm:Resource<br>rdm:Collection<br>rdm:Institution<br>rdm:SoftwareApplication<br>rdm:Grant                        |
+| rdfs:domain        | rdm:Project, rdm:Resource, rdm:Collection, rdm:Institution, rdm:SoftwareApplication, rdm:Grant, rdm:Experiment                  |
 
-|                    | rdm:isPartOf                                                                                             |
-| ------------------ | -------------------------------------------------------------------------------------------------------- |
-| URI                | https://purl.org/rdm/ontology/isPartOf                                                                   |
-| rdf:type           | ObjectProperty                                                                                           |
-| rdfs:subPropertyOf | rdm:inclusionRelation                                                                                    |
-| rdfs:comment       | A Class of the parts that make up this class<br>主語クラスを構成する部分のクラス                         |
-| owl:inverseOf      | rdm:hasPart                                                                                              |
-| rdfs:domain        | rdm:Project<br>rdm:Resource<br>rdm:Collection<br>rdm:Institution<br>rdm:SoftwareApplication<br>rdm:Grant |
+|                    | rdm:isPartOf                                                                                                   |
+| ------------------ | -------------------------------------------------------------------------------------------------------------- |
+| URI                | https://purl.org/rdm/ontology/isPartOf                                                                         |
+| rdf:type           | ObjectProperty                                                                                                 |
+| rdfs:subPropertyOf | rdm:inclusionRelation                                                                                          |
+| rdfs:comment       | A Class of the parts that make up this class<br>主語クラスを構成する部分のクラス                               |
+| owl:inverseOf      | rdm:hasPart                                                                                                    |
+| rdfs:domain        | rdm:Project, rdm:Resource, rdm:Collection, rdm:Institution, rdm:SoftwareApplication, rdm:Grant, rdm:Experiment |
 
 |               | rdm:inProject                                                                  |
 | ------------- | ------------------------------------------------------------------------------ |
@@ -749,8 +760,7 @@ The following is a legend of term description.
 | URI          | https://purl.org/rdm/ontology/instrument                                             |
 | rdf:type     | ObjectProperty                                                                       |
 | rdfs:comment | The object that helped the agent perform the Activity.<br>行動を補助した道具、ツール |
-| rdfs:domain  | rdm:Activity                                                                         |
-| rdfs:range   | rdm:Resource<br>rdm:SoftwareApplication                                              |
+| rdfs:domain  | rdm:Activity, rdm:Experiment                                                         |
 
 |              | rdm:isRelatedTo                                                                                                                                               |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -777,7 +787,7 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                     |
 | rdfs:comment       | A Class which collected/created by using this Class.<br>主語クラスを使用して収集・作成されたクラス  |
 | owl:inverseOf      | rdm:isCollectedBy                                                                                   |
-| rdfs:domain        | rdm:Resource<br>rdm:Collection<br>rdm:SoftwareApplication                                           |
+| rdfs:domain        | rdm:Resource, rdm:Collection, rdm:SoftwareApplication                                               |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#collects |
 
 |                    | rdm:compiles                                                                                                          |
@@ -787,7 +797,7 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                                       |
 | rdfs:comment       | The result of a compile or creation event using this Class.<br>主語クラスを使用したコンパイルまたは作成イベントの結果 |
 | owl:inverseOf      | rdm:isCompiledBy                                                                                                      |
-| rdfs:domain        | rdm:Resource<br>rdm:SoftwareApplication                                                                               |
+| rdfs:domain        | rdm:Resource, rdm:SoftwareApplication                                                                                 |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#compiles                   |
 
 |                    | rdm:continues                                                                                        |
@@ -797,7 +807,7 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                      |
 | rdfs:comment       | A Class of which this Class is a continuation.<br>主語クラスが継続しているクラス                     |
 | owl:inverseOf      | rdm:isContinuedBy                                                                                    |
-| rdfs:domain        | rdm:Institution<br>rdm:SoftwareApplication<br>rdm:Resource<br>rdm:Repository<br>Project<br>Event     |
+| rdfs:domain        | rdm:Institution, rdm:SoftwareApplication, rdm:Resource, rdm:Repository, rdm:Project, rdm:Event       |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues |
 
 |                    | rdm:describes                                                                                        |
@@ -837,8 +847,8 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                          |
 | rdfs:comment       | A Class which is another version of this Class.<br>主語クラスの異なるバージョンとして存在するクラス      |
 | owl:inverseOf      | rdm:isVersionOf                                                                                          |
-| rdfs:domain        | rdm:Resource<br>rdm:Collection<br>rdm:SoftwareApplication                                                |
-| rdfs:range         | rdm:Resource<br>rdm:Collection<br>rdm:SoftwareApplication                                                |
+| rdfs:domain        | rdm:Resource, rdm:Collection, rdm:SoftwareApplication                                                    |
+| rdfs:range         | rdm:Resource, rdm:Collection, rdm:SoftwareApplication                                                    |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ismetadatafor |
 
 |                    | rdm:isCitedBy                                                                                        |
@@ -859,7 +869,7 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                          |
 | rdfs:comment       | A Class that is used to collect/create this Class.<br>主語クラスの収集・生成に利用されたクラス           |
 | owl:inverseOf      | rdm:collects                                                                                             |
-| rdfs:domain        | rdm:Resource<br>rdm:Collection<br>rdm:SoftwareApplication                                                |
+| rdfs:domain        | rdm:Resource, rdm:Collection, rdm:SoftwareApplication                                                    |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#iscollectedby |
 
 |                    | rdm:isCompiledBy                                                                                          |
@@ -869,7 +879,7 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                           |
 | rdfs:comment       | A Class used to compile or create this Class.<br>主語クラスをコンパイルまたは作成するために使用するクラス |
 | owl:inverseOf      | rdm:compiles                                                                                              |
-| rdfs:domain        | rdm:Resource<br>rdm:SoftwareApplication                                                                   |
+| rdfs:domain        | rdm:Resource, rdm:SoftwareApplication                                                                     |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#iscompiledby   |
 
 |                    | rdm:isContinuedBy                                                                                        |
@@ -888,7 +898,7 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                          |
 | rdfs:comment       | A Class on which this Class is based.<br>主語クラスが基づいているクラス                                  |
 | owl:inverseOf      | rdm:isSourceOf                                                                                           |
-| rdfs:range         | rdm:Project<br>rdm:Resource<br>rdm:Collection                                                            |
+| rdfs:range         | rdm:Project, rdm:Resource, rdm:Collection                                                                |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isderivedfrom |
 
 |                    | rdm:isDescribedBy                                                                                    |
@@ -936,8 +946,8 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                           |
 | rdfs:comment       | A Class which is a new edition of this Class.<br>主語クラスが新版に当たる、旧版のクラス                   |
 | owl:inverseOf      | rdm:isPreviousVersionOf                                                                                   |
-| rdfs:domain        | rdm:Resource<br>rdm:Collection<br>rdm:SoftwareApplication                                                 |
-| rdfs:range         | rdm:Resource<br>rdm:Collection<br>rdm:SoftwareApplication                                                 |
+| rdfs:domain        | rdm:Resource, rdm:Collection, rdm:SoftwareApplication                                                     |
+| rdfs:range         | rdm:Resource, rdm:Collection, rdm:SoftwareApplication                                                     |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isnewversionof |
 
 |                    | rdm:isObsoletedBy                                                                                        |
@@ -956,7 +966,7 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                             |
 | rdfs:comment       | A Class of which this Class is the original form.<br>主語クラスをオリジナルとするクラス                     |
 | owl:inverseOf      | rdm:isVariantFormOf                                                                                         |
-| rdfs:domain        | rdm:Resource<br>rdm:SoftwareApplication                                                                     |
+| rdfs:domain        | rdm:Resource, rdm:SoftwareApplication                                                                       |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isoriginalformof |
 
 |                    | rdm:isPreviousVersionOf                                                                                        |
@@ -966,8 +976,8 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                                |
 | rdfs:comment       | A Class which is a previous edition of this Class.<br>主語クラスが旧版に当たる、新版のクラス                   |
 | owl:inverseOf      | rdm:isNewVersionOf                                                                                             |
-| rdfs:domain        | rdm:Resource<br>rdm:Collection<br>rdm:SoftwareApplication                                                      |
-| rdfs:range         | rdm:Resource<br>rdm:Collection<br>rdm:SoftwareApplication                                                      |
+| rdfs:domain        | rdm:Resource, rdm:Collection, rdm:SoftwareApplication                                                          |
+| rdfs:range         | rdm:Resource, rdm:Collection, rdm:SoftwareApplication                                                          |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ispreviousversionof |
 
 |                    | rdm:isPublishedIn                                                                                              |
@@ -976,7 +986,7 @@ The following is a legend of term description.
 | rdf:type           | ObjectProperty                                                                                                 |
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                                |
 | rdfs:comment       | A Class which is published in this Class.<br>主語クラスをその一部として公開するクラス                          |
-| rdfs:domain        | rdm:Resource<br>rdm:Collection<br>rdm:SoftwareApplication<br>rdm:Project                                       |
+| rdfs:domain        | rdm:Resource, rdm:Collection, rdm:SoftwareApplication, rdm:Project                                             |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ispreviousversionof |
 
 |                    | rdm:isReferencedBy                                                                                        |
@@ -986,7 +996,7 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                           |
 | rdfs:comment       | A Class which uses this Class as a source of information.<br>主語クラスを情報源として参照しているクラス   |
 | owl:inverseOf      | rdm:references                                                                                            |
-| rdfs:domain        | rdm:Resource<br>rdm:Collection<br>rdm:SoftwareApplication<br>rdm:Project                                  |
+| rdfs:domain        | rdm:Resource, rdm:Collection, rdm:SoftwareApplication, rdm:Project                                        |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isreferencedby |
 
 |                    | rdm:isRequiredBy                                                                                        |
@@ -996,7 +1006,7 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                         |
 | rdfs:comment       | A Class which requires this Class.<br>主語クラスを必要とするクラス                                      |
 | owl:inverseOf      | rdm:requires                                                                                            |
-| rdfs:domain        | rdm:Resource<br>rdm:SoftwareApplication                                                                 |
+| rdfs:domain        | rdm:Resource, rdm:SoftwareApplication                                                                   |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isrequiredby |
 
 |                    | rdm:isReviewedBy                                                                                        |
@@ -1006,7 +1016,7 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                         |
 | rdfs:comment       | A Class which is a review of this Class.<br>主語クラスのレビューとなっているクラス                      |
 | owl:inverseOf      | rdm:reviews                                                                                             |
-| rdfs:domain        | rdm:Resource<br>rdm:SoftwareApplication                                                                 |
+| rdfs:domain        | rdm:Resource, rdm:SoftwareApplication                                                                   |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isreviewedby |
 
 |                    | rdm:isSourceOf                                                                                        |
@@ -1016,8 +1026,8 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                       |
 | rdfs:comment       | A Class from which this Class is derived.<br>主語クラスが基となっているクラス                         |
 | owl:inverseOf      | rdm:isDerivedFrom                                                                                     |
-| rdfs:domain        | rdm:Project<br>rdm:Resource<br>rdm:Collection                                                         |
-| rdfs:range         | rdm:Project<br>rdm:Resource<br>rdm:Collection                                                         |
+| rdfs:domain        | rdm:Project, rdm:Resource, rdm:Collection                                                             |
+| rdfs:range         | rdm:Project, rdm:Resource, rdm:Collection                                                             |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#issourceof |
 
 |                    | rdm:isSupplementTo                                                                                        |
@@ -1027,8 +1037,8 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                           |
 | rdfs:comment       | A Class that supplements this Class.<br>主語クラスが補足をしているクラス                                  |
 | owl:inverseOf      | rdm:isSupplementedBy                                                                                      |
-| rdfs:domain        | rdm:Project<br>rdm:Resource<br>rdm:Collection                                                             |
-| rdfs:range         | rdm:Project<br>rdm:Resource<br>rdm:Collection                                                             |
+| rdfs:domain        | rdm:Project, rdm:Resource, rdm:Collection                                                                 |
+| rdfs:range         | rdm:Project, rdm:Resource, rdm:Collection                                                                 |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#issupplementto |
 
 |                    | rdm:isSupplementedBy                                                                                      |
@@ -1038,8 +1048,8 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                           |
 | rdfs:comment       | A Class which is supplemented by this Class.<br>主語クラスを補足しているクラス                            |
 | owl:inverseOf      | rdm:isSupplementTo                                                                                        |
-| rdfs:domain        | rdm:Project<br>rdm:Resource<br>rdm:Collection                                                             |
-| rdfs:range         | rdm:Project<br>rdm:Resource<br>rdm:Collection                                                             |
+| rdfs:domain        | rdm:Project, rdm:Resource, rdm:Collection                                                                 |
+| rdfs:range         | rdm:Project, rdm:Resource, rdm:Collection                                                                 |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#issupplementby |
 
 |                    | rdm:isVariantFormOf                                                                                        |
@@ -1049,7 +1059,7 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                            |
 | rdfs:comment       | A Class which is the original form of this Class.<br>主語クラスのオリジナルであるクラス                    |
 | owl:inverseOf      | rdm:isOriginalFormOf                                                                                       |
-| rdfs:domain        | rdm:Resource<br>rdm:SoftwareApplication                                                                    |
+| rdfs:domain        | rdm:Resource, rdm:SoftwareApplication                                                                      |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isvariantformof |
 
 |                    | rdm:isVersionOf                                                                                        |
@@ -1059,8 +1069,8 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                        |
 | rdfs:comment       | A Class which this Class has as an another version.<br>主語クラスが異なるバージョンであるクラス        |
 | owl:inverseOf      | rdm:hasVersion                                                                                         |
-| rdfs:domain        | rdm:Resource<br>rdm:Collection<br>rdm:SoftwareApplication                                              |
-| rdfs:range         | rdm:Resource<br>rdm:Collection<br>rdm:SoftwareApplication                                              |
+| rdfs:domain        | rdm:Resource, rdm:Collection, rdm:SoftwareApplication                                                  |
+| rdfs:range         | rdm:Resource, rdm:Collection, rdm:SoftwareApplication                                                  |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isversionof |
 
 |                    | rdm:obsoletes                                                                                        |
@@ -1079,7 +1089,7 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                       |
 | rdfs:comment       | A Class which is used as a source of information by this Class.<br>主語クラスの情報源となったクラス   |
 | owl:inverseOf      | rdm:isReferencedBy                                                                                    |
-| rdfs:domain        | rdm:Resource<br>rdm:Collection<br>rdm:SoftwareApplication<br>rdm:Project                              |
+| rdfs:domain        | rdm:Resource, rdm:Collection, rdm:SoftwareApplication, rdm:Project                                    |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#references |
 
 |                    | rdm:requires                                                                                        |
@@ -1098,7 +1108,7 @@ The following is a legend of term description.
 | rdfs:subPropertyOf | rdm:isRelatedTo                                                                                    |
 | rdfs:comment       | A Class which is reviewed by this Class.<br>主語クラスによってレビューされたクラス                 |
 | owl:inverseOf      | rdm:isReviewedBy                                                                                   |
-| rdfs:domain        | rdm:Resource,<br>rdm:SoftwareApplication                                                           |
+| rdfs:domain        | rdm:Resource,, rdm:SoftwareApplication                                                             |
 | rdfs:seeAlso       | https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#reviews |
 
 |              | rdm:item                                                                                      |
@@ -1152,7 +1162,7 @@ The following is a legend of term description.
 | URI          | https://purl.org/rdm/ontology/licenseInformation                                |
 | rdf:type     | ObjectProperty                                                                  |
 | rdfs:comment | Information on license of this Class.<br>プロジェクトやリソースのライセンス情報 |
-| rdfs:domain  | rdm:Resource<br>rdm:Project                                                     |
+| rdfs:domain  | rdm:Resource, rdm:Project                                                       |
 | rdfs:range   | rdm:License                                                                     |
 
 |                    | rdm:dataLicenseInformation                                                                                 |
@@ -1163,6 +1173,20 @@ The following is a legend of term description.
 | rdfs:comment       | The license of research data to be described in this DataManagementPlan.<br>DMP におけるデータのライセンス |
 | rdfs:domain        | rdm:DataManagementPlan                                                                                     |
 
+|              | rdm:material                                                                   |
+| ------------ | ------------------------------------------------------------------------------ |
+| URI          | https://purl.org/rdm/ontology/material                                         |
+| rdf:type     | ObjectProperty                                                                 |
+| rdfs:comment | Materials and inputs in this Experiment.<br>実験における、材料や入力となるもの |
+| rdfs:domain  | rdm:Experiment                                                                 |
+
+|              | rdm:protocol                                               |
+| ------------ | ---------------------------------------------------------- |
+| URI          | https://purl.org/rdm/ontology/protocol                     |
+| rdf:type     | ObjectProperty                                             |
+| rdfs:comment | The protocol of this Experiment.<br>実験のプロトコル、手順 |
+| rdfs:domain  | rdm:Experiment                                             |
+
 |              | rdm:recipient                                                                                                     |
 | ------------ | ----------------------------------------------------------------------------------------------------------------- |
 | URI          | https://purl.org/rdm/ontology/recipient                                                                           |
@@ -1171,13 +1195,13 @@ The following is a legend of term description.
 | rdfs:domain  | rdm:Activity                                                                                                      |
 | rdfs:range   | rdm:Person                                                                                                        |
 
-|              | rdm:result                                                                              |
-| ------------ | --------------------------------------------------------------------------------------- |
-| URI          | https://purl.org/rdm/ontology/result                                                    |
-| rdf:type     | ObjectProperty                                                                          |
-| rdfs:comment | The result produced in this Activity.<br>アクションによって生成された新しいエンティティ |
-| rdfs:domain  | rdm:Activity                                                                            |
-| rdfs:range   | rdm:Resource<br>rdm:Collection<br>rdm:Project                                           |
+|              | rdm:result                                                                                                 |
+| ------------ | ---------------------------------------------------------------------------------------------------------- |
+| URI          | https://purl.org/rdm/ontology/result                                                                       |
+| rdf:type     | ObjectProperty                                                                                             |
+| rdfs:comment | The result produced in this Activity / Experiment.<br>アクションや実験によって生成された新しいエンティティ |
+| rdfs:domain  | rdm:Activity, rdm:Experiment                                                                               |
+| rdfs:range   | rdm:Resource, rdm:Collection, rdm:Project                                                                  |
 
 |               | rdm:storedIn                                                                                            |
 | ------------- | ------------------------------------------------------------------------------------------------------- |
@@ -1210,7 +1234,7 @@ The following is a legend of term description.
 | rdf:type      | ObjectProperty                                                                |
 | rdfs:comment  | An Activity which created/generated this Class.<br>主語クラスが生成された行動 |
 | owl:inverseOf | rdm:result                                                                    |
-| rdfs:domain   | rdm:Resource<br>rdm:Project<br>rdm:Collection                                 |
+| rdfs:domain   | rdm:Resource, rdm:Project, rdm:Collection                                     |
 | rdfs:range    | rdm:Activity                                                                  |
 
 ### DatatypeProperty
@@ -1277,7 +1301,7 @@ The following is a legend of term description.
 | rdf:type           | DatatypeProperty                              |
 | rdfs:subPropertyOf | rdm:date                                      |
 | rdfs:comment       | The end date of this Class.<br>クラスの終了日 |
-| rdfs:domain        | rdm:Project<br>rdm:Event<br>rdm:Activity      |
+| rdfs:domain        | rdm:Project, rdm:Event, rdm:Activity          |
 
 |                    | rdm:dateModified                                                                   |
 | ------------------ | ---------------------------------------------------------------------------------- |
@@ -1301,7 +1325,7 @@ The following is a legend of term description.
 | rdf:type           | DatatypeProperty                                |
 | rdfs:subPropertyOf | rdm:date                                        |
 | rdfs:comment       | The start date of this Class.<br>クラスの開始日 |
-| rdfs:domain        | rdm:Project<br>rdm:Event<br>rdm:Activity        |
+| rdfs:domain        | rdm:Project, rdm:Event, rdm:Activity            |
 
 |                    | rdm:dateUpdated                                                                             |
 | ------------------ | ------------------------------------------------------------------------------------------- |
@@ -1319,13 +1343,13 @@ The following is a legend of term description.
 | rdfs:comment       | The acquisition date of this Resource.<br>外部ファイルの取得日 |
 | rdfs:domain        | rdm:Resource                                                   |
 
-|              | rdm:description                                            |
-| ------------ | ---------------------------------------------------------- |
-| URI          | https://purl.org/rdm/ontology/description                  |
-| rdf:type     | DatatypeProperty                                           |
-| rdfs:comment | A description of this Class.<br>クラスの説明               |
-| rdfs:domain  | rdm:Resource<br>rdm:Repository<br>rdm:Project<br>rdm:Grant |
-| rdfs:range   | xsd:string                                                 |
+|              | rdm:description                                      |
+| ------------ | ---------------------------------------------------- |
+| URI          | https://purl.org/rdm/ontology/description            |
+| rdf:type     | DatatypeProperty                                     |
+| rdfs:comment | A description of this Class.<br>クラスの説明         |
+| rdfs:domain  | rdm:Resource, rdm:Repository, rdm:Project, rdm:Grant |
+| rdfs:range   | xsd:string                                           |
 
 |                    | rdm:dataAccessRequirements                                                                                                   |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -1370,6 +1394,14 @@ The following is a legend of term description.
 | rdfs:comment       | Processor architecture required to run this SoftwareApplication.<br>アプリケーション実行に必要なプロセッサー要件 |
 | rdfs:domain        | rdm:SoftwareApplication                                                                                          |
 | rdfs:range         | xsd:string                                                                                                       |
+
+|                    | rdm:protocolText                                                                 |
+| ------------------ | -------------------------------------------------------------------------------- |
+| URI                | https://purl.org/rdm/ontology/protocolText                                       |
+| rdf:type           | DatatypeProperty                                                                 |
+| rdfs:subPropertyOf | rdm:description                                                                  |
+| rdfs:comment       | A text of protocol of this Experiment.<br>実験のプロトコル、手順を示したテキスト |
+| rdfs:domain        | rdm:Experiment                                                                   |
 
 |                    | rdm:purpose                                                                                                                                     |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1472,7 +1504,7 @@ The following is a legend of term description.
 | URI          | https://purl.org/rdm/ontology/field                                                                                      |
 | rdf:type     | DatatypeProperty                                                                                                         |
 | rdfs:comment | A research field of this Project/Resource.<br>プロジェクト・リソースの主題                                               |
-| rdfs:domain  | rdm:Resource<br>rdm:Project                                                                                              |
+| rdfs:domain  | rdm:Resource, rdm:Project                                                                                                |
 | rdfs:range   | one of {ライフサイエンス,情報通信,環境,ナノテク・材料,エネルギー,ものづくり技術,社会基盤,フロンティア,人文・社会,その他} |
 
 |              | rdm:keywords                                           |
@@ -1496,16 +1528,16 @@ The following is a legend of term description.
 | URI          | https://purl.org/rdm/ontology/location                                                                      |
 | rdf:type     | DatatypeProperty                                                                                            |
 | rdfs:comment | The place where this Event was/will be held or this Resource was created.<br>主語クラスの開催場所・取得場所 |
-| rdfs:domain  | rdm:Resource<br>rdm:Event                                                                                   |
+| rdfs:domain  | rdm:Resource, rdm:Event                                                                                     |
 | rdfs:range   | xsd:string                                                                                                  |
 
-|              | rdm:name                                                                                                                             |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| URI          | https://purl.org/rdm/ontology/name                                                                                                   |
-| rdf:type     | DatatypeProperty                                                                                                                     |
-| rdfs:comment | A name of this Class.<br>主語クラスの名称                                                                                            |
-| rdfs:domain  | rdm:Resource<br>rdm:Repository<br>rdm:Project<br>rdm:License<br>rdm:Institution<br>rdm:Grant<br>rdm:SoftwareApplication<br>rdm:Event |
-| rdfs:range   | xsd:string                                                                                                                           |
+|              | rdm:name                                                                                                               |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| URI          | https://purl.org/rdm/ontology/name                                                                                     |
+| rdf:type     | DatatypeProperty                                                                                                       |
+| rdfs:comment | A name of this Class.<br>主語クラスの名称                                                                              |
+| rdfs:domain  | rdm:Resource, rdm:Repository, rdm:Project, rdm:License, rdm:Institution, rdm:Grant, rdm:SoftwareApplication, rdm:Event |
+| rdfs:range   | xsd:string                                                                                                             |
 
 |                    | rdm:additionalName                                                                     |
 | ------------------ | -------------------------------------------------------------------------------------- |
@@ -1633,7 +1665,7 @@ The following is a legend of term description.
 | rdf:type           | DatatypeProperty                                                                                                       |
 | rdfs:subPropertyOf | rdm:identifierValue                                                                                                    |
 | rdfs:comment       | DOI URL.<br>DOI                                                                                                        |
-| rdfs:domain        | rdm:Resource<br>rdm:Repository                                                                                         |
+| rdfs:domain        | rdm:Resource, rdm:Repository                                                                                           |
 | rdfs:range         | xsd:anyURI                                                                                                             |
 | rdfs:seeAlso       | https://www.doi.org/                                                                                                   |
 | note               | This property is a simplified property of identifierValue in the instance of rdm:Identifier with identifierName _DOI_. |
@@ -1687,7 +1719,7 @@ The following is a legend of term description.
 | rdf:type           | DatatypeProperty                                                                                     |
 | rdfs:subPropertyOf | rdm:identifierValue                                                                                  |
 | rdfs:comment       | Local identifier.<br>ローカル識別子                                                                  |
-| rdfs:domain        | rdm:Resource                                                                                         |
+| rdfs:domain        | rdm:Resource, rdm:Experiment                                                                         |
 | note               | This class is only used as a super-property of properties in expansion such as application profiles. |
 
 |                    | rdm:orcid                                                                                                                   |
@@ -1728,7 +1760,7 @@ The following is a legend of term description.
 | URI          | https://purl.org/rdm/ontology/version    |
 | rdf:type     | DatatypeProperty                         |
 | rdfs:comment | The version of this Class.<br>バージョン |
-| rdfs:domain  | rdm:Resource<br>rdm:SoftwareApplication  |
+| rdfs:domain  | rdm:Resource, rdm:SoftwareApplication    |
 | rdfs:range   | <br>xsd:string<br>xsd:nonNegativeInteger |
 
 ## Named Individuals

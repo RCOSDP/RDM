@@ -2901,13 +2901,6 @@
         <Class IRI="Project"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="instrument"/>
-        <ObjectUnionOf>
-            <Class IRI="Resource"/>
-            <Class IRI="SoftwareApplication"/>
-        </ObjectUnionOf>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="isCitedBy"/>
         <Class IRI="Resource"/>
     </ObjectPropertyRange>
@@ -5830,7 +5823,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>experimenter</IRI>
-        <Literal xml:lang="en">Practicioner, performer and executor of this Experiment.</Literal>
+        <Literal xml:lang="en">The practitioner, performer and executor of this Experiment.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -6115,7 +6108,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>inclusionRelation</IRI>
-        <Literal xml:lang="en">A higer-level property that indicates inclusion relationship between Classes.</Literal>
+        <Literal xml:lang="en">A higher-level property that indicates inclusion relationship between Classes.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -6885,7 +6878,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>protocol</IRI>
-        <Literal xml:lang="en">Protocol of the Experiment.</Literal>
+        <Literal xml:lang="en">The protocol of this Experiment.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -6900,7 +6893,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>protocolText</IRI>
-        <Literal xml:lang="en">A text of protocol of the Experiment.</Literal>
+        <Literal xml:lang="en">A text of protocol of this Experiment.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -7050,7 +7043,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>result</IRI>
-        <Literal xml:lang="en">The result produced in the Activity and the Experiment.</Literal>
+        <Literal xml:lang="en">The result produced in this Activity /Experiment.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>

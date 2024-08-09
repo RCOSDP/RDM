@@ -333,7 +333,7 @@ rdm:experimenter rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf rdm:contributor ;
                  rdfs:domain rdm:Experiment ;
                  rdfs:range rdm:Person ;
-                 rdfs:comment "Practicioner, performer and executor of this Experiment."@en ,
+                 rdfs:comment "The practitioner, performer and executor of this Experiment."@en ,
                               "実験の実施者、実行者"@ja ;
                  rdfs:label "experimenter" .
 
@@ -497,7 +497,7 @@ rdm:inProject rdf:type owl:ObjectProperty ;
 
 ###  https://purl.org/rdm/ontology/inclusionRelation
 rdm:inclusionRelation rdf:type owl:ObjectProperty ;
-                      rdfs:comment "A higer-level property that indicates inclusion relationship between Classes."@en ,
+                      rdfs:comment "A higher-level property that indicates inclusion relationship between Classes."@en ,
                                    "主語クラスと包含関係のあるクラスを指す上位プロパティ"@ja ;
                       rdfs:label "inclusionRelation" .
 
@@ -509,11 +509,6 @@ rdm:instrument rdf:type owl:ObjectProperty ;
                                            rdm:Experiment
                                          )
                            ] ;
-               rdfs:range [ rdf:type owl:Class ;
-                            owl:unionOf ( rdm:Resource
-                                          rdm:SoftwareApplication
-                                        )
-                          ] ;
                rdfs:comment "The object that helped the agent perform the Activity and used in the Experiment."@en ,
                             "行動や実験で使われた道具、ツール"@ja ;
                rdfs:label "instrument" .
@@ -1012,7 +1007,7 @@ rdm:projectItem rdf:type owl:ObjectProperty ;
 ###  https://purl.org/rdm/ontology/protocol
 rdm:protocol rdf:type owl:ObjectProperty ;
              rdfs:domain rdm:Experiment ;
-             rdfs:comment "Protocol of the Experiment."@en ,
+             rdfs:comment "The protocol of this Experiment."@en ,
                           "実験のプロトコル、手順"@ja ;
              rdfs:label "protocol" .
 
@@ -1092,7 +1087,7 @@ rdm:result rdf:type owl:ObjectProperty ;
                                       rdm:Resource
                                     )
                       ] ;
-           rdfs:comment "The result produced in the Activity and the Experiment."@en ,
+           rdfs:comment "The result produced in this Activity /Experiment."@en ,
                         "アクションや実験によって生成された新しいエンティティ"@ja ;
            rdfs:label "result" .
 
@@ -1705,7 +1700,7 @@ rdm:processorRequirements rdf:type owl:DatatypeProperty ;
 rdm:protocolText rdf:type owl:DatatypeProperty ;
                  rdfs:subPropertyOf rdm:description ;
                  rdfs:domain rdm:Experiment ;
-                 rdfs:comment "A text of protocol of the Experiment."@en ,
+                 rdfs:comment "A text of protocol of this Experiment."@en ,
                               "実験のプロトコル、手順を示したテキスト"@ja ;
                  rdfs:label "protocolText" .
 

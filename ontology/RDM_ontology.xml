@@ -461,7 +461,7 @@
         <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology/contributor"/>
         <rdfs:domain rdf:resource="https://purl.org/rdm/ontology/Experiment"/>
         <rdfs:range rdf:resource="https://purl.org/rdm/ontology/Person"/>
-        <rdfs:comment xml:lang="en">Practicioner, performer and executor of this Experiment.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The practitioner, performer and executor of this Experiment.</rdfs:comment>
         <rdfs:comment xml:lang="ja">実験の実施者、実行者</rdfs:comment>
         <rdfs:label>experimenter</rdfs:label>
     </owl:ObjectProperty>
@@ -688,7 +688,7 @@
     <!-- https://purl.org/rdm/ontology/inclusionRelation -->
 
     <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology/inclusionRelation">
-        <rdfs:comment xml:lang="en">A higer-level property that indicates inclusion relationship between Classes.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A higher-level property that indicates inclusion relationship between Classes.</rdfs:comment>
         <rdfs:comment xml:lang="ja">主語クラスと包含関係のあるクラスを指す上位プロパティ</rdfs:comment>
         <rdfs:label>inclusionRelation</rdfs:label>
     </owl:ObjectProperty>
@@ -706,14 +706,6 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://purl.org/rdm/ontology/Resource"/>
-                    <rdf:Description rdf:about="https://purl.org/rdm/ontology/SoftwareApplication"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:comment xml:lang="en">The object that helped the agent perform the Activity and used in the Experiment.</rdfs:comment>
         <rdfs:comment xml:lang="ja">行動や実験で使われた道具、ツール</rdfs:comment>
         <rdfs:label>instrument</rdfs:label>
@@ -1407,7 +1399,7 @@
 
     <owl:ObjectProperty rdf:about="https://purl.org/rdm/ontology/protocol">
         <rdfs:domain rdf:resource="https://purl.org/rdm/ontology/Experiment"/>
-        <rdfs:comment xml:lang="en">Protocol of the Experiment.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The protocol of this Experiment.</rdfs:comment>
         <rdfs:comment xml:lang="ja">実験のプロトコル、手順</rdfs:comment>
         <rdfs:label>protocol</rdfs:label>
     </owl:ObjectProperty>
@@ -1520,7 +1512,7 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
-        <rdfs:comment xml:lang="en">The result produced in the Activity and the Experiment.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The result produced in this Activity /Experiment.</rdfs:comment>
         <rdfs:comment xml:lang="ja">アクションや実験によって生成された新しいエンティティ</rdfs:comment>
         <rdfs:label>result</rdfs:label>
     </owl:ObjectProperty>
@@ -2376,7 +2368,7 @@
     <owl:DatatypeProperty rdf:about="https://purl.org/rdm/ontology/protocolText">
         <rdfs:subPropertyOf rdf:resource="https://purl.org/rdm/ontology/description"/>
         <rdfs:domain rdf:resource="https://purl.org/rdm/ontology/Experiment"/>
-        <rdfs:comment xml:lang="en">A text of protocol of the Experiment.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A text of protocol of this Experiment.</rdfs:comment>
         <rdfs:comment xml:lang="ja">実験のプロトコル、手順を示したテキスト</rdfs:comment>
         <rdfs:label>protocolText</rdfs:label>
     </owl:DatatypeProperty>
