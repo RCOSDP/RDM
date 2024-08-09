@@ -324,9 +324,6 @@
         <ObjectProperty IRI="dataManager"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="describedItem"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="describes"/>
     </Declaration>
     <Declaration>
@@ -487,9 +484,6 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="result"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="reviewedItem"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="reviews"/>
@@ -2035,10 +2029,6 @@
         <ObjectProperty IRI="contributor"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="describedItem"/>
-        <ObjectProperty IRI="item"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
         <ObjectProperty IRI="describes"/>
         <ObjectProperty IRI="isRelatedTo"/>
     </SubObjectPropertyOf>
@@ -2193,10 +2183,6 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="researcher"/>
         <ObjectProperty IRI="contributor"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="reviewedItem"/>
-        <ObjectProperty IRI="item"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="reviews"/>
@@ -2400,10 +2386,6 @@
         <Class IRI="DataManagementPlan"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="describedItem"/>
-        <Class IRI="MetadataDocument"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="describes"/>
         <Class IRI="Resource"/>
     </ObjectPropertyDomain>
@@ -2448,6 +2430,14 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="funding"/>
         <ObjectUnionOf>
+            <Class IRI="Project"/>
+            <Class IRI="Resource"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasMetadata"/>
+        <ObjectUnionOf>
+            <Class IRI="Collection"/>
             <Class IRI="Project"/>
             <Class IRI="Resource"/>
         </ObjectUnionOf>
@@ -2527,6 +2517,25 @@
         </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="isContinuedBy"/>
+        <ObjectUnionOf>
+            <Class IRI="Event"/>
+            <Class IRI="Institution"/>
+            <Class IRI="Project"/>
+            <Class IRI="Repository"/>
+            <Class IRI="Resource"/>
+            <Class IRI="SoftwareApplication"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="isDerivedFrom"/>
+        <ObjectUnionOf>
+            <Class IRI="Collection"/>
+            <Class IRI="Project"/>
+            <Class IRI="Resource"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="isDocumentedBy"/>
         <Class IRI="SoftwareApplication"/>
     </ObjectPropertyDomain>
@@ -2536,7 +2545,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="isMetadataFor"/>
-        <Class IRI="Resource"/>
+        <Class IRI="MetadataDocument"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="isNewVersionOf"/>
@@ -2681,6 +2690,13 @@
         </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="requires"/>
+        <ObjectUnionOf>
+            <Class IRI="Resource"/>
+            <Class IRI="SoftwareApplication"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="researcher"/>
         <Class IRI="Project"/>
     </ObjectPropertyDomain>
@@ -2692,15 +2708,8 @@
         </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="reviewedItem"/>
-        <Class IRI="Review"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="reviews"/>
-        <ObjectUnionOf>
-            <Class IRI="Resource"/>
-            <Class IRI="SoftwareApplication"/>
-        </ObjectUnionOf>
+        <Class IRI="Review"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="storedIn"/>
@@ -2829,10 +2838,6 @@
         <Class IRI="Person"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="describedItem"/>
-        <Class IRI="Resource"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="dmp"/>
         <Class IRI="DataManagementPlan"/>
     </ObjectPropertyRange>
@@ -2843,6 +2848,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="dmpTargetItem"/>
         <Class IRI="Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="documents"/>
+        <Class IRI="SoftwareApplication"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="experimenter"/>
@@ -2865,7 +2874,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="hasMetadata"/>
-        <Class IRI="Resource"/>
+        <Class IRI="MetadataDocument"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="hasVersion"/>
@@ -2918,7 +2927,34 @@
         </ObjectUnionOf>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="isContinuedBy"/>
+        <ObjectUnionOf>
+            <Class IRI="Event"/>
+            <Class IRI="Institution"/>
+            <Class IRI="Project"/>
+            <Class IRI="Repository"/>
+            <Class IRI="Resource"/>
+            <Class IRI="SoftwareApplication"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="isDerivedFrom"/>
+        <ObjectUnionOf>
+            <Class IRI="Collection"/>
+            <Class IRI="Project"/>
+            <Class IRI="Resource"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="isDescribedBy"/>
+        <Class IRI="Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="isDocumentedBy"/>
+        <Class IRI="Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="isMetadataFor"/>
         <ObjectUnionOf>
             <Class IRI="Collection"/>
             <Class IRI="Project"/>
@@ -2975,10 +3011,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="isReviewedBy"/>
-        <ObjectUnionOf>
-            <Class IRI="Resource"/>
-            <Class IRI="SoftwareApplication"/>
-        </ObjectUnionOf>
+        <Class IRI="Review"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="isSourceOf"/>
@@ -3045,6 +3078,13 @@
         </ObjectUnionOf>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="requires"/>
+        <ObjectUnionOf>
+            <Class IRI="Resource"/>
+            <Class IRI="SoftwareApplication"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="researcher"/>
         <Class IRI="Person"/>
     </ObjectPropertyRange>
@@ -3055,10 +3095,6 @@
             <Class IRI="Project"/>
             <Class IRI="Resource"/>
         </ObjectUnionOf>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="reviewedItem"/>
-        <Class IRI="Resource"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="reviews"/>
@@ -5573,16 +5609,6 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>describedItem</IRI>
-        <Literal xml:lang="ja">このクラスがメタデータとして説明している対象の Resource</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>describedItem</IRI>
-        <Literal>descibedItem</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>describes</IRI>
         <Literal xml:lang="en">A Class that this Resource describes.</Literal>
     </AnnotationAssertion>
@@ -7035,21 +7061,6 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>result</IRI>
         <Literal>result</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>reviewedItem</IRI>
-        <Literal xml:lang="en">Resource that was reviewed by this Review entity.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>reviewedItem</IRI>
-        <Literal xml:lang="ja">Review の評価対象になっている Resource</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>reviewedItem</IRI>
-        <Literal>reviewedItem</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>

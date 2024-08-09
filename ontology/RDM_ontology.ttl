@@ -273,16 +273,6 @@ rdm:dataManager rdf:type owl:ObjectProperty ;
                 rdfs:label "dataManager" .
 
 
-###  https://purl.org/rdm/ontology/describedItem
-rdm:describedItem rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf rdm:item ;
-                  rdfs:domain rdm:MetadataDocument ;
-                  rdfs:range rdm:Resource ;
-                  rdfs:comment "Resource which this class describes as metadata."@en ,
-                               "このクラスがメタデータとして説明している対象の Resource"@ja ;
-                  rdfs:label "descibedItem" .
-
-
 ###  https://purl.org/rdm/ontology/describes
 rdm:describes rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf rdm:isRelatedTo ;
@@ -331,6 +321,7 @@ rdm:documents rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf rdm:isRelatedTo ;
               owl:inverseOf rdm:isDocumentedBy ;
               rdfs:domain rdm:Resource ;
+              rdfs:range rdm:SoftwareApplication ;
               rdfs:comment "A  SoftwareApplication which is documented by this Resource."@en ,
                            "Resource がその説明文書・ドキュメントに相当する SoftwareApplication"@ja ;
               rdfs:label "documents" ;
@@ -396,7 +387,13 @@ rdm:funding rdf:type owl:ObjectProperty ;
 rdm:hasMetadata rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf rdm:isRelatedTo ;
                 owl:inverseOf rdm:isMetadataFor ;
-                rdfs:range rdm:Resource ;
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( rdm:Collection
+                                            rdm:Project
+                                            rdm:Resource
+                                          )
+                            ] ;
+                rdfs:range rdm:MetadataDocument ;
                 rdfs:comment "A Resource which has additional metadata of this Class."@en ,
                              "主語クラスの追加メタデータを持つ Resource"@ja ;
                 rdfs:label "hasMetadata" ;
@@ -576,6 +573,24 @@ rdm:isCompiledBy rdf:type owl:ObjectProperty ;
 ###  https://purl.org/rdm/ontology/isContinuedBy
 rdm:isContinuedBy rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf rdm:isRelatedTo ;
+                  rdfs:domain [ rdf:type owl:Class ;
+                                owl:unionOf ( rdm:Event
+                                              rdm:Institution
+                                              rdm:Project
+                                              rdm:Repository
+                                              rdm:Resource
+                                              rdm:SoftwareApplication
+                                            )
+                              ] ;
+                  rdfs:range [ rdf:type owl:Class ;
+                               owl:unionOf ( rdm:Event
+                                             rdm:Institution
+                                             rdm:Project
+                                             rdm:Repository
+                                             rdm:Resource
+                                             rdm:SoftwareApplication
+                                           )
+                             ] ;
                   rdfs:comment "A Class continued by this Class"@en ,
                                "主語クラスが継続されているクラス"@ja ;
                   rdfs:label "isContinuedBy" ;
@@ -586,6 +601,12 @@ rdm:isContinuedBy rdf:type owl:ObjectProperty ;
 rdm:isDerivedFrom rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf rdm:isRelatedTo ;
                   owl:inverseOf rdm:isSourceOf ;
+                  rdfs:domain [ rdf:type owl:Class ;
+                                owl:unionOf ( rdm:Collection
+                                              rdm:Project
+                                              rdm:Resource
+                                            )
+                              ] ;
                   rdfs:range [ rdf:type owl:Class ;
                                owl:unionOf ( rdm:Collection
                                              rdm:Project
@@ -601,6 +622,7 @@ rdm:isDerivedFrom rdf:type owl:ObjectProperty ;
 ###  https://purl.org/rdm/ontology/isDescribedBy
 rdm:isDescribedBy rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf rdm:isRelatedTo ;
+                  rdfs:range rdm:Resource ;
                   rdfs:comment "A Resource that describes this Class."@en ,
                                "主語クラスを説明している Resource"@ja ;
                   rdfs:label "isDescribedBy" ;
@@ -611,6 +633,7 @@ rdm:isDescribedBy rdf:type owl:ObjectProperty ;
 rdm:isDocumentedBy rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf rdm:isRelatedTo ;
                    rdfs:domain rdm:SoftwareApplication ;
+                   rdfs:range rdm:Resource ;
                    rdfs:comment "A Resource which is documentation about/explaining this SoftwareApplication."@en ,
                                 "SoftwareApplication の説明文書・ドキュメントである Resource"@ja ;
                    rdfs:label "isDocumentedBy" ;
@@ -630,7 +653,13 @@ rdm:isIdenticalTo rdf:type owl:ObjectProperty ;
 ###  https://purl.org/rdm/ontology/isMetadataFor
 rdm:isMetadataFor rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf rdm:isRelatedTo ;
-                  rdfs:domain rdm:Resource ;
+                  rdfs:domain rdm:MetadataDocument ;
+                  rdfs:range [ rdf:type owl:Class ;
+                               owl:unionOf ( rdm:Collection
+                                             rdm:Project
+                                             rdm:Resource
+                                           )
+                             ] ;
                   rdfs:comment "A Class for which this Resource has additional metadata."@en ,
                                "Resource が追加メタデータになっているクラス"@ja ;
                   rdfs:label "isMetadataFor" ;
@@ -812,11 +841,7 @@ rdm:isReviewedBy rdf:type owl:ObjectProperty ;
                                              rdm:SoftwareApplication
                                            )
                              ] ;
-                 rdfs:range [ rdf:type owl:Class ;
-                              owl:unionOf ( rdm:Resource
-                                            rdm:SoftwareApplication
-                                          )
-                            ] ;
+                 rdfs:range rdm:Review ;
                  rdfs:comment "A Class which is a review of this Class."@en ,
                               "主語クラスのレビューとなっているクラス"@ja ;
                  rdfs:label "isReviewedBy" ;
@@ -1027,6 +1052,16 @@ rdm:references rdf:type owl:ObjectProperty ;
 ###  https://purl.org/rdm/ontology/requires
 rdm:requires rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf rdm:isRelatedTo ;
+             rdfs:domain [ rdf:type owl:Class ;
+                           owl:unionOf ( rdm:Resource
+                                         rdm:SoftwareApplication
+                                       )
+                         ] ;
+             rdfs:range [ rdf:type owl:Class ;
+                          owl:unionOf ( rdm:Resource
+                                        rdm:SoftwareApplication
+                                      )
+                        ] ;
              rdfs:comment "A Class which is required by this Class."@en ,
                           "主語クラスを必要とするクラス"@ja ;
              rdfs:label "requires" ;
@@ -1062,24 +1097,10 @@ rdm:result rdf:type owl:ObjectProperty ;
            rdfs:label "result" .
 
 
-###  https://purl.org/rdm/ontology/reviewedItem
-rdm:reviewedItem rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf rdm:item ;
-                 rdfs:domain rdm:Review ;
-                 rdfs:range rdm:Resource ;
-                 rdfs:comment "Resource that was reviewed by this Review entity."@en ,
-                              "Review の評価対象になっている Resource"@ja ;
-                 rdfs:label "reviewedItem" .
-
-
 ###  https://purl.org/rdm/ontology/reviews
 rdm:reviews rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf rdm:isRelatedTo ;
-            rdfs:domain [ rdf:type owl:Class ;
-                          owl:unionOf ( rdm:Resource
-                                        rdm:SoftwareApplication
-                                      )
-                        ] ;
+            rdfs:domain rdm:Review ;
             rdfs:range [ rdf:type owl:Class ;
                          owl:unionOf ( rdm:Resource
                                        rdm:SoftwareApplication
@@ -1805,8 +1826,8 @@ rdm:storageRequirements rdf:type owl:DatatypeProperty ;
 rdm:textContent rdf:type owl:DatatypeProperty ;
                 rdfs:domain rdm:Resource ;
                 rdfs:range xsd:string ;
-                rdfs:comment "The textual content of this Resource."@en ,
-                              "Resource の内容であるテキスト"@ja ;
+                rdfs:comment "Resource の内容であるテキスト"@ja ,
+                             "The textual content of this Resource."@en ;
                 rdfs:label "textContent" .
 
 
