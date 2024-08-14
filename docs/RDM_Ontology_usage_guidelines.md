@@ -1439,22 +1439,23 @@ The following is a legend of term description.
 | rdfs:range         | xsd:string                                                                                                     |
 | note               | This class can be used only when no other subproperty of description is appropriate.                           |
 
-|                    | rdm:storageRequirements                                                                                                                                                                                               |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| URI                | https://purl.org/rdm/ontology/storageRequirements                                                                                                                                                                     |
-| rdf:type           | DatatypeProperty                                                                                                                                                                                                      |
-| rdfs:subPropertyOf | rdm:description                                                                                                                                                                                                       |
-| rdfs:comment       | Storage requirements.<br>ストレージの要件                                                                                                                                                                             |
-| rdfs:domain        | rdm:SoftwareApplication                                                                                                                                                                                               |
-| rdfs:range         | xsd:string                                                                                                                                                                                                            |
-|                    | rdm:detailedRole                                                                                                                                                                                                      |
-| ------------       | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| URI                | https://purl.org/rdm/ontology/detailedRole                                                                                                                                                                            |
-| rdf:type           | DatatypeProperty                                                                                                                                                                                                      |
-| rdfs:comment       | A detailed role of this Person.<br>詳細な役割                                                                                                                                                                         |
-| rdfs:domain        | rdm:Person                                                                                                                                                                                                            |
-| rdfs:range         | xsd:string                                                                                                                                                                                                            |
-| note               | This property is for describing detailed role of a Person. When the role can be categorized to one of the subproperties of rdm:contributor, e.g. creator, it is recommended to use it instead of using this property. |
+|                    | rdm:storageRequirements                           |
+| ------------------ | ------------------------------------------------- |
+| URI                | https://purl.org/rdm/ontology/storageRequirements |
+| rdf:type           | DatatypeProperty                                  |
+| rdfs:subPropertyOf | rdm:description                                   |
+| rdfs:comment       | Storage requirements.<br>ストレージの要件         |
+| rdfs:domain        | rdm:SoftwareApplication                           |
+| rdfs:range         | xsd:string                                        |
+
+|              | rdm:detailedRole                                                                                                                                                                                                      |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| URI          | https://purl.org/rdm/ontology/detailedRole                                                                                                                                                                            |
+| rdf:type     | DatatypeProperty                                                                                                                                                                                                      |
+| rdfs:comment | A detailed role of this Person.<br>詳細な役割                                                                                                                                                                         |
+| rdfs:domain  | rdm:Person                                                                                                                                                                                                            |
+| rdfs:range   | xsd:string                                                                                                                                                                                                            |
+| note         | This property is for describing detailed role of a Person. When the role can be categorized to one of the subproperties of rdm:contributor, e.g. creator, it is recommended to use it instead of using this property. |
 
 |              | rdm:detailedType                                                                                                                                                                                            |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
