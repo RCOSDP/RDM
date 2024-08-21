@@ -2175,7 +2175,7 @@ rdm:Connect rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Convert
 rdm:Convert rdf:type owl:Class ;
-            rdfs:subClassOf rdm:Create ,
+            rdfs:subClassOf rdm:Activity ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty rdm:activityObject ;
                               owl:allValuesFrom rdm:Resource

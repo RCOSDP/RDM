@@ -3044,7 +3044,7 @@
     <!-- https://purl.org/rdm/ontology/Convert -->
 
     <owl:Class rdf:about="https://purl.org/rdm/ontology/Convert">
-        <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology/Create"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology/Activity"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/activityObject"/>

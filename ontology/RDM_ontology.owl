@@ -992,7 +992,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Convert"/>
-        <Class IRI="Create"/>
+        <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Convert"/>

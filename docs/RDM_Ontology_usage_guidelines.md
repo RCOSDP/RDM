@@ -148,6 +148,15 @@ The following is a legend of term description.
 | target          | rdm:Repository, rdm:SoftwareApplication                                                  |
 | example         | 研究者が、アドオンを利用して GRDM に S3 を接続する                                       |
 
+|                 | rdm:Convert                                                                                     |
+| --------------- | ----------------------------------------------------------------------------------------------- |
+| URI             | https://purl.org/rdm/ontology/Convert                                                           |
+| rdfs:comment    | An act of converting Resource into a new Resource.<br>Resource を新たな Resource に変換する行動 |
+| rdfs:subClassOf | rdm:Activity                                                                                    |
+| activityObject  | rdm:Resource                                                                                    |
+| result          | rdm:Resource                                                                                    |
+| example         | キュレーターが、QuickTime files のデータを MPEG4 形式に変換する                                 |
+
 |                 | rdm:Create                                                                                                                     |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | URI             | https://purl.org/rdm/ontology/Create                                                                                           |
@@ -155,15 +164,6 @@ The following is a legend of term description.
 | rdfs:subClassOf | rdm:Activity                                                                                                                   |
 | result          | rdm:Collection, rdm:DataManagementPlan, rdm:Project, rdm:Resource                                                              |
 | example         | PI が、 ある研究プロジェクトに関する DMP を作成する                                                                            |
-
-|                 | rdm:Convert                                                                                     |
-| --------------- | ----------------------------------------------------------------------------------------------- |
-| URI             | https://purl.org/rdm/ontology/Convert                                                           |
-| rdfs:comment    | An act of converting Resource into a new Resource.<br>Resource を新たな Resource に変換する行動 |
-| rdfs:subClassOf | rdm:Create                                                                                      |
-| activityObject  | rdm:Resource                                                                                    |
-| result          | rdm:Resource                                                                                    |
-| example         | キュレーターが、QuickTime files のデータを MPEG4 形式に変換する                                 |
 
 |                 | rdm:Dump                                                                            |
 | --------------- | ----------------------------------------------------------------------------------- |
