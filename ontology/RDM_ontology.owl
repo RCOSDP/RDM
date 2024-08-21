@@ -114,9 +114,6 @@
         <Class IRI="Dump"/>
     </Declaration>
     <Declaration>
-        <Class IRI="Edit"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="EducationalResource"/>
     </Declaration>
     <Declaration>
@@ -844,12 +841,26 @@
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Authorize"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="RightsStatement"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Book"/>
         <Class IRI="Resource"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Check"/>
         <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Check"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Cleanse"/>
@@ -981,7 +992,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Convert"/>
-        <Class IRI="Activity"/>
+        <Class IRI="Create"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Convert"/>
@@ -1115,7 +1126,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Dump"/>
-        <Class IRI="Activity"/>
+        <Class IRI="Create"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Dump"/>
@@ -1129,24 +1140,6 @@
         <ObjectAllValuesFrom>
             <ObjectProperty IRI="result"/>
             <Class IRI="Resource"/>
-        </ObjectAllValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="Edit"/>
-        <Class IRI="Activity"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="Edit"/>
-        <ObjectAllValuesFrom>
-            <ObjectProperty IRI="activityObject"/>
-            <Class IRI="Resource"/>
-        </ObjectAllValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="Edit"/>
-        <ObjectAllValuesFrom>
-            <ObjectProperty IRI="agent"/>
-            <Class IRI="Person"/>
         </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
@@ -1355,17 +1348,6 @@
         <ObjectAllValuesFrom>
             <ObjectProperty IRI="result"/>
             <Class IRI="MetadataDocument"/>
-        </ObjectAllValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="Ingest"/>
-        <ObjectAllValuesFrom>
-            <ObjectProperty IRI="target"/>
-            <ObjectUnionOf>
-                <Class IRI="Collection"/>
-                <Class IRI="Project"/>
-                <Class IRI="Resource"/>
-            </ObjectUnionOf>
         </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
@@ -1947,6 +1929,10 @@
     <DisjointClasses>
         <Class IRI="Accept"/>
         <Class IRI="Reject"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Create"/>
+        <Class IRI="Update"/>
     </DisjointClasses>
     <DisjointClasses>
         <Class IRI="Download"/>
@@ -4202,21 +4188,6 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Edit</IRI>
-        <Literal xml:lang="en">An act of editing Resource. This class implies that changes have been made to the Resource as a draft, such as using edit UI, and does not involve whether they have been applied.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Edit</IRI>
-        <Literal xml:lang="ja">Resource に変更を加える行動. 編集画面を利用したドラフトとしての変更を意味し、与えた変更の反映は含意しない</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Edit</IRI>
-        <Literal>Edit</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>EducationalResource</IRI>
         <Literal xml:lang="en">A Resource related to educational, such as slides for lecture.</Literal>
     </AnnotationAssertion>
@@ -4968,12 +4939,12 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>Update</IRI>
-        <Literal xml:lang="en">An act of updating Resource, such as applying a change.</Literal>
+        <Literal xml:lang="en">An act of updating an existing Resource with changes.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>Update</IRI>
-        <Literal xml:lang="ja">変更を反映させるなど、Resource を更新する行動</Literal>
+        <Literal xml:lang="ja">既存の Resource に変更を加え更新する行動</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>

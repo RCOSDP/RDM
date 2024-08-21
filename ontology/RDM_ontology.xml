@@ -2812,6 +2812,12 @@
 
     <owl:Class rdf:about="https://purl.org/rdm/ontology/Authorize">
         <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology/Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/activityObject"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology/RightsStatement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An act of granting permission or right to an object.</rdfs:comment>
         <rdfs:comment xml:lang="ja">権利や許可を与える行動</rdfs:comment>
         <rdfs:label>Authorize</rdfs:label>
@@ -2834,6 +2840,12 @@
 
     <owl:Class rdf:about="https://purl.org/rdm/ontology/Check">
         <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology/Activity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/activityObject"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology/Resource"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An act of checking the regulation for Resource, such as using checkboxes.</rdfs:comment>
         <rdfs:comment xml:lang="ja">チェックボックスに印をつけるなど、規定の項目に関して確認する行動</rdfs:comment>
         <rdfs:label>Check</rdfs:label>
@@ -3032,7 +3044,7 @@
     <!-- https://purl.org/rdm/ontology/Convert -->
 
     <owl:Class rdf:about="https://purl.org/rdm/ontology/Convert">
-        <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology/Activity"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology/Create"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/activityObject"/>
@@ -3071,6 +3083,7 @@
                 </owl:allValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://purl.org/rdm/ontology/Update"/>
         <rdfs:comment xml:lang="en">An act of creating/producing/generating Resource, Project, Collection etc.</rdfs:comment>
         <rdfs:comment xml:lang="ja">Project, Resource, Collection などを作成する行動</rdfs:comment>
         <rdfs:label>Create</rdfs:label>
@@ -3219,7 +3232,7 @@
     <!-- https://purl.org/rdm/ontology/Dump -->
 
     <owl:Class rdf:about="https://purl.org/rdm/ontology/Dump">
-        <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology/Activity"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology/Create"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/agent"/>
@@ -3235,29 +3248,6 @@
         <rdfs:comment xml:lang="en">An act of creating a log file by dumping.</rdfs:comment>
         <rdfs:comment xml:lang="ja">ダンプによりログファイルを作成する行動</rdfs:comment>
         <rdfs:label>Dump</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://purl.org/rdm/ontology/Edit -->
-
-    <owl:Class rdf:about="https://purl.org/rdm/ontology/Edit">
-        <rdfs:subClassOf rdf:resource="https://purl.org/rdm/ontology/Activity"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/activityObject"/>
-                <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology/Resource"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/agent"/>
-                <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology/Person"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">An act of editing Resource. This class implies that changes have been made to the Resource as a draft, such as using edit UI, and does not involve whether they have been applied.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">Resource に変更を加える行動. 編集画面を利用したドラフトとしての変更を意味し、与えた変更の反映は含意しない</rdfs:comment>
-        <rdfs:label>Edit</rdfs:label>
     </owl:Class>
     
 
@@ -3531,20 +3521,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/result"/>
                 <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology/MetadataDocument"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="https://purl.org/rdm/ontology/target"/>
-                <owl:allValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="https://purl.org/rdm/ontology/Collection"/>
-                            <rdf:Description rdf:about="https://purl.org/rdm/ontology/Project"/>
-                            <rdf:Description rdf:about="https://purl.org/rdm/ontology/Resource"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:allValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An act of getting and adding metadata to Resource from public information as part of data curation.</rdfs:comment>
@@ -4284,8 +4260,8 @@
                 <owl:allValuesFrom rdf:resource="https://purl.org/rdm/ontology/Resource"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">An act of updating Resource, such as applying a change.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">変更を反映させるなど、Resource を更新する行動</rdfs:comment>
+        <rdfs:comment xml:lang="en">An act of updating an existing Resource with changes.</rdfs:comment>
+        <rdfs:comment xml:lang="ja">既存の Resource に変更を加え更新する行動</rdfs:comment>
         <rdfs:label>Update</rdfs:label>
     </owl:Class>
     

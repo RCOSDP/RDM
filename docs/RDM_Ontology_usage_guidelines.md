@@ -39,6 +39,7 @@ The following is a legend of term description.
 |rdfs:domain|Domain class. Any of classes in list can be domain when multiple classes are listed. (unionOf)|
 |rdfs:range|Range class or datatype. Any of these in list can be range when multiple items are listed.(unionOf)|
 |note|Additional description|
+|activityObject / agent / recipient / result / target| Classes that can be used as the value of rdm:activityClass /rdm:agent / rdm:recipient / rdm:result / rdm:target property in a subclass of an Activity entity. |
 
 ## Classes
 
@@ -52,240 +53,354 @@ The following is a legend of term description.
 | URI             | https://purl.org/rdm/ontology/Accept                                      |
 | rdfs:comment    | An act of approving Resource or request.<br>Resource や依頼を承認する行動 |
 | rdfs:subClassOf | rdm:Activity                                                              |
+| activityObject  | rdm:Resource                                                              |
+| example         | データ管理者が、データキュレーションが行われたデータセットを承認する      |
 
 |                 | rdm:Align                                                                              |
 | --------------- | -------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Align                                                    |
 | rdfs:comment    | An act of editing Resource to format.<br>Resource をフォーマットに合わせて編集する行動 |
 | rdfs:subClassOf | rdm:Activity                                                                           |
+| activityObject  | rdm:Resource                                                                           |
+| agent           | rdm:Person                                                                             |
+| result          | rdm:Resource                                                                           |
+| example         | キュレーターが、提出されたデータを規定のフォーマットに合わせて編集する                 |
 
 |                 | rdm:Anonymize                                                     |
 | --------------- | ----------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Anonymize                           |
 | rdfs:comment    | An act of making Resource anonymous.<br>Resource を匿名化する行動 |
 | rdfs:subClassOf | rdm:Activity                                                      |
+| activityObject  | rdm:Resource                                                      |
+| result          | rdm:Resource                                                      |
+| example         | キュレーターが、個人情報が含まれたデータを匿名化処理する          |
 
-|                 | rdm:Ask                                                                                           |
-| --------------- | ------------------------------------------------------------------------------------------------- |
-| URI             | https://purl.org/rdm/ontology/Ask                                                                 |
-| rdfs:comment    | An act of asking questions to Person, chatbot etc.<br>Person やチャットボットなどに質問をする行動 |
-| rdfs:subClassOf | rdm:Activity                                                                                      |
+|                 | rdm:Ask                                                                                                        |
+| --------------- | -------------------------------------------------------------------------------------------------------------- |
+| URI             | https://purl.org/rdm/ontology/Ask                                                                              |
+| rdfs:comment    | An act of asking questions to Person, chatbot etc.<br>Person やチャットボットなどに質問をする行動              |
+| rdfs:subClassOf | rdm:Activity                                                                                                   |
+| activityObject  | rdm:Message                                                                                                    |
+| recipient       | rdm:Person                                                                                                     |
+| example         | データキュレーターが、キュレーション業務の依頼者に、不明瞭な点を質問する<br>研究者が、チャットボットに質問する |
 
-|                 | rdm:Assign                                                           |
-| --------------- | -------------------------------------------------------------------- |
-| URI             | https://purl.org/rdm/ontology/Assign                                 |
-| rdfs:comment    | An act of assigning a role to Person.<br>Person に役割を任命する行動 |
-| rdfs:subClassOf | rdm:Activity                                                         |
+|                 | rdm:Assign                                                                                                      |
+| --------------- | --------------------------------------------------------------------------------------------------------------- |
+| URI             | https://purl.org/rdm/ontology/Assign                                                                            |
+| rdfs:comment    | An act of assigning a role to Person.<br>Person に役割を任命する行動                                            |
+| rdfs:subClassOf | rdm:Activity                                                                                                    |
+| activityObject  | rdm:Role                                                                                                        |
+| recipient       | rdm:Person                                                                                                      |
+| example         | PI が、データ管理者を任命する<br>データコーディネーターが、キュレーション依頼に対して、キュレーターを割り当てる |
 
-|                 | rdm:Authorize                                                                  |
-| --------------- | ------------------------------------------------------------------------------ |
-| URI             | https://purl.org/rdm/ontology/Authorize                                        |
-| rdfs:comment    | An act of granting permission or right to an object.<br>権利や許可を与える行動 |
-| rdfs:subClassOf | rdm:Activity                                                                   |
+|                 | rdm:Authorize                                                                                            |
+| --------------- | -------------------------------------------------------------------------------------------------------- |
+| URI             | https://purl.org/rdm/ontology/Authorize                                                                  |
+| rdfs:comment    | An act of granting permission or right to an object.<br>権利や許可を与える行動                           |
+| rdfs:subClassOf | rdm:Activity                                                                                             |
+| activityObject  | rdm:RightsStatement                                                                                      |
+| example         | 研究者が、新たにプロジェクトへの参加が決まった別の研究者に、プロジェクト内データへのアクセス権を付与する |
 
 |                 | rdm:Check                                                                                                                                     |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Check                                                                                                           |
 | rdfs:comment    | An act of checking the regulation for Resource, such as using checkboxes.<br>チェックボックスに印をつけるなど、規定の項目に関して確認する行動 |
 | rdfs:subClassOf | rdm:Activity                                                                                                                                  |
+| activityObject  | rdm:Resource                                                                                                                                  |
+|                 |
+| example         | キュレーターが、提出されたデータリストを確認する                                                                                              |
 
 |                 | rdm:Cleanse                                                                               |
 | --------------- | ----------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Cleanse                                                     |
 | rdfs:comment    | An act of performing data cleansing of Resource.<br>Resource をデータクレンジングする行動 |
 | rdfs:subClassOf | rdm:Activity                                                                              |
+| activityObject  | rdm:Resource                                                                              |
+| agent           | rdm:Person                                                                                |
+| result          | rdm:Resource                                                                              |
+| example         | キュレーターが、提出されたデータをクレンジングする                                        |
 
 |                 | rdm:Collect                                               |
 | --------------- | --------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Collect                     |
 | rdfs:comment    | An act of collecting Resource.<br>Resource を収集する行動 |
 | rdfs:subClassOf | rdm:Activity                                              |
+| activityObject  | rdm:Collection, rdm:Resource                              |
+| result          | rdm:Collection, rdm:Resource                              |
+| example         | 国会図書館が、ある大学のリポジトリから博士論文を収集する  |
 
-|                 | rdm:Comment                                                                        |
-| --------------- | ---------------------------------------------------------------------------------- |
-| URI             | https://purl.org/rdm/ontology/Comment                                              |
-| rdfs:comment    | An act of generating a comment on Resource.<br>Resource に対してコメントをする行動 |
-| rdfs:subClassOf | rdm:Activity                                                                       |
+|                 | rdm:Comment                                                                           |
+| --------------- | ------------------------------------------------------------------------------------- |
+| URI             | https://purl.org/rdm/ontology/Comment                                                 |
+| rdfs:comment    | An act of generating a comment on Resource.<br>Resource に対してコメントをする行動    |
+| rdfs:subClassOf | rdm:Activity                                                                          |
+| activityObject  | rdm:Message                                                                           |
+| target          | rdm:Resource                                                                          |
+| example         | GRDM のコメント機能を利用して、研究者が GRDM に格納されている資料に対しコメントをする |
 
 |                 | rdm:Connect                                                                              |
 | --------------- | ---------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Connect                                                    |
 | rdfs:comment    | An act of connecting service to another service.<br>サービスを別のサービスに接続する行動 |
 | rdfs:subClassOf | rdm:Activity                                                                             |
-
-|                 | rdm:Convert                                                                                     |
-| --------------- | ----------------------------------------------------------------------------------------------- |
-| URI             | https://purl.org/rdm/ontology/Convert                                                           |
-| rdfs:comment    | An act of converting Resource into a new Resource.<br>Resource を新たな Resource に変換する行動 |
-| rdfs:subClassOf | rdm:Activity                                                                                    |
+| activityObject  | rdm:Repository, rdm:SoftwareApplication                                                  |
+| agent           | rdm:Person                                                                               |
+| target          | rdm:Repository, rdm:SoftwareApplication                                                  |
+| example         | 研究者が、アドオンを利用して GRDM に S3 を接続する                                       |
 
 |                 | rdm:Create                                                                                                                     |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | URI             | https://purl.org/rdm/ontology/Create                                                                                           |
 | rdfs:comment    | An act of creating/producing/generating Resource, Project, Collection etc.<br>Project, Resource, Collection などを作成する行動 |
 | rdfs:subClassOf | rdm:Activity                                                                                                                   |
+| result          | rdm:Collection, rdm:DataManagementPlan, rdm:Project, rdm:Resource                                                              |
+| example         | PI が、 ある研究プロジェクトに関する DMP を作成する                                                                            |
+
+|                 | rdm:Convert                                                                                     |
+| --------------- | ----------------------------------------------------------------------------------------------- |
+| URI             | https://purl.org/rdm/ontology/Convert                                                           |
+| rdfs:comment    | An act of converting Resource into a new Resource.<br>Resource を新たな Resource に変換する行動 |
+| rdfs:subClassOf | rdm:Create                                                                                      |
+| activityObject  | rdm:Resource                                                                                    |
+| result          | rdm:Resource                                                                                    |
+| example         | キュレーターが、QuickTime files のデータを MPEG4 形式に変換する                                 |
+
+|                 | rdm:Dump                                                                            |
+| --------------- | ----------------------------------------------------------------------------------- |
+| URI             | https://purl.org/rdm/ontology/Dump                                                  |
+| rdfs:comment    | An act of creating a log file by dumping.<br>ダンプによりログファイルを作成する行動 |
+| rdfs:subClassOf | rdm:Create                                                                          |
+| agent           | rdm:Person                                                                          |
+| result          | rdm:Resource                                                                        |
+| example         | 研究者が、研究で実施したデータ解析過程のログを書き出す                              |
 
 |                 | rdm:Deploy                                                                                               |
 | --------------- | -------------------------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Deploy                                                                     |
 | rdfs:comment    | An act of deploying SoftwareApplication or Resource.<br>Resource, SoftwareApplication をデプロイする行動 |
 | rdfs:subClassOf | rdm:Activity                                                                                             |
+| activityObject  | rdm:Resource, rdm:SoftwareApplication                                                                    |
+| agent           | rdm:Person                                                                                               |
+| example         | 研究者が、研究で利用するプログラムを計算機上に配置する                                                   |
 
 |                 | rdm:Develop                                                     |
 | --------------- | --------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Develop                           |
 | rdfs:comment    | An act of developing a program.<br>プログラミングで実装する行動 |
 | rdfs:subClassOf | rdm:Activity                                                    |
+| activityObject  | rdm:Resource, rdm:SoftwareApplication                           |
+| agent           | rdm:Person                                                      |
+| example         | 研究者が、研究で利用するプログラムを実装する                    |
 
-|                 | rdm:Download                                                       |
-| --------------- | ------------------------------------------------------------------ |
-| URI             | https://purl.org/rdm/ontology/Download                             |
-| rdfs:comment    | An act of downloading Resource.<br>Resource をダウンロードする行動 |
-| rdfs:subClassOf | rdm:Activity                                                       |
-
-|                 | rdm:Dump                                                                            |
-| --------------- | ----------------------------------------------------------------------------------- |
-| URI             | https://purl.org/rdm/ontology/Dump                                                  |
-| rdfs:comment    | An act of creating a log file by dumping.<br>ダンプによりログファイルを作成する行動 |
-| rdfs:subClassOf | rdm:Activity                                                                        |
-
-|                 | rdm:Edit                                                                                                                                                                                                                                                                                        |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| URI             | https://purl.org/rdm/ontology/Edit                                                                                                                                                                                                                                                              |
-| rdfs:comment    | An act of editing Resource. This class implies that changes have been made to the Resource as a draft, such as using edit UI, and does not involve whether they have been applied.<br>Resource に変更を加える行動. 編集画面を利用したドラフトとしての変更を意味し、与えた変更の反映は含意しない |
-| rdfs:subClassOf | rdm:Activity                                                                                                                                                                                                                                                                                    |
+|                 | rdm:Download                                                         |
+| --------------- | -------------------------------------------------------------------- |
+| URI             | https://purl.org/rdm/ontology/Download                               |
+| rdfs:comment    | An act of downloading Resource.<br>Resource をダウンロードする行動   |
+| rdfs:subClassOf | rdm:Activity                                                         |
+| activityObject  | rdm:Resource                                                         |
+| agent           | rdm:Person                                                           |
+| example         | 研究者が、リポジトリにある研究データをローカル PC にダウンロードする |
 
 |                 | rdm:Evaluate                                                                                     |
 | --------------- | ------------------------------------------------------------------------------------------------ |
 | URI             | https://purl.org/rdm/ontology/Evaluate                                                           |
 | rdfs:comment    | An act of evaluating Resource, such as peer-review.<br>ピアレビューなど、Resource を評価する行動 |
 | rdfs:subClassOf | rdm:Activity                                                                                     |
+| activityObject  | rdm:Resource                                                                                     |
+| agent           | rdm:Person                                                                                       |
+| result          | rdm:Review                                                                                       |
+| example         | データコーディネーターが、メタデータを評価する                                                   |
 
 |                 | rdm:Execute                                                                                                                |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Execute                                                                                      |
 | rdfs:comment    | An act of executing SoftwareApplication, Resource, program etc.<br>Resource, SoftwareApplication, プログラムを実行する行動 |
 | rdfs:subClassOf | rdm:Activity                                                                                                               |
+| activityObject  | rdm:Experiment, rdm:Resource                                                                                               |
+| agent           | rdm:Person                                                                                                                 |
+| result          | rdm:Resource                                                                                                               |
+| example         | 研究者が、解析プログラムを実行しデータ解析を行う                                                                           |
 
 |                 | rdm:Get                                                                                         |
 | --------------- | ----------------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Get                                                               |
 | rdfs:comment    | An act of getting/obtaining Resource, information etc.<br>Resource または情報などを取得する行動 |
 | rdfs:subClassOf | rdm:Activity                                                                                    |
+| activityObject  | rdm:Resource                                                                                    |
+| example         | DMP 担当者が、研究データのリストを取得する                                                      |
 
 |                 | rdm:Inform                                                                                         |
 | --------------- | -------------------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Inform                                                               |
 | rdfs:comment    | An act of notifying Person/Institution of information.<br>Person, Institution に対して通知する行動 |
 | rdfs:subClassOf | rdm:Activity                                                                                       |
+| activityObject  | rdm:Message                                                                                        |
+| example         | データコーディネイターが、キュレーション依頼が完了したことを依頼者へ通知する                       |
 
 |                 | rdm:Ingest                                                                                                                                                                           |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | URI             | https://purl.org/rdm/ontology/Ingest                                                                                                                                                 |
 | rdfs:comment    | An act of getting and adding metadata to Resource from public information as part of data curation.<br>キュレーションの一環として、Resource のメタデータを外部から取得し付与する行動 |
 | rdfs:subClassOf | rdm:Activity                                                                                                                                                                         |
+| activityObject  | rdm:MetadataDocument                                                                                                                                                                 |
+| agent           | rdm:Person                                                                                                                                                                           |
+| result          | rdm:MetadataDocument                                                                                                                                                                 |
+| example         | キュレーターが、提出されたデータに関連するメタデータを外部から取り込んで付与する                                                                                                     |
 
 |                 | rdm:Integrate                                                                                                                       |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Integrate                                                                                             |
 | rdfs:comment    | An act of integrating different forms of metadata as part of data curation.<br>キュレーションの一環として、メタデータを統合する行動 |
 | rdfs:subClassOf | rdm:Activity                                                                                                                        |
+| activityObject  | rdm:MetadataDocument                                                                                                                |
+| agent           | rdm:Person                                                                                                                          |
+| result          | rdm:MetadataDocument                                                                                                                |
+| target          | rdm:MetadataDocument                                                                                                                |
+| example         | データ管理者が、ある Resource に対する複数のメタデータを一つに統合する                                                              |
 
 |                 | rdm:Preserve                                                                                                                                          |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Preserve                                                                                                                |
 | rdfs:comment    | An act of saving and storing Resource to Repository, SoftwareApplication etc.<br>Resource を Repository, SoftwareApplication などに保存・保管する行動 |
 | rdfs:subClassOf | rdm:Activity                                                                                                                                          |
+| activityObject  | rdm:Resource                                                                                                                                          |
+| agent           | rdm:Person                                                                                                                                            |
+| example         | 研究者が、実験データを研究室の PC に保存する                                                                                                          |
 
 |                 | rdm:Archive                                                    |
 | --------------- | -------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Archive                          |
 | rdfs:comment    | An act of archiving Resource.<br>Resource をアーカイブする行動 |
 | rdfs:subClassOf | rdm:Preserve                                                   |
+| example         | 研究者が、会議発表資料をリポジトリにアーカイブする             |
 
 |                 | rdm:Publish                                                                                                                                                                                                             |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Publish                                                                                                                                                                                   |
 | rdfs:comment    | An act of making Resource public, such as by pushing "publish" button on publishing service. (including Resource of any access rights)<br>公開ボタンを押すなどして、Resource を公開する行動(アクセス権の種類は問わない) |
 | rdfs:subClassOf | rdm:Activity                                                                                                                                                                                                            |
+| activityObject  | rdm:Collection, rdm:Project, rdm:Resource                                                                                                                                                                               |
+| example         | リポジトリ担当者が、リポジトリに登録された研究データの公開設定を「公開」に変更し、誰でもアクセスできる状態にする                                                                                                        |
 
 |                 | rdm:Register                                                                                                                                                              |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Register                                                                                                                                    |
 | rdfs:comment    | An act of registering Resource to Repository, SoftwareApplication or other service.<br>Repository, SoftwareApplication もしくはその他サービスに、 Resource を登録する行動 |
 | rdfs:subClassOf | rdm:Activity                                                                                                                                                              |
+| activityObject  | rdm:Collection, rdm:Resource                                                                                                                                              |
+| example         | データ管理者が、リポジトリに公開したいデータセットを登録する                                                                                                              |
 
 |                 | rdm:Reject                                                                                                                               |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Reject                                                                                                     |
 | rdfs:comment    | An act of rejecting proposal/assigned role/submitted Resource etc.<br>提出された Resource や提案、割り当てられた役割などを取り下げる行動 |
 | rdfs:subClassOf | rdm:Activity                                                                                                                             |
+| activityObject  | rdm:Role                                                                                                                                 |
+| example         | キュレーターが、自身に割り当てられたキュレーションタスクの担当者を降りる                                                                 |
 
 |                 | rdm:Rename                                                    |
 | --------------- | ------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Rename                          |
 | rdfs:comment    | An act of renaming Resource.<br>Resource の名称を変更する行動 |
 | rdfs:subClassOf | rdm:Activity                                                  |
+| activityObject  | rdm:Resource                                                  |
+| agent           | rdm:Person                                                    |
+| result          | rdm:Resource                                                  |
+| example         | キュレーターが、ファイルの名前をルールに従うように変更する    |
 
 |                 | rdm:Reorganize                                                                          |
 | --------------- | --------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Reorganize                                                |
 | rdfs:comment    | An act of changing folder structure of Dataset.<br>Dataset のフォルダ構成を変更する行動 |
 | rdfs:subClassOf | rdm:Activity                                                                            |
+| activityObject  | rdm:Dataset                                                                             |
+| agent           | rdm:Person                                                                              |
+| result          | rdm:Dataset                                                                             |
+| example         | キュレーターが、提出されたデータセットのフォルダ構成を bagit に合わせて変更する         |
 
 |                 | rdm:Restructure                                                                                                                                                        |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Restructure                                                                                                                              |
 | rdfs:comment    | An act of re-structuring Resource as part of data curation, such as sorting a table.<br>表データをソートするなど、キュレーションの一環として Resource を再構成する行動 |
 | rdfs:subClassOf | rdm:Activity                                                                                                                                                           |
+| activityObject  | rdm:Resource                                                                                                                                                           |
+| agent           | rdm:Person                                                                                                                                                             |
+| result          | rdm:Resource                                                                                                                                                           |
+| example         | キュレーターが、キュレーション業務の一環として、提出されたデータのソート順を変更する                                                                                   |
 
 |                 | rdm:Schedule                                                              |
 | --------------- | ------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Schedule                                    |
 | rdfs:comment    | An act of scheduling future Event.<br>未来に行われる Event を設定する行動 |
 | rdfs:subClassOf | rdm:Activity                                                              |
+| activityObject  | rdm:Event                                                                 |
+| example         | 研究者が、プロジェクトの全体会議を設定する                                |
 
 |                 | rdm:Search                                                                                                         |
 | --------------- | ------------------------------------------------------------------------------------------------------------------ |
 | URI             | https://purl.org/rdm/ontology/Search                                                                               |
 | rdfs:comment    | An act of searching Resource, such as by pushing "search" button.<br>検索ボタンの押下など、Resource を検索する行動 |
 | rdfs:subClassOf | rdm:Activity                                                                                                       |
+| activityObject  | rdm:Collection, rdm:Repository                                                                                     |
+| agent           | rdm:Person                                                                                                         |
+| result          | rdm:Resource                                                                                                       |
+| example         | 研究者が、CiNii で先行研究の論文を検索する                                                                         |
 
-|                 | rdm:Select                                                                    |
-| --------------- | ----------------------------------------------------------------------------- |
-| URI             | https://purl.org/rdm/ontology/Select                                          |
-| rdfs:comment    | An act of selecting from options.<br>選択肢の中から利用するものを選択する行動 |
-| rdfs:subClassOf | rdm:Activity                                                                  |
+|                 | rdm:Select                                                                                                                             |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| URI             | https://purl.org/rdm/ontology/Select                                                                                                   |
+| rdfs:comment    | An act of selecting from options.<br>選択肢の中から利用するものを選択する行動                                                          |
+| rdfs:subClassOf | rdm:Activity                                                                                                                           |
+| activityObject  | rdm:Repository, rdm:Resource                                                                                                           |
+| agent           | rdm:Person                                                                                                                             |
+| example         | 研究者が、GRDM から WEKO にエクスポートする対象となるファイルを選択する<br>研究者が、GRDM でアドオンとして追加するストレージを選択する |
 
-|                 | rdm:Send                                               |
-| --------------- | ------------------------------------------------------ |
-| URI             | https://purl.org/rdm/ontology/Send                     |
-| rdfs:comment    | An act of dispatching Resource.<br>Resource を送る行動 |
-| rdfs:subClassOf | rdm:Activity                                           |
+|                 | rdm:Send                                                                   |
+| --------------- | -------------------------------------------------------------------------- |
+| URI             | https://purl.org/rdm/ontology/Send                                         |
+| rdfs:comment    | An act of dispatching Resource.<br>Resource を送る行動                     |
+| rdfs:subClassOf | rdm:Activity                                                               |
+| activityObject  | rdm:Resource                                                               |
+| agent           | rdm:Person                                                                 |
+| example         | データコーディネイターが、評価が終了した提出データをリポジトリ管理者に送る |
 
 |                 | rdm:Suggest                                                        |
 | --------------- | ------------------------------------------------------------------ |
 | URI             | https://purl.org/rdm/ontology/Suggest                              |
 | rdfs:comment    | An act of presenting or proposing options.<br>選択肢を提示する行動 |
 | rdfs:subClassOf | rdm:Activity                                                       |
+| activityObject  | rdm:Message                                                        |
+| agent           | rdm:Person                                                         |
+| example         | PI が、研究プロジェクトで利用するストレージを提案する              |
 
-|                 | rdm:Update                                                                                               |
-| --------------- | -------------------------------------------------------------------------------------------------------- |
-| URI             | https://purl.org/rdm/ontology/Update                                                                     |
-| rdfs:comment    | An act of updating Resource, such as applying a change.<br>変更を反映させるなど、Resource を更新する行動 |
-| rdfs:subClassOf | rdm:Activity                                                                                             |
+|                 | rdm:Update                                                                                        |
+| --------------- | ------------------------------------------------------------------------------------------------- |
+| URI             | https://purl.org/rdm/ontology/Update                                                              |
+| rdfs:comment    | An act of updating an existing Resource with changes.<br>既存の Resource に変更を加え更新する行動 |
+| rdfs:subClassOf | rdm:Activity                                                                                      |
+| activityObject  | rdm:Resource                                                                                      |
+| agent           | rdm:Person                                                                                        |
+| result          | rdm:Resource                                                                                      |
+| example         | 研究者が、DMP を更新する<br>キュレーターが、提出されたメタデータを編集して更新する                |
 
 |                 | rdm:Upload                                                                                                                                     |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Upload                                                                                                           |
 | rdfs:comment    | An act of uploading Resource to Repository, SoftwareApplication etc.<br>Resource を SoftwareApplication や Repository 等にアップロードする行動 |
 | rdfs:subClassOf | rdm:Activity                                                                                                                                   |
+| activityObject  | rdm:Resource                                                                                                                                   |
+| agent           | rdm:Person                                                                                                                                     |
+| example         | 研究者が、ローカル PC 内の研究データをクラウドストレージにアップロードする                                                                     |
 
 |                 | rdm:Visualize                                                                                                                 |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | URI             | https://purl.org/rdm/ontology/Visualize                                                                                       |
 | rdfs:comment    | An act of creating a visualization based on data, such as making a graph.<br>グラフを生成するなど、データを元に可視化する行動 |
 | rdfs:subClassOf | rdm:Activity                                                                                                                  |
+| activityObject  | rdm:Resource                                                                                                                  |
+| agent           | rdm:Person                                                                                                                    |
+| result          | rdm:Image, rdm:Video                                                                                                          |
+| example         | 研究者が、 Matplotlib を利用して、数値データをグラフ化する                                                                    |
 
 |              | rdm:Actor                                                                                              |
 | ------------ | ------------------------------------------------------------------------------------------------------ |

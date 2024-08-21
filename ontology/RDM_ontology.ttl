@@ -2015,7 +2015,11 @@ rdm:Audio rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Authorize
 rdm:Authorize rdf:type owl:Class ;
-              rdfs:subClassOf rdm:Activity ;
+              rdfs:subClassOf rdm:Activity ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rdm:activityObject ;
+                                owl:allValuesFrom rdm:RightsStatement
+                              ] ;
               rdfs:comment "An act of granting permission or right to an object."@en ,
                            "権利や許可を与える行動"@ja ;
               rdfs:label "Authorize" .
@@ -2031,7 +2035,11 @@ rdm:Book rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Check
 rdm:Check rdf:type owl:Class ;
-          rdfs:subClassOf rdm:Activity ;
+          rdfs:subClassOf rdm:Activity ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty rdm:activityObject ;
+                            owl:allValuesFrom rdm:Resource
+                          ] ;
           rdfs:comment "An act of checking the regulation for Resource, such as using checkboxes."@en ,
                        "チェックボックスに印をつけるなど、規定の項目に関して確認する行動"@ja ;
           rdfs:label "Check" .
@@ -2167,7 +2175,7 @@ rdm:Connect rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Convert
 rdm:Convert rdf:type owl:Class ;
-            rdfs:subClassOf rdm:Activity ,
+            rdfs:subClassOf rdm:Create ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty rdm:activityObject ;
                               owl:allValuesFrom rdm:Resource
@@ -2194,6 +2202,7 @@ rdm:Create rdf:type owl:Class ;
                                                              )
                                                ]
                            ] ;
+           owl:disjointWith rdm:Update ;
            rdfs:comment "An act of creating/producing/generating Resource, Project, Collection etc."@en ,
                         "Project, Resource, Collection などを作成する行動"@ja ;
            rdfs:label "Create" .
@@ -2296,7 +2305,7 @@ rdm:Download rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Dump
 rdm:Dump rdf:type owl:Class ;
-         rdfs:subClassOf rdm:Activity ,
+         rdfs:subClassOf rdm:Create ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty rdm:agent ;
                            owl:allValuesFrom rdm:Person
@@ -2308,22 +2317,6 @@ rdm:Dump rdf:type owl:Class ;
          rdfs:comment "An act of creating a log file by dumping."@en ,
                       "ダンプによりログファイルを作成する行動"@ja ;
          rdfs:label "Dump" .
-
-
-###  https://purl.org/rdm/ontology/Edit
-rdm:Edit rdf:type owl:Class ;
-         rdfs:subClassOf rdm:Activity ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty rdm:activityObject ;
-                           owl:allValuesFrom rdm:Resource
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty rdm:agent ;
-                           owl:allValuesFrom rdm:Person
-                         ] ;
-         rdfs:comment "An act of editing Resource. This class implies that changes have been made to the Resource as a draft, such as using edit UI, and does not involve whether they have been applied."@en ,
-                      "Resource に変更を加える行動. 編集画面を利用したドラフトとしての変更を意味し、与えた変更の反映は含意しない"@ja ;
-         rdfs:label "Edit" .
 
 
 ###  https://purl.org/rdm/ontology/EducationalResource
@@ -2513,15 +2506,6 @@ rdm:Ingest rdf:type owl:Class ;
                            [ rdf:type owl:Restriction ;
                              owl:onProperty rdm:result ;
                              owl:allValuesFrom rdm:MetadataDocument
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty rdm:target ;
-                             owl:allValuesFrom [ rdf:type owl:Class ;
-                                                 owl:unionOf ( rdm:Collection
-                                                               rdm:Project
-                                                               rdm:Resource
-                                                             )
-                                               ]
                            ] ;
            rdfs:comment "An act of getting and adding metadata to Resource from public information as part of data curation."@en ,
                         "キュレーションの一環として、Resource のメタデータを外部から取得し付与する行動"@ja ;
@@ -3035,8 +3019,8 @@ rdm:Update rdf:type owl:Class ;
                              owl:onProperty rdm:result ;
                              owl:allValuesFrom rdm:Resource
                            ] ;
-           rdfs:comment "An act of updating Resource, such as applying a change."@en ,
-                        "変更を反映させるなど、Resource を更新する行動"@ja ;
+           rdfs:comment "An act of updating an existing Resource with changes."@en ,
+                        "既存の Resource に変更を加え更新する行動"@ja ;
            rdfs:label "Update" .
 
 
