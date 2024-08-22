@@ -1,7 +1,12 @@
+import * as fs from "fs"
 import path from "path"
 
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
+
+const insideDocker = () => {
+  return fs.existsSync("/.dockerenv")
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,8 +16,8 @@ export default defineConfig({
     outDir: "../dist",
   },
   server: {
-    host: "0.0.0.0", // This app is always running within a Docker container
-    port: 5000,
+    host: insideDocker() ? "0.0.0.0" : "127.0.0.1",
+    port: 3000,
   },
   resolve: {
     alias: {

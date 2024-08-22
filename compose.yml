@@ -7,7 +7,7 @@ services:
     command: ["sleep", "infinity"]
     container_name: rdm-ap-front
     ports:
-      - 127.0.0.1:5000:5000
+      - 127.0.0.1:3000:3000
     working_dir: /app
     volumes:
       - ./:/app

@@ -1,9 +1,14 @@
 # Ignore everything
 **
 
-!README.md
+!docs
+!eslint.config.js
+!example
+!LICENSE.md
+!ontology
 !package-lock.json
 !package.json
+!README.md
 !src
 !tsconfig.json
 !tsconfig.node.json
