@@ -1,0 +1,10 @@
+# Ignore everything
+**
+
+!README.md
+!package-lock.json
+!package.json
+!src
+!tsconfig.json
+!tsconfig.node.json
+!vite.config.ts

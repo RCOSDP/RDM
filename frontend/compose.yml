@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: rdm-ap-front
+    command: ["sleep", "infinity"]
+    container_name: rdm-ap-front
+    ports:
+      - 127.0.0.1:5000:5000
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - front_node_modules:/app/node_modules
+volumes:
+  front_node_modules:
