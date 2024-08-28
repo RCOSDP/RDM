@@ -9,8 +9,6 @@ rdm:AccessRights rdfs:subClassOf schema:DigitalDocumentPermission .
 
 rdm:Activity owl:equivalentClass schema:Action .
 
-rdm:Add rdfs:subClassOf schema:AddAction .
-
 rdm:Ask owl:equivalentClass schema:AskAction .
 
 rdm:Assign owl:equivalentClass schema:AssignAction .
@@ -35,8 +33,6 @@ rdm:Dataset owl:equivalentClass schema:Dataset .
 
 rdm:Download owl:equivalentClass schema:DownloadAction .
 
-rdm:Enumeration rdfs:subClassOf schema:DefinedTerm .
-
 rdm:Event owl:equivalentClass schema:Event .
 
 rdm:FundingAgency owl:equivalentClass schema:FundingAgency .
@@ -57,6 +53,8 @@ rdm:JournalArticle rdfs:subClassOf schema:ScholarlyArticle .
 
 rdm:License rdfs:subClassOf schema:CreativeWork .
 
+rdm:Message owl:equivalentClass schema:Message .
+
 rdm:Person owl:equivalentClass schema:Person .
 
 rdm:Preprint rdfs:subClassOf schema:ScholarlyArticle .
@@ -72,6 +70,10 @@ rdm:Report owl:equivalentClass schema:Report .
 rdm:Repository rdfs:subClassOf schema:CreativeWork .
 
 rdm:Resource owl:equivalentClass schema:MediaObject .
+
+rdm:Review owl:equivalentClass schema:Review .
+
+rdm:Role owl:equivalentClass schema:Role .
 
 rdm:Schedule owl:equivalentClass schema:ScheduleAction .
 
