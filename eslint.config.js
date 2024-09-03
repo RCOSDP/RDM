@@ -1,51 +1,81 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import stylistic from '@stylistic/eslint-plugin'
-import tseslint from 'typescript-eslint'
+import js from "@eslint/js"
+import stylisticJs from "@stylistic/eslint-plugin-js"
+import eslintPluginImportX from "eslint-plugin-import-x"
+import reactHooks from "eslint-plugin-react-hooks"
+import reactRefresh from "eslint-plugin-react-refresh"
+import globals from "globals"
+import tseslint from "typescript-eslint"
 
 export default tseslint.config(
-  { ignores: ['dist'] },
   {
     extends: [
       js.configs.recommended,
       ...tseslint.configs.strict,
       ...tseslint.configs.stylistic,
+      eslintPluginImportX.flatConfigs.recommended,
+      eslintPluginImportX.flatConfigs.typescript,
     ],
-    files: ['**/*.{ts,tsx}'],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
+    files: ["**/*.{js,ts,tsx}"],
+    ignores: ["dist"],
+    languageOptions: { ecmaVersion: 2020, globals: globals.browser },
     plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-      '@stylistic': stylistic,
+      "react-hooks": reactHooks,
+      "react-refresh": reactRefresh,
+      "@stylistic/js": stylisticJs,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      "react-refresh/only-export-components": ["warn", {
+        allowConstantExport: true,
+      }],
+
+      // Our rules
+      "@typescript-eslint/no-non-null-assertion": "off",
+
       // Stylistic rules
-      "@stylistic/array-bracket-newline": ["error", "consistent"],
-      "@stylistic/array-bracket-spacing": ["error", "never"],
-      "@stylistic/array-element-newline": ["error", "consistent"],
-      "@stylistic/brace-style": ["error", "1tbs", { allowSingleLine: true }],
-      "@stylistic/comma-dangle": ["error", "always-multiline"],
-      "@stylistic/eol-last": ["error", "always"],
-      "@stylistic/indent": ["error", 2],
-      "@stylistic/jsx-quotes": ["error", "prefer-double"],
-      "@stylistic/no-multi-spaces": ["error"],
-      "@stylistic/no-multiple-empty-lines": ["error", { max: 1 }],
-      "@stylistic/no-trailing-spaces": ["error"],
-      "@stylistic/object-curly-newline": ["error", { "consistent": true }],
-      "@stylistic/object-property-newline": ["error", { allowAllPropertiesOnSameLine: true }],
-      "@stylistic/object-curly-spacing": ["error", "always"],
-      "@stylistic/quotes": ["error", "double"],
-      "@stylistic/semi": ["error", "never"],
+      "@stylistic/js/array-bracket-newline": ["error", "consistent"],
+      "@stylistic/js/array-bracket-spacing": ["error", "never"],
+      "@stylistic/js/array-element-newline": ["error", "consistent"],
+      "@stylistic/js/brace-style": ["error", "1tbs", { allowSingleLine: true }],
+      "@stylistic/js/comma-dangle": ["error", "always-multiline"],
+      "@stylistic/js/eol-last": ["error", "always"],
+      "@stylistic/js/indent": ["error", 2],
+      "@stylistic/js/jsx-quotes": ["error", "prefer-double"],
+      "@stylistic/js/no-multi-spaces": ["error"],
+      "@stylistic/js/no-multiple-empty-lines": ["error", { max: 1 }],
+      "@stylistic/js/no-trailing-spaces": ["error"],
+      "@stylistic/js/object-curly-newline": ["error", { "consistent": true }],
+      "@stylistic/js/object-property-newline": ["error", { allowAllPropertiesOnSameLine: true }],
+      "@stylistic/js/object-curly-spacing": ["error", "always"],
+      "@stylistic/js/quotes": ["error", "double"],
+      "@stylistic/js/semi": ["error", "never"],
+
+      // Import rules
+      "import-x/first": "error",
+      "import-x/order": ["error", {
+        "newlines-between": "always",
+        "groups": [
+          ["builtin", "external", "internal"],
+          "parent",
+          "sibling",
+          "index",
+        ],
+        "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "internal",
+            "position": "after",
+          },
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true,
+        },
+      }],
+      "import-x/newline-after-import": "error",
+      "import-x/no-duplicates": "error",
+      "import-x/no-unresolved": "off",
     },
   },
 )

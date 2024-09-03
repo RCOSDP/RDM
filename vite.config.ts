@@ -1,8 +1,7 @@
+import react from "@vitejs/plugin-react"
 import * as fs from "fs"
 import path from "path"
-
 import { defineConfig } from "vite"
-import react from "@vitejs/plugin-react"
 
 const insideDocker = () => {
   return fs.existsSync("/.dockerenv")

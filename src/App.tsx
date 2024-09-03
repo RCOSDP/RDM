@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
 import CssBaseline from "@mui/material/CssBaseline"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
 import { ErrorBoundary } from "react-error-boundary"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { RecoilRoot } from "recoil"
 
 import ErrorFallback from "@/pages/ErrorFallback"
