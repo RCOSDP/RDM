@@ -24,7 +24,6 @@ rdm
 ## Domain Model
 
 The RDM Ontology is based on two data models: a standard data model used to describe resources, and Activity-focused data model used to describe user stories of research activities using RDM systems. See the link below for the actual data model diagram.
-RDM Ontology では、記述の対象となる Resource を表現するための標準的なデータモデルと、RDM 関連システムのユーザーストーリーを表現するための Activity を中心としたデータモデルの 2 つを採用しています。実際のデータモデル図は下記のリンクを参照してください。
 
 - RDM Ontology domain model <!-- データモデル図 -->
   - [focused on Resource](./docs/domain_model_Resource.png)
@@ -33,7 +32,6 @@ RDM Ontology では、記述の対象となる Resource を表現するための
 ## Description Set Profile
 
 The RDM Ontology is developed to describe items common to multiple applications of NII-RDC by comparing the schema definitions of these applications. Guidelines are also provided to expand the RDM Ontology aligning with specific application.
-RDM Ontology は、NII-RDC の各アプリケーションで採用されているスキーマの仕様を比較し、複数のアプリケーションに共通する項目を記述できるように設計されています。さらに、単一のアプリケーションで必要となる項目を拡張するためのガイドラインを提供しています。
 
 - RDM Ontology <!-- 記述項目の一覧 -->
   - [turtle](./ontology/RDM_ontology.ttl)
@@ -45,7 +43,6 @@ RDM Ontology は、NII-RDC の各アプリケーションで採用されてい�
 ## Syntax Encoding as Application Profile <!-- 各基盤／機能でのエンコーディング例 -->
 
 The RDM Ontology can describe items that are fundamentally common to multiple applications of NII-RDC. Applications that wish to adopt the RDM Ontology but find it incomplete can first import the RDM Ontology and then add their own classes and vocabulary. The following are examples of extensions of RDM Ontology for each application of NII-RDC.
-RDM ontology では、基本的に NII-RDC を構成する複数のアプリケーションに共通する項目が記述可能です。 RDM Ontology を採用したいが不完全であると考えるアプリケーションは、まず RDM Ontology をインポートし、独自のクラスや語彙を追加することが可能です。以下に NII-RDC の各アプリケーションへの拡張例を示します。
 
 - GakuNin RDM
 - WEKO3
@@ -58,7 +55,6 @@ RDM ontology では、基本的に NII-RDC を構成する複数のアプリケ�
 ## Mappings <!-- 他のスキーマへのマッピング -->
 
 The following are mappings to schemas compatible with the RDM Ontology. Please note that the information in this section is updated based on the latest available data at the time of application, so be sure to check the version information of the target schema when using this information.
-以下は、RDM ontology と互換性があるスキーマへのマッピングを示します。このセクションに記載された情報は、その時点での最新情報をもとに更新されるため、適用の際には対象となるスキーマのバージョン情報に注意してください。
 
 - [Summary Document](./ontology/mapping/mapping_summary.md)
 - Mapping the RDM Ontology to schema.org
