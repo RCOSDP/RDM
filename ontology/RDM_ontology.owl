@@ -6,11 +6,13 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="https://purl.org/rdm/ontology/">
+    <Prefix name="" IRI="https://purl.org/rdm/ontology/"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="rdm" IRI="https://purl.org/rdm/ontology/"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="coar" IRI="http://purl.org/coar/access_right/"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -34,7 +36,7 @@
         <Class IRI="Activity"/>
     </Declaration>
     <Declaration>
-        <Class IRI="Add"/>
+        <Class IRI="Actor"/>
     </Declaration>
     <Declaration>
         <Class IRI="Align"/>
@@ -76,9 +78,6 @@
         <Class IRI="Comment"/>
     </Declaration>
     <Declaration>
-        <Class IRI="ConditionOfAccessEnumeration"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="ConferenceObject"/>
     </Declaration>
     <Declaration>
@@ -115,13 +114,7 @@
         <Class IRI="Dump"/>
     </Declaration>
     <Declaration>
-        <Class IRI="Edit"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="EducationalResource"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="Enumeration"/>
     </Declaration>
     <Declaration>
         <Class IRI="Evaluate"/>
@@ -131,6 +124,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="Execute"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Experiment"/>
     </Declaration>
     <Declaration>
         <Class IRI="FundingAgency"/>
@@ -157,6 +153,9 @@
         <Class IRI="Institution"/>
     </Declaration>
     <Declaration>
+        <Class IRI="Intangible"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="Integrate"/>
     </Declaration>
     <Declaration>
@@ -167,6 +166,15 @@
     </Declaration>
     <Declaration>
         <Class IRI="License"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Message"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="MetadataDocument"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Object"/>
     </Declaration>
     <Declaration>
         <Class IRI="OtherResource"/>
@@ -187,9 +195,6 @@
         <Class IRI="Publish"/>
     </Declaration>
     <Declaration>
-        <Class IRI="Record"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="Register"/>
     </Declaration>
     <Declaration>
@@ -208,16 +213,19 @@
         <Class IRI="Repository"/>
     </Declaration>
     <Declaration>
-        <Class IRI="Request"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="Resource"/>
     </Declaration>
     <Declaration>
         <Class IRI="Restructure"/>
     </Declaration>
     <Declaration>
+        <Class IRI="Review"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="RightsStatement"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Role"/>
     </Declaration>
     <Declaration>
         <Class IRI="Schedule"/>
@@ -229,9 +237,6 @@
         <Class IRI="Select"/>
     </Declaration>
     <Declaration>
-        <Class IRI="Semanticize"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="Send"/>
     </Declaration>
     <Declaration>
@@ -241,13 +246,7 @@
         <Class IRI="Standard"/>
     </Declaration>
     <Declaration>
-        <Class IRI="Submit"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="Suggest"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="Survey"/>
     </Declaration>
     <Declaration>
         <Class IRI="Thesis"/>
@@ -269,6 +268,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="accessRightsInformation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="activityObject"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="affiliation"/>
@@ -332,6 +334,12 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="documents"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="experimenter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="fromLocation"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="funder"/>
@@ -445,7 +453,7 @@
         <ObjectProperty IRI="licenseInformation"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="object"/>
+        <ObjectProperty IRI="material"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="obsoletes"/>
@@ -455,6 +463,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="projectItem"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="protocol"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="recipient"/>
@@ -487,10 +498,10 @@
         <ObjectProperty IRI="thumbnail"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="wasGeneratedBy"/>
+        <ObjectProperty IRI="toLocation"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="wasInfluencedBy"/>
+        <ObjectProperty IRI="wasGeneratedBy"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="additionalName"/>
@@ -625,7 +636,13 @@
         <DataProperty IRI="processorRequirements"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="protocolText"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="purpose"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="query"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="raid"/>
@@ -655,6 +672,9 @@
         <DataProperty IRI="storageRequirements"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="textContent"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="url"/>
     </Declaration>
     <Declaration>
@@ -662,6 +682,18 @@
     </Declaration>
     <Declaration>
         <DataProperty IRI="version"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="coar:c_14cb"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="coar:c_16ec"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="coar:c_abf2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="coar:c_f1cf"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="EmbargoedAccess"/>
@@ -678,12 +710,16 @@
     <Declaration>
         <Datatype abbreviatedIRI="xsd:date"/>
     </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="owl:sameAs"/>
-    </Declaration>
     <SubClassOf>
         <Class IRI="Accept"/>
         <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Accept"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="AccessRights"/>
@@ -714,16 +750,47 @@
         </DataMaxCardinality>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="Add"/>
+        <Class IRI="Align"/>
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Align"/>
-        <Class IRI="Edit"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Align"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Align"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Anonymize"/>
-        <Class IRI="Edit"/>
+        <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Anonymize"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Anonymize"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Archive"/>
@@ -734,8 +801,36 @@
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Ask"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Message"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Ask"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="recipient"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Assign"/>
         <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Assign"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Role"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Assign"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="recipient"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Audio"/>
@@ -746,6 +841,13 @@
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Authorize"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="RightsStatement"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Book"/>
         <Class IRI="Resource"/>
     </SubClassOf>
@@ -754,12 +856,64 @@
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Check"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Cleanse"/>
-        <Class IRI="Edit"/>
+        <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Cleanse"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Cleanse"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Cleanse"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Collect"/>
         <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Collect"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <ObjectUnionOf>
+                <Class IRI="Collection"/>
+                <Class IRI="Resource"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Collect"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <ObjectUnionOf>
+                <Class IRI="Collection"/>
+                <Class IRI="Resource"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Collection"/>
+        <Class IRI="Object"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Collection"/>
@@ -780,8 +934,18 @@
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="ConditionOfAccessEnumeration"/>
-        <Class IRI="Enumeration"/>
+        <Class IRI="Comment"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Message"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Comment"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="target"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="ConferenceObject"/>
@@ -800,23 +964,82 @@
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Connect"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <ObjectUnionOf>
+                <Class IRI="Repository"/>
+                <Class IRI="SoftwareApplication"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Connect"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Connect"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="target"/>
+            <ObjectUnionOf>
+                <Class IRI="Repository"/>
+                <Class IRI="SoftwareApplication"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Convert"/>
         <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Convert"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Convert"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Create"/>
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Create"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <ObjectUnionOf>
+                <Class IRI="Collection"/>
+                <Class IRI="DataManagementPlan"/>
+                <Class IRI="Project"/>
+                <Class IRI="Resource"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="DataManagementPlan"/>
+        <Class IRI="Object"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="DataManagementPlan"/>
         <ObjectMaxCardinality cardinality="1">
             <ObjectProperty IRI="accessRightsInformation"/>
+            <Class IRI="AccessRights"/>
         </ObjectMaxCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="DataManagementPlan"/>
         <ObjectMaxCardinality cardinality="1">
             <ObjectProperty IRI="licenseInformation"/>
+            <Class IRI="License"/>
         </ObjectMaxCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -846,20 +1069,78 @@
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Deploy"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <ObjectUnionOf>
+                <Class IRI="Resource"/>
+                <Class IRI="SoftwareApplication"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Deploy"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Develop"/>
         <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Develop"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <ObjectUnionOf>
+                <Class IRI="Resource"/>
+                <Class IRI="SoftwareApplication"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Develop"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Download"/>
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="Dump"/>
-        <Class IRI="Activity"/>
+        <Class IRI="Download"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="Edit"/>
-        <Class IRI="Activity"/>
+        <Class IRI="Download"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Dump"/>
+        <Class IRI="Create"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Dump"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Dump"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="EducationalResource"/>
@@ -868,6 +1149,31 @@
     <SubClassOf>
         <Class IRI="Evaluate"/>
         <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Evaluate"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Evaluate"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Evaluate"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <Class IRI="Review"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Event"/>
+        <Class IRI="Object"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Event"/>
@@ -900,12 +1206,72 @@
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Execute"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <ObjectUnionOf>
+                <Class IRI="Experiment"/>
+                <Class IRI="Resource"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Execute"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Execute"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Experiment"/>
+        <Class IRI="Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Experiment"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="hasPart"/>
+            <Class IRI="Experiment"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Experiment"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="isPartOf"/>
+            <Class IRI="Experiment"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Experiment"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="FundingAgency"/>
         <Class IRI="Institution"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Get"/>
         <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Get"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Grant"/>
+        <Class IRI="Object"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Grant"/>
@@ -923,8 +1289,13 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Identifier"/>
+        <Class IRI="Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Identifier"/>
         <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="identifierManager"/>
+            <Class IRI="Institution"/>
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
@@ -948,8 +1319,40 @@
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Inform"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Message"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Ingest"/>
         <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Ingest"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="MetadataDocument"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Ingest"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Ingest"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <Class IRI="MetadataDocument"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Institution"/>
+        <Class IRI="Actor"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Institution"/>
@@ -980,8 +1383,40 @@
         </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Intangible"/>
+        <Class IRI="Object"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Integrate"/>
         <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Integrate"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="MetadataDocument"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Integrate"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Integrate"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <Class IRI="MetadataDocument"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Integrate"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="target"/>
+            <Class IRI="MetadataDocument"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Journal"/>
@@ -1002,8 +1437,20 @@
         </DataMaxCardinality>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Message"/>
+        <Class IRI="Resource"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MetadataDocument"/>
+        <Class IRI="Resource"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="OtherResource"/>
         <Class IRI="Resource"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Person"/>
+        <Class IRI="Actor"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Preprint"/>
@@ -1012,6 +1459,24 @@
     <SubClassOf>
         <Class IRI="Preserve"/>
         <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Preserve"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Preserve"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Project"/>
+        <Class IRI="Object"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Project"/>
@@ -1064,28 +1529,98 @@
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="Record"/>
-        <Class IRI="Activity"/>
+        <Class IRI="Publish"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <ObjectUnionOf>
+                <Class IRI="Collection"/>
+                <Class IRI="Project"/>
+                <Class IRI="Resource"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Register"/>
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Register"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <ObjectUnionOf>
+                <Class IRI="Collection"/>
+                <Class IRI="Resource"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Reject"/>
         <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Reject"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Role"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Rename"/>
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Rename"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Rename"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Rename"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Reorganize"/>
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Reorganize"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Dataset"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Reorganize"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Reorganize"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <Class IRI="Dataset"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Report"/>
         <Class IRI="Resource"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Repository"/>
+        <Class IRI="Object"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Repository"/>
@@ -1102,8 +1637,8 @@
         </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="Request"/>
-        <Class IRI="Activity"/>
+        <Class IRI="Resource"/>
+        <Class IRI="Object"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Resource"/>
@@ -1141,27 +1676,122 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Restructure"/>
-        <Class IRI="Edit"/>
+        <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Restructure"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Restructure"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Restructure"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Review"/>
+        <Class IRI="Resource"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="RightsStatement"/>
+        <Class IRI="Object"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Role"/>
+        <Class IRI="Intangible"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Schedule"/>
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Schedule"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Event"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Search"/>
         <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Search"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <ObjectUnionOf>
+                <Class IRI="Collection"/>
+                <Class IRI="Repository"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Search"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Search"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Select"/>
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="Semanticize"/>
-        <Class IRI="Activity"/>
+        <Class IRI="Select"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <ObjectUnionOf>
+                <Class IRI="Repository"/>
+                <Class IRI="Resource"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Select"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Send"/>
         <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Send"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Send"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SoftwareApplication"/>
+        <Class IRI="Object"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="SoftwareApplication"/>
@@ -1196,16 +1826,22 @@
         <Class IRI="Resource"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="Submit"/>
-        <Class IRI="Activity"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="Suggest"/>
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="Survey"/>
-        <Class IRI="Activity"/>
+        <Class IRI="Suggest"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Message"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Suggest"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Thesis"/>
@@ -1216,8 +1852,43 @@
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Update"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Update"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Update"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Upload"/>
         <Class IRI="Activity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Upload"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Upload"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="Video"/>
@@ -1228,25 +1899,77 @@
         <Class IRI="Activity"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="Visualize"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="activityObject"/>
+            <Class IRI="Resource"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Visualize"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="agent"/>
+            <Class IRI="Person"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Visualize"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="result"/>
+            <ObjectUnionOf>
+                <Class IRI="Image"/>
+                <Class IRI="Video"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="Workflow"/>
         <Class IRI="Resource"/>
     </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="Accept"/>
+        <Class IRI="Reject"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Create"/>
+        <Class IRI="Update"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Download"/>
+        <Class IRI="Upload"/>
+    </DisjointClasses>
     <ClassAssertion>
-        <Class IRI="ConditionOfAccessEnumeration"/>
+        <Class IRI="RightsStatement"/>
         <NamedIndividual IRI="EmbargoedAccess"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="ConditionOfAccessEnumeration"/>
+        <Class IRI="RightsStatement"/>
         <NamedIndividual IRI="MetadataOnlyAccess"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="ConditionOfAccessEnumeration"/>
+        <Class IRI="RightsStatement"/>
         <NamedIndividual IRI="OpenAccess"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="ConditionOfAccessEnumeration"/>
+        <Class IRI="RightsStatement"/>
         <NamedIndividual IRI="RestrictedAccess"/>
     </ClassAssertion>
+    <SameIndividual>
+        <NamedIndividual abbreviatedIRI="coar:c_14cb"/>
+        <NamedIndividual IRI="MetadataOnlyAccess"/>
+    </SameIndividual>
+    <SameIndividual>
+        <NamedIndividual abbreviatedIRI="coar:c_16ec"/>
+        <NamedIndividual IRI="RestrictedAccess"/>
+    </SameIndividual>
+    <SameIndividual>
+        <NamedIndividual abbreviatedIRI="coar:c_abf2"/>
+        <NamedIndividual IRI="OpenAccess"/>
+    </SameIndividual>
+    <SameIndividual>
+        <NamedIndividual abbreviatedIRI="coar:c_f1cf"/>
+        <NamedIndividual IRI="EmbargoedAccess"/>
+    </SameIndividual>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="cites"/>
         <ObjectProperty IRI="isRelatedTo"/>
@@ -1302,6 +2025,14 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="documents"/>
         <ObjectProperty IRI="isRelatedTo"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="experimenter"/>
+        <ObjectProperty IRI="contributor"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="fromLocation"/>
+        <ObjectProperty IRI="target"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="hasMetadata"/>
@@ -1447,6 +2178,10 @@
         <ObjectProperty IRI="storedItem"/>
         <ObjectProperty IRI="item"/>
     </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="toLocation"/>
+        <ObjectProperty IRI="target"/>
+    </SubObjectPropertyOf>
     <InverseObjectProperties>
         <ObjectProperty IRI="cites"/>
         <ObjectProperty IRI="isCitedBy"/>
@@ -1524,10 +2259,6 @@
         <ObjectProperty IRI="isSupplementedBy"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="object"/>
-        <ObjectProperty IRI="wasInfluencedBy"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
         <ObjectProperty IRI="result"/>
         <ObjectProperty IRI="wasGeneratedBy"/>
     </InverseObjectProperties>
@@ -1547,6 +2278,10 @@
             <Class IRI="Project"/>
             <Class IRI="Resource"/>
         </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="activityObject"/>
+        <Class IRI="Activity"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="affiliation"/>
@@ -1603,6 +2338,7 @@
         <ObjectUnionOf>
             <Class IRI="Collection"/>
             <Class IRI="Event"/>
+            <Class IRI="Experiment"/>
             <Class IRI="Project"/>
             <Class IRI="Resource"/>
             <Class IRI="SoftwareApplication"/>
@@ -1659,6 +2395,17 @@
         <Class IRI="Resource"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="experimenter"/>
+        <Class IRI="Experiment"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="fromLocation"/>
+        <ObjectUnionOf>
+            <Class IRI="Download"/>
+            <Class IRI="Upload"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="funder"/>
         <ObjectUnionOf>
             <Class IRI="Grant"/>
@@ -1674,9 +2421,18 @@
         </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="hasMetadata"/>
+        <ObjectUnionOf>
+            <Class IRI="Collection"/>
+            <Class IRI="Project"/>
+            <Class IRI="Resource"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="hasPart"/>
         <ObjectUnionOf>
             <Class IRI="Collection"/>
+            <Class IRI="Experiment"/>
             <Class IRI="Grant"/>
             <Class IRI="Institution"/>
             <Class IRI="Project"/>
@@ -1722,7 +2478,10 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="instrument"/>
-        <Class IRI="Activity"/>
+        <ObjectUnionOf>
+            <Class IRI="Activity"/>
+            <Class IRI="Experiment"/>
+        </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="isCitedBy"/>
@@ -1744,6 +2503,25 @@
         </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="isContinuedBy"/>
+        <ObjectUnionOf>
+            <Class IRI="Event"/>
+            <Class IRI="Institution"/>
+            <Class IRI="Project"/>
+            <Class IRI="Repository"/>
+            <Class IRI="Resource"/>
+            <Class IRI="SoftwareApplication"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="isDerivedFrom"/>
+        <ObjectUnionOf>
+            <Class IRI="Collection"/>
+            <Class IRI="Project"/>
+            <Class IRI="Resource"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="isDocumentedBy"/>
         <Class IRI="SoftwareApplication"/>
     </ObjectPropertyDomain>
@@ -1753,7 +2531,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="isMetadataFor"/>
-        <Class IRI="Resource"/>
+        <Class IRI="MetadataDocument"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="isNewVersionOf"/>
@@ -1774,6 +2552,7 @@
         <ObjectProperty IRI="isPartOf"/>
         <ObjectUnionOf>
             <Class IRI="Collection"/>
+            <Class IRI="Experiment"/>
             <Class IRI="Grant"/>
             <Class IRI="Institution"/>
             <Class IRI="Project"/>
@@ -1868,8 +2647,8 @@
         </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="object"/>
-        <Class IRI="Activity"/>
+        <ObjectProperty IRI="material"/>
+        <Class IRI="Experiment"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="organizer"/>
@@ -1878,6 +2657,10 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="projectItem"/>
         <Class IRI="Project"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="protocol"/>
+        <Class IRI="Experiment"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="recipient"/>
@@ -1893,19 +2676,26 @@
         </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="requires"/>
+        <ObjectUnionOf>
+            <Class IRI="Resource"/>
+            <Class IRI="SoftwareApplication"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="researcher"/>
         <Class IRI="Project"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="result"/>
-        <Class IRI="Activity"/>
+        <ObjectUnionOf>
+            <Class IRI="Activity"/>
+            <Class IRI="Experiment"/>
+        </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="reviews"/>
-        <ObjectUnionOf>
-            <Class IRI="Resource"/>
-            <Class IRI="SoftwareApplication"/>
-        </ObjectUnionOf>
+        <Class IRI="Review"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="storedIn"/>
@@ -1924,15 +2714,16 @@
         <Class IRI="Resource"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="wasGeneratedBy"/>
+        <ObjectProperty IRI="toLocation"/>
         <ObjectUnionOf>
-            <Class IRI="Collection"/>
-            <Class IRI="Project"/>
-            <Class IRI="Resource"/>
+            <Class IRI="Download"/>
+            <Class IRI="Preserve"/>
+            <Class IRI="Register"/>
+            <Class IRI="Upload"/>
         </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="wasInfluencedBy"/>
+        <ObjectProperty IRI="wasGeneratedBy"/>
         <ObjectUnionOf>
             <Class IRI="Collection"/>
             <Class IRI="Project"/>
@@ -1942,6 +2733,19 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="accessRightsInformation"/>
         <Class IRI="AccessRights"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="activityObject"/>
+        <ObjectUnionOf>
+            <Class IRI="Collection"/>
+            <Class IRI="Event"/>
+            <Class IRI="Experiment"/>
+            <Class IRI="Project"/>
+            <Class IRI="Repository"/>
+            <Class IRI="Resource"/>
+            <Class IRI="Role"/>
+            <Class IRI="SoftwareApplication"/>
+        </ObjectUnionOf>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="affiliation"/>
@@ -1983,7 +2787,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="conditionOfAccess"/>
-        <Class IRI="ConditionOfAccessEnumeration"/>
+        <Class IRI="RightsStatement"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="continues"/>
@@ -2032,6 +2836,21 @@
         <Class IRI="Resource"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="documents"/>
+        <Class IRI="SoftwareApplication"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="experimenter"/>
+        <Class IRI="Person"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="fromLocation"/>
+        <ObjectUnionOf>
+            <Class IRI="Repository"/>
+            <Class IRI="SoftwareApplication"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="funder"/>
         <Class IRI="FundingAgency"/>
     </ObjectPropertyRange>
@@ -2041,7 +2860,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="hasMetadata"/>
-        <Class IRI="Resource"/>
+        <Class IRI="MetadataDocument"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="hasVersion"/>
@@ -2068,13 +2887,6 @@
         <Class IRI="Project"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="instrument"/>
-        <ObjectUnionOf>
-            <Class IRI="Resource"/>
-            <Class IRI="SoftwareApplication"/>
-        </ObjectUnionOf>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="isCitedBy"/>
         <Class IRI="Resource"/>
     </ObjectPropertyRange>
@@ -2094,7 +2906,34 @@
         </ObjectUnionOf>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="isContinuedBy"/>
+        <ObjectUnionOf>
+            <Class IRI="Event"/>
+            <Class IRI="Institution"/>
+            <Class IRI="Project"/>
+            <Class IRI="Repository"/>
+            <Class IRI="Resource"/>
+            <Class IRI="SoftwareApplication"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="isDerivedFrom"/>
+        <ObjectUnionOf>
+            <Class IRI="Collection"/>
+            <Class IRI="Project"/>
+            <Class IRI="Resource"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="isDescribedBy"/>
+        <Class IRI="Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="isDocumentedBy"/>
+        <Class IRI="Resource"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="isMetadataFor"/>
         <ObjectUnionOf>
             <Class IRI="Collection"/>
             <Class IRI="Project"/>
@@ -2151,10 +2990,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="isReviewedBy"/>
-        <ObjectUnionOf>
-            <Class IRI="Resource"/>
-            <Class IRI="SoftwareApplication"/>
-        </ObjectUnionOf>
+        <Class IRI="Review"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="isSourceOf"/>
@@ -2204,14 +3040,6 @@
         <Class IRI="License"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="object"/>
-        <ObjectUnionOf>
-            <Class IRI="Collection"/>
-            <Class IRI="Project"/>
-            <Class IRI="Resource"/>
-        </ObjectUnionOf>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="projectItem"/>
         <Class IRI="Resource"/>
     </ObjectPropertyRange>
@@ -2224,6 +3052,13 @@
         <ObjectUnionOf>
             <Class IRI="Collection"/>
             <Class IRI="Project"/>
+            <Class IRI="Resource"/>
+            <Class IRI="SoftwareApplication"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="requires"/>
+        <ObjectUnionOf>
             <Class IRI="Resource"/>
             <Class IRI="SoftwareApplication"/>
         </ObjectUnionOf>
@@ -2257,19 +3092,31 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="target"/>
-        <Class IRI="Resource"/>
+        <ObjectUnionOf>
+            <Class IRI="Collection"/>
+            <Class IRI="Project"/>
+            <Class IRI="Repository"/>
+            <Class IRI="Resource"/>
+            <Class IRI="SoftwareApplication"/>
+        </ObjectUnionOf>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="thumbnail"/>
         <Class IRI="Image"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="wasGeneratedBy"/>
-        <Class IRI="Activity"/>
+        <ObjectProperty IRI="toLocation"/>
+        <ObjectUnionOf>
+            <Class IRI="Repository"/>
+            <Class IRI="SoftwareApplication"/>
+        </ObjectUnionOf>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="wasInfluencedBy"/>
-        <Class IRI="Activity"/>
+        <ObjectProperty IRI="wasGeneratedBy"/>
+        <ObjectUnionOf>
+            <Class IRI="Activity"/>
+            <Class IRI="Experiment"/>
+        </ObjectUnionOf>
     </ObjectPropertyRange>
     <SubDataPropertyOf>
         <DataProperty IRI="additionalName"/>
@@ -2282,6 +3129,10 @@
     <SubDataPropertyOf>
         <DataProperty IRI="collectionSize"/>
         <DataProperty IRI="size"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="dataAccessRequirements"/>
+        <DataProperty IRI="description"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
         <DataProperty IRI="dataDescription"/>
@@ -2364,6 +3215,10 @@
         <DataProperty IRI="identifierValue"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
+        <DataProperty IRI="measurementTechnique"/>
+        <DataProperty IRI="description"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
         <DataProperty IRI="operatingSystem"/>
         <DataProperty IRI="description"/>
     </SubDataPropertyOf>
@@ -2373,6 +3228,14 @@
     </SubDataPropertyOf>
     <SubDataPropertyOf>
         <DataProperty IRI="processorRequirements"/>
+        <DataProperty IRI="description"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="protocolText"/>
+        <DataProperty IRI="description"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="purpose"/>
         <DataProperty IRI="description"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
@@ -2461,6 +3324,7 @@
             <Class IRI="Activity"/>
             <Class IRI="Event"/>
             <Class IRI="Project"/>
+            <Class IRI="Role"/>
         </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
@@ -2477,6 +3341,7 @@
             <Class IRI="Activity"/>
             <Class IRI="Event"/>
             <Class IRI="Project"/>
+            <Class IRI="Role"/>
         </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
@@ -2486,10 +3351,12 @@
     <DataPropertyDomain>
         <DataProperty IRI="description"/>
         <ObjectUnionOf>
+            <Class IRI="Experiment"/>
             <Class IRI="Grant"/>
             <Class IRI="Project"/>
             <Class IRI="Repository"/>
             <Class IRI="Resource"/>
+            <Class IRI="Role"/>
         </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
@@ -2572,7 +3439,10 @@
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="localIdentifier"/>
-        <Class IRI="Resource"/>
+        <ObjectUnionOf>
+            <Class IRI="Experiment"/>
+            <Class IRI="Resource"/>
+        </ObjectUnionOf>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="location"/>
@@ -2595,6 +3465,7 @@
             <Class IRI="Project"/>
             <Class IRI="Repository"/>
             <Class IRI="Resource"/>
+            <Class IRI="Role"/>
             <Class IRI="SoftwareApplication"/>
         </ObjectUnionOf>
     </DataPropertyDomain>
@@ -2611,8 +3482,16 @@
         <Class IRI="SoftwareApplication"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
+        <DataProperty IRI="protocolText"/>
+        <Class IRI="Experiment"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
         <DataProperty IRI="purpose"/>
         <Class IRI="Event"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="query"/>
+        <Class IRI="Search"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="raid"/>
@@ -2649,6 +3528,10 @@
     <DataPropertyDomain>
         <DataProperty IRI="storageRequirements"/>
         <Class IRI="SoftwareApplication"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="textContent"/>
+        <Class IRI="Resource"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="url"/>
@@ -2810,6 +3693,10 @@
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
+        <DataProperty IRI="query"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
         <DataProperty IRI="raid"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
@@ -2838,6 +3725,10 @@
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="storageRequirements"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="textContent"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
@@ -2907,18 +3798,18 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Add</IRI>
-        <Literal xml:lang="en">An act of adding metadata to Resource.</Literal>
+        <IRI>Actor</IRI>
+        <Literal xml:lang="ja">Activity を行う主語にあたる人または組織</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Add</IRI>
-        <Literal xml:lang="ja">Resource にメタデータを付与する行動</Literal>
+        <IRI>Actor</IRI>
+        <Literal xml:lang="en">Person or organization that is the subject of the Activity.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Add</IRI>
-        <Literal>Add</Literal>
+        <IRI>Actor</IRI>
+        <Literal>Actor</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -3117,21 +4008,6 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>ConditionOfAccessEnumeration</IRI>
-        <Literal xml:lang="en">An option of object for property rdm:conditionOfAccess.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>ConditionOfAccessEnumeration</IRI>
-        <Literal xml:lang="ja">プロパティ rdm:conditionOfAccess の目的語の選択肢</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>ConditionOfAccessEnumeration</IRI>
-        <Literal>ConditionOfAccessEnumeration</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>ConferenceObject</IRI>
         <Literal xml:lang="en">A Resource related to conferences.</Literal>
     </AnnotationAssertion>
@@ -3312,21 +4188,6 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Edit</IRI>
-        <Literal xml:lang="en">An act of editing Resource. This class implies that changes have been made to the Resource as a draft, such as using edit UI, and does not involve whether they have been applied.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Edit</IRI>
-        <Literal xml:lang="ja">Resource に変更を加える行動. 編集画面を利用したドラフトとしての変更を意味し、与えた変更の反映は含意しない</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Edit</IRI>
-        <Literal>Edit</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>EducationalResource</IRI>
         <Literal xml:lang="en">A Resource related to educational, such as slides for lecture.</Literal>
     </AnnotationAssertion>
@@ -3354,26 +4215,6 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>EmbargoedAccess</IRI>
         <Literal>EmbargoedAccess</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="owl:sameAs"/>
-        <IRI>EmbargoedAccess</IRI>
-        <Literal>http://purl.org/coar/access_right/c_f1cf</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Enumeration</IRI>
-        <Literal xml:lang="en">A Class for individuals of object enumeration.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Enumeration</IRI>
-        <Literal xml:lang="ja">プロパティの選択肢列挙のためのクラス</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Enumeration</IRI>
-        <Literal>Enumeration</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -3419,6 +4260,21 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>Execute</IRI>
         <Literal>Execute</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Experiment</IRI>
+        <Literal xml:lang="en">Experiment</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Experiment</IRI>
+        <Literal xml:lang="ja">実験</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>Experiment</IRI>
+        <Literal>Experiment</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -3542,6 +4398,21 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Intangible</IRI>
+        <Literal xml:lang="en">Abstract class for concepts without entities.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Intangible</IRI>
+        <Literal xml:lang="ja">実体を伴わない概念のための抽象クラス</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>Intangible</IRI>
+        <Literal>Intangible</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>Integrate</IRI>
         <Literal xml:lang="en">An act of integrating different forms of metadata as part of data curation.</Literal>
     </AnnotationAssertion>
@@ -3602,6 +4473,36 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Message</IRI>
+        <Literal xml:lang="en">Message and comment.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Message</IRI>
+        <Literal xml:lang="ja">メッセージやコメント</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>Message</IRI>
+        <Literal>Message</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>MetadataDocument</IRI>
+        <Literal xml:lang="en">Metadata of any Resource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>MetadataDocument</IRI>
+        <Literal xml:lang="ja">Resource に関するメタデータ</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>MetadataDocument</IRI>
+        <Literal>MetadataDocument</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>MetadataOnlyAccess</IRI>
         <Literal xml:lang="en">Metadata only access.</Literal>
     </AnnotationAssertion>
@@ -3616,9 +4517,19 @@
         <Literal>MetadataOnlyAccess</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="owl:sameAs"/>
-        <IRI>MetadataOnlyAccess</IRI>
-        <Literal>http://purl.org/coar/access_right/c_14cb</Literal>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Object</IRI>
+        <Literal xml:lang="ja">Activity の目的語となる事物</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Object</IRI>
+        <Literal xml:lang="en">Things and objects that are the object of Activity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>Object</IRI>
+        <Literal>Object</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -3634,11 +4545,6 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>OpenAccess</IRI>
         <Literal>OpenAccess</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="owl:sameAs"/>
-        <IRI>OpenAccess</IRI>
-        <Literal>http://purl.org/coar/access_right/c_abf2</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -3732,21 +4638,6 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Record</IRI>
-        <Literal xml:lang="en">An act of mechanically adding some information to Resource etc.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Record</IRI>
-        <Literal xml:lang="ja">機械的に何かしらの情報を Resource などに付与する行動</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Record</IRI>
-        <Literal>Record</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>Register</IRI>
         <Literal xml:lang="en">An act of registering Resource to Repository, SoftwareApplication or other service.</Literal>
     </AnnotationAssertion>
@@ -3837,21 +4728,6 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Request</IRI>
-        <Literal xml:lang="en">An act of asking People/Institution to do something.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Request</IRI>
-        <Literal xml:lang="ja">Person, Institution に何らかのタスクを依頼する行動</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Request</IRI>
-        <Literal>Request</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>Resource</IRI>
         <Literal xml:lang="en">A digital object, such as research data, video of experiments rtc.</Literal>
     </AnnotationAssertion>
@@ -3881,11 +4757,6 @@
         <Literal>RestrictedAccess</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="owl:sameAs"/>
-        <IRI>RestrictedAccess</IRI>
-        <Literal>http://purl.org/coar/access_right/c_16ec</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>Restructure</IRI>
         <Literal xml:lang="en">An act of re-structuring Resource as part of data curation, such as sorting a table.</Literal>
@@ -3902,6 +4773,21 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Review</IRI>
+        <Literal xml:lang="en">Review documents and evaluations.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Review</IRI>
+        <Literal xml:lang="ja">レビュー文書や評価</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>Review</IRI>
+        <Literal>Review</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>RightsStatement</IRI>
         <Literal xml:lang="en">A higer-level class that relates to various rights.</Literal>
     </AnnotationAssertion>
@@ -3914,6 +4800,21 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>RightsStatement</IRI>
         <Literal>RightsStatement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Role</IRI>
+        <Literal xml:lang="en">Roles and positions.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Role</IRI>
+        <Literal xml:lang="ja">役割、役職</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>Role</IRI>
+        <Literal>Role</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -3962,21 +4863,6 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Semanticize</IRI>
-        <Literal xml:lang="en">An act of semanticizing metadata as part of data curation.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Semanticize</IRI>
-        <Literal xml:lang="ja">キュレーションの一環として、メタデータを意味付けする行動</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Semanticize</IRI>
-        <Literal>Semanticize</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>Send</IRI>
         <Literal xml:lang="en">An act of dispatching Resource.</Literal>
     </AnnotationAssertion>
@@ -4022,21 +4908,6 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Submit</IRI>
-        <Literal xml:lang="en">An act of submitting or providing Resource/information.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Submit</IRI>
-        <Literal xml:lang="ja">Resource や情報を提出・提供する行動</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Submit</IRI>
-        <Literal>Submit</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>Suggest</IRI>
         <Literal xml:lang="en">An act of presenting or proposing options.</Literal>
     </AnnotationAssertion>
@@ -4049,21 +4920,6 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>Suggest</IRI>
         <Literal>Suggest</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Survey</IRI>
-        <Literal xml:lang="en">An act of making a survay of Resource or something.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>Survey</IRI>
-        <Literal xml:lang="ja">Resource など、何かしらについて調査する行動</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>Survey</IRI>
-        <Literal>Survey</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -4083,12 +4939,12 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>Update</IRI>
-        <Literal xml:lang="en">An act of updating Resource, such as applying a change.</Literal>
+        <Literal xml:lang="en">An act of updating an existing Resource with changes.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>Update</IRI>
-        <Literal xml:lang="ja">変更を反映させるなど、Resource を更新する行動</Literal>
+        <Literal xml:lang="ja">既存の Resource に変更を加え更新する行動</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -4169,6 +5025,21 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>accessRightsInformation</IRI>
         <Literal>accessRightsInformation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>activityObject</IRI>
+        <Literal xml:lang="en">An object of the Activity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>activityObject</IRI>
+        <Literal xml:lang="ja">行動の対象物</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>activityObject</IRI>
+        <Literal>activityObject</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -4922,6 +5793,21 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>experimenter</IRI>
+        <Literal xml:lang="en">The practitioner, performer and executor of this Experiment.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>experimenter</IRI>
+        <Literal xml:lang="ja">実験の実施者、実行者</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>experimenter</IRI>
+        <Literal>experimenter</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>familyName</IRI>
         <Literal xml:lang="en">Family name.</Literal>
     </AnnotationAssertion>
@@ -4949,6 +5835,21 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>field</IRI>
         <Literal>field</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>fromLocation</IRI>
+        <Literal xml:lang="en">Uploaded or downloaded from</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>fromLocation</IRI>
+        <Literal xml:lang="ja">アップロードもしくはダウンロード元</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>fromLocation</IRI>
+        <Literal>fromLocation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -5178,7 +6079,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>inclusionRelation</IRI>
-        <Literal xml:lang="en">A higer-level property that indicates inclusion relationship between Classes.</Literal>
+        <Literal xml:lang="en">A higher-level property that indicates inclusion relationship between Classes.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -5193,12 +6094,12 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>instrument</IRI>
-        <Literal xml:lang="en">The object that helped the agent perform the Activity.</Literal>
+        <Literal xml:lang="en">The object that helped the agent perform the Activity and used in the Experiment.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>instrument</IRI>
-        <Literal xml:lang="ja">行動を補助した道具、ツール</Literal>
+        <Literal xml:lang="ja">行動や実験で使われた道具、ツール</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -5693,12 +6594,12 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>item</IRI>
-        <Literal xml:lang="en">A Resource included in/within this Class.</Literal>
+        <Literal xml:lang="en">A Resource related to this Class.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>item</IRI>
-        <Literal xml:lang="ja">主語クラスに含まれる、もしくは内部にあるリソース</Literal>
+        <Literal xml:lang="ja">主語クラスと関連のあるリソース</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -5802,6 +6703,21 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>material</IRI>
+        <Literal xml:lang="en">Materials and inputs in the Experiment.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>material</IRI>
+        <Literal xml:lang="ja">実験における、材料や入力となるもの</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>material</IRI>
+        <Literal>material</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>measurementTechnique</IRI>
         <Literal xml:lang="en">A technique, method or technology used to create research data.</Literal>
     </AnnotationAssertion>
@@ -5829,21 +6745,6 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>name</IRI>
         <Literal>name</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>object</IRI>
-        <Literal xml:lang="en">An object of the Activity.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>object</IRI>
-        <Literal xml:lang="ja">行動の対象物</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>object</IRI>
-        <Literal>object</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -5947,6 +6848,36 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>protocol</IRI>
+        <Literal xml:lang="en">The protocol of this Experiment.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>protocol</IRI>
+        <Literal xml:lang="ja">実験のプロトコル、手順</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>protocol</IRI>
+        <Literal>protocol</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>protocolText</IRI>
+        <Literal xml:lang="en">A text of protocol of this Experiment.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>protocolText</IRI>
+        <Literal xml:lang="ja">実験のプロトコル、手順を示したテキスト</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>protocolText</IRI>
+        <Literal>protocolText</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>purpose</IRI>
         <Literal xml:lang="en">Context of this Event implementation e.g. reasons and backgrounds for implementation.</Literal>
     </AnnotationAssertion>
@@ -5959,6 +6890,21 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>purpose</IRI>
         <Literal>purpose</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>query</IRI>
+        <Literal xml:lang="ja">Search クラスで検索時に使われたクエリ</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>query</IRI>
+        <Literal xml:lang="en">The query used on this Search activity.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>query</IRI>
+        <Literal>query</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -6068,12 +7014,12 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>result</IRI>
-        <Literal xml:lang="en">The result produced in this Activity.</Literal>
+        <Literal xml:lang="en">The result produced in this Activity /Experiment.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>result</IRI>
-        <Literal xml:lang="ja">アクションによって生成された新しいエンティティ</Literal>
+        <Literal xml:lang="ja">アクションや実験によって生成された新しいエンティティ</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -6257,6 +7203,21 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>textContent</IRI>
+        <Literal xml:lang="ja">Resource の内容であるテキスト</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>textContent</IRI>
+        <Literal xml:lang="en">The textual content of this Resource.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>textContent</IRI>
+        <Literal>textContent</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>thumbnail</IRI>
         <Literal xml:lang="en">A thumbnail of this Resource.</Literal>
     </AnnotationAssertion>
@@ -6269,6 +7230,21 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>thumbnail</IRI>
         <Literal>thumbnail</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>toLocation</IRI>
+        <Literal xml:lang="en">Upload or Download location</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>toLocation</IRI>
+        <Literal xml:lang="ja">アップロードもしくはダウンロード先の場所</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>toLocation</IRI>
+        <Literal>toLocation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -6318,32 +7294,17 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>wasGeneratedBy</IRI>
-        <Literal xml:lang="en">An Activity which created/generated this Class.</Literal>
+        <Literal xml:lang="en">Activity or Experiment which created/generated this Class.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>wasGeneratedBy</IRI>
-        <Literal xml:lang="ja">主語クラスが生成された行動</Literal>
+        <Literal xml:lang="ja">主語クラスが生成されたアクションまたは実験</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>wasGeneratedBy</IRI>
         <Literal>wasGeneratedBy</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>wasInfluencedBy</IRI>
-        <Literal xml:lang="en">An Activity that has had some influence on this Class.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>wasInfluencedBy</IRI>
-        <Literal xml:lang="ja">主語クラスが何らかの影響を受けた行動</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>wasInfluencedBy</IRI>
-        <Literal>wasInfluencedBy</Literal>
     </AnnotationAssertion>
 </Ontology>
 

@@ -38,6 +38,25 @@ rdm:accessRightsInformation rdf:type owl:ObjectProperty ;
                             rdfs:label "accessRightsInformation" .
 
 
+###  https://purl.org/rdm/ontology/activityObject
+rdm:activityObject rdf:type owl:ObjectProperty ;
+                   rdfs:domain rdm:Activity ;
+                   rdfs:range [ rdf:type owl:Class ;
+                                owl:unionOf ( rdm:Collection
+                                              rdm:Event
+                                              rdm:Experiment
+                                              rdm:Project
+                                              rdm:Repository
+                                              rdm:Resource
+                                              rdm:Role
+                                              rdm:SoftwareApplication
+                                            )
+                              ] ;
+                   rdfs:comment "An object of the Activity."@en ,
+                                "行動の対象物"@ja ;
+                   rdfs:label "activityObject" .
+
+
 ###  https://purl.org/rdm/ontology/affiliation
 rdm:affiliation rdf:type owl:ObjectProperty ;
                 rdfs:domain rdm:Person ;
@@ -176,6 +195,7 @@ rdm:contributor rdf:type owl:ObjectProperty ;
                 rdfs:domain [ rdf:type owl:Class ;
                               owl:unionOf ( rdm:Collection
                                             rdm:Event
+                                            rdm:Experiment
                                             rdm:Project
                                             rdm:Resource
                                             rdm:SoftwareApplication
@@ -301,10 +321,39 @@ rdm:documents rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf rdm:isRelatedTo ;
               owl:inverseOf rdm:isDocumentedBy ;
               rdfs:domain rdm:Resource ;
+              rdfs:range rdm:SoftwareApplication ;
               rdfs:comment "A  SoftwareApplication which is documented by this Resource."@en ,
                            "Resource がその説明文書・ドキュメントに相当する SoftwareApplication"@ja ;
               rdfs:label "documents" ;
               rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#documents" .
+
+
+###  https://purl.org/rdm/ontology/experimenter
+rdm:experimenter rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf rdm:contributor ;
+                 rdfs:domain rdm:Experiment ;
+                 rdfs:range rdm:Person ;
+                 rdfs:comment "The practitioner, performer and executor of this Experiment."@en ,
+                              "実験の実施者、実行者"@ja ;
+                 rdfs:label "experimenter" .
+
+
+###  https://purl.org/rdm/ontology/fromLocation
+rdm:fromLocation rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf rdm:target ;
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( rdm:Download
+                                             rdm:Upload
+                                           )
+                             ] ;
+                 rdfs:range [ rdf:type owl:Class ;
+                              owl:unionOf ( rdm:Repository
+                                            rdm:SoftwareApplication
+                                          )
+                            ] ;
+                 rdfs:comment "Uploaded or downloaded from"@en ,
+                              "アップロードもしくはダウンロード元"@ja ;
+                 rdfs:label "fromLocation" .
 
 
 ###  https://purl.org/rdm/ontology/funder
@@ -338,7 +387,13 @@ rdm:funding rdf:type owl:ObjectProperty ;
 rdm:hasMetadata rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf rdm:isRelatedTo ;
                 owl:inverseOf rdm:isMetadataFor ;
-                rdfs:range rdm:Resource ;
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( rdm:Collection
+                                            rdm:Project
+                                            rdm:Resource
+                                          )
+                            ] ;
+                rdfs:range rdm:MetadataDocument ;
                 rdfs:comment "A Resource which has additional metadata of this Class."@en ,
                              "主語クラスの追加メタデータを持つ Resource"@ja ;
                 rdfs:label "hasMetadata" ;
@@ -352,6 +407,7 @@ rdm:hasPart rdf:type owl:ObjectProperty ;
             rdf:type owl:TransitiveProperty ;
             rdfs:domain [ rdf:type owl:Class ;
                           owl:unionOf ( rdm:Collection
+                                        rdm:Experiment
                                         rdm:Grant
                                         rdm:Institution
                                         rdm:Project
@@ -441,21 +497,20 @@ rdm:inProject rdf:type owl:ObjectProperty ;
 
 ###  https://purl.org/rdm/ontology/inclusionRelation
 rdm:inclusionRelation rdf:type owl:ObjectProperty ;
-                      rdfs:comment "A higer-level property that indicates inclusion relationship between Classes."@en ,
+                      rdfs:comment "A higher-level property that indicates inclusion relationship between Classes."@en ,
                                    "主語クラスと包含関係のあるクラスを指す上位プロパティ"@ja ;
                       rdfs:label "inclusionRelation" .
 
 
 ###  https://purl.org/rdm/ontology/instrument
 rdm:instrument rdf:type owl:ObjectProperty ;
-               rdfs:domain rdm:Activity ;
-               rdfs:range [ rdf:type owl:Class ;
-                            owl:unionOf ( rdm:Resource
-                                          rdm:SoftwareApplication
-                                        )
-                          ] ;
-               rdfs:comment "The object that helped the agent perform the Activity."@en ,
-                            "行動を補助した道具、ツール"@ja ;
+               rdfs:domain [ rdf:type owl:Class ;
+                             owl:unionOf ( rdm:Activity
+                                           rdm:Experiment
+                                         )
+                           ] ;
+               rdfs:comment "The object that helped the agent perform the Activity and used in the Experiment."@en ,
+                            "行動や実験で使われた道具、ツール"@ja ;
                rdfs:label "instrument" .
 
 
@@ -513,6 +568,24 @@ rdm:isCompiledBy rdf:type owl:ObjectProperty ;
 ###  https://purl.org/rdm/ontology/isContinuedBy
 rdm:isContinuedBy rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf rdm:isRelatedTo ;
+                  rdfs:domain [ rdf:type owl:Class ;
+                                owl:unionOf ( rdm:Event
+                                              rdm:Institution
+                                              rdm:Project
+                                              rdm:Repository
+                                              rdm:Resource
+                                              rdm:SoftwareApplication
+                                            )
+                              ] ;
+                  rdfs:range [ rdf:type owl:Class ;
+                               owl:unionOf ( rdm:Event
+                                             rdm:Institution
+                                             rdm:Project
+                                             rdm:Repository
+                                             rdm:Resource
+                                             rdm:SoftwareApplication
+                                           )
+                             ] ;
                   rdfs:comment "A Class continued by this Class"@en ,
                                "主語クラスが継続されているクラス"@ja ;
                   rdfs:label "isContinuedBy" ;
@@ -523,6 +596,12 @@ rdm:isContinuedBy rdf:type owl:ObjectProperty ;
 rdm:isDerivedFrom rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf rdm:isRelatedTo ;
                   owl:inverseOf rdm:isSourceOf ;
+                  rdfs:domain [ rdf:type owl:Class ;
+                                owl:unionOf ( rdm:Collection
+                                              rdm:Project
+                                              rdm:Resource
+                                            )
+                              ] ;
                   rdfs:range [ rdf:type owl:Class ;
                                owl:unionOf ( rdm:Collection
                                              rdm:Project
@@ -538,6 +617,7 @@ rdm:isDerivedFrom rdf:type owl:ObjectProperty ;
 ###  https://purl.org/rdm/ontology/isDescribedBy
 rdm:isDescribedBy rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf rdm:isRelatedTo ;
+                  rdfs:range rdm:Resource ;
                   rdfs:comment "A Resource that describes this Class."@en ,
                                "主語クラスを説明している Resource"@ja ;
                   rdfs:label "isDescribedBy" ;
@@ -548,6 +628,7 @@ rdm:isDescribedBy rdf:type owl:ObjectProperty ;
 rdm:isDocumentedBy rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf rdm:isRelatedTo ;
                    rdfs:domain rdm:SoftwareApplication ;
+                   rdfs:range rdm:Resource ;
                    rdfs:comment "A Resource which is documentation about/explaining this SoftwareApplication."@en ,
                                 "SoftwareApplication の説明文書・ドキュメントである Resource"@ja ;
                    rdfs:label "isDocumentedBy" ;
@@ -567,7 +648,13 @@ rdm:isIdenticalTo rdf:type owl:ObjectProperty ;
 ###  https://purl.org/rdm/ontology/isMetadataFor
 rdm:isMetadataFor rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf rdm:isRelatedTo ;
-                  rdfs:domain rdm:Resource ;
+                  rdfs:domain rdm:MetadataDocument ;
+                  rdfs:range [ rdf:type owl:Class ;
+                               owl:unionOf ( rdm:Collection
+                                             rdm:Project
+                                             rdm:Resource
+                                           )
+                             ] ;
                   rdfs:comment "A Class for which this Resource has additional metadata."@en ,
                                "Resource が追加メタデータになっているクラス"@ja ;
                   rdfs:label "isMetadataFor" ;
@@ -632,6 +719,7 @@ rdm:isPartOf rdf:type owl:ObjectProperty ;
              rdf:type owl:TransitiveProperty ;
              rdfs:domain [ rdf:type owl:Class ;
                            owl:unionOf ( rdm:Collection
+                                         rdm:Experiment
                                          rdm:Grant
                                          rdm:Institution
                                          rdm:Project
@@ -748,11 +836,7 @@ rdm:isReviewedBy rdf:type owl:ObjectProperty ;
                                              rdm:SoftwareApplication
                                            )
                              ] ;
-                 rdfs:range [ rdf:type owl:Class ;
-                              owl:unionOf ( rdm:Resource
-                                            rdm:SoftwareApplication
-                                          )
-                            ] ;
+                 rdfs:range rdm:Review ;
                  rdfs:comment "A Class which is a review of this Class."@en ,
                               "主語クラスのレビューとなっているクラス"@ja ;
                  rdfs:label "isReviewedBy" ;
@@ -866,8 +950,8 @@ rdm:isVersionOf rdf:type owl:ObjectProperty ;
 ###  https://purl.org/rdm/ontology/item
 rdm:item rdf:type owl:ObjectProperty ;
          rdfs:range rdm:Resource ;
-         rdfs:comment "A Resource included in/within this Class."@en ,
-                      "主語クラスに含まれる、もしくは内部にあるリソース"@ja ;
+         rdfs:comment "A Resource related to this Class."@en ,
+                      "主語クラスと関連のあるリソース"@ja ;
          rdfs:label "item" .
 
 
@@ -884,19 +968,12 @@ rdm:licenseInformation rdf:type owl:ObjectProperty ;
                        rdfs:label "licenseInformation" .
 
 
-###  https://purl.org/rdm/ontology/object
-rdm:object rdf:type owl:ObjectProperty ;
-           owl:inverseOf rdm:wasInfluencedBy ;
-           rdfs:domain rdm:Activity ;
-           rdfs:range [ rdf:type owl:Class ;
-                        owl:unionOf ( rdm:Collection
-                                      rdm:Project
-                                      rdm:Resource
-                                    )
-                      ] ;
-           rdfs:comment "An object of the Activity."@en ,
-                        "行動の対象物"@ja ;
-           rdfs:label "researchObject" .
+###  https://purl.org/rdm/ontology/material
+rdm:material rdf:type owl:ObjectProperty ;
+             rdfs:domain rdm:Experiment ;
+             rdfs:comment "Materials and inputs in the Experiment."@en ,
+                          "実験における、材料や入力となるもの"@ja ;
+             rdfs:label "material" .
 
 
 ###  https://purl.org/rdm/ontology/obsoletes
@@ -925,6 +1002,14 @@ rdm:projectItem rdf:type owl:ObjectProperty ;
                 rdfs:comment "A Resource within this Project."@en ,
                              "プロジェクトに含まれるリソース"@ja ;
                 rdfs:label "projectItem" .
+
+
+###  https://purl.org/rdm/ontology/protocol
+rdm:protocol rdf:type owl:ObjectProperty ;
+             rdfs:domain rdm:Experiment ;
+             rdfs:comment "The protocol of this Experiment."@en ,
+                          "実験のプロトコル、手順"@ja ;
+             rdfs:label "protocol" .
 
 
 ###  https://purl.org/rdm/ontology/recipient
@@ -962,6 +1047,16 @@ rdm:references rdf:type owl:ObjectProperty ;
 ###  https://purl.org/rdm/ontology/requires
 rdm:requires rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf rdm:isRelatedTo ;
+             rdfs:domain [ rdf:type owl:Class ;
+                           owl:unionOf ( rdm:Resource
+                                         rdm:SoftwareApplication
+                                       )
+                         ] ;
+             rdfs:range [ rdf:type owl:Class ;
+                          owl:unionOf ( rdm:Resource
+                                        rdm:SoftwareApplication
+                                      )
+                        ] ;
              rdfs:comment "A Class which is required by this Class."@en ,
                           "主語クラスを必要とするクラス"@ja ;
              rdfs:label "requires" ;
@@ -981,26 +1076,26 @@ rdm:researcher rdf:type owl:ObjectProperty ;
 ###  https://purl.org/rdm/ontology/result
 rdm:result rdf:type owl:ObjectProperty ;
            owl:inverseOf rdm:wasGeneratedBy ;
-           rdfs:domain rdm:Activity ;
+           rdfs:domain [ rdf:type owl:Class ;
+                         owl:unionOf ( rdm:Activity
+                                       rdm:Experiment
+                                     )
+                       ] ;
            rdfs:range [ rdf:type owl:Class ;
                         owl:unionOf ( rdm:Collection
                                       rdm:Project
                                       rdm:Resource
                                     )
                       ] ;
-           rdfs:comment "The result produced in this Activity."@en ,
-                        "アクションによって生成された新しいエンティティ"@ja ;
+           rdfs:comment "The result produced in this Activity /Experiment."@en ,
+                        "アクションや実験によって生成された新しいエンティティ"@ja ;
            rdfs:label "result" .
 
 
 ###  https://purl.org/rdm/ontology/reviews
 rdm:reviews rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf rdm:isRelatedTo ;
-            rdfs:domain [ rdf:type owl:Class ;
-                          owl:unionOf ( rdm:Resource
-                                        rdm:SoftwareApplication
-                                      )
-                        ] ;
+            rdfs:domain rdm:Review ;
             rdfs:range [ rdf:type owl:Class ;
                          owl:unionOf ( rdm:Resource
                                        rdm:SoftwareApplication
@@ -1035,7 +1130,14 @@ rdm:storedItem rdf:type owl:ObjectProperty ;
 ###  https://purl.org/rdm/ontology/target
 rdm:target rdf:type owl:ObjectProperty ;
            rdfs:domain rdm:Activity ;
-           rdfs:range rdm:Resource ;
+           rdfs:range [ rdf:type owl:Class ;
+                        owl:unionOf ( rdm:Collection
+                                      rdm:Project
+                                      rdm:Repository
+                                      rdm:Resource
+                                      rdm:SoftwareApplication
+                                    )
+                      ] ;
            rdfs:comment "The indirect object, or target, of this Activity."@en ,
                         "アクションの間接的な対象物"@ja ;
            rdfs:label "target" .
@@ -1050,6 +1152,26 @@ rdm:thumbnail rdf:type owl:ObjectProperty ;
               rdfs:label "thumbnail" .
 
 
+###  https://purl.org/rdm/ontology/toLocation
+rdm:toLocation rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf rdm:target ;
+               rdfs:domain [ rdf:type owl:Class ;
+                             owl:unionOf ( rdm:Download
+                                           rdm:Preserve
+                                           rdm:Register
+                                           rdm:Upload
+                                         )
+                           ] ;
+               rdfs:range [ rdf:type owl:Class ;
+                            owl:unionOf ( rdm:Repository
+                                          rdm:SoftwareApplication
+                                        )
+                          ] ;
+               rdfs:comment "Upload or Download location"@en ,
+                            "アップロードもしくはダウンロード先の場所"@ja ;
+               rdfs:label "toLocation" .
+
+
 ###  https://purl.org/rdm/ontology/wasGeneratedBy
 rdm:wasGeneratedBy rdf:type owl:ObjectProperty ;
                    rdfs:domain [ rdf:type owl:Class ;
@@ -1058,24 +1180,14 @@ rdm:wasGeneratedBy rdf:type owl:ObjectProperty ;
                                                rdm:Resource
                                              )
                                ] ;
-                   rdfs:range rdm:Activity ;
-                   rdfs:comment "An Activity which created/generated this Class."@en ,
-                                "主語クラスが生成された行動"@ja ;
+                   rdfs:range [ rdf:type owl:Class ;
+                                owl:unionOf ( rdm:Activity
+                                              rdm:Experiment
+                                            )
+                              ] ;
+                   rdfs:comment "Activity or Experiment which created/generated this Class."@en ,
+                                "主語クラスが生成されたアクションまたは実験"@ja ;
                    rdfs:label "wasGeneratedBy" .
-
-
-###  https://purl.org/rdm/ontology/wasInfluencedBy
-rdm:wasInfluencedBy rdf:type owl:ObjectProperty ;
-                    rdfs:domain [ rdf:type owl:Class ;
-                                  owl:unionOf ( rdm:Collection
-                                                rdm:Project
-                                                rdm:Resource
-                                              )
-                                ] ;
-                    rdfs:range rdm:Activity ;
-                    rdfs:comment "An Activity that has had some influence on this Class."@en ,
-                                 "主語クラスが何らかの影響を受けた行動"@ja ;
-                    rdfs:label "wasInfluencedBy" .
 
 
 #################################################################
@@ -1140,6 +1252,7 @@ rdm:copyright rdf:type owl:DatatypeProperty ;
 
 ###  https://purl.org/rdm/ontology/dataAccessRequirements
 rdm:dataAccessRequirements rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf rdm:description ;
                            rdfs:domain rdm:AccessRights ;
                            rdfs:range xsd:string ;
                            rdfs:comment "Conditions and method of access to the Resource under access restrictions."@en ,
@@ -1211,6 +1324,7 @@ rdm:dateEnded rdf:type owl:DatatypeProperty ;
                             owl:unionOf ( rdm:Activity
                                           rdm:Event
                                           rdm:Project
+                                          rdm:Role
                                         )
                           ] ;
               rdfs:comment "The end date of this Class."@en ,
@@ -1243,6 +1357,7 @@ rdm:dateStarted rdf:type owl:DatatypeProperty ;
                               owl:unionOf ( rdm:Activity
                                             rdm:Event
                                             rdm:Project
+                                            rdm:Role
                                           )
                             ] ;
                 rdfs:comment "The start date of this Class."@en ,
@@ -1262,10 +1377,12 @@ rdm:dateUpdated rdf:type owl:DatatypeProperty ;
 ###  https://purl.org/rdm/ontology/description
 rdm:description rdf:type owl:DatatypeProperty ;
                 rdfs:domain [ rdf:type owl:Class ;
-                              owl:unionOf ( rdm:Grant
+                              owl:unionOf ( rdm:Experiment
+                                            rdm:Grant
                                             rdm:Project
                                             rdm:Repository
                                             rdm:Resource
+                                            rdm:Role
                                           )
                             ] ;
                 rdfs:range xsd:string ;
@@ -1495,7 +1612,11 @@ rdm:language rdf:type owl:DatatypeProperty ;
 ###  https://purl.org/rdm/ontology/localIdentifier
 rdm:localIdentifier rdf:type owl:DatatypeProperty ;
                     rdfs:subPropertyOf rdm:identifierValue ;
-                    rdfs:domain rdm:Resource ;
+                    rdfs:domain [ rdf:type owl:Class ;
+                                  owl:unionOf ( rdm:Experiment
+                                                rdm:Resource
+                                              )
+                                ] ;
                     rdfs:comment "Local identifier."@en ,
                                  "ローカル識別子"@ja ;
                     rdfs:label "localIdentifier" .
@@ -1516,6 +1637,7 @@ rdm:location rdf:type owl:DatatypeProperty ;
 
 ###  https://purl.org/rdm/ontology/measurementTechnique
 rdm:measurementTechnique rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf rdm:description ;
                          rdfs:domain rdm:DataManagementPlan ;
                          rdfs:range xsd:string ;
                          rdfs:comment "A technique, method or technology used to create research data."@en ,
@@ -1533,6 +1655,7 @@ rdm:name rdf:type owl:DatatypeProperty ;
                                      rdm:Project
                                      rdm:Repository
                                      rdm:Resource
+                                     rdm:Role
                                      rdm:SoftwareApplication
                                    )
                      ] ;
@@ -1573,13 +1696,32 @@ rdm:processorRequirements rdf:type owl:DatatypeProperty ;
                           rdfs:label "processorRequirements" .
 
 
+###  https://purl.org/rdm/ontology/protocolText
+rdm:protocolText rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf rdm:description ;
+                 rdfs:domain rdm:Experiment ;
+                 rdfs:comment "A text of protocol of this Experiment."@en ,
+                              "実験のプロトコル、手順を示したテキスト"@ja ;
+                 rdfs:label "protocolText" .
+
+
 ###  https://purl.org/rdm/ontology/purpose
 rdm:purpose rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf rdm:description ;
             rdfs:domain rdm:Event ;
             rdfs:range xsd:string ;
             rdfs:comment "Context of this Event implementation e.g. reasons and backgrounds for implementation."@en ,
                          "実施に至った理由や背景など、イベント実施のコンテクスト"@ja ;
             rdfs:label "purpose" .
+
+
+###  https://purl.org/rdm/ontology/query
+rdm:query rdf:type owl:DatatypeProperty ;
+          rdfs:domain rdm:Search ;
+          rdfs:range xsd:string ;
+          rdfs:comment "Search クラスで検索時に使われたクエリ"@ja ,
+                       "The query used on this Search activity."@en ;
+          rdfs:label "query" .
 
 
 ###  https://purl.org/rdm/ontology/raid
@@ -1675,6 +1817,15 @@ rdm:storageRequirements rdf:type owl:DatatypeProperty ;
                         rdfs:label "storageRequirements" .
 
 
+###  https://purl.org/rdm/ontology/textContent
+rdm:textContent rdf:type owl:DatatypeProperty ;
+                rdfs:domain rdm:Resource ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Resource の内容であるテキスト"@ja ,
+                             "The textual content of this Resource."@en ;
+                rdfs:label "textContent" .
+
+
 ###  https://purl.org/rdm/ontology/url
 rdm:url rdf:type owl:DatatypeProperty ;
         rdfs:domain [ rdf:type owl:Class ;
@@ -1729,7 +1880,12 @@ rdm:version rdf:type owl:DatatypeProperty ;
 
 ###  https://purl.org/rdm/ontology/Accept
 rdm:Accept rdf:type owl:Class ;
-           rdfs:subClassOf rdm:Activity ;
+           rdfs:subClassOf rdm:Activity ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:activityObject ;
+                             owl:allValuesFrom rdm:Resource
+                           ] ;
+           owl:disjointWith rdm:Reject ;
            rdfs:comment "An act of approving Resource or request."@en ,
                         "Resource や依頼を承認する行動"@ja ;
            rdfs:label "Accept" .
@@ -1773,17 +1929,21 @@ rdm:Actor rdf:type owl:Class ;
           rdfs:label "Actor" .
 
 
-###  https://purl.org/rdm/ontology/Add
-rdm:Add rdf:type owl:Class ;
-        rdfs:subClassOf rdm:Activity ;
-        rdfs:comment "An act of adding metadata to Resource."@en ,
-                     "Resource にメタデータを付与する行動"@ja ;
-        rdfs:label "Add" .
-
-
 ###  https://purl.org/rdm/ontology/Align
 rdm:Align rdf:type owl:Class ;
-          rdfs:subClassOf rdm:Edit ;
+          rdfs:subClassOf rdm:Activity ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty rdm:activityObject ;
+                            owl:allValuesFrom rdm:Resource
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty rdm:agent ;
+                            owl:allValuesFrom rdm:Person
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty rdm:result ;
+                            owl:allValuesFrom rdm:Resource
+                          ] ;
           rdfs:comment "An act of editing Resource to format."@en ,
                        "Resource をフォーマットに合わせて編集する行動"@ja ;
           rdfs:label "Align" .
@@ -1791,7 +1951,15 @@ rdm:Align rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Anonymize
 rdm:Anonymize rdf:type owl:Class ;
-              rdfs:subClassOf rdm:Edit ;
+              rdfs:subClassOf rdm:Activity ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rdm:activityObject ;
+                                owl:allValuesFrom rdm:Resource
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rdm:result ;
+                                owl:allValuesFrom rdm:Resource
+                              ] ;
               rdfs:comment "An act of making Resource anonymous."@en ,
                            "Resource を匿名化する行動"@ja ;
               rdfs:label "Anonymize" .
@@ -1807,7 +1975,15 @@ rdm:Archive rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Ask
 rdm:Ask rdf:type owl:Class ;
-        rdfs:subClassOf rdm:Activity ;
+        rdfs:subClassOf rdm:Activity ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty rdm:activityObject ;
+                          owl:allValuesFrom rdm:Message
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty rdm:recipient ;
+                          owl:allValuesFrom rdm:Person
+                        ] ;
         rdfs:comment "An act of asking questions to Person, chatbot etc."@en ,
                      "Person やチャットボットなどに質問をする行動"@ja ;
         rdfs:label "Ask" .
@@ -1815,7 +1991,15 @@ rdm:Ask rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Assign
 rdm:Assign rdf:type owl:Class ;
-           rdfs:subClassOf rdm:Activity ;
+           rdfs:subClassOf rdm:Activity ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:activityObject ;
+                             owl:allValuesFrom rdm:Role
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:recipient ;
+                             owl:allValuesFrom rdm:Person
+                           ] ;
            rdfs:comment "An act of assigning a role to Person."@en ,
                         "Person に役割を任命する行動"@ja ;
            rdfs:label "Assign" .
@@ -1831,7 +2015,11 @@ rdm:Audio rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Authorize
 rdm:Authorize rdf:type owl:Class ;
-              rdfs:subClassOf rdm:Activity ;
+              rdfs:subClassOf rdm:Activity ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rdm:activityObject ;
+                                owl:allValuesFrom rdm:RightsStatement
+                              ] ;
               rdfs:comment "An act of granting permission or right to an object."@en ,
                            "権利や許可を与える行動"@ja ;
               rdfs:label "Authorize" .
@@ -1847,7 +2035,11 @@ rdm:Book rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Check
 rdm:Check rdf:type owl:Class ;
-          rdfs:subClassOf rdm:Activity ;
+          rdfs:subClassOf rdm:Activity ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty rdm:activityObject ;
+                            owl:allValuesFrom rdm:Resource
+                          ] ;
           rdfs:comment "An act of checking the regulation for Resource, such as using checkboxes."@en ,
                        "チェックボックスに印をつけるなど、規定の項目に関して確認する行動"@ja ;
           rdfs:label "Check" .
@@ -1855,7 +2047,19 @@ rdm:Check rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Cleanse
 rdm:Cleanse rdf:type owl:Class ;
-            rdfs:subClassOf rdm:Edit ;
+            rdfs:subClassOf rdm:Activity ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:activityObject ;
+                              owl:allValuesFrom rdm:Resource
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:agent ;
+                              owl:allValuesFrom rdm:Person
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:result ;
+                              owl:allValuesFrom rdm:Resource
+                            ] ;
             rdfs:comment "An act of performing data cleansing of Resource."@en ,
                          "Resource をデータクレンジングする行動"@ja ;
             rdfs:label "Cleanse" .
@@ -1863,7 +2067,23 @@ rdm:Cleanse rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Collect
 rdm:Collect rdf:type owl:Class ;
-            rdfs:subClassOf rdm:Activity ;
+            rdfs:subClassOf rdm:Activity ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:activityObject ;
+                              owl:allValuesFrom [ rdf:type owl:Class ;
+                                                  owl:unionOf ( rdm:Collection
+                                                                rdm:Resource
+                                                              )
+                                                ]
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:result ;
+                              owl:allValuesFrom [ rdf:type owl:Class ;
+                                                  owl:unionOf ( rdm:Collection
+                                                                rdm:Resource
+                                                              )
+                                                ]
+                            ] ;
             rdfs:comment "An act of collecting Resource."@en ,
                          "Resource を収集する行動"@ja ;
             rdfs:label "Collect" .
@@ -1887,7 +2107,15 @@ rdm:Collection rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Comment
 rdm:Comment rdf:type owl:Class ;
-            rdfs:subClassOf rdm:Activity ;
+            rdfs:subClassOf rdm:Activity ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:activityObject ;
+                              owl:allValuesFrom rdm:Message
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:target ;
+                              owl:allValuesFrom rdm:Resource
+                            ] ;
             rdfs:comment "An act of generating a comment on Resource."@en ,
                          "Resource に対してコメントをする行動"@ja ;
             rdfs:label "Comment" .
@@ -1919,7 +2147,27 @@ rdm:ConferenceProceeding rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Connect
 rdm:Connect rdf:type owl:Class ;
-            rdfs:subClassOf rdm:Activity ;
+            rdfs:subClassOf rdm:Activity ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:activityObject ;
+                              owl:allValuesFrom [ rdf:type owl:Class ;
+                                                  owl:unionOf ( rdm:Repository
+                                                                rdm:SoftwareApplication
+                                                              )
+                                                ]
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:agent ;
+                              owl:allValuesFrom rdm:Person
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:target ;
+                              owl:allValuesFrom [ rdf:type owl:Class ;
+                                                  owl:unionOf ( rdm:Repository
+                                                                rdm:SoftwareApplication
+                                                              )
+                                                ]
+                            ] ;
             rdfs:comment "An act of connecting service to another service."@en ,
                          "サービスを別のサービスに接続する行動"@ja ;
             rdfs:label "Connect" .
@@ -1927,7 +2175,15 @@ rdm:Connect rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Convert
 rdm:Convert rdf:type owl:Class ;
-            rdfs:subClassOf rdm:Activity ;
+            rdfs:subClassOf rdm:Activity ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:activityObject ;
+                              owl:allValuesFrom rdm:Resource
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:result ;
+                              owl:allValuesFrom rdm:Resource
+                            ] ;
             rdfs:comment "An act of converting Resource into a new Resource."@en ,
                          "Resource を新たな Resource に変換する行動"@ja ;
             rdfs:label "Convert" .
@@ -1935,7 +2191,18 @@ rdm:Convert rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Create
 rdm:Create rdf:type owl:Class ;
-           rdfs:subClassOf rdm:Activity ;
+           rdfs:subClassOf rdm:Activity ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:result ;
+                             owl:allValuesFrom [ rdf:type owl:Class ;
+                                                 owl:unionOf ( rdm:Collection
+                                                               rdm:DataManagementPlan
+                                                               rdm:Project
+                                                               rdm:Resource
+                                                             )
+                                               ]
+                           ] ;
+           owl:disjointWith rdm:Update ;
            rdfs:comment "An act of creating/producing/generating Resource, Project, Collection etc."@en ,
                         "Project, Resource, Collection などを作成する行動"@ja ;
            rdfs:label "Create" .
@@ -1946,11 +2213,13 @@ rdm:DataManagementPlan rdf:type owl:Class ;
                        rdfs:subClassOf rdm:Object ,
                                        [ rdf:type owl:Restriction ;
                                          owl:onProperty rdm:accessRightsInformation ;
-                                         owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass rdm:AccessRights
                                        ] ,
                                        [ rdf:type owl:Restriction ;
                                          owl:onProperty rdm:licenseInformation ;
-                                         owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                         owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass rdm:License
                                        ] ,
                                        [ rdf:type owl:Restriction ;
                                          owl:onProperty rdm:approximateSize ;
@@ -1979,7 +2248,19 @@ rdm:Dataset rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Deploy
 rdm:Deploy rdf:type owl:Class ;
-           rdfs:subClassOf rdm:Activity ;
+           rdfs:subClassOf rdm:Activity ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:activityObject ;
+                             owl:allValuesFrom [ rdf:type owl:Class ;
+                                                 owl:unionOf ( rdm:Resource
+                                                               rdm:SoftwareApplication
+                                                             )
+                                               ]
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:agent ;
+                             owl:allValuesFrom rdm:Person
+                           ] ;
            rdfs:comment "An act of deploying SoftwareApplication or Resource."@en ,
                         "Resource, SoftwareApplicationをデプロイする行動"@ja ;
            rdfs:label "Deploy" .
@@ -1987,7 +2268,19 @@ rdm:Deploy rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Develop
 rdm:Develop rdf:type owl:Class ;
-            rdfs:subClassOf rdm:Activity ;
+            rdfs:subClassOf rdm:Activity ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:activityObject ;
+                              owl:allValuesFrom [ rdf:type owl:Class ;
+                                                  owl:unionOf ( rdm:Resource
+                                                                rdm:SoftwareApplication
+                                                              )
+                                                ]
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:agent ;
+                              owl:allValuesFrom rdm:Person
+                            ] ;
             rdfs:comment "An act of developing a program."@en ,
                          "プログラミングで実装する行動"@ja ;
             rdfs:label "Develop" .
@@ -1995,7 +2288,16 @@ rdm:Develop rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Download
 rdm:Download rdf:type owl:Class ;
-             rdfs:subClassOf rdm:Activity ;
+             rdfs:subClassOf rdm:Activity ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rdm:activityObject ;
+                               owl:allValuesFrom rdm:Resource
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rdm:agent ;
+                               owl:allValuesFrom rdm:Person
+                             ] ;
+             owl:disjointWith rdm:Upload ;
              rdfs:comment "An act of downloading Resource."@en ,
                           "Resource をダウンロードする行動"@ja ;
              rdfs:label "Download" .
@@ -2003,18 +2305,18 @@ rdm:Download rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Dump
 rdm:Dump rdf:type owl:Class ;
-         rdfs:subClassOf rdm:Activity ;
+         rdfs:subClassOf rdm:Create ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty rdm:agent ;
+                           owl:allValuesFrom rdm:Person
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty rdm:result ;
+                           owl:allValuesFrom rdm:Resource
+                         ] ;
          rdfs:comment "An act of creating a log file by dumping."@en ,
                       "ダンプによりログファイルを作成する行動"@ja ;
          rdfs:label "Dump" .
-
-
-###  https://purl.org/rdm/ontology/Edit
-rdm:Edit rdf:type owl:Class ;
-         rdfs:subClassOf rdm:Activity ;
-         rdfs:comment "An act of editing Resource. This class implies that changes have been made to the Resource as a draft, such as using edit UI, and does not involve whether they have been applied."@en ,
-                      "Resource に変更を加える行動. 編集画面を利用したドラフトとしての変更を意味し、与えた変更の反映は含意しない"@ja ;
-         rdfs:label "Edit" .
 
 
 ###  https://purl.org/rdm/ontology/EducationalResource
@@ -2027,7 +2329,19 @@ rdm:EducationalResource rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Evaluate
 rdm:Evaluate rdf:type owl:Class ;
-             rdfs:subClassOf rdm:Activity ;
+             rdfs:subClassOf rdm:Activity ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rdm:activityObject ;
+                               owl:allValuesFrom rdm:Resource
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rdm:agent ;
+                               owl:allValuesFrom rdm:Person
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rdm:result ;
+                               owl:allValuesFrom rdm:Review
+                             ] ;
              rdfs:comment "An act of evaluating Resource, such as peer-review."@en ,
                           "ピアレビューなど、Resource を評価する行動"@ja ;
              rdfs:label "Evaluate" .
@@ -2059,10 +2373,46 @@ rdm:Event rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Execute
 rdm:Execute rdf:type owl:Class ;
-            rdfs:subClassOf rdm:Activity ;
+            rdfs:subClassOf rdm:Activity ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:activityObject ;
+                              owl:allValuesFrom [ rdf:type owl:Class ;
+                                                  owl:unionOf ( rdm:Experiment
+                                                                rdm:Resource
+                                                              )
+                                                ]
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:agent ;
+                              owl:allValuesFrom rdm:Person
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:result ;
+                              owl:allValuesFrom rdm:Resource
+                            ] ;
             rdfs:comment "An act of executing SoftwareApplication, Resource, program etc."@en ,
                          "Resource, SoftwareApplication, プログラムを実行する行動"@ja ;
             rdfs:label "Execute" .
+
+
+###  https://purl.org/rdm/ontology/Experiment
+rdm:Experiment rdf:type owl:Class ;
+               rdfs:subClassOf rdm:Object ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty rdm:hasPart ;
+                                 owl:allValuesFrom rdm:Experiment
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty rdm:isPartOf ;
+                                 owl:allValuesFrom rdm:Experiment
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty rdm:result ;
+                                 owl:allValuesFrom rdm:Resource
+                               ] ;
+               rdfs:comment "Experiment"@en ,
+                            "実験"@ja ;
+               rdfs:label "Experiment" .
 
 
 ###  https://purl.org/rdm/ontology/FundingAgency
@@ -2075,7 +2425,11 @@ rdm:FundingAgency rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Get
 rdm:Get rdf:type owl:Class ;
-        rdfs:subClassOf rdm:Activity ;
+        rdfs:subClassOf rdm:Activity ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty rdm:activityObject ;
+                          owl:allValuesFrom rdm:Resource
+                        ] ;
         rdfs:comment "An act of getting/obtaining Resource, information etc."@en ,
                      "Resource または情報などを取得する行動"@ja ;
         rdfs:label "Get" .
@@ -2102,7 +2456,8 @@ rdm:Identifier rdf:type owl:Class ;
                rdfs:subClassOf rdm:Object ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty rdm:identifierManager ;
-                                 owl:cardinality "1"^^xsd:nonNegativeInteger
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass rdm:Institution
                                ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty rdm:identifierName ;
@@ -2127,7 +2482,11 @@ rdm:Image rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Inform
 rdm:Inform rdf:type owl:Class ;
-           rdfs:subClassOf rdm:Activity ;
+           rdfs:subClassOf rdm:Activity ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:activityObject ;
+                             owl:allValuesFrom rdm:Message
+                           ] ;
            rdfs:comment "An act of notifying Person/Institution of information."@en ,
                         "Person, Institution に対して通知する行動"@ja ;
            rdfs:label "Inform" .
@@ -2135,7 +2494,19 @@ rdm:Inform rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Ingest
 rdm:Ingest rdf:type owl:Class ;
-           rdfs:subClassOf rdm:Activity ;
+           rdfs:subClassOf rdm:Activity ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:activityObject ;
+                             owl:allValuesFrom rdm:MetadataDocument
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:agent ;
+                             owl:allValuesFrom rdm:Person
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:result ;
+                             owl:allValuesFrom rdm:MetadataDocument
+                           ] ;
            rdfs:comment "An act of getting and adding metadata to Resource from public information as part of data curation."@en ,
                         "キュレーションの一環として、Resource のメタデータを外部から取得し付与する行動"@ja ;
            rdfs:label "Ingest" .
@@ -2165,9 +2536,33 @@ rdm:Institution rdf:type owl:Class ;
                 rdfs:label "Institution" .
 
 
+###  https://purl.org/rdm/ontology/Intangible
+rdm:Intangible rdf:type owl:Class ;
+               rdfs:subClassOf rdm:Object ;
+               rdfs:comment "Abstract class for concepts without entities."@en ,
+                            "実体を伴わない概念のための抽象クラス"@ja ;
+               rdfs:label "Intangible" .
+
+
 ###  https://purl.org/rdm/ontology/Integrate
 rdm:Integrate rdf:type owl:Class ;
-              rdfs:subClassOf rdm:Activity ;
+              rdfs:subClassOf rdm:Activity ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rdm:activityObject ;
+                                owl:allValuesFrom rdm:MetadataDocument
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rdm:agent ;
+                                owl:allValuesFrom rdm:Person
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rdm:result ;
+                                owl:allValuesFrom rdm:MetadataDocument
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rdm:target ;
+                                owl:allValuesFrom rdm:MetadataDocument
+                              ] ;
               rdfs:comment "An act of integrating different forms of metadata as part of data curation."@en ,
                            "キュレーションの一環として、メタデータを統合する行動"@ja ;
               rdfs:label "Integrate" .
@@ -2199,6 +2594,22 @@ rdm:License rdf:type owl:Class ;
             rdfs:comment "A license of Resource."@en ,
                          "リソースのライセンス"@ja ;
             rdfs:label "License" .
+
+
+###  https://purl.org/rdm/ontology/Message
+rdm:Message rdf:type owl:Class ;
+            rdfs:subClassOf rdm:Resource ;
+            rdfs:comment "Message and comment."@en ,
+                         "メッセージやコメント"@ja ;
+            rdfs:label "Message" .
+
+
+###  https://purl.org/rdm/ontology/MetadataDocument
+rdm:MetadataDocument rdf:type owl:Class ;
+                     rdfs:subClassOf rdm:Resource ;
+                     rdfs:comment "Metadata of any Resource."@en ,
+                                  "Resource に関するメタデータ"@ja ;
+                     rdfs:label "MetadataDocument" .
 
 
 ###  https://purl.org/rdm/ontology/Object
@@ -2234,7 +2645,15 @@ rdm:Preprint rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Preserve
 rdm:Preserve rdf:type owl:Class ;
-             rdfs:subClassOf rdm:Activity ;
+             rdfs:subClassOf rdm:Activity ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rdm:activityObject ;
+                               owl:allValuesFrom rdm:Resource
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rdm:agent ;
+                               owl:allValuesFrom rdm:Person
+                             ] ;
              rdfs:comment "An act of saving and storing Resource to Repository, SoftwareApplication etc."@en ,
                           "Resource を Repository, SoftwareApplication などに保存・保管する行動"@ja ;
              rdfs:label "Preserve" .
@@ -2278,23 +2697,32 @@ rdm:Project rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Publish
 rdm:Publish rdf:type owl:Class ;
-            rdfs:subClassOf rdm:Activity ;
+            rdfs:subClassOf rdm:Activity ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:activityObject ;
+                              owl:allValuesFrom [ rdf:type owl:Class ;
+                                                  owl:unionOf ( rdm:Collection
+                                                                rdm:Project
+                                                                rdm:Resource
+                                                              )
+                                                ]
+                            ] ;
             rdfs:comment "An act of making Resource public, such as by pushing \"publish\" button on publishing service. (including Resource of any access rights)"@en ,
                          "公開ボタンを押すなどして、Resource を公開する行動(アクセス権の種類は問わない)"@ja ;
             rdfs:label "Publish" .
 
 
-###  https://purl.org/rdm/ontology/Record
-rdm:Record rdf:type owl:Class ;
-           rdfs:subClassOf rdm:Activity ;
-           rdfs:comment "An act of mechanically adding some information to Resource etc."@en ,
-                        "機械的に何かしらの情報を Resource などに付与する行動"@ja ;
-           rdfs:label "Record" .
-
-
 ###  https://purl.org/rdm/ontology/Register
 rdm:Register rdf:type owl:Class ;
-             rdfs:subClassOf rdm:Activity ;
+             rdfs:subClassOf rdm:Activity ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rdm:activityObject ;
+                               owl:allValuesFrom [ rdf:type owl:Class ;
+                                                   owl:unionOf ( rdm:Collection
+                                                                 rdm:Resource
+                                                               )
+                                                 ]
+                             ] ;
              rdfs:comment "An act of registering Resource to Repository, SoftwareApplication or other service."@en ,
                           "Repository, SoftwareApplication もしくはその他サービスに、 Resource を登録する行動"@ja ;
              rdfs:label "Register" .
@@ -2302,7 +2730,11 @@ rdm:Register rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Reject
 rdm:Reject rdf:type owl:Class ;
-           rdfs:subClassOf rdm:Activity ;
+           rdfs:subClassOf rdm:Activity ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:activityObject ;
+                             owl:allValuesFrom rdm:Role
+                           ] ;
            rdfs:comment "An act of rejecting proposal/assigned role/submitted Resource etc."@en ,
                         "提出された Resource や提案、割り当てられた役割などを取り下げる行動"@ja ;
            rdfs:label "Reject" .
@@ -2310,7 +2742,19 @@ rdm:Reject rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Rename
 rdm:Rename rdf:type owl:Class ;
-           rdfs:subClassOf rdm:Activity ;
+           rdfs:subClassOf rdm:Activity ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:activityObject ;
+                             owl:allValuesFrom rdm:Resource
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:agent ;
+                             owl:allValuesFrom rdm:Person
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:result ;
+                             owl:allValuesFrom rdm:Resource
+                           ] ;
            rdfs:comment "An act of renaming Resource."@en ,
                         "Resource の名称を変更する行動"@ja ;
            rdfs:label "Rename" .
@@ -2318,7 +2762,19 @@ rdm:Rename rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Reorganize
 rdm:Reorganize rdf:type owl:Class ;
-               rdfs:subClassOf rdm:Activity ;
+               rdfs:subClassOf rdm:Activity ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty rdm:activityObject ;
+                                 owl:allValuesFrom rdm:Dataset
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty rdm:agent ;
+                                 owl:allValuesFrom rdm:Person
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty rdm:result ;
+                                 owl:allValuesFrom rdm:Dataset
+                               ] ;
                rdfs:comment "An act of changing folder structure of Dataset."@en ,
                             "Dataset のフォルダ構成を変更する行動"@ja ;
                rdfs:label "Reorganize" .
@@ -2346,14 +2802,6 @@ rdm:Repository rdf:type owl:Class ;
                rdfs:comment "A repository."@en ,
                             "リポジトリ"@ja ;
                rdfs:label "Repository" .
-
-
-###  https://purl.org/rdm/ontology/Request
-rdm:Request rdf:type owl:Class ;
-            rdfs:subClassOf rdm:Activity ;
-            rdfs:comment "An act of asking People/Institution to do something."@en ,
-                         "Person, Institution に何らかのタスクを依頼する行動"@ja ;
-            rdfs:label "Request" .
 
 
 ###  https://purl.org/rdm/ontology/Resource
@@ -2386,10 +2834,30 @@ rdm:Resource rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Restructure
 rdm:Restructure rdf:type owl:Class ;
-                rdfs:subClassOf rdm:Edit ;
+                rdfs:subClassOf rdm:Activity ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rdm:activityObject ;
+                                  owl:allValuesFrom rdm:Resource
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rdm:agent ;
+                                  owl:allValuesFrom rdm:Person
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rdm:result ;
+                                  owl:allValuesFrom rdm:Resource
+                                ] ;
                 rdfs:comment "An act of re-structuring Resource as part of data curation, such as sorting a table."@en ,
                              "表データをソートするなど、キュレーションの一環として Resource を再構成する行動"@ja ;
                 rdfs:label "Restructure" .
+
+
+###  https://purl.org/rdm/ontology/Review
+rdm:Review rdf:type owl:Class ;
+           rdfs:subClassOf rdm:Resource ;
+           rdfs:comment "Review documents and evaluations."@en ,
+                        "レビュー文書や評価"@ja ;
+           rdfs:label "Review" .
 
 
 ###  https://purl.org/rdm/ontology/RightsStatement
@@ -2400,9 +2868,21 @@ rdm:RightsStatement rdf:type owl:Class ;
                     rdfs:label "RightsStatement" .
 
 
+###  https://purl.org/rdm/ontology/Role
+rdm:Role rdf:type owl:Class ;
+         rdfs:subClassOf rdm:Intangible ;
+         rdfs:comment "Roles and positions."@en ,
+                      "役割、役職"@ja ;
+         rdfs:label "Role" .
+
+
 ###  https://purl.org/rdm/ontology/Schedule
 rdm:Schedule rdf:type owl:Class ;
-             rdfs:subClassOf rdm:Activity ;
+             rdfs:subClassOf rdm:Activity ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty rdm:activityObject ;
+                               owl:allValuesFrom rdm:Event
+                             ] ;
              rdfs:comment "An act of scheduling future Event."@en ,
                           "未来に行われる Event を設定する行動"@ja ;
              rdfs:label "Schedule" .
@@ -2410,7 +2890,23 @@ rdm:Schedule rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Search
 rdm:Search rdf:type owl:Class ;
-           rdfs:subClassOf rdm:Activity ;
+           rdfs:subClassOf rdm:Activity ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:activityObject ;
+                             owl:allValuesFrom [ rdf:type owl:Class ;
+                                                 owl:unionOf ( rdm:Collection
+                                                               rdm:Repository
+                                                             )
+                                               ]
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:agent ;
+                             owl:allValuesFrom rdm:Person
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:result ;
+                             owl:allValuesFrom rdm:Resource
+                           ] ;
            rdfs:comment "An act of searching Resource, such as by pushing \"search\" button."@en ,
                         "検索ボタンの押下など、Resource を検索する行動"@ja ;
            rdfs:label "Search" .
@@ -2418,23 +2914,35 @@ rdm:Search rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Select
 rdm:Select rdf:type owl:Class ;
-           rdfs:subClassOf rdm:Activity ;
+           rdfs:subClassOf rdm:Activity ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:activityObject ;
+                             owl:allValuesFrom [ rdf:type owl:Class ;
+                                                 owl:unionOf ( rdm:Repository
+                                                               rdm:Resource
+                                                             )
+                                               ]
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:agent ;
+                             owl:allValuesFrom rdm:Person
+                           ] ;
            rdfs:comment "An act of selecting from options."@en ,
                         "選択肢の中から利用するものを選択する行動"@ja ;
            rdfs:label "Select" .
 
 
-###  https://purl.org/rdm/ontology/Semanticize
-rdm:Semanticize rdf:type owl:Class ;
-                rdfs:subClassOf rdm:Activity ;
-                rdfs:comment "An act of semanticizing metadata as part of data curation."@en ,
-                             "キュレーションの一環として、メタデータを意味付けする行動"@ja ;
-                rdfs:label "Semanticize" .
-
-
 ###  https://purl.org/rdm/ontology/Send
 rdm:Send rdf:type owl:Class ;
-         rdfs:subClassOf rdm:Activity ;
+         rdfs:subClassOf rdm:Activity ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty rdm:activityObject ;
+                           owl:allValuesFrom rdm:Resource
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty rdm:agent ;
+                           owl:allValuesFrom rdm:Person
+                         ] ;
          rdfs:comment "An act of dispatching Resource."@en ,
                       "Resource を送る行動"@ja ;
          rdfs:label "Send" .
@@ -2472,28 +2980,20 @@ rdm:Standard rdf:type owl:Class ;
              rdfs:label "Standard" .
 
 
-###  https://purl.org/rdm/ontology/Submit
-rdm:Submit rdf:type owl:Class ;
-           rdfs:subClassOf rdm:Activity ;
-           rdfs:comment "An act of submitting or providing Resource/information."@en ,
-                        "Resource や情報を提出・提供する行動"@ja ;
-           rdfs:label "Submit" .
-
-
 ###  https://purl.org/rdm/ontology/Suggest
 rdm:Suggest rdf:type owl:Class ;
-            rdfs:subClassOf rdm:Activity ;
+            rdfs:subClassOf rdm:Activity ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:activityObject ;
+                              owl:allValuesFrom rdm:Message
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty rdm:agent ;
+                              owl:allValuesFrom rdm:Person
+                            ] ;
             rdfs:comment "An act of presenting or proposing options."@en ,
                          "選択肢を提示する行動"@ja ;
             rdfs:label "Suggest" .
-
-
-###  https://purl.org/rdm/ontology/Survey
-rdm:Survey rdf:type owl:Class ;
-           rdfs:subClassOf rdm:Activity ;
-           rdfs:comment "An act of making a survay of Resource or something."@en ,
-                        "Resource など、何かしらについて調査する行動"@ja ;
-           rdfs:label "Survey" .
 
 
 ###  https://purl.org/rdm/ontology/Thesis
@@ -2506,15 +3006,35 @@ rdm:Thesis rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Update
 rdm:Update rdf:type owl:Class ;
-           rdfs:subClassOf rdm:Activity ;
-           rdfs:comment "An act of updating Resource, such as applying a change."@en ,
-                        "変更を反映させるなど、Resource を更新する行動"@ja ;
+           rdfs:subClassOf rdm:Activity ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:activityObject ;
+                             owl:allValuesFrom rdm:Resource
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:agent ;
+                             owl:allValuesFrom rdm:Person
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:result ;
+                             owl:allValuesFrom rdm:Resource
+                           ] ;
+           rdfs:comment "An act of updating an existing Resource with changes."@en ,
+                        "既存の Resource に変更を加え更新する行動"@ja ;
            rdfs:label "Update" .
 
 
 ###  https://purl.org/rdm/ontology/Upload
 rdm:Upload rdf:type owl:Class ;
-           rdfs:subClassOf rdm:Activity ;
+           rdfs:subClassOf rdm:Activity ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:activityObject ;
+                             owl:allValuesFrom rdm:Resource
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdm:agent ;
+                             owl:allValuesFrom rdm:Person
+                           ] ;
            rdfs:comment "An act of uploading Resource to Repository, SoftwareApplication etc."@en ,
                         "Resource を SoftwareApplicationやRepository 等にアップロードする行動"@ja ;
            rdfs:label "Upload" .
@@ -2530,7 +3050,23 @@ rdm:Video rdf:type owl:Class ;
 
 ###  https://purl.org/rdm/ontology/Visualize
 rdm:Visualize rdf:type owl:Class ;
-              rdfs:subClassOf rdm:Activity ;
+              rdfs:subClassOf rdm:Activity ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rdm:activityObject ;
+                                owl:allValuesFrom rdm:Resource
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rdm:agent ;
+                                owl:allValuesFrom rdm:Person
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rdm:result ;
+                                owl:allValuesFrom [ rdf:type owl:Class ;
+                                                    owl:unionOf ( rdm:Image
+                                                                  rdm:Video
+                                                                )
+                                                  ]
+                              ] ;
               rdfs:comment "An act of creating a visualization based on data, such as making a graph."@en ,
                            "グラフを生成するなど、データを元に可視化する行動"@ja ;
               rdfs:label "Visualize" .
