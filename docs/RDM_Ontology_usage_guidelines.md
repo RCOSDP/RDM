@@ -1,4 +1,4 @@
-# Domain Model
+# Usage Guidelines
 
 There is two domain models of RDM Ontology; focused on Resource and focused on Activity. The former is focused on describing Resource as a outcome of research activities. The latter is focused on research activities itself. These two can be linked by using rdm property, however, it is not recommended because of the complexity.
 
