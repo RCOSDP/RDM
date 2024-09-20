@@ -28,7 +28,7 @@ def replace_URI(uri:str) -> str:
   elif uri.startswith(XSD_ns):
     return uri.replace(XSD_ns,"xsd:")
 
-def add_class(content:str, cls_name:str) -> str:
+def add_class(base_text:str, cls_name:str) -> str:
 
   for cls in g.subjects(RDFS.subClassOf, RDM[cls_name]):
     data:list[tuple] =[]
@@ -40,12 +40,12 @@ def add_class(content:str, cls_name:str) -> str:
         data.append(("seeAlso",o.value))
 
     data.append(("subClassOf","rdm:"+cls_name))
-    content += "\n" + tabulate(data, headers=["Class",cls.replace(RDM_ns,"")], tablefmt="github") +"\n"
-    content = add_class(content, cls.replace(RDM_ns,""))
+    base_text += "\n" + tabulate(data, headers=["Class",cls.replace(RDM_ns,"")], tablefmt="github") +"\n"
+    base_text = add_class(base_text, cls.replace(RDM_ns,""))
 
-  return content
+  return base_text
 
-def add_property(content:str, prop_s: URIRef, prop_o:URIRef ) -> str:
+def add_property(base_text:str, prop_s: URIRef, prop_o:URIRef ) -> str:
 
   for prop in g.subjects(prop_s, prop_o):
     prop_label:str = prop.replace(RDM_ns,"")
@@ -87,12 +87,12 @@ def add_property(content:str, prop_s: URIRef, prop_o:URIRef ) -> str:
         data.append(("seeAlso",o.value))
 
     if len(data) > 0 :
-      content += "\n" + tabulate(data, headers=["Property",prop_label], tablefmt="github") +"\n"
-      content = add_property(content, RDFS.subPropertyOf, RDM[prop_label])
+      base_text += "\n" + tabulate(data, headers=["Property",prop_label], tablefmt="github") +"\n"
+      base_text = add_property(base_text, RDFS.subPropertyOf, RDM[prop_label])
 
-  return content
+  return base_text
 
-def add_ni(content:str) -> str:
+def add_ni(base_text:str) -> str:
 
   for ni in g.subjects(RDF.type, OWL.NamedIndividual):
     if not ni.startswith(RDM_ns):
@@ -109,9 +109,9 @@ def add_ni(content:str) -> str:
 
     for same_as in g.query(q_same_as.format(ni.replace(RDM_ns,""))):
       data.append(("sameAs",same_as.s))
-    content += "\n" + tabulate(data, headers=["Named Individual",ni.replace(RDM_ns,"")], tablefmt="github") +"\n"
+    base_text += "\n" + tabulate(data, headers=["Named Individual",ni.replace(RDM_ns,"")], tablefmt="github") +"\n"
 
-  return content
+  return base_text
 
 
 if __name__ == "__main__":
@@ -119,22 +119,29 @@ if __name__ == "__main__":
   g:Graph = Graph()
   g.parse("ontology/RDM_ontology.ttl",format="turtle")
 
-  content:str = """## Class\n"""
-  content += "\n### Actor\n"
-  content = add_class(content, "Actor")
-  content += "\n### Object\n"
-  content = add_class(content, "Object")
-  content += "\n### Activity\n"
-  content = add_class(content, "Activity")
+  base_text:str = ""
 
-  content += """## Property\n"""
-  content += "\n### Datatype Property\n"
-  content = add_property(content,RDF.type,OWL.DatatypeProperty)
-  content += "\n### Object Property\n"
-  content = add_property(content,RDF.type,OWL.ObjectProperty)
+  with open(file_path, "r", encoding="utf-8") as file:
+    origin_text = file.read()
+    target = "<!-- The following is generated automatically -->"
+    idx = origin_text.find(target) + 50
+    base_text += origin_text[:idx]
 
-  content += """\n## Named Individual\n"""
-  content += add_ni(content)
+  base_text += "\n### Activity\n"
+  base_text = add_class(base_text, "Activity")
+  base_text += "\n### Actor\n"
+  base_text = add_class(base_text, "Actor")
+  base_text += "\n### Object\n"
+  base_text = add_class(base_text, "Object")
+
+  base_text += """## Property\n"""
+  base_text += "\n### Datatype Property\n"
+  base_text = add_property(base_text,RDF.type,OWL.DatatypeProperty)
+  base_text += "\n### Object Property\n"
+  base_text = add_property(base_text,RDF.type,OWL.ObjectProperty)
+
+  base_text += """\n## Named Individual\n"""
+  base_text += add_ni(base_text)
 
   with open(file_path, "w", encoding="utf-8") as file:
-      file.write(content)
+    file.write(base_text)

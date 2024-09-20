@@ -1,274 +1,56 @@
+# Usage Guidelines
+
+There is two domain models of RDM Ontology; focused on Resource and focused on Activity. The former is focused on describing Resource as a outcome of research activities. The latter is focused on research activities itself. These two can be linked by using rdm property, however, it is not recommended because of the complexity.
+
+## Domain Model Focused on Resource
+
+![Resource domain model](../docs/domain_model_Resource.png)
+
+To describe research outcomes such as research data, the main entity should be of type Resource. (It is recommended that a subclass of Resource be selected and used according to the category of research outcomes.) Related entities such as research project can be described by linking to the main entity. Activity entities is not recommended to add to this style of describing to divide the result of research activity (Resource) and the process (Activity).
+Examples of Resource focused description is in two formats:
+
+- [JSON-LD](../example/example_research_data.json)
+- [turtle](../example/example_research_data.ttl)
+
+## Domain Model Focused on Activity
+
+![Resource domain model](../docs/domain_model_Activity.png)
+
+To describe research activities as a log, the main entity should be a subclass of Activity class. Resource entities can be linked as a result, a target and a used tool of the activity. Linking other entities to Resource is not recommended when the main entity is subclass of Activity, as well as Resourced focused case.
+
+# Term Definitions Overview
+
+| prefix | Namespace                                   |
+| ------ | ------------------------------------------- |
+| rdm    | https://purl.org/rdm/ontology/              |
+| owl    | http://www.w3.org/2002/07/owl#              |
+| rdf    | http://www.w3.org/1999/02/22-rdf-syntax-ns# |
+| rdfs   | http://www.w3.org/2000/01/rdf-schema#       |
+| xsd    | http://www.w3.org/2001/XMLSchema#           |
+
 ## Class
 
-### Actor
+### Base Class
 
-| Class         | Institution                               |
-|---------------|-------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Institution |
-| definition@en | An organization.                          |
-| definition@ja | 機関や組織                                     |
-| subClassOf    | rdm:Actor                                 |
+| Class         | Activity                               |
+| ------------- | -------------------------------------- |
+| IRI           | https://purl.org/rdm/ontology/Activity |
+| definition@en | An action or activity.                 |
+| definition@en | 行動や行為                             |
 
-| Class         | FundingAgency                                   |
-|---------------|-------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/FundingAgency     |
-| definition@en | An organization that funds research activities. |
-| definition@ja | 研究資金提供機関                                        |
-| subClassOf    | rdm:Institution                                 |
+| Class         | Actor                                                       |
+| ------------- | ----------------------------------------------------------- |
+| IRI           | https://purl.org/rdm/ontology/Actor                         |
+| definition@en | Person or organization that is the subject of the Activity. |
+| definition@en | Activity を行う主語にあたる人または組織                     |
 
-| Class         | Person                               |
-|---------------|--------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Person |
-| definition@en | A person.                            |
-| definition@ja | 人物                                   |
-| subClassOf    | rdm:Actor                            |
+| Class         | Object                                              |
+| ------------- | --------------------------------------------------- |
+| IRI           | https://purl.org/rdm/ontology/Object                |
+| definition@en | Things and objects that are the object of Activity. |
+| definition@en | Activity の目的語となる事物                         |
 
-### Object
-
-| Class         | Collection                               |
-|---------------|------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Collection |
-| definition@en | A collection of items.                   |
-| definition@ja | オブジェクトのコレクション                            |
-| subClassOf    | rdm:Object                               |
-
-| Class         | DataManagementPlan                               |
-|---------------|--------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/DataManagementPlan |
-| definition@en | A data management plan (DMP).                    |
-| definition@ja | データ管理計画(DMP)                                     |
-| subClassOf    | rdm:Object                                       |
-
-| Class         | Event                               |
-|---------------|-------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Event |
-| definition@en | An event, such as conferences etc.  |
-| definition@ja | 学会など、イベントや催し物                       |
-| subClassOf    | rdm:Object                          |
-
-| Class         | Experiment                               |
-|---------------|------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Experiment |
-| definition@en | Experiment                               |
-| definition@ja | 実験                                       |
-| subClassOf    | rdm:Object                               |
-
-| Class         | Grant                               |
-|---------------|-------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Grant |
-| definition@en | A grant for research activities.    |
-| definition@ja | 研究資金プログラム                           |
-| subClassOf    | rdm:Object                          |
-
-| Class         | Identifier                               |
-|---------------|------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Identifier |
-| definition@en | An identifier.                           |
-| definition@ja | 識別子                                      |
-| subClassOf    | rdm:Object                               |
-
-| Class         | Intangible                                    |
-|---------------|-----------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Intangible      |
-| definition@en | Abstract class for concepts without entities. |
-| definition@ja | 実体を伴わない概念のための抽象クラス                            |
-| subClassOf    | rdm:Object                                    |
-
-| Class         | Role                               |
-|---------------|------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Role |
-| definition@en | Roles and positions.               |
-| definition@ja | 役割、役職                              |
-| subClassOf    | rdm:Intangible                     |
-
-| Class         | Project                               |
-|---------------|---------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Project |
-| definition@en | A research project.                   |
-| definition@ja | 研究プロジェクト                              |
-| subClassOf    | rdm:Object                            |
-
-| Class         | Repository                               |
-|---------------|------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Repository |
-| definition@en | A repository.                            |
-| definition@ja | リポジトリ                                    |
-| subClassOf    | rdm:Object                               |
-
-| Class         | Resource                                                           |
-|---------------|--------------------------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Resource                             |
-| definition@en | A digital object, such as research data, video of experiments rtc. |
-| definition@ja | 研究データや実験動画など、デジタルオブジェクト                                            |
-| subClassOf    | rdm:Object                                                         |
-
-| Class         | Audio                               |
-|---------------|-------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Audio |
-| definition@en | An audio file.                      |
-| definition@ja | 音声                                  |
-| subClassOf    | rdm:Resource                        |
-
-| Class         | Book                               |
-|---------------|------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Book |
-| definition@en | A book.                            |
-| definition@ja | 書籍                                 |
-| subClassOf    | rdm:Resource                       |
-
-| Class         | ConferenceObject                               |
-|---------------|------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/ConferenceObject |
-| definition@en | A Resource related to conferences.             |
-| definition@ja | カンファレンスに関連するリソース                               |
-| subClassOf    | rdm:Resource                                   |
-
-| Class         | ConferencePaper                               |
-|---------------|-----------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/ConferencePaper |
-| definition@en | A conference paper.                           |
-| definition@ja | カンファレンスペーパー                                   |
-| subClassOf    | rdm:Resource                                  |
-
-| Class         | ConferenceProceeding                               |
-|---------------|----------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/ConferenceProceeding |
-| definition@en | A conference proceeding.                           |
-| definition@ja | カンファレンスプロシーディング                                    |
-| subClassOf    | rdm:Resource                                       |
-
-| Class         | Dataset                               |
-|---------------|---------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Dataset |
-| definition@en | A dataset.                            |
-| definition@ja | データセット                                |
-| subClassOf    | rdm:Resource                          |
-
-| Class         | EducationalResource                                            |
-|---------------|----------------------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/EducationalResource              |
-| definition@en | A Resource related to educational, such as slides for lecture. |
-| definition@ja | 教育関連資料                                                         |
-| subClassOf    | rdm:Resource                                                   |
-
-| Class         | Image                               |
-|---------------|-------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Image |
-| definition@en | An image file.                      |
-| definition@ja | 画像                                  |
-| subClassOf    | rdm:Resource                        |
-
-| Class         | Journal                               |
-|---------------|---------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Journal |
-| definition@en | A journal.                            |
-| definition@ja | ジャーナル                                 |
-| subClassOf    | rdm:Resource                          |
-
-| Class         | JournalArticle                               |
-|---------------|----------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/JournalArticle |
-| definition@en | An article published in a journal.           |
-| definition@ja | ジャーナル論文                                      |
-| subClassOf    | rdm:Resource                                 |
-
-| Class         | Message                               |
-|---------------|---------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Message |
-| definition@en | Message and comment.                  |
-| definition@ja | メッセージやコメント                            |
-| subClassOf    | rdm:Resource                          |
-
-| Class         | MetadataDocument                               |
-|---------------|------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/MetadataDocument |
-| definition@en | Metadata of any Resource.                      |
-| definition@ja | Resource に関するメタデータ                             |
-| subClassOf    | rdm:Resource                                   |
-
-| Class         | OtherResource                               |
-|---------------|---------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/OtherResource |
-| definition@en | An other Resource.                          |
-| definition@ja | その他のリソース                                    |
-| subClassOf    | rdm:Resource                                |
-
-| Class         | Preprint                               |
-|---------------|----------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Preprint |
-| definition@en | A preprint.                            |
-| definition@ja | プレプリント                                 |
-| subClassOf    | rdm:Resource                           |
-
-| Class         | Report                               |
-|---------------|--------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Report |
-| definition@en | A report.                            |
-| definition@ja | レポート、報告書                             |
-| subClassOf    | rdm:Resource                         |
-
-| Class         | Review                               |
-|---------------|--------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Review |
-| definition@en | Review documents and evaluations.    |
-| definition@ja | レビュー文書や評価                            |
-| subClassOf    | rdm:Resource                         |
-
-| Class         | Standard                               |
-|---------------|----------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Standard |
-| definition@en | A standard.                            |
-| definition@ja | 標準                                     |
-| subClassOf    | rdm:Resource                           |
-
-| Class         | Thesis                               |
-|---------------|--------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Thesis |
-| definition@en | A thesis.                            |
-| definition@ja | 学位論文                                 |
-| subClassOf    | rdm:Resource                         |
-
-| Class         | Video                               |
-|---------------|-------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Video |
-| definition@en | A video file.                       |
-| definition@ja | 動画                                  |
-| subClassOf    | rdm:Resource                        |
-
-| Class         | Workflow                               |
-|---------------|----------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Workflow |
-| definition@en | A workflow.                            |
-| definition@ja | ワークフロー                                 |
-| subClassOf    | rdm:Resource                           |
-
-| Class         | RightsStatement                                     |
-|---------------|-----------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/RightsStatement       |
-| definition@en | A higer-level class that relates to various rights. |
-| definition@ja | 権利関係全般に関連するクラス                                      |
-| subClassOf    | rdm:Object                                          |
-
-| Class         | AccessRights                               |
-|---------------|--------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/AccessRights |
-| definition@en | An access right o Resource.                |
-| definition@ja | リソースへのアクセス権                                |
-| subClassOf    | rdm:RightsStatement                        |
-
-| Class         | License                               |
-|---------------|---------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/License |
-| definition@en | A license of Resource.                |
-| definition@ja | リソースのライセンス                            |
-| subClassOf    | rdm:RightsStatement                   |
-
-| Class         | SoftwareApplication                               |
-|---------------|---------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/SoftwareApplication |
-| definition@en | A software application.                           |
-| definition@ja | ソフトウェアアプリケーション                                    |
-| subClassOf    | rdm:Object                                        |
+<!-- The following is generated automatically -->
 
 ### Activity
 
@@ -544,6 +326,276 @@
 | definition@en | An act of creating a visualization based on data, such as making a graph. |
 | definition@ja | グラフを生成するなど、データを元に可視化する行動                                                  |
 | subClassOf    | rdm:Activity                                                              |
+
+### Actor
+
+| Class         | Institution                               |
+|---------------|-------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Institution |
+| definition@en | An organization.                          |
+| definition@ja | 機関や組織                                     |
+| subClassOf    | rdm:Actor                                 |
+
+| Class         | FundingAgency                                   |
+|---------------|-------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/FundingAgency     |
+| definition@en | An organization that funds research activities. |
+| definition@ja | 研究資金提供機関                                        |
+| subClassOf    | rdm:Institution                                 |
+
+| Class         | Person                               |
+|---------------|--------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Person |
+| definition@en | A person.                            |
+| definition@ja | 人物                                   |
+| subClassOf    | rdm:Actor                            |
+
+### Object
+
+| Class         | Collection                               |
+|---------------|------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Collection |
+| definition@en | A collection of items.                   |
+| definition@ja | オブジェクトのコレクション                            |
+| subClassOf    | rdm:Object                               |
+
+| Class         | DataManagementPlan                               |
+|---------------|--------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/DataManagementPlan |
+| definition@en | A data management plan (DMP).                    |
+| definition@ja | データ管理計画(DMP)                                     |
+| subClassOf    | rdm:Object                                       |
+
+| Class         | Event                               |
+|---------------|-------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Event |
+| definition@en | An event, such as conferences etc.  |
+| definition@ja | 学会など、イベントや催し物                       |
+| subClassOf    | rdm:Object                          |
+
+| Class         | Experiment                               |
+|---------------|------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Experiment |
+| definition@en | Experiment                               |
+| definition@ja | 実験                                       |
+| subClassOf    | rdm:Object                               |
+
+| Class         | Grant                               |
+|---------------|-------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Grant |
+| definition@en | A grant for research activities.    |
+| definition@ja | 研究資金プログラム                           |
+| subClassOf    | rdm:Object                          |
+
+| Class         | Identifier                               |
+|---------------|------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Identifier |
+| definition@en | An identifier.                           |
+| definition@ja | 識別子                                      |
+| subClassOf    | rdm:Object                               |
+
+| Class         | Intangible                                    |
+|---------------|-----------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Intangible      |
+| definition@en | Abstract class for concepts without entities. |
+| definition@ja | 実体を伴わない概念のための抽象クラス                            |
+| subClassOf    | rdm:Object                                    |
+
+| Class         | Role                               |
+|---------------|------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Role |
+| definition@en | Roles and positions.               |
+| definition@ja | 役割、役職                              |
+| subClassOf    | rdm:Intangible                     |
+
+| Class         | Project                               |
+|---------------|---------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Project |
+| definition@en | A research project.                   |
+| definition@ja | 研究プロジェクト                              |
+| subClassOf    | rdm:Object                            |
+
+| Class         | Repository                               |
+|---------------|------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Repository |
+| definition@en | A repository.                            |
+| definition@ja | リポジトリ                                    |
+| subClassOf    | rdm:Object                               |
+
+| Class         | Resource                                                           |
+|---------------|--------------------------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Resource                             |
+| definition@en | A digital object, such as research data, video of experiments rtc. |
+| definition@ja | 研究データや実験動画など、デジタルオブジェクト                                            |
+| subClassOf    | rdm:Object                                                         |
+
+| Class         | Audio                               |
+|---------------|-------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Audio |
+| definition@en | An audio file.                      |
+| definition@ja | 音声                                  |
+| subClassOf    | rdm:Resource                        |
+
+| Class         | Book                               |
+|---------------|------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Book |
+| definition@en | A book.                            |
+| definition@ja | 書籍                                 |
+| subClassOf    | rdm:Resource                       |
+
+| Class         | ConferenceObject                               |
+|---------------|------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/ConferenceObject |
+| definition@en | A Resource related to conferences.             |
+| definition@ja | カンファレンスに関連するリソース                               |
+| subClassOf    | rdm:Resource                                   |
+
+| Class         | ConferencePaper                               |
+|---------------|-----------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/ConferencePaper |
+| definition@en | A conference paper.                           |
+| definition@ja | カンファレンスペーパー                                   |
+| subClassOf    | rdm:Resource                                  |
+
+| Class         | ConferenceProceeding                               |
+|---------------|----------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/ConferenceProceeding |
+| definition@en | A conference proceeding.                           |
+| definition@ja | カンファレンスプロシーディング                                    |
+| subClassOf    | rdm:Resource                                       |
+
+| Class         | Dataset                               |
+|---------------|---------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Dataset |
+| definition@en | A dataset.                            |
+| definition@ja | データセット                                |
+| subClassOf    | rdm:Resource                          |
+
+| Class         | EducationalResource                                            |
+|---------------|----------------------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/EducationalResource              |
+| definition@en | A Resource related to educational, such as slides for lecture. |
+| definition@ja | 教育関連資料                                                         |
+| subClassOf    | rdm:Resource                                                   |
+
+| Class         | Image                               |
+|---------------|-------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Image |
+| definition@en | An image file.                      |
+| definition@ja | 画像                                  |
+| subClassOf    | rdm:Resource                        |
+
+| Class         | Journal                               |
+|---------------|---------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Journal |
+| definition@en | A journal.                            |
+| definition@ja | ジャーナル                                 |
+| subClassOf    | rdm:Resource                          |
+
+| Class         | JournalArticle                               |
+|---------------|----------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/JournalArticle |
+| definition@en | An article published in a journal.           |
+| definition@ja | ジャーナル論文                                      |
+| subClassOf    | rdm:Resource                                 |
+
+| Class         | Message                               |
+|---------------|---------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Message |
+| definition@en | Message and comment.                  |
+| definition@ja | メッセージやコメント                            |
+| subClassOf    | rdm:Resource                          |
+
+| Class         | MetadataDocument                               |
+|---------------|------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/MetadataDocument |
+| definition@en | Metadata of any Resource.                      |
+| definition@ja | Resource に関するメタデータ                             |
+| subClassOf    | rdm:Resource                                   |
+
+| Class         | OtherResource                               |
+|---------------|---------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/OtherResource |
+| definition@en | An other Resource.                          |
+| definition@ja | その他のリソース                                    |
+| subClassOf    | rdm:Resource                                |
+
+| Class         | Preprint                               |
+|---------------|----------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Preprint |
+| definition@en | A preprint.                            |
+| definition@ja | プレプリント                                 |
+| subClassOf    | rdm:Resource                           |
+
+| Class         | Report                               |
+|---------------|--------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Report |
+| definition@en | A report.                            |
+| definition@ja | レポート、報告書                             |
+| subClassOf    | rdm:Resource                         |
+
+| Class         | Review                               |
+|---------------|--------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Review |
+| definition@en | Review documents and evaluations.    |
+| definition@ja | レビュー文書や評価                            |
+| subClassOf    | rdm:Resource                         |
+
+| Class         | Standard                               |
+|---------------|----------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Standard |
+| definition@en | A standard.                            |
+| definition@ja | 標準                                     |
+| subClassOf    | rdm:Resource                           |
+
+| Class         | Thesis                               |
+|---------------|--------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Thesis |
+| definition@en | A thesis.                            |
+| definition@ja | 学位論文                                 |
+| subClassOf    | rdm:Resource                         |
+
+| Class         | Video                               |
+|---------------|-------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Video |
+| definition@en | A video file.                       |
+| definition@ja | 動画                                  |
+| subClassOf    | rdm:Resource                        |
+
+| Class         | Workflow                               |
+|---------------|----------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Workflow |
+| definition@en | A workflow.                            |
+| definition@ja | ワークフロー                                 |
+| subClassOf    | rdm:Resource                           |
+
+| Class         | RightsStatement                                     |
+|---------------|-----------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/RightsStatement       |
+| definition@en | A higer-level class that relates to various rights. |
+| definition@ja | 権利関係全般に関連するクラス                                      |
+| subClassOf    | rdm:Object                                          |
+
+| Class         | AccessRights                               |
+|---------------|--------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/AccessRights |
+| definition@en | An access right o Resource.                |
+| definition@ja | リソースへのアクセス権                                |
+| subClassOf    | rdm:RightsStatement                        |
+
+| Class         | License                               |
+|---------------|---------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/License |
+| definition@en | A license of Resource.                |
+| definition@ja | リソースのライセンス                            |
+| subClassOf    | rdm:RightsStatement                   |
+
+| Class         | SoftwareApplication                               |
+|---------------|---------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/SoftwareApplication |
+| definition@en | A software application.                           |
+| definition@ja | ソフトウェアアプリケーション                                    |
+| subClassOf    | rdm:Object                                        |
 ## Property
 
 ### Datatype Property
@@ -2587,277 +2639,59 @@
 | definition@ja | 主語クラスが生成されたアクションまたは実験                                      |
 
 ## Named Individual
+# Usage Guidelines
+
+There is two domain models of RDM Ontology; focused on Resource and focused on Activity. The former is focused on describing Resource as a outcome of research activities. The latter is focused on research activities itself. These two can be linked by using rdm property, however, it is not recommended because of the complexity.
+
+## Domain Model Focused on Resource
+
+![Resource domain model](../docs/domain_model_Resource.png)
+
+To describe research outcomes such as research data, the main entity should be of type Resource. (It is recommended that a subclass of Resource be selected and used according to the category of research outcomes.) Related entities such as research project can be described by linking to the main entity. Activity entities is not recommended to add to this style of describing to divide the result of research activity (Resource) and the process (Activity).
+Examples of Resource focused description is in two formats:
+
+- [JSON-LD](../example/example_research_data.json)
+- [turtle](../example/example_research_data.ttl)
+
+## Domain Model Focused on Activity
+
+![Resource domain model](../docs/domain_model_Activity.png)
+
+To describe research activities as a log, the main entity should be a subclass of Activity class. Resource entities can be linked as a result, a target and a used tool of the activity. Linking other entities to Resource is not recommended when the main entity is subclass of Activity, as well as Resourced focused case.
+
+# Term Definitions Overview
+
+| prefix | Namespace                                   |
+| ------ | ------------------------------------------- |
+| rdm    | https://purl.org/rdm/ontology/              |
+| owl    | http://www.w3.org/2002/07/owl#              |
+| rdf    | http://www.w3.org/1999/02/22-rdf-syntax-ns# |
+| rdfs   | http://www.w3.org/2000/01/rdf-schema#       |
+| xsd    | http://www.w3.org/2001/XMLSchema#           |
+
 ## Class
 
-### Actor
+### Base Class
 
-| Class         | Institution                               |
-|---------------|-------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Institution |
-| definition@en | An organization.                          |
-| definition@ja | 機関や組織                                     |
-| subClassOf    | rdm:Actor                                 |
+| Class         | Activity                               |
+| ------------- | -------------------------------------- |
+| IRI           | https://purl.org/rdm/ontology/Activity |
+| definition@en | An action or activity.                 |
+| definition@en | 行動や行為                             |
 
-| Class         | FundingAgency                                   |
-|---------------|-------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/FundingAgency     |
-| definition@en | An organization that funds research activities. |
-| definition@ja | 研究資金提供機関                                        |
-| subClassOf    | rdm:Institution                                 |
+| Class         | Actor                                                       |
+| ------------- | ----------------------------------------------------------- |
+| IRI           | https://purl.org/rdm/ontology/Actor                         |
+| definition@en | Person or organization that is the subject of the Activity. |
+| definition@en | Activity を行う主語にあたる人または組織                     |
 
-| Class         | Person                               |
-|---------------|--------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Person |
-| definition@en | A person.                            |
-| definition@ja | 人物                                   |
-| subClassOf    | rdm:Actor                            |
+| Class         | Object                                              |
+| ------------- | --------------------------------------------------- |
+| IRI           | https://purl.org/rdm/ontology/Object                |
+| definition@en | Things and objects that are the object of Activity. |
+| definition@en | Activity の目的語となる事物                         |
 
-### Object
-
-| Class         | Collection                               |
-|---------------|------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Collection |
-| definition@en | A collection of items.                   |
-| definition@ja | オブジェクトのコレクション                            |
-| subClassOf    | rdm:Object                               |
-
-| Class         | DataManagementPlan                               |
-|---------------|--------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/DataManagementPlan |
-| definition@en | A data management plan (DMP).                    |
-| definition@ja | データ管理計画(DMP)                                     |
-| subClassOf    | rdm:Object                                       |
-
-| Class         | Event                               |
-|---------------|-------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Event |
-| definition@en | An event, such as conferences etc.  |
-| definition@ja | 学会など、イベントや催し物                       |
-| subClassOf    | rdm:Object                          |
-
-| Class         | Experiment                               |
-|---------------|------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Experiment |
-| definition@en | Experiment                               |
-| definition@ja | 実験                                       |
-| subClassOf    | rdm:Object                               |
-
-| Class         | Grant                               |
-|---------------|-------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Grant |
-| definition@en | A grant for research activities.    |
-| definition@ja | 研究資金プログラム                           |
-| subClassOf    | rdm:Object                          |
-
-| Class         | Identifier                               |
-|---------------|------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Identifier |
-| definition@en | An identifier.                           |
-| definition@ja | 識別子                                      |
-| subClassOf    | rdm:Object                               |
-
-| Class         | Intangible                                    |
-|---------------|-----------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Intangible      |
-| definition@en | Abstract class for concepts without entities. |
-| definition@ja | 実体を伴わない概念のための抽象クラス                            |
-| subClassOf    | rdm:Object                                    |
-
-| Class         | Role                               |
-|---------------|------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Role |
-| definition@en | Roles and positions.               |
-| definition@ja | 役割、役職                              |
-| subClassOf    | rdm:Intangible                     |
-
-| Class         | Project                               |
-|---------------|---------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Project |
-| definition@en | A research project.                   |
-| definition@ja | 研究プロジェクト                              |
-| subClassOf    | rdm:Object                            |
-
-| Class         | Repository                               |
-|---------------|------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Repository |
-| definition@en | A repository.                            |
-| definition@ja | リポジトリ                                    |
-| subClassOf    | rdm:Object                               |
-
-| Class         | Resource                                                           |
-|---------------|--------------------------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Resource                             |
-| definition@en | A digital object, such as research data, video of experiments rtc. |
-| definition@ja | 研究データや実験動画など、デジタルオブジェクト                                            |
-| subClassOf    | rdm:Object                                                         |
-
-| Class         | Audio                               |
-|---------------|-------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Audio |
-| definition@en | An audio file.                      |
-| definition@ja | 音声                                  |
-| subClassOf    | rdm:Resource                        |
-
-| Class         | Book                               |
-|---------------|------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Book |
-| definition@en | A book.                            |
-| definition@ja | 書籍                                 |
-| subClassOf    | rdm:Resource                       |
-
-| Class         | ConferenceObject                               |
-|---------------|------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/ConferenceObject |
-| definition@en | A Resource related to conferences.             |
-| definition@ja | カンファレンスに関連するリソース                               |
-| subClassOf    | rdm:Resource                                   |
-
-| Class         | ConferencePaper                               |
-|---------------|-----------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/ConferencePaper |
-| definition@en | A conference paper.                           |
-| definition@ja | カンファレンスペーパー                                   |
-| subClassOf    | rdm:Resource                                  |
-
-| Class         | ConferenceProceeding                               |
-|---------------|----------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/ConferenceProceeding |
-| definition@en | A conference proceeding.                           |
-| definition@ja | カンファレンスプロシーディング                                    |
-| subClassOf    | rdm:Resource                                       |
-
-| Class         | Dataset                               |
-|---------------|---------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Dataset |
-| definition@en | A dataset.                            |
-| definition@ja | データセット                                |
-| subClassOf    | rdm:Resource                          |
-
-| Class         | EducationalResource                                            |
-|---------------|----------------------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/EducationalResource              |
-| definition@en | A Resource related to educational, such as slides for lecture. |
-| definition@ja | 教育関連資料                                                         |
-| subClassOf    | rdm:Resource                                                   |
-
-| Class         | Image                               |
-|---------------|-------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Image |
-| definition@en | An image file.                      |
-| definition@ja | 画像                                  |
-| subClassOf    | rdm:Resource                        |
-
-| Class         | Journal                               |
-|---------------|---------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Journal |
-| definition@en | A journal.                            |
-| definition@ja | ジャーナル                                 |
-| subClassOf    | rdm:Resource                          |
-
-| Class         | JournalArticle                               |
-|---------------|----------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/JournalArticle |
-| definition@en | An article published in a journal.           |
-| definition@ja | ジャーナル論文                                      |
-| subClassOf    | rdm:Resource                                 |
-
-| Class         | Message                               |
-|---------------|---------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Message |
-| definition@en | Message and comment.                  |
-| definition@ja | メッセージやコメント                            |
-| subClassOf    | rdm:Resource                          |
-
-| Class         | MetadataDocument                               |
-|---------------|------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/MetadataDocument |
-| definition@en | Metadata of any Resource.                      |
-| definition@ja | Resource に関するメタデータ                             |
-| subClassOf    | rdm:Resource                                   |
-
-| Class         | OtherResource                               |
-|---------------|---------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/OtherResource |
-| definition@en | An other Resource.                          |
-| definition@ja | その他のリソース                                    |
-| subClassOf    | rdm:Resource                                |
-
-| Class         | Preprint                               |
-|---------------|----------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Preprint |
-| definition@en | A preprint.                            |
-| definition@ja | プレプリント                                 |
-| subClassOf    | rdm:Resource                           |
-
-| Class         | Report                               |
-|---------------|--------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Report |
-| definition@en | A report.                            |
-| definition@ja | レポート、報告書                             |
-| subClassOf    | rdm:Resource                         |
-
-| Class         | Review                               |
-|---------------|--------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Review |
-| definition@en | Review documents and evaluations.    |
-| definition@ja | レビュー文書や評価                            |
-| subClassOf    | rdm:Resource                         |
-
-| Class         | Standard                               |
-|---------------|----------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Standard |
-| definition@en | A standard.                            |
-| definition@ja | 標準                                     |
-| subClassOf    | rdm:Resource                           |
-
-| Class         | Thesis                               |
-|---------------|--------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Thesis |
-| definition@en | A thesis.                            |
-| definition@ja | 学位論文                                 |
-| subClassOf    | rdm:Resource                         |
-
-| Class         | Video                               |
-|---------------|-------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Video |
-| definition@en | A video file.                       |
-| definition@ja | 動画                                  |
-| subClassOf    | rdm:Resource                        |
-
-| Class         | Workflow                               |
-|---------------|----------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/Workflow |
-| definition@en | A workflow.                            |
-| definition@ja | ワークフロー                                 |
-| subClassOf    | rdm:Resource                           |
-
-| Class         | RightsStatement                                     |
-|---------------|-----------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/RightsStatement       |
-| definition@en | A higer-level class that relates to various rights. |
-| definition@ja | 権利関係全般に関連するクラス                                      |
-| subClassOf    | rdm:Object                                          |
-
-| Class         | AccessRights                               |
-|---------------|--------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/AccessRights |
-| definition@en | An access right o Resource.                |
-| definition@ja | リソースへのアクセス権                                |
-| subClassOf    | rdm:RightsStatement                        |
-
-| Class         | License                               |
-|---------------|---------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/License |
-| definition@en | A license of Resource.                |
-| definition@ja | リソースのライセンス                            |
-| subClassOf    | rdm:RightsStatement                   |
-
-| Class         | SoftwareApplication                               |
-|---------------|---------------------------------------------------|
-| IRI           | https://purl.org/rdm/ontology/SoftwareApplication |
-| definition@en | A software application.                           |
-| definition@ja | ソフトウェアアプリケーション                                    |
-| subClassOf    | rdm:Object                                        |
+<!-- The following is generated automatically -->
 
 ### Activity
 
@@ -3133,6 +2967,276 @@
 | definition@en | An act of creating a visualization based on data, such as making a graph. |
 | definition@ja | グラフを生成するなど、データを元に可視化する行動                                                  |
 | subClassOf    | rdm:Activity                                                              |
+
+### Actor
+
+| Class         | Institution                               |
+|---------------|-------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Institution |
+| definition@en | An organization.                          |
+| definition@ja | 機関や組織                                     |
+| subClassOf    | rdm:Actor                                 |
+
+| Class         | FundingAgency                                   |
+|---------------|-------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/FundingAgency     |
+| definition@en | An organization that funds research activities. |
+| definition@ja | 研究資金提供機関                                        |
+| subClassOf    | rdm:Institution                                 |
+
+| Class         | Person                               |
+|---------------|--------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Person |
+| definition@en | A person.                            |
+| definition@ja | 人物                                   |
+| subClassOf    | rdm:Actor                            |
+
+### Object
+
+| Class         | Collection                               |
+|---------------|------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Collection |
+| definition@en | A collection of items.                   |
+| definition@ja | オブジェクトのコレクション                            |
+| subClassOf    | rdm:Object                               |
+
+| Class         | DataManagementPlan                               |
+|---------------|--------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/DataManagementPlan |
+| definition@en | A data management plan (DMP).                    |
+| definition@ja | データ管理計画(DMP)                                     |
+| subClassOf    | rdm:Object                                       |
+
+| Class         | Event                               |
+|---------------|-------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Event |
+| definition@en | An event, such as conferences etc.  |
+| definition@ja | 学会など、イベントや催し物                       |
+| subClassOf    | rdm:Object                          |
+
+| Class         | Experiment                               |
+|---------------|------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Experiment |
+| definition@en | Experiment                               |
+| definition@ja | 実験                                       |
+| subClassOf    | rdm:Object                               |
+
+| Class         | Grant                               |
+|---------------|-------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Grant |
+| definition@en | A grant for research activities.    |
+| definition@ja | 研究資金プログラム                           |
+| subClassOf    | rdm:Object                          |
+
+| Class         | Identifier                               |
+|---------------|------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Identifier |
+| definition@en | An identifier.                           |
+| definition@ja | 識別子                                      |
+| subClassOf    | rdm:Object                               |
+
+| Class         | Intangible                                    |
+|---------------|-----------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Intangible      |
+| definition@en | Abstract class for concepts without entities. |
+| definition@ja | 実体を伴わない概念のための抽象クラス                            |
+| subClassOf    | rdm:Object                                    |
+
+| Class         | Role                               |
+|---------------|------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Role |
+| definition@en | Roles and positions.               |
+| definition@ja | 役割、役職                              |
+| subClassOf    | rdm:Intangible                     |
+
+| Class         | Project                               |
+|---------------|---------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Project |
+| definition@en | A research project.                   |
+| definition@ja | 研究プロジェクト                              |
+| subClassOf    | rdm:Object                            |
+
+| Class         | Repository                               |
+|---------------|------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Repository |
+| definition@en | A repository.                            |
+| definition@ja | リポジトリ                                    |
+| subClassOf    | rdm:Object                               |
+
+| Class         | Resource                                                           |
+|---------------|--------------------------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Resource                             |
+| definition@en | A digital object, such as research data, video of experiments rtc. |
+| definition@ja | 研究データや実験動画など、デジタルオブジェクト                                            |
+| subClassOf    | rdm:Object                                                         |
+
+| Class         | Audio                               |
+|---------------|-------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Audio |
+| definition@en | An audio file.                      |
+| definition@ja | 音声                                  |
+| subClassOf    | rdm:Resource                        |
+
+| Class         | Book                               |
+|---------------|------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Book |
+| definition@en | A book.                            |
+| definition@ja | 書籍                                 |
+| subClassOf    | rdm:Resource                       |
+
+| Class         | ConferenceObject                               |
+|---------------|------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/ConferenceObject |
+| definition@en | A Resource related to conferences.             |
+| definition@ja | カンファレンスに関連するリソース                               |
+| subClassOf    | rdm:Resource                                   |
+
+| Class         | ConferencePaper                               |
+|---------------|-----------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/ConferencePaper |
+| definition@en | A conference paper.                           |
+| definition@ja | カンファレンスペーパー                                   |
+| subClassOf    | rdm:Resource                                  |
+
+| Class         | ConferenceProceeding                               |
+|---------------|----------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/ConferenceProceeding |
+| definition@en | A conference proceeding.                           |
+| definition@ja | カンファレンスプロシーディング                                    |
+| subClassOf    | rdm:Resource                                       |
+
+| Class         | Dataset                               |
+|---------------|---------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Dataset |
+| definition@en | A dataset.                            |
+| definition@ja | データセット                                |
+| subClassOf    | rdm:Resource                          |
+
+| Class         | EducationalResource                                            |
+|---------------|----------------------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/EducationalResource              |
+| definition@en | A Resource related to educational, such as slides for lecture. |
+| definition@ja | 教育関連資料                                                         |
+| subClassOf    | rdm:Resource                                                   |
+
+| Class         | Image                               |
+|---------------|-------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Image |
+| definition@en | An image file.                      |
+| definition@ja | 画像                                  |
+| subClassOf    | rdm:Resource                        |
+
+| Class         | Journal                               |
+|---------------|---------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Journal |
+| definition@en | A journal.                            |
+| definition@ja | ジャーナル                                 |
+| subClassOf    | rdm:Resource                          |
+
+| Class         | JournalArticle                               |
+|---------------|----------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/JournalArticle |
+| definition@en | An article published in a journal.           |
+| definition@ja | ジャーナル論文                                      |
+| subClassOf    | rdm:Resource                                 |
+
+| Class         | Message                               |
+|---------------|---------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Message |
+| definition@en | Message and comment.                  |
+| definition@ja | メッセージやコメント                            |
+| subClassOf    | rdm:Resource                          |
+
+| Class         | MetadataDocument                               |
+|---------------|------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/MetadataDocument |
+| definition@en | Metadata of any Resource.                      |
+| definition@ja | Resource に関するメタデータ                             |
+| subClassOf    | rdm:Resource                                   |
+
+| Class         | OtherResource                               |
+|---------------|---------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/OtherResource |
+| definition@en | An other Resource.                          |
+| definition@ja | その他のリソース                                    |
+| subClassOf    | rdm:Resource                                |
+
+| Class         | Preprint                               |
+|---------------|----------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Preprint |
+| definition@en | A preprint.                            |
+| definition@ja | プレプリント                                 |
+| subClassOf    | rdm:Resource                           |
+
+| Class         | Report                               |
+|---------------|--------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Report |
+| definition@en | A report.                            |
+| definition@ja | レポート、報告書                             |
+| subClassOf    | rdm:Resource                         |
+
+| Class         | Review                               |
+|---------------|--------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Review |
+| definition@en | Review documents and evaluations.    |
+| definition@ja | レビュー文書や評価                            |
+| subClassOf    | rdm:Resource                         |
+
+| Class         | Standard                               |
+|---------------|----------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Standard |
+| definition@en | A standard.                            |
+| definition@ja | 標準                                     |
+| subClassOf    | rdm:Resource                           |
+
+| Class         | Thesis                               |
+|---------------|--------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Thesis |
+| definition@en | A thesis.                            |
+| definition@ja | 学位論文                                 |
+| subClassOf    | rdm:Resource                         |
+
+| Class         | Video                               |
+|---------------|-------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Video |
+| definition@en | A video file.                       |
+| definition@ja | 動画                                  |
+| subClassOf    | rdm:Resource                        |
+
+| Class         | Workflow                               |
+|---------------|----------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/Workflow |
+| definition@en | A workflow.                            |
+| definition@ja | ワークフロー                                 |
+| subClassOf    | rdm:Resource                           |
+
+| Class         | RightsStatement                                     |
+|---------------|-----------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/RightsStatement       |
+| definition@en | A higer-level class that relates to various rights. |
+| definition@ja | 権利関係全般に関連するクラス                                      |
+| subClassOf    | rdm:Object                                          |
+
+| Class         | AccessRights                               |
+|---------------|--------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/AccessRights |
+| definition@en | An access right o Resource.                |
+| definition@ja | リソースへのアクセス権                                |
+| subClassOf    | rdm:RightsStatement                        |
+
+| Class         | License                               |
+|---------------|---------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/License |
+| definition@en | A license of Resource.                |
+| definition@ja | リソースのライセンス                            |
+| subClassOf    | rdm:RightsStatement                   |
+
+| Class         | SoftwareApplication                               |
+|---------------|---------------------------------------------------|
+| IRI           | https://purl.org/rdm/ontology/SoftwareApplication |
+| definition@en | A software application.                           |
+| definition@ja | ソフトウェアアプリケーション                                    |
+| subClassOf    | rdm:Object                                        |
 ## Property
 
 ### Datatype Property
