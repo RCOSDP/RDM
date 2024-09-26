@@ -13,8 +13,6 @@ toc:
   min_level: 2
   ordered_list: false
 
-source: frontend
-
 defaults:
   - scope:
       path: ""
