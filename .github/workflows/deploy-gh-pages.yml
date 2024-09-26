@@ -41,6 +41,7 @@ jobs:
           ruby-version: '3.3'
       - working-directory: frontend
         run: |
+          gem install bundler
           mv README.md index.md
           bundle exec jekyll build --baseurl /rdm --destination ./dist
       - uses: peaceiris/actions-gh-pages@v4
