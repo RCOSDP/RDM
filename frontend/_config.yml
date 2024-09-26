@@ -3,10 +3,11 @@ description: Guidelines for using the Research Data Management ontology (RDM ont
 baseurl: "/rdm"
 url: "https://rcosdp.github.io"
 
-theme: minima
+remote_theme: pages-themes/minimal@v0.2.0
 
 plugin:
   - jekyll-toc
+  - jekyll-remote-theme
 
 toc:
   min_level: 2
