@@ -5,7 +5,7 @@ url: "https://rcosdp.github.io"
 
 remote_theme: pages-themes/minimal@v0.2.0
 
-plugin:
+plugins:
   - jekyll-toc
   - jekyll-remote-theme
 
