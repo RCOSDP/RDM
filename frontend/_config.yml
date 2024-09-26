@@ -1,6 +1,6 @@
 title: Research Data Management ontology (RDM ontology) Usage Guidelines
 description: Guidelines for using the Research Data Management ontology (RDM ontology)
-baseurl: "/rdm"
+baseurl: "/RDM"
 url: "https://rcosdp.github.io"
 
 remote_theme: pages-themes/minimal@v0.2.0
