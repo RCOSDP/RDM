@@ -17,13 +17,15 @@ def parse_args(args: List[str]) -> Tuple[Path, Path]:
         description="Convert RDF/Turtle to Markdown format."
     )
     parser.add_argument(
-        "turtle_file",
+        "-t",
+        "--turtle-file",
         type=str,
         help="The path to the RDF/Turtle file to convert. (default: ./ontology/RDM_ontology.ttl)",
         default="./ontology/RDM_ontology.ttl",
     )
     parser.add_argument(
-        "markdown_file",
+        "-m",
+        "--markdown-file",
         type=str,
         help="The path to the Markdown file to write. (default: ./frontend/README.md)",
         default="./frontend/README.md",
@@ -50,7 +52,7 @@ def extract_manual_section(file_path: Path) -> List[str]:
         for line in file:
             if line.startswith(GENERATION_BOUNDARY):
                 break
-            manual_section.append(line)
+            manual_section.append(line.strip())
 
     return manual_section
 
@@ -210,9 +212,8 @@ def main() -> None:
     rdf_graph.parse(turtle_file_path, format="turtle")
 
     manual_section_lines = extract_manual_section(markdown_file_path)
-    generate_section_lines = ["", GENERATION_BOUNDARY, ""]
+    generate_section_lines = [GENERATION_BOUNDARY, ""]
 
-    generate_section_lines.extend(["", "## Class", ""])
     generate_section_lines.extend(["", "### Activity", ""])
     append_class(generate_section_lines, rdm_namespace, rdf_graph, "Activity")
     generate_section_lines.extend(["", "### Actor", ""])
