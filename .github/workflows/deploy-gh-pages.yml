@@ -1,0 +1,53 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'ontology/RDM_ontology.ttl'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Convert Turtle to Markdown
+        working-directory: scripts/turtle_to_md
+        run: |
+          python3 -m pip install --no-cache-dir --progress-bar off -U pip
+          python3 -m pip install --no-cache-dir --progress-bar off .
+          turtle_to_md ../../ontology/RDM_ontology.ttl ../../frontend/README.md
+      - name: Commit changes if frontend/README.md has been updated
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          if git diff --exit-code frontend/README.md > /dev/null; then
+            echo "No changes in frontend/README.md"
+          else
+            git add frontend/README.md
+            git commit -m "Update frontend/README.md after converting Turtle to Markdown"
+            git push
+          fi
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+      - working-directory: frontend
+        run: |
+          mv README.md index.md
+          bundle exec jekyll build --baseurl /rdm --destination ./dist
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./frontend/dist
+          publish_branch: gh-pages
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'

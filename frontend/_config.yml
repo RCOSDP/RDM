@@ -1,0 +1,21 @@
+title: Research Data Management ontology (RDM ontology) Usage Guidelines
+description: Guidelines for using the Research Data Management ontology (RDM ontology)
+baseurl: "/rdm"
+url: "https://rcos.github.io"
+
+theme: minima
+
+plugin:
+  - jekyll-toc
+
+toc:
+  min_level: 2
+  ordered_list: false
+
+source: frontend
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      toc: true
