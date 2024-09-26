@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: turtle_to_md
+    container_name: turtle_to_md
+    volumes:
+      - .:/app
+      - ${PWD}/../../ontology:/app/ontology
+      - ${PWD}/../../frontend:/app/frontend
+    restart: on-failure
+    working_dir: /app
+    entrypoint: [ "" ]
+    command: [ "sleep", "infinity" ]
+    init: true

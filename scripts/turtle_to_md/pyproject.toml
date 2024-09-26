@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "turtle_to_md"
+version = "0.1.0"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.8"
+dependencies = ["rdflib", "tabulate"]
+
+[project.optional-dependencies]
+tests = ["isort", "mypy", "pylint", "types-tabulate"]
+
+[project.scripts]
+turtle_to_md = "turtle_to_md:main"
+
+[tool.setuptools]
+py-modules = ["turtle_to_md"]
+
+[tool.mypy]
+files = ["./*.py"]
+follow_imports = "silent"
+strict = true
+
+[tool.pylint.messages_control]
+disable = [
+    "C0114", # Missing module docstring
+    "C0115", # Missing class docstring
+    "C0116", # Missing function or method docstring
+    "C0301", # Line too long
+    "R0911", # Too many return statements
+    "R0912", # Too many branches
+    "R0913", # Too many arguments
+    "R0914", # Too many local variables
+    "R0915", # Too many statements
+    "R1702", # Too many nested blocks
+]

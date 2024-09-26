@@ -1,0 +1,6 @@
+# Ignore everything
+**
+
+!README.md
+!pyproject.toml
+!turtle_to_md.py
