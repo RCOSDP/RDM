@@ -22,7 +22,7 @@ jobs:
         run: |
           python3 -m pip install --no-cache-dir --progress-bar off -U pip
           python3 -m pip install --no-cache-dir --progress-bar off .
-          turtle_to_md ../../ontology/RDM_ontology.ttl ../../frontend/README.md
+          turtle_to_md -t ../../ontology/RDM_ontology.ttl -m ../../frontend/README.md
       - name: Commit changes if frontend/README.md has been updated
         run: |
           git config --global user.name "github-actions[bot]"
