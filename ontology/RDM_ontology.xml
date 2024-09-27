@@ -4284,7 +4284,7 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">An act of uploading Resource to Repository, SoftwareApplication etc.</rdfs:comment>
-        <rdfs:comment xml:lang="ja">Resource を SoftwareApplicationやRepository 等にアップロードする行動</rdfs:comment>
+        <rdfs:comment xml:lang="ja">Resource を SoftwareApplication や Repository 等にアップロードする行動</rdfs:comment>
         <rdfs:label>Upload</rdfs:label>
     </owl:Class>
     

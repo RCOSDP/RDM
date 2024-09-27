@@ -4959,7 +4959,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>Upload</IRI>
-        <Literal xml:lang="ja">Resource を SoftwareApplicationやRepository 等にアップロードする行動</Literal>
+        <Literal xml:lang="ja">Resource を SoftwareApplication や Repository 等にアップロードする行動</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>

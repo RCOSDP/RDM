@@ -3036,7 +3036,7 @@ rdm:Upload rdf:type owl:Class ;
                              owl:allValuesFrom rdm:Person
                            ] ;
            rdfs:comment "An act of uploading Resource to Repository, SoftwareApplication etc."@en ,
-                        "Resource を SoftwareApplicationやRepository 等にアップロードする行動"@ja ;
+                        "Resource を SoftwareApplication や Repository 等にアップロードする行動"@ja ;
            rdfs:label "Upload" .
 
 
