@@ -1,0 +1,7187 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Usage Guidelines | RDM ontology Usage Guidelines</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Usage Guidelines" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Guidelines for using the Research Data Management ontology (RDM ontology)" />
+<meta property="og:description" content="Guidelines for using the Research Data Management ontology (RDM ontology)" />
+<link rel="canonical" href="https://rcosdp.github.io/RDM/" />
+<meta property="og:url" content="https://rcosdp.github.io/RDM/" />
+<meta property="og:site_name" content="RDM ontology Usage Guidelines" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Usage Guidelines" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Guidelines for using the Research Data Management ontology (RDM ontology)","headline":"Usage Guidelines","name":"RDM ontology Usage Guidelines","url":"https://rcosdp.github.io/RDM/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/RDM/assets/css/style.css?v=318ec76a93d9a0515f080ef33a9dbee07e6ea1ed">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/RDM/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="https://rcosdp.github.io/RDM/">RDM ontology Usage Guidelines</a></h1>
+
+        
+
+        <p>Guidelines for using the Research Data Management ontology (RDM ontology)</p>
+
+        
+        <p class="view"><a href="https://github.com/RCOSDP/RDM">View the Project on GitHub <small>RCOSDP/RDM</small></a></p>
+        
+
+        
+
+        
+      </header>
+      <section>
+
+      <h1 id="usage-guidelines">Usage Guidelines</h1>
+
+<p>There is two domain models of RDM Ontology; focused on Resource and focused on Activity. The former is focused on describing Resource as a outcome of research activities. The latter is focused on research activities itself. These two can be linked by using rdm property, however, it is not recommended because of the complexity.</p>
+
+<h2 id="domain-model-focused-on-resource">Domain Model Focused on Resource</h2>
+
+<p><img src="https://raw.githubusercontent.com/RCOSDP/RDM/refs/heads/main/docs/domain_model_Resource.png" alt="Resource domain model" /></p>
+
+<p>To describe research outcomes such as research data, the main entity should be of type Resource. (It is recommended that a subclass of Resource be selected and used according to the category of research outcomes.) Related entities such as research project can be described by linking to the main entity. Activity entities is not recommended to add to this style of describing to divide the result of research activity (Resource) and the process (Activity).
+Examples of Resource focused description is in two formats:</p>
+
+<ul>
+  <li><a href="https://github.com/RCOSDP/RDM/blob/main/example/example_research_data.json">JSON-LD</a></li>
+  <li><a href="https://github.com/RCOSDP/RDM/blob/main/example/example_research_data.ttl">turtle</a></li>
+</ul>
+
+<h2 id="domain-model-focused-on-activity">Domain Model Focused on Activity</h2>
+
+<p><img src="https://raw.githubusercontent.com/RCOSDP/RDM/refs/heads/main/docs/domain_model_Activity.png" alt="Resource domain model" /></p>
+
+<p>To describe research activities as a log, the main entity should be a subclass of Activity class. Resource entities can be linked as a result, a target and a used tool of the activity. Linking other entities to Resource is not recommended when the main entity is subclass of Activity, as well as Resourced focused case.</p>
+
+<h1 id="term-definitions-overview">Term Definitions Overview</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>prefix</th>
+      <th>Namespace</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>rdm</td>
+      <td>https://purl.org/rdm/ontology/</td>
+    </tr>
+    <tr>
+      <td>owl</td>
+      <td>http://www.w3.org/2002/07/owl#</td>
+    </tr>
+    <tr>
+      <td>rdf</td>
+      <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
+    </tr>
+    <tr>
+      <td>rdfs</td>
+      <td>http://www.w3.org/2000/01/rdf-schema#</td>
+    </tr>
+    <tr>
+      <td>xsd</td>
+      <td>http://www.w3.org/2001/XMLSchema#</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="class">Class</h2>
+
+<h3 id="base-class">Base Class</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Activity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Activity</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An action or activity.</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>行動や行為</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Actor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Actor</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Person or organization that is the subject of the Activity.</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Activity を行う主語にあたる人または組織</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Object</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Object</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Things and objects that are the object of Activity.</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Activity の目的語となる事物</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- The following is generated automatically -->
+
+<h3 id="activity">Activity</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Accept</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Accept</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of approving Resource or request.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource や依頼を承認する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Align</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Align</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of editing Resource to format.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource をフォーマットに合わせて編集する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Anonymize</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Anonymize</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of making Resource anonymous.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource を匿名化する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Ask</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Ask</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of asking questions to Person, chatbot etc.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Person やチャットボットなどに質問をする行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Assign</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Assign</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of assigning a role to Person.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Person に役割を任命する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Authorize</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Authorize</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of granting permission or right to an object.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>権利や許可を与える行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Check</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Check</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of checking the regulation for Resource, such as using checkboxes.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>チェックボックスに印をつけるなど、規定の項目に関して確認する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Cleanse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Cleanse</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of performing data cleansing of Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource をデータクレンジングする行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Collect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Collect</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of collecting Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource を収集する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Comment</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of generating a comment on Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource に対してコメントをする行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Connect</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Connect</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of connecting service to another service.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>サービスを別のサービスに接続する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Convert</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Convert</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of converting Resource into a new Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource を新たな Resource に変換する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Create</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Create</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of creating/producing/generating Resource, Project, Collection etc.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Project, Resource, Collection などを作成する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Dump</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Dump</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of creating a log file by dumping.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>ダンプによりログファイルを作成する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Create</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Deploy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Deploy</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of deploying SoftwareApplication or Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource, SoftwareApplicationをデプロイする行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Develop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Develop</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of developing a program.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>プログラミングで実装する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Download</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Download</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of downloading Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource をダウンロードする行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Evaluate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Evaluate</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of evaluating Resource, such as peer-review.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>ピアレビューなど、Resource を評価する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Execute</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Execute</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of executing SoftwareApplication, Resource, program etc.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource, SoftwareApplication, プログラムを実行する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Get</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Get</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of getting/obtaining Resource, information etc.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource または情報などを取得する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Inform</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Inform</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of notifying Person/Institution of information.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Person, Institution に対して通知する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Ingest</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Ingest</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of getting and adding metadata to Resource from public information as part of data curation.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>キュレーションの一環として、Resource のメタデータを外部から取得し付与する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Integrate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Integrate</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of integrating different forms of metadata as part of data curation.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>キュレーションの一環として、メタデータを統合する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Preserve</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Preserve</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of saving and storing Resource to Repository, SoftwareApplication etc.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource を Repository, SoftwareApplication などに保存・保管する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Archive</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Archive</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of archiving Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource をアーカイブする行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Preserve</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Publish</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Publish</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of making Resource public, such as by pushing “publish” button on publishing service. (including Resource of any access rights)</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>公開ボタンを押すなどして、Resource を公開する行動(アクセス権の種類は問わない)</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Register</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Register</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of registering Resource to Repository, SoftwareApplication or other service.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Repository, SoftwareApplication もしくはその他サービスに、 Resource を登録する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Reject</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Reject</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of rejecting proposal/assigned role/submitted Resource etc.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>提出された Resource や提案、割り当てられた役割などを取り下げる行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Rename</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Rename</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of renaming Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource の名称を変更する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Reorganize</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Reorganize</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of changing folder structure of Dataset.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Dataset のフォルダ構成を変更する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Restructure</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Restructure</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of re-structuring Resource as part of data curation, such as sorting a table.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>表データをソートするなど、キュレーションの一環として Resource を再構成する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Schedule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Schedule</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of scheduling future Event.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>未来に行われる Event を設定する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Search</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Search</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of searching Resource, such as by pushing “search” button.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>検索ボタンの押下など、Resource を検索する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Select</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Select</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of selecting from options.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>選択肢の中から利用するものを選択する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Send</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Send</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of dispatching Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource を送る行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Suggest</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Suggest</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of presenting or proposing options.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>選択肢を提示する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Update</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Update</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of updating an existing Resource with changes.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>既存の Resource に変更を加え更新する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Upload</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Upload</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of uploading Resource to Repository, SoftwareApplication etc.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource を SoftwareApplication や Repository 等にアップロードする行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Visualize</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Visualize</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An act of creating a visualization based on data, such as making a graph.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>グラフを生成するなど、データを元に可視化する行動</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Activity</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="actor">Actor</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Institution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Institution</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An organization.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>機関や組織</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Actor</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>FundingAgency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/FundingAgency</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An organization that funds research activities.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>研究資金提供機関</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Institution</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Person</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Person</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A person.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>人物</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Actor</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="object">Object</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Collection</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Collection</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A collection of items.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>オブジェクトのコレクション</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Object</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>DataManagementPlan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/DataManagementPlan</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A data management plan (DMP).</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>データ管理計画(DMP)</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Object</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Event</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Event</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An event, such as conferences etc.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>学会など、イベントや催し物</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Object</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Experiment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Experiment</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Experiment</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>実験</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Object</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Grant</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Grant</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A grant for research activities.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>研究資金プログラム</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Object</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Identifier</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Identifier</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An identifier.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>識別子</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Object</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Intangible</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Intangible</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Abstract class for concepts without entities.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>実体を伴わない概念のための抽象クラス</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Object</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Role</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Roles and positions.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>役割、役職</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Intangible</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Project</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Project</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A research project.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>研究プロジェクト</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Object</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Repository</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Repository</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A repository.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>リポジトリ</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Object</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Resource</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A digital object, such as research data, video of experiments rtc.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>研究データや実験動画など、デジタルオブジェクト</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Object</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Audio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Audio</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An audio file.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>音声</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Book</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Book</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A book.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>書籍</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>ConferenceObject</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/ConferenceObject</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Resource related to conferences.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>カンファレンスに関連するリソース</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>ConferencePaper</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/ConferencePaper</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A conference paper.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>カンファレンスペーパー</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>ConferenceProceeding</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/ConferenceProceeding</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A conference proceeding.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>カンファレンスプロシーディング</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Dataset</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Dataset</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A dataset.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>データセット</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>EducationalResource</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/EducationalResource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Resource related to educational, such as slides for lecture.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>教育関連資料</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Image</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An image file.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>画像</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Journal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Journal</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A journal.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>ジャーナル</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>JournalArticle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/JournalArticle</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An article published in a journal.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>ジャーナル論文</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Message</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Message and comment.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>メッセージやコメント</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>MetadataDocument</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/MetadataDocument</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Metadata of any Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource に関するメタデータ</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>OtherResource</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/OtherResource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An other Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>その他のリソース</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Preprint</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Preprint</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A preprint.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>プレプリント</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Report</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Report</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A report.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>レポート、報告書</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Review</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Review</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Review documents and evaluations.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>レビュー文書や評価</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Standard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Standard</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A standard.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>標準</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Thesis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Thesis</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A thesis.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>学位論文</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Video</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Video</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A video file.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>動画</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Workflow</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/Workflow</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A workflow.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>ワークフロー</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Resource</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>RightsStatement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/RightsStatement</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A higher-level class that relates to various rights.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>権利関係全般に関連するクラス</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Object</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>AccessRights</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/AccessRights</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An access right o Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>リソースへのアクセス権</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:RightsStatement</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>License</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/License</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A license of Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>リソースのライセンス</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:RightsStatement</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>SoftwareApplication</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A software application.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>ソフトウェアアプリケーション</td>
+    </tr>
+    <tr>
+      <td>subClassOf</td>
+      <td>rdm:Object</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="property">Property</h2>
+
+<h3 id="datatype-property">Datatype Property</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/address</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Institution</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Address of this Institution.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>研究機関の住所</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>contact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/contact</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:DataManagementPlan</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Contacts for data management organizations and managers to be described in this DataManagementPlan.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>DMPにおけるデータ管理機関・管理者への連絡先</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>copyright</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/copyright</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:License</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A copyright notice.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>コピーライト表記</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dataNumber</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dataNumber</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:DataManagementPlan</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:nonNegativeInteger</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>DMPにおけるデータNo.</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The data number assigned to this DataManagementPlan.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/date</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:date, xsd:dateTime</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A date or datetime.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>日付または日時</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dateAvailable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dateAvailable</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:date</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:AccessRights</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Scheduled date of open access of the Resource under the rights of embargoed access.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>公開猶予の場合の公開予定日</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dateCreated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dateCreated</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:date</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The date on which this Resource was created.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>リソースの作成日</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dateEnded</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dateEnded</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:date</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Activity, rdm:Event, rdm:Project, rdm:Role</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The end date of this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>クラスの終了日</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dateModified</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dateModified</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:date</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The date on which the Resource was most recently modified.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>リソースの最終更新日</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>datePublished</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/datePublished</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:date</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The date on which this Resource was published.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>リソースの発行日・公開日</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dateStarted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dateStarted</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:date</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Activity, rdm:Event, rdm:Project, rdm:Role</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The start date of this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>クラスの開始日</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dateUpdated</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dateUpdated</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:date</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Event</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The date on which this Event information was most recently updated.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>イベントの内容更新日</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>sdDatePublished</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/sdDatePublished</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:date</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The acquisition date of this Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>外部ファイルの取得日</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/description</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Experiment, rdm:Grant, rdm:Project, rdm:Repository, rdm:Resource, rdm:Role</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A description of this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>クラスの説明</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dataAccessRequirements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dataAccessRequirements</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:description</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:AccessRights</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Conditions and method of access to the Resource under access restrictions.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>アクセス権が限定公開の場合のアクセス条件と方法</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dataDescription</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dataDescription</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:description</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:DataManagementPlan</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>DMPにおけるデータの説明</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The description of research data to be described in this DataManagementPlan.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>measurementTechnique</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/measurementTechnique</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:description</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:DataManagementPlan</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A technique, method or technology used to create research data.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>研究データの収集・取得方法</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>operatingSystem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/operatingSystem</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:description</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Operating systems supported by this SoftwareApplication.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>アプリケーションがサポートされているOS</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>processorRequirements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/processorRequirements</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:description</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Processor architecture required to run this SoftwareApplication.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>アプリケーション実行に必要なプロセッサー要件</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>protocolText</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/protocolText</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:description</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Experiment</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A text of protocol of this Experiment.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>実験のプロトコル、手順を示したテキスト</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/purpose</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:description</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Event</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Context of this Event implementation e.g. reasons and backgrounds for implementation.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>実施に至った理由や背景など、イベント実施のコンテクスト</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>readme</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/readme</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:description</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A text description as Read Me of this SoftwareApplication.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>README</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>softwareRequirements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/softwareRequirements</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:description</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Component dependency requirements for this SoftwareApplication.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>アプリケーションコンポーネントの依存要件</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>specialRequirements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/specialRequirements</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:description</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Other requirements for this SoftwareApplication.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>他のプロパティに当てはまらないアプリケーションに必要な条件</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>storageRequirements</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/storageRequirements</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:description</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Storage requirements.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>ストレージの要件</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>detailedRole</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/detailedRole</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Person</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A detailed role of this Person.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>詳細な役割</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>detailedType</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/detailedType</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A detailed type of this Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>詳細な資源タイプ</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dmpFormat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dmpFormat</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:DataManagementPlan</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A name of DataManagementPlan format.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>DMP種別名</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/email</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Person</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Email address.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>メールアドレス</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>encodingFormat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/encodingFormat</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A MIME format of this Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>リソースのフォーマット</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>http://www.iana.org/assignments/media-types/</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dataEncodingFormat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dataEncodingFormat</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:encodingFormat</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:DataManagementPlan</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>DMPで記述した研究データのフォーマット</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The format of research data to be described in this DataManagementPlan.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>field</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/field</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A research field of this Project/Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>プロジェクト・リソースの主題</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>keywords</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/keywords</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Keywords used to describe this Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>キーワード</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>language</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/language</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:language</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The language of this Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>言語</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/location</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Event, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The place where this Event was/will be held or this Resource was created.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスの開催場所・取得場所</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/name</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Event, rdm:Grant, rdm:Institution, rdm:License, rdm:Project, rdm:Repository, rdm:Resource, rdm:Role, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A name of this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスの名称</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>additionalName</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/additionalName</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:name</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Person</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An additional name for this Person e.g. middle name.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>ミドルネームなど、その他の名前</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>familyName</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/familyName</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:name</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Person</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Family name.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>名字</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>givenName</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/givenName</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:name</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Person</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Given name.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>ファーストネーム</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>identifierName</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/identifierName</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:name</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Identifier</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A name of identifier scheme e.g. DOI.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>識別子のスキーマ名</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/query</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Search</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Search クラスで検索時に使われたクエリ</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The query used on this Search activity.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/size</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:nonNegativeInteger, xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>This Resource size.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスの大きさ、サイズ</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>approximateSize</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/approximateSize</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:size</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:DataManagementPlan</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Approximate size of research data to be described in this DataManagementPlan.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>DMPにおける概略データ量</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>collectionSize</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/collectionSize</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:size</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:nonNegativeInteger</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The number of items in this Collection.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>所定のパッケージに含まれるデータセットの総数</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>textContent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/textContent</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource の内容であるテキスト</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The textual content of this Resource.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/url</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Grant, rdm:Identifier, rdm:License, rdm:Project, rdm:Repository, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:anyURI</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A URL related to this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスに関連するURL</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/value</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:anyURI, xsd:double, xsd:integer, xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A higher-level property that indicates some value of Classes.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>クラスにおける何かしらの値を示す上位プロパティ</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>hashValue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/hashValue</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:value</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Hash value.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>ハッシュ値</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>sha256</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/sha256</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:hashValue</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>sha256 hash value.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>sha256のハッシュ値</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>identifierValue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/identifierValue</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:value</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Identifier</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:anyURI, xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Identifier value.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>識別子の値</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>doi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/doi</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:identifierValue</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:anyURI</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>DOI</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>DOI URL.</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://www.doi.org/</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>eradResearcherNumber</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/eradResearcherNumber</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:identifierValue</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Person</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>e-rad researcher number.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>e-rad 研究者番号</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://www.e-rad.go.jp/</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>funderId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/funderId</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:identifierValue</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:FundingAgency</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Funder ID.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>助成機関識別子</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://www.crossref.org/services/funder-registry/</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isbn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isbn</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:identifierValue</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Book</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>ISBN code.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>ISBNコード</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>japanGrantNumber</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/japanGrantNumber</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:identifierValue</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Grant</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Japan grant number.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>体系的課題番号</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://www.nistep.go.jp/archives/53002</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>localIdentifier</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/localIdentifier</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:identifierValue</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Experiment, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Local identifier.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>ローカル識別子</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>orcid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/orcid</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:identifierValue</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Person</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:anyURI</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>ORCID iD</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>ORCID iD.</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://orcid.org/</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>raid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/raid</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:identifierValue</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Project</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>RAiD</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>RAiD.</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://raid.org/</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>ror</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/ror</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:identifierValue</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Institution</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:anyURI</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>ROR ID</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>ROR ID.</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://ror.org/</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/version</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>xsd:nonNegativeInteger, xsd:string</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The version of this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>バージョン</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="object-property">Object Property</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>accessRightsInformation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/accessRightsInformation</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:AccessRights</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Information on access rights of this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>クラスのアクセス権関連情報</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dataAccessRightsInformation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dataAccessRightsInformation</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:accessRightsInformation</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:DataManagementPlan</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>DMPにおけるデータへのアクセス権</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Information on access rights to be described in this DataManagementPlan.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>activityObject</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/activityObject</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Activity</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Event, rdm:Experiment, rdm:Project, rdm:Repository, rdm:Resource, rdm:Role, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An object of the Activity.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>行動の対象物</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>affiliation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/affiliation</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Person</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Institution</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An organization that this Person is affiliated with.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>人物の所属先機関</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>agent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/agent</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Activity</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Institution, rdm:Person</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The direct performer or driver of this Activity.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>行動・行為の直接的な実施者</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>collectedIn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/collectedIn</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:collectionItem</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Collection which includes this Resource as a member of Collection.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>リソースをメンバーとして含むCollection</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>conditionOfAccess</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/conditionOfAccess</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:AccessRights</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:RightsStatement</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Access rights type.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>アクセス権の種別</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>contributor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/contributor</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Event, rdm:Experiment, rdm:Project, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Institution, rdm:Person</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A contributor to this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>クラスへの寄与者</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>creator</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/creator</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:contributor</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Person</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The creator/author of this Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>リソースの作成者</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dataCreator</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dataCreator</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:creator</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:DataManagementPlan</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Person</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>DMPにおける研究データの作成者</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The creator of research data to be described in this DataManagementPlan.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dataManager</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dataManager</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:contributor</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:DataManagementPlan</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Person</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>DMPにおける研究データ管理者</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The data manager of research data to be described in this DataManagementPlan.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>experimenter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/experimenter</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:contributor</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Experiment</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Person</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The practitioner, performer and executor of this Experiment.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>実験の実施者、実行者</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>hostingInstitution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/hostingInstitution</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:contributor</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:DataManagementPlan, rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Institution</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>(Project に属する)Resource の管理機関、もしくはDMPにおける研究データ管理機関</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The hosting institution of Resource (in Project) and research data to be described in this DataManagementPlan.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>identifierManager</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/identifierManager</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:contributor</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Identifier</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Institution</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A manager of identifier scheme/service, e.g. International DOI Foundation.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>国際DOI財団など、識別子の管理者</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>organizer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/organizer</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:contributor</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Event</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An Event organizer or host.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>イベントの開催者、主催者</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>researcher</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/researcher</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:contributor</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Project</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Person</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A researcher involved in this Project.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>プロジェクトに参加した研究者</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dmp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dmp</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:DataManagementPlan</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Contents of data management plan of this Project/Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>資源やプロジェクトに紐づくデータ管理計画</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dmpFormatProvider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dmpFormatProvider</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:DataManagementPlan</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Institution</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A institution which provides this DataManagementPlan format.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>DMP種別の提供者</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>funder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/funder</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Grant, rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:FundingAgency</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An organization that funds this Project or research activities to create this Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>研究資金プログラム提供者</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>funding</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/funding</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Grant</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A grant program for this Project or research activities to create this Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>研究資金プログラム</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>identifierInformation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/identifierInformation</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Grant, rdm:Institution, rdm:Person, rdm:Project, rdm:Repository, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Identifier</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>An identifier information of this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>識別子</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dataIdentifier</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dataIdentifier</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:identifierInformation</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:DataManagementPlan</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Identifier</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>DMPにおけるデータ識別子</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The identifier of research data to be described in this DataManagementPlan.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>inProject</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/inProject</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:projectItem</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Project</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Project this Resource is within/included in.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>リソースが属するプロジェクト</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>inclusionRelation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/inclusionRelation</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A higher-level property that indicates inclusion relationship between Classes.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスと包含関係のあるクラスを指す上位プロパティ</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>hasPart</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/hasPart</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:inclusionRelation</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:isPartOf</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Experiment, rdm:Grant, rdm:Institution, rdm:Project, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A class consisting of multiple parts of which this class is a part.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスが一部分となっている、複数の部分から成るクラス</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isPartOf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isPartOf</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:inclusionRelation</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Experiment, rdm:Grant, rdm:Institution, rdm:Project, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class of the parts that make up this class</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスを構成する部分のクラス</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>instrument</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/instrument</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Activity, rdm:Experiment</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The object that helped the agent perform the Activity and used in the Experiment.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>行動や実験で使われた道具、ツール</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isRelatedTo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class independent of this Class that is related to this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスと何らかの関連がある、独立したクラス</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>cites</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/cites</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:isCitedBy</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Resource that this Class cites.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスが引用しているリソース</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#cites</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>collects</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/collects</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:isCollectedBy</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class which collected/created by using this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスを使用して収集・作成されたクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#collects</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>compiles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/compiles</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:isCompiledBy</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The result of a compile or creation event using this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスを使用したコンパイルまたは作成イベントの結果</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#compiles</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>continues</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/continues</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:isContinuedBy</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Event, rdm:Institution, rdm:Project, rdm:Repository, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Event, rdm:Institution, rdm:Project, rdm:Repository, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class of which this Class is a continuation.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスが継続しているクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>describes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/describes</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:isDescribedBy</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class that this Resource describes.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource が説明しているクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>documents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/documents</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:isDocumentedBy</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A  SoftwareApplication which is documented by this Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource がその説明文書・ドキュメントに相当する SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#documents</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>hasMetadata</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/hasMetadata</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:isMetadataFor</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:MetadataDocument</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Resource which has additional metadata of this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスの追加メタデータを持つ Resource</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>hasVersion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/hasVersion</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:isVersionOf</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class  which is another version of this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスの異なるバージョンとして存在するクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ismetadatafor</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isCitedBy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isCitedBy</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Resource that this Class is cited.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスが引用されているリソース</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#iscitedby</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isCollectedBy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isCollectedBy</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class that is used to collect/create this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスの収集・生成に利用されたクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#iscollectedby</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isCompiledBy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isCompiledBy</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class used to compile or create this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスをコンパイルまたは作成するために使用するクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#iscompiledby</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isContinuedBy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isContinuedBy</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Event, rdm:Institution, rdm:Project, rdm:Repository, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Event, rdm:Institution, rdm:Project, rdm:Repository, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class continued by this Class</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスが継続されているクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#iscontinuedby</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isDerivedFrom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isDerivedFrom</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:isSourceOf</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class on which this Class is based.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスが基づいているクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isderivedfrom</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isDescribedBy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isDescribedBy</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Resource that describes this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスを説明している Resource</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#continues</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isDocumentedBy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isDocumentedBy</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Resource which is documentation about/explaining this SoftwareApplication.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>SoftwareApplication の説明文書・ドキュメントである Resource</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isdocumentedby</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isIdenticalTo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isIdenticalTo</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Resource which is identical to this Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスと同一である Resource</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isidenticalto</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isMetadataFor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isMetadataFor</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:MetadataDocument</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class for which this Resource has additional metadata.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>Resource が追加メタデータになっているクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ismetadatafor</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isNewVersionOf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isNewVersionOf</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:isPreviousVersionOf</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class which is a new edition of this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスが新版に当たる、旧版のクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isnewversionof</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isObsoletedBy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isObsoletedBy</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:obsoletes</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class which replaces this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスを廃止させたクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isobsoletedby</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isOriginalFormOf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isOriginalFormOf</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:isVariantFormOf</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class of which this Class is the original form.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスをオリジナルとするクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isoriginalformof</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isPreviousVersionOf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isPreviousVersionOf</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class which is a previous edition of this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスが旧版に当たる、新版のクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ispreviousversionof</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isPublishedIn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isPublishedIn</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class which is published in this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスをその一部として公開するクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ispublishedin</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isReferencedBy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isReferencedBy</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:references</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class which uses this Class as a source of information.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスを情報源として参照しているクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isreferencedby</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isRequiredBy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isRequiredBy</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:requires</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class which requires this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスを必要とするクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isrequiredby</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isReviewedBy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isReviewedBy</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:reviews</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Review</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class which is a review of this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスのレビューとなっているクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isreviewedby</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isSourceOf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isSourceOf</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class from which this Class is derived.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスが基となっているクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#issourceof</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isSupplementTo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isSupplementTo</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:isSupplementedBy</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class that supplements this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスが補足をしているクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#issupplementto</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isSupplementedBy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isSupplementedBy</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class which is supplemented by this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスを補足しているクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#issupplementby</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isVariantFormOf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isVariantFormOf</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class which is the original form of this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスのオリジナルであるクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isvariantformof</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>isVersionOf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/isVersionOf</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class  which this Class has as an another version.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスが異なるバージョンであるクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#isversionof</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>obsoletes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/obsoletes</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class which is replaced by this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスによって置き換えられたクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#obsoletes</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>references</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/references</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class which is used as a source of information by this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスの情報源となったクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#references</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>requires</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/requires</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class which is required by this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスを必要とするクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#requires</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>reviews</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/reviews</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:isRelatedTo</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Review</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Class which is reviewed by this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスによってレビューされたクラス</td>
+    </tr>
+    <tr>
+      <td>seeAlso</td>
+      <td>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#reviews</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>item</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/item</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Resource related to this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスと関連のあるリソース</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>collectionItem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/collectionItem</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:item</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Resource included in this Collection.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>コレクションに含まれるリソース</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dmpTargetItem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dmpTargetItem</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:item</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:DataManagementPlan</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Resource described in DataManagementPlan.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>DMPで対象になっているリソース</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>projectItem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/projectItem</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:item</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Project</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Resource within this Project.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>プロジェクトに含まれるリソース</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>storedItem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/storedItem</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:item</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Repository</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A Resource stored in this Repository.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>リポジトリに保存されている資源</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>licenseInformation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/licenseInformation</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:License</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Information on license of this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>プロジェクトやリソースのライセンス情報</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>dataLicenseInformation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/dataLicenseInformation</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:licenseInformation</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:DataManagementPlan</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>DMPにおけるデータのライセンス</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The license of research data to be described in this DataManagementPlan.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>material</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/material</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Experiment</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Materials and inputs in the Experiment.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>実験における、材料や入力となるもの</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>protocol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/protocol</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Experiment</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The protocol of this Experiment.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>実験のプロトコル、手順</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>recipient</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/recipient</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Activity</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Person</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The recipient of this Activity and the affected party of this Activity.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>行動を受け取る・行動の影響を受ける相手</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/result</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:wasGeneratedBy</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Activity, rdm:Experiment</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The result produced in this Activity /Experiment.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>アクションや実験によって生成された新しいエンティティ</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>storedIn</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/storedIn</td>
+    </tr>
+    <tr>
+      <td>inverseOf</td>
+      <td>rdm:storedItem</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Repository</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Repository or storage where this Resource is managed.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>リソースが管理されているリポジトリやストレージ</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/target</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Activity</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Collection, rdm:Project, rdm:Repository, rdm:Resource, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>The indirect object, or target, of this Activity.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>アクションの間接的な対象物</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>fromLocation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/fromLocation</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:target</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Download, rdm:Upload</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Repository, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Uploaded or downloaded from</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>アップロードもしくはダウンロード元</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>toLocation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/toLocation</td>
+    </tr>
+    <tr>
+      <td>subPropertyOf</td>
+      <td>rdm:target</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Download, rdm:Preserve, rdm:Register, rdm:Upload</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Repository, rdm:SoftwareApplication</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Upload or Download location</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>アップロードもしくはダウンロード先の場所</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>thumbnail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/thumbnail</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Image</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>A thumbnail of this Resource.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>サムネイル</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>wasGeneratedBy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/wasGeneratedBy</td>
+    </tr>
+    <tr>
+      <td>domain</td>
+      <td>rdm:Collection, rdm:Project, rdm:Resource</td>
+    </tr>
+    <tr>
+      <td>range</td>
+      <td>rdm:Activity, rdm:Experiment</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Activity or Experiment which created/generated this Class.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>主語クラスが生成されたアクションまたは実験</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="named-individual">Named Individual</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Named Individual</th>
+      <th>EmbargoedAccess</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/EmbargoedAccess</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>rdm:RightsStatement</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Embargoed access (metadata only access until released for open access on a certain date).</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>公開期間猶予</td>
+    </tr>
+    <tr>
+      <td>sameAs</td>
+      <td>http://purl.org/coar/access_right/c_f1cf</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Named Individual</th>
+      <th>MetadataOnlyAccess</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/MetadataOnlyAccess</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>rdm:RightsStatement</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Metadata only access.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>メタデータのみ公開</td>
+    </tr>
+    <tr>
+      <td>sameAs</td>
+      <td>http://purl.org/coar/access_right/c_14cb</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Named Individual</th>
+      <th>OpenAccess</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/OpenAccess</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>rdm:RightsStatement</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Open access.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>公開</td>
+    </tr>
+    <tr>
+      <td>sameAs</td>
+      <td>http://purl.org/coar/access_right/c_abf2</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Named Individual</th>
+      <th>RestrictedAccess</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IRI</td>
+      <td>https://purl.org/rdm/ontology/RestrictedAccess</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>rdm:RightsStatement</td>
+    </tr>
+    <tr>
+      <td>definition@en</td>
+      <td>Restricted access.</td>
+    </tr>
+    <tr>
+      <td>definition@ja</td>
+      <td>限定公開</td>
+    </tr>
+    <tr>
+      <td>sameAs</td>
+      <td>http://purl.org/coar/access_right/c_16ec</td>
+    </tr>
+  </tbody>
+</table>
+
+
+      </section>
+      <footer>
+        
+        <p>This project is maintained by <a href="https://github.com/RCOSDP">RCOSDP</a></p>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="/RDM/assets/js/scale.fix.js"></script>
+  </body>
+</html>
