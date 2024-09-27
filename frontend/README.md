@@ -4,17 +4,17 @@ There is two domain models of RDM Ontology; focused on Resource and focused on A
 
 ## Domain Model Focused on Resource
 
-![Resource domain model](../docs/domain_model_Resource.png)
+![Resource domain model](https://raw.githubusercontent.com/RCOSDP/RDM/refs/heads/main/docs/domain_model_Resource.png)
 
 To describe research outcomes such as research data, the main entity should be of type Resource. (It is recommended that a subclass of Resource be selected and used according to the category of research outcomes.) Related entities such as research project can be described by linking to the main entity. Activity entities is not recommended to add to this style of describing to divide the result of research activity (Resource) and the process (Activity).
 Examples of Resource focused description is in two formats:
 
-- [JSON-LD](../example/example_research_data.json)
-- [turtle](../example/example_research_data.ttl)
+- [JSON-LD](https://github.com/RCOSDP/RDM/example/example_research_data.json)
+- [turtle](https://github.com/RCOSDP/RDM/example/example_research_data.ttl)
 
 ## Domain Model Focused on Activity
 
-![Resource domain model](../docs/domain_model_Activity.png)
+![Resource domain model](https://raw.githubusercontent.com/RCOSDP/RDM/refs/heads/main/docs/domain_model_Activity.png)
 
 To describe research activities as a log, the main entity should be a subclass of Activity class. Resource entities can be linked as a result, a target and a used tool of the activity. Linking other entities to Resource is not recommended when the main entity is subclass of Activity, as well as Resourced focused case.
 
