@@ -6399,7 +6399,7 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:seeAlso"/>
         <IRI>isPublishedIn</IRI>
-        <Literal>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ispreviousversionof</Literal>
+        <Literal>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ispublishedin</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>

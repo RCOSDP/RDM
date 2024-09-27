@@ -1069,7 +1069,7 @@
         <rdfs:comment xml:lang="en">A Class which is published in this Class.</rdfs:comment>
         <rdfs:comment xml:lang="ja">主語クラスをその一部として公開するクラス</rdfs:comment>
         <rdfs:label>isPublishedIn</rdfs:label>
-        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ispreviousversionof</rdfs:seeAlso>
+        <rdfs:seeAlso>https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ispublishedin</rdfs:seeAlso>
     </owl:ObjectProperty>
     
 
