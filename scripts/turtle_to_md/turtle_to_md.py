@@ -185,7 +185,7 @@ def append_name_individual(
                 table_rows.append(("sameAs", same_as.s))
 
         lines.extend(["",
-                      tabulate(table_rows, headers=["Property", str(subject).replace(RDM_NAMESPACE_BASE_URI, "")], tablefmt="github"),
+                      tabulate(table_rows, headers=["Named Individual", str(subject).replace(RDM_NAMESPACE_BASE_URI, "")], tablefmt="github"),
                       ""])
 
 
