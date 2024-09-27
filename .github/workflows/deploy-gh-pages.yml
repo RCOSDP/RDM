@@ -43,7 +43,7 @@ jobs:
         run: |
           bundler install
           mv README.md index.md
-          bundle exec jekyll build --baseurl /rdm --destination ./dist
+          bundle exec jekyll build --baseurl /RDM --destination ./dist
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
