@@ -773,7 +773,7 @@ rdm:isPublishedIn rdf:type owl:ObjectProperty ;
                   rdfs:comment "A Class which is published in this Class."@en ,
                                "主語クラスをその一部として公開するクラス"@ja ;
                   rdfs:label "isPublishedIn" ;
-                  rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ispreviousversionof" .
+                  rdfs:seeAlso "https://datacite-metadata-schema.readthedocs.io/en/4.5/appendices/appendix-1/relationType/#ispublishedin" .
 
 
 ###  https://purl.org/rdm/ontology/isReferencedBy
@@ -1852,7 +1852,7 @@ rdm:value rdf:type owl:DatatypeProperty ;
                                      xsd:string
                                    )
                      ] ;
-          rdfs:comment "A higer-level property that indicates some value of Classes."@en ,
+          rdfs:comment "A higher-level property that indicates some value of Classes."@en ,
                        "クラスにおける何かしらの値を示す上位プロパティ"@ja ;
           rdfs:label "value" .
 
@@ -2863,7 +2863,7 @@ rdm:Review rdf:type owl:Class ;
 ###  https://purl.org/rdm/ontology/RightsStatement
 rdm:RightsStatement rdf:type owl:Class ;
                     rdfs:subClassOf rdm:Object ;
-                    rdfs:comment "A higer-level class that relates to various rights."@en ,
+                    rdfs:comment "A higher-level class that relates to various rights."@en ,
                                  "権利関係全般に関連するクラス"@ja ;
                     rdfs:label "RightsStatement" .
 
