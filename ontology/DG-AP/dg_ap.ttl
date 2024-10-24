@@ -130,7 +130,7 @@ rdm:DataManagementPlan  rdfs:subClassOf [ a owl:Restriction ;
               owl:onProperty rdm:dmpFormatProvider ],
               [ a owl:Restriction ;
               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-              owl:onProperty rdm:description ] ;
+              owl:onProperty rdm:description ] ,
               [ a owl:Restriction ;
               owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
               owl:onProperty rdm:measurementTechnique ] .
