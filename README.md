@@ -63,6 +63,7 @@ The following are mappings to schemas compatible with the RDM Ontology. Please n
   - [turtle](./ontology/mapping/mapping_to_jpcoar.ttl)
 
 # Publications <!-- 関連出版物 -->
-
-1. Minamiyama, Y., Hayashi, M., Fujiwara, I., Onami, J., Yokoyama, S., Komiyama, Y., & Yamaji, K. (2023). Toward the Development of NII-RDC Application Profile Using Ontology Technology. In Proceedings of the Conference on Research Data Infrastructure (Vol. 1). TIB Open Publishing. https://doi.org/10.52825/cordi.v1i.260
-2. 南山泰之, 林正治, 藤原一毅, 大波純一, 横山重俊, 込山悠介, 山地一禎 (2023). オントロジー技術を用いた NII-RDC アプリケーションプロファイル開発に向けて. 情報知識学会誌. Vol.33, No.2, p.212-220.
+1. 天野 晃, 南山 泰之, 大波 純一, 遠藤 晴義, 長瀬 友樹, 山地 一禎 (2024). CiNii のログから見るユーザーアクセスグラフの計量分析. 情報知識学会誌. Vol.34, No.2, p.113-120. https://doi.org/10.2964/jsik_2024_006
+2. 平木俊幸, 横山重俊, 南山泰之, 藤原一毅, 込山悠介, 谷藤幹子, 山地一禎 (2024). データ管理計画における研究データ管理上の行動に関する部分の機械行動可能な形式での表現可能性の検討. 研究報告インターネットと運用技術（IOT）, Vol.2024-IOT-64, No.78, p.1-6. https://ipsj.ixsq.nii.ac.jp/records/233098
+3. Minamiyama, Y., Hayashi, M., Fujiwara, I., Onami, J., Yokoyama, S., Komiyama, Y., & Yamaji, K. (2023). Toward the Development of NII-RDC Application Profile Using Ontology Technology. In Proceedings of the Conference on Research Data Infrastructure (Vol. 1). TIB Open Publishing. https://doi.org/10.52825/cordi.v1i.260
+4. 南山泰之, 林正治, 藤原一毅, 大波純一, 横山重俊, 込山悠介, 山地一禎 (2023). オントロジー技術を用いた NII-RDC アプリケーションプロファイル開発に向けて. 情報知識学会誌. Vol.33, No.2, p.212-220. https://doi.org/10.2964/jsik_2023_020
