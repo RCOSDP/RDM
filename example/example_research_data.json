@@ -1,6 +1,6 @@
 {
   "@context": {
-    "@vocab": "https://purl.org/rdm/ontology/"
+    "@vocab": "https://purl.org/rdm-ontology/"
   },
   "@graph": [
     {
