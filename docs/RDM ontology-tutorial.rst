@@ -71,8 +71,8 @@ RDM（Research Data Management）オントロジーを活用してメタデー�
 
 ### 1. Protégé を使用した RDM オントロジーのロードと編集
 
-1. Protégé を起動し、「File」→「Open from URL」を選択。
-2. `https://github.com/RCOSDP/RDM/tree/main/ontology` にある RDM オントロジーをロード。
+1.  `https://github.com/RCOSDP/RDM/tree/main/ontology` にある RDM オントロジーをダウンロードする。
+2.　Protégé を起動し、「File」→「Open」を選択し、ダウンロードしたファイルを開く。
 3. 「Classes」タブで、定義済みのクラスやプロパティを確認。
 4. 扱いたいメタデータスキーマ定義に合わせて、新しいクラスやプロパティを追加。
 5. 編集後、「File」→「Save as」で保存。
